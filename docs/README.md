@@ -5,12 +5,8 @@
 </p>
 
 <h1 align="center">
-  Doks
+  FinDriver
 </h1>
-
-<h3 align="center">
-  FinDriver 
-</h3>
 
 <p align="center">
   FinDriver é um aplicativo de celular com objetivo de ajudar motoristas de aplicativos a terem o controle e o gerenciamento de suas finanças diariamente, como gastos e ganhos, com a facilidade e a rapidez de ter tudo na sua mão.
