@@ -36,7 +36,7 @@
     </td>
     <td>
       <a href="#">
-        <img src="" width="100px;" alt="Foto Pedro"/><br>
+        <img src="https://avatars.githubusercontent.com/u/64859196?v=4" width="100px;" alt="Foto Pedro"/><br>
         <sub>
           <b>Pedro Eduardo</b>
         </sub>
