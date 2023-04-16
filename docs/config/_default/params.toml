@@ -1,28 +1,28 @@
 # Meta Data for SEO
 
 ## Homepage
-title = "Doks"
+title = "FinDriver"
 titleSeparator = "-"
-titleAddition = "Modern Documentation Theme"
-description = "Doks is a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize."
+titleAddition = "Moderno e simples aplicativo de gerenciamento de finanças"
+description = "FinDriver é um aplicativo para ajudar aos motoristas de aplicativos a gerenciarem as suas finanças diárias."
 
 ## Documentation
-# docsVersion = "0.3"
+# docsVersion = "0.0"
 
 ## Open Graph
 images = ["doks.png"]
 ogLocale = "en_US"
-domainTLD = "doks.netlify.app"
-titleHome = "Doks Theme"
+domainTLD = "findriver.netlify.app"
+titleHome = "FinDriver App"
 
 ## Twitter Cards
-twitterSite = "@getdoks"
-twitterCreator = "@henkverlinde"
+#twitterSite = "@getdoks"
+#twitterCreator = "@henkverlinde"
 
 ## JSON-LD
 # schemaType = "Person"
 schemaType = "Organization"
-schemaName = "Doks"
+schemaName = "FinDriver"
 schemaAuthor = "Henk Verlinde"
 schemaAuthorTwitter = "https://twitter.com/henkverlinde"
 schemaAuthorLinkedIn = "https://www.linkedin.com/in/henkverlinde/"

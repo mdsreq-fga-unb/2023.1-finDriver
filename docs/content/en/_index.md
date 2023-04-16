@@ -1,9 +1,9 @@
 ---
-title : "Modern Documentation Theme"
-description: "Doks is a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize."
-lead: "Doks is a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize."
-date: 2020-10-06T08:47:36+00:00
-lastmod: 2020-10-06T08:47:36+00:00
+title : "Moderno e simples aplicativo de gerenciamento de finanças"
+description: "FinDriver é um aplicativo para ajudar aos motoristas de aplicativos a gerenciarem as suas finanças diárias. Integrado com os aplicativos de trabalho do usuário para haver maior integração."
+lead: "FinDriver é um aplicativo para ajudar aos motoristas de aplicativos a gerenciarem as suas finanças diárias."
+date: 2023-04-16
+lastmod: 2023-04-16
 draft: false
 images: []
 ---
