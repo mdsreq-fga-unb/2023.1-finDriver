@@ -1,4 +1,4 @@
-baseurl = "https://findriver.netlify.app/"
+baseurl = "https://doks.netlify.app/"
 canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true

@@ -12,7 +12,7 @@ description = "FinDriver é um aplicativo para ajudar aos motoristas de aplicati
 ## Open Graph
 images = ["doks.png"]
 ogLocale = "en_US"
-domainTLD = "findriver.netlify.app"
+domainTLD = "doks.netlify.app"
 titleHome = "FinDriver App"
 
 ## Twitter Cards
