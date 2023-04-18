@@ -1,74 +1,41 @@
-<p align="center">
-  <a href="">
-    <img alt="FinDriver" src="../docs/images/findriver.png" width="300">
-  </a>
-</p>
+# Website
 
-<h1 align="center">
-  FinDriver
-</h1>
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-<p align="center">
-  FinDriver é um aplicativo de celular com objetivo de ajudar motoristas de aplicativos a terem o controle e o gerenciamento de suas finanças diariamente, como gastos e ganhos, com a facilidade e a rapidez de ter tudo na sua mão.
-</p>
+### Installation
 
-<p align="center">
-</p>
+```
+$ yarn
+```
 
-<table>
-  
-  <tr>
-    <td>
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/89619442?v=4" width="100px;" alt="Foto Ana"/><br>
-        <sub>
-          <b>Ana Catarina Santos</b>
-        </sub>
-      </a>
-    </td>
-    <td>
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/105389239?v=4" width="100px;" alt="Foto Maria"/><br>
-        <sub>
-          <b>Maria Alice</b>
-        </sub>
-      </a>
-    </td>
-    <td>
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/64859196?v=4" width="100px;" alt="Foto Pedro"/><br>
-        <sub>
-          <b>Pedro Eduardo</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/80136352?v=4" width="100px;" alt="Foto Taynara"/><br>
-        <sub>
-          <b>Taynara Gabrielle</b>
-        </sub>
-      </a>
-    </td>
-    <td>
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/99771740?v=4" width="100px;" alt="Foto Victor"/><br>
-        <sub>
-          <b>Victor Hugo</b>
-        </sub>
-      </a>
-    </td>
-    <td>
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/96599913?v=4" width="100px;" alt="Foto Vinícius"/><br>
-        <sub>
-          <b>Vinícius Mendes</b>
-        </sub>
-      </a>
-    </td>
-   </tr>
-  <tr>
-    
-</table>
+### Local Development
 
-<br/> 
+```
+$ yarn start
+```
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+### Deployment
+
+Using SSH:
+
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
