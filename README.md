@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="">
-    <img alt="FinDriver" src="docs/images/findriver.png" width="300">
+    <img alt="FinDriver" src="docs/static/img/logo-fin.png" width="300">
   </a>
 </p>
 
