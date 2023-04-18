@@ -27,7 +27,7 @@ const sidebars = {
 
       items: [
        'requisitos-do-produto'
-       /* {
+      {
         type: 'link',
         href: 'produtos-e-projetos/visao-produtos-projetos',
         label:'Visão de Produtos e Projetos'
@@ -36,7 +36,7 @@ const sidebars = {
           type: 'link',
           href: 'produtos-e-projetos/requisitos-do-produto',
           label:'Requisitos do Produto'
-          }, */
+          },
       ],
     },
   ],
