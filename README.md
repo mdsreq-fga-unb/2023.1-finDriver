@@ -22,7 +22,7 @@ FinDriver é um aplicativo de celular com objetivo de ajudar motoristas de aplic
 
 ## Documentação
 
-Para acessar a nossa documentação, pode [clicar aqui!!](https://mdsreq-fga-findriver.netlify.app/). 
+Para acessar a nossa documentação, é só [clicar aqui!!](https://mdsreq-fga-findriver.netlify.app/). 
 
 ## Equipe
 
