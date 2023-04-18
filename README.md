@@ -10,6 +10,8 @@
   FinDriver
 </h1>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/138f3675-569b-4d03-bc4c-7f2b1d596715/deploy-status)](https://app.netlify.com/sites/mdsreq-fga-findriver/deploys)
+
 ## Índice 
 
 * [Introdução](#Introdução)
