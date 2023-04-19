@@ -46,4 +46,4 @@ A seguir, seguem as principais práticas de ambos que utilizaremos no processo d
     - **Testes** - A princípio será utilizado o método de implantar primeiro e testar depois, utilizando testes unitários e automatizados, caso houver necessidade, o TDD será acatado;
 
 
-![Scrum Process](img/scrum.png)
+![Scrum Process](img/scrum-xp.png)
