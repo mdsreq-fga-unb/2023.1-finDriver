@@ -23,9 +23,9 @@ A seguir, seguem as principais práticas de ambos que utilizaremos no processo d
         - “Quais foram os impedimentos?”
         - “O que você planeja fazer até a próxima?”
 
- - **Sprint Review** - Irá ser feito síncrono e assíncrono. Sendo a síncrona com o Product Owner participando da reunião e vendo todos os objetivos desenvolvidos(ou não). E o assíncrono será feito com o Product Owner testando a aplicação e dando os seus feedbacks.
+ - **Sprint Review** - Será realizada síncrona e assincronamente. Sendo a síncrona com a parte em que a equipe discute o que foi desenvolvido durante o sprint, essa reunião contará com a presença do Product Owner. Já na parte assíncrona o Product Owner testará a aplicação e nos enviará seus feedbacks.
 
- - **Sprint Retrospective** - Reunião ao fim de sprints e entregas visando exprimir todos os sentimentos e opiniões dos participantes com relação ao andamento do desenvolvimento do produto.
+ - **Sprint Retrospective** - Ao fim de cada sprints e entrega, equipe se reunirá para analisar o desenvolvimento realizado nas duas semanas anteriores, visando encontrar comportamentos prejudiciais e exprimir todas as opiniões com relação ao andamento do desenvolvimento do produto.
 
 
 ## XP (Extreme Programming)
