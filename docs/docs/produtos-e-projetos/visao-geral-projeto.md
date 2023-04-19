@@ -16,10 +16,17 @@ sidebar_position: 2
 
 ## 2. Planejamento das Fases e/ou Iterações do Projeto
 
-| **Sprint**   | **Produto(Entrega)**                           | **Data Início** | **Data Fim**   |
-|----------|----------------------------------------------------|-------------|------------|
-| Sprint 1 | Definição do Produto e Planejamento do Projeto.    | 06/04/2023  | 20/04/2023 |
-| Sprint 2 | Definição dos requisitos e estudo das tecnologias. | 21/04/2023  | 04/05/2023 |
+| **MVP1** | **Produto(Entrega)**                               | **Data Início** | **Data Fim** |
+|----------|----------------------------------------------------|-----------------|--------------|
+| Sprint 1 | Definição do Produto e Planejamento do Projeto.    | 06/04/2023      | 20/04/2023   |
+| Sprint 2 | Definição dos requisitos e estudo das tecnologias. | 21/04/2023      | 04/05/2023   |
+| Sprint 3 | Produto(Entrega)                                   | 05/05/2023      | 16/05/2023   |
+
+| **MVP2** | **Produto(Entrega)** | **Data Início** | **Data Fim** |
+|----------|----------------------|-----------------|--------------|
+| Sprint 4 | Produto(Entrega)     | 00/00/00        | 00/00/00     |
+| Sprint 5 | Produto(Entrega)     | 00/00/00        | 00/00/00     |
+| Sprint 6 | Produto(Entrega)     | 00/00/00        | 00/00/00     |
 
 ## 3. Matriz de Comunicação
 
