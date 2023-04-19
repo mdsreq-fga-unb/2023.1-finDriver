@@ -18,9 +18,9 @@
 * [Documentação](#Documentação)
 * [Equipe](#Equipe)
 
-## Intrdoução
+## Introdução
 
-FinDriver é um aplicativo de celular com objetivo de ajudar motoristas de aplicativos a terem o controle e o gerenciamento de suas finanças diariamente, como gastos e ganhos, com a facilidade e a rapidez de ter tudo na sua mão.
+FinDriver é uma aplicação mobile com objetivo de auxiliar motoristas de aplicativos a terem o controle e o gerenciamento de suas finanças diários, como gastos e ganhos, com a facilidade e a rapidez de ter tudo na sua mão.
 
 ## Documentação
 
