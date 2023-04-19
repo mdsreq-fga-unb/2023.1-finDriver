@@ -31,26 +31,26 @@ A seguir, seguem as principais práticas de ambos que utilizaremos no processo d
 ## XP (Extreme Programming)
 * Práticas utilizadas:
 
-    - **Pair Programming**: Conforme as atividades forem distribuídas e a agenda definida, os desenvolvedores que os horários livres combinarem irão se encontrar em algum local da faculdade (ou remoto com o auxílio da extensão ‘Live Share’ do VScode) para resolverem os issues previamente definidos no Github. Usaremos isso para aumentar o foco da parte dos programadores, facilitar e agilizar na solução de problemas e evitar erros, bugs e a necessidade da refatoração
+   - **Pair Programming**: Conforme as atividades forem distribuídas e a agenda definida, os desenvolvedores que os horários livres combinarem irão se encontrar em algum local da faculdade (ou remoto com o auxílio da extensão ‘Live Share’ do VScode) para resolverem os issues previamente definidos no Github. Usaremos isso para aumentar o foco da parte dos programadores, facilitar e agilizar na solução de problemas e evitar erros, bugs e a necessidade da refatoração
     
-    - **Padrões de codificação**: Além de seguir as boas práticas de programação, a equipe definirá padrões a serem seguidos ao longo do desenvolvimento do projeto, focando no desenvolvimento clean code. 
+   - **Padrões de codificação**: Além de seguir as boas práticas de programação, a equipe definirá padrões a serem seguidos ao longo do desenvolvimento do projeto, focando no desenvolvimento clean code. 
 
-    - **Ritmo Sustentável**: Os desenvolvedores ficarão responsáveis por itens do backlog de acordo com a dificuldade do item a ser desenvolvido e sua disponibilidade de tempo para a sprint em questão. Desta forma nenhum membro ficará sobrecarregado.
+   - **Ritmo Sustentável**: Os desenvolvedores ficarão responsáveis por itens do backlog de acordo com a dificuldade do item a ser desenvolvido e sua disponibilidade de tempo para a sprint em questão. Desta forma nenhum membro ficará sobrecarregado.
     
-    - **Metáfora**: Será utilizada para que toda a equipe possa entender os itens do produto e se comunicar de forma mais clara e precisa.  Além disso, permitirá uma comunicação mais efetiva na relação equipe-cliente. Entre os métodos a serem utilizados para o uso de metáfora estão os cartões kanban.
+   - **Metáfora**: Será utilizada para que toda a equipe possa entender os itens do produto e se comunicar de forma mais clara e precisa.  Além disso, permitirá uma comunicação mais efetiva na relação equipe-cliente. Entre os métodos a serem utilizados para o uso de metáfora estão os cartões kanban.
     
-    - **Integração Contínua**: Para automatizar as mudanças de código de todos os membros da equipe em único projeto. Permitindo que os membros consigam mesclar os seus códigos onde os builds e os testes serão executados;
+   - **Integração Contínua**: Para automatizar as mudanças de código de todos os membros da equipe em único projeto. Permitindo que os membros consigam mesclar os seus códigos onde os builds e os testes serão executados;
     
-    - **Design simples**: O código se manterá legível e compreensível a fim de facilitar a elaboração de testes unitários e automatizados, além de garantir um Mínimo Produto Viável.
+   - **Design simples**: O código se manterá legível e compreensível a fim de facilitar a elaboração de testes unitários e automatizados, além de garantir um Mínimo Produto Viável.
    
-    - **Desenvolvimento orientado a objetos**: Para aumentar a eficiência, minar a redundância de código, facilitar no desenvolvimento, debug e manutenção do produto práticas orientadas a objetos serão utilizadas.
+   - **Desenvolvimento orientado a objetos**: Para aumentar a eficiência, minar a redundância de código, facilitar no desenvolvimento, debug e manutenção do produto práticas orientadas a objetos serão utilizadas.
     
-    - **Testes**: Inicialmente, serão utilizados testes unitários e automatizados a fim de agilizar o processo de implantação das funcionalidades. Porém, caso haja necessidade, o Desenvolvimento Orientado a Testes (TDD) será aplicado.
+   - **Testes**: Inicialmente, serão utilizados testes unitários e automatizados a fim de agilizar o processo de implantação das funcionalidades. Porém, caso haja necessidade, o Desenvolvimento Orientado a Testes (TDD) será aplicado.
 Propriedade Coletiva: Todos os membros terão acesso, obrigações e responsabilidades com o código. Entretanto, para realizar commits na main branch será necessária a aprovação de duas pessoas de chapters diferentes.
 
    - **Small releases**: Serão liberadas pequenas atualizações do aplicativo ao longo do desenvolvimento para que o cliente possa avaliar e passar o feedback das funcionalidades entregues.
 
 * Práticas não utilizadas:
-    - **Refatoração**: Há uma falta de segurança na refatoração, correríamos o risco de se manter muito tempo na mesma atividade. Por isso, manteremos padrões de codificação e designs simples desde o início do desenvolvimento.
+   - **Refatoração**: Há uma falta de segurança na refatoração, correríamos o risco de se manter muito tempo na mesma atividade. Por isso, manteremos padrões de codificação e designs simples desde o início do desenvolvimento.
 
 ![Scrum Process](img/scrum-xp.png)
