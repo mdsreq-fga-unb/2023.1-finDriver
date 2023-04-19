@@ -27,6 +27,8 @@ sidebar_position: 2
 
 ## 3. Matriz de Comunicação
 
+As ferramentas que utilizaremos para nos comunicar durante as cerimônias do Scrum, e reuniões extras, além de avisos rápidos ou comunicados urgentes, serão o Discord e o Whatsapp. Já as ferramentas de gerenciamento de projeto serão o Jira, para informar e conferir as tarefas do projeto que estão sendo desenvolvidas, e o Google Agenda para gerenciamento do tempo. 
+
 | **Descrição** | **Área / Envolvidos** | **Periodicidade**  | **Produtos Gerados**|
 |-----------------------------------------|--------------------------------------------------|----------------|------------------------------------------------------------------------------------------------------|
 | Daily Scrum                             | Integrantes do time                              | Diariamente    | Relato do andamento das tarefas individuais.                                                         |
