@@ -90,7 +90,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Feito pela equipe mais veloz de todas, McQueen⚡. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
