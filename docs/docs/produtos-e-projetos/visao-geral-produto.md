@@ -15,18 +15,43 @@ Dessa forma, os mesmo precisam utilizar métodos menos eficientes, como anotar e
 
 ## 2. Declaração de Posição do Produto
 
-|               |                                                                                                                                         |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| **Para**          | Os motoristas de aplicativo                                                                                                             |
-| **Quem**          | Não tem facilidade - ou meios acessíveis - para organizar sua renda advinda de aplicativos de corrida.                                  |
-| **O FinDriver**   | E um aplicativo mobile.                                                                                                                 |
-| **Que**           | Disponibiliza para seus usuários informações a respeito da sua jornada de trabalho, como ganhos líquidos por corrida e gastos pessoais. |
-| **Ao contrário**  | Da uber e 99                                                                                                                            |
-| **Nosso produto** |                                                                                                                                         |
-
+<table>
+<tbody>
+  <tr>
+    <td><span>Para</span></td>
+    <td>Os motoristas de aplicativo</td>
+  </tr>
+  <tr>
+    <td> <span>Quem</span></td>
+    <td>Não tem facilidade - ou meios acessíveis - para organizar sua renda advinda de aplicativos de corrida.</td>
+  </tr>
+  <tr>
+    <td><span>O FinDriver</span></td>
+    <td>É um aplicativo mobile.</td>
+  </tr>
+  <tr>
+    <td><span>Que</span></td>
+    <td>Disponibiliza para seus usuários informações a respeito da sua jornada de trabalho, como ganhos líquidos por corrida e gastos pessoais.</td>
+  </tr>
+  <tr>
+    <td><span>Ao contrário</span></td>
+    <td>Da uber e 99</td>
+  </tr>
+  <tr>
+    <td><span>Nosso produto</span></td>
+    <td>Dá a possibilidade para os motoristas de aplicativo de terem o controle financeiro dos seus lucros durante a jornada de trabalho.</td>
+  </tr>
+</tbody>
+</table>
 
 ## 3. Objetivos do Produto
 
+Possibilitar que os motoristas de aplicativo tenham o controle financeiro dos seus lucros durante a sua jornada de trabalho. 
+
 ## 4. Tecnologias a Serem Utilizadas
 
-Nosso irá ser desenvolvido utilizando tecnologias de framework mobile, banco de dados e testes, sendo eles respectivamente: Usaremos Expo e React Native no desenvolvimento da aplicação mobile, Firebase como o nosso banco de dados e o Jest para fazer testes.
+Nosso irá ser desenvolvido utilizando tecnologias de framework mobile, banco de dados e testes.
+
+- React Native e Expo - Frameworks mobile
+- Firebase - Banco de Dados
+- Jest - Testes
