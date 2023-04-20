@@ -54,3 +54,11 @@ Propriedade Coletiva: Todos os membros terão acesso, obrigações e responsabil
    - **Refatoração**: Há uma falta de segurança na refatoração, correríamos o risco de se manter muito tempo na mesma atividade. Por isso, manteremos padrões de codificação e designs simples desde o início do desenvolvimento.
 
 ![Scrum Process](img/scrum-xp.png)
+
+# Atividade 1
+
+| Atividade                                        | Método               | Ferramenta                        | Entrega |
+|--------------------------------------------------|----------------------|-----------------------------------|---------|
+| Apresentação do Problema;                        | Diagrama de Ishikawa | Discord,WhatsApp, Canva           | 06/04   |
+| Definição das Metodologias de Gestão de Projeto; | Brainstorm           | Canva, Google, Discord e Chat Gpt | 18/08   |
+| Elaboração do Github pages;                      | Brainstorm           | Google Docs, Github e Discord     | 20/04   |
