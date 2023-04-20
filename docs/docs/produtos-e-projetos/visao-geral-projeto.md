@@ -48,7 +48,8 @@ As ferramentas que utilizaremos para nos comunicar durante as cerimônias do Scr
 
 ## 5. Critérios de Replanejamento
 
-- Atrasos no cronograma;
-- Redução da equipe;
-- Insatisfação do cliente;
+- Atraso da mesmo item por 2 sprints seguidos no cronograma;
+- Redução de 50% equipe;
+- Insatisfação do cliente com a entrega da sprint;
 - Problemas técnicos que afetam diretamente no desenvolvimento do software;
+
