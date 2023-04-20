@@ -50,7 +50,7 @@ Possibilitar que os motoristas de aplicativo tenham o controle financeiro dos se
 
 ## 4. Tecnologias a Serem Utilizadas
 
-Nosso irá ser desenvolvido utilizando tecnologias de framework mobile, banco de dados e testes.
+Nosso produto será desenvolvido utilizando tecnologias de framework mobile, banco de dados e testes.
 
 - React Native e Expo - Frameworks mobile
 - Firebase - Banco de Dados
