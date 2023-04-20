@@ -55,7 +55,7 @@ Propriedade Coletiva: Todos os membros terão acesso, obrigações e responsabil
 
 ![Scrum Process](img/scrum-xp.png)
 
-# Atividades
+## Atividades
 
 | Atividade                                        | Método               | Ferramenta                        | Entrega |
 |--------------------------------------------------|----------------------|-----------------------------------|---------|
