@@ -87,7 +87,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Feito pela equipe mais veloz de todas, McQueen⚡. Built with Docusaurus.`,
+        copyright: `Feito pela equipe mais veloz de todas, McQueen⚡.`,
       },
       prism: {
         theme: lightCodeTheme,
