@@ -8,33 +8,12 @@ sidebar_position: 2
 
 | Papel                   | Atribuições                                                                                                                                                                                                                                                                                                                                     | Responsável                      | Participantes                                                                                 |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|-----------------------------------------------------------------------------------------------|
-| Desenvolvedor Back-End  | Criar e seguir a Sprint Backlog; 
-Integrar a qualidade usando uma Definition of Done; 
-Adaptar-se para atingir a meta da Sprint; 
-Ter boa relação com outros papéis; 
-Criar e manter soluções lógicas para o Produto; 
-Configurar e manter bancos de dados; 
-Conhecer e usar tecnologias definidas para o Produto;
-Saber utilizar controle de versão; | Taynara Vitorino Vinicius Mendes | Ana Catarina,  Maria Alice,  Pedro Eduardo,  Taynara Vitorino,  Victor Hugo,  Vinicius Mendes |
-| Desenvolvedor Front-End | Criar e seguir a Sprint Backlog; 
-Integrar a qualidade usando uma Definition of Done; 
-Adaptar-se para atingir a meta da Sprint; 
-Criar e manter interfaces de usuário atendendo a experiência do mesmo; 
-Evitar erros de design; 
-Garantir a usabilidade do Produto; 
-Ter boa relação com outros integrantes;                                             | Maria Alice Victor Hugo          | Ana Catarina,  Maria Alice,  Pedro Eduardo,  Taynara Vitorino,  Victor Hugo,  Vinicius Mendes |
-| DEV Scrum Master        | Manter a teoria a teoria e a prática do Scrum; 
-Ajudar o Scrum Team a cumprir com a Definition of Done; 
-Remover qualquer impedimento ao progresso do Scrum Team; 
-Garantir a boa comunicação entre o Scrum Team e o Cliente;                                                                                                                    | Ana Catarina Santos              | Ana Catarina,  Maria Alice,  Pedro Eduardo,  Taynara Vitorino,  Victor Hugo,  Vinicius Mendes |
-| DEV CI/Test             | Assegurar a qualidade do produto; 
-Detectar e reportar possíveis falhas; 
-Atender as necessidades do produto; 
-Desenvolver e aplicar testes unitários e automatizados;                                                                                                                                                                             | Pedro Eduardo                    | Ana Catarina,  Maria Alice,  Pedro Eduardo,  Taynara Vitorino,  Victor Hugo,  Vinicius Mendes |
-| Cliente                 | Responsável pela eficácia do Product Backlog; 
-Definir claramente a meta do produto; 
-Criar, ordenar e comunicar os itens do Product Backlog; 
-Garantir a transparência, visibilidade e compreensão do produto;                                                                                                                                    | Nilson Dias                      | Nilson Dias                                                                                   |
+| Desenvolvedor Back-End  | Criar e seguir a Sprint Backlog; Integrar a qualidade usando uma Definition of Done; Adaptar-se para atingir a meta da Sprint; Ter boa relação com outros papéis; Criar e manter soluções lógicas para o Produto; Configurar e manter bancos de dados; Conhecer e usar tecnologias definidas para o Produto; Saber utilizar controle de versão; | Taynara Vitorino Vinicius Mendes | Ana Catarina,  Maria Alice,  Pedro Eduardo,  Taynara Vitorino,  Victor Hugo,  Vinicius Mendes |
+| Desenvolvedor Front-End | Criar e seguir a Sprint Backlog; Integrar a qualidade usando uma Definition of Done; Adaptar-se para atingir a meta da Sprint; Criar e manter interfaces de usuário atendendo a experiência do mesmo; Evitar erros de design; Garantir a usabilidade do Produto; Ter boa relação com outros integrantes;                                             | Maria Alice Victor Hugo          | Ana Catarina,  Maria Alice,  Pedro Eduardo,  Taynara Vitorino,  Victor Hugo,  Vinicius Mendes |
+| DEV Scrum Master        | Manter a teoria a teoria e a prática do Scrum; Ajudar o Scrum Team a cumprir com a Definition of Done; Remover qualquer impedimento ao progresso do Scrum Team; Garantir a boa comunicação entre o Scrum Team e o Cliente;                                                                                                                    | Ana Catarina Santos              | Ana Catarina,  Maria Alice,  Pedro Eduardo,  Taynara Vitorino,  Victor Hugo,  Vinicius Mendes |
+| DEV CI/Test             | Assegurar a qualidade do produto; Detectar e reportar possíveis falhas; Atender as necessidades do produto; Desenvolver e aplicar testes unitários e automatizados;                                                                                                                                                                             | Pedro Eduardo                    | Ana Catarina,  Maria Alice,  Pedro Eduardo,  Taynara Vitorino,  Victor Hugo,  Vinicius Mendes |
+| Cliente                 | Responsável pela eficácia do Product Backlog; Definir claramente a meta do produto; 
+Criar, ordenar e comunicar os itens do Product Backlog; Garantir a transparência, visibilidade e compreensão do produto;                                                                                                                                    | Nilson Dias                      | Nilson Dias                                                                                   |
 
 ## 2. Planejamento das Fases e/ou Iterações do Projeto
 
