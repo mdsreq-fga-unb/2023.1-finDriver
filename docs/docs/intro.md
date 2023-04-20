@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Introdução
 
-Venha descobrir sobre o **FinDriver em poucos minutos!**
+Conheça mais sobre o nosso projeto!
 
 ## Nosso projeto
 
