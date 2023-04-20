@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'FinDriver',
   tagline: 'Moderno e simples aplicativo de gerenciamento de finanças',
-  favicon: 'img/favicon.ico',
+  favicon: '/img/carro.png',
 
   // Set the production url of your site here
   url: 'https://docusaurus-2.netlify.app',
@@ -61,7 +61,7 @@ const config = {
         title: 'FinDriver',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/carro.png',
         },
         items: [
           {
