@@ -20,7 +20,7 @@ A seguir, seguem as principais práticas de ambos que utilizaremos no processo d
 
  - **Daily**: As dailys ocorrerão diariamente e serão realizadas de forma mista via mensagem de texto e canais de voz, de acordo com a disponibilidade de horário da equipe. Cada membro deve responder as perguntas a seguir: 
         - “O que você fez desde sua última daily?”
-        - “Quais foram os impedimentos?”
+        - “Há algum impedimento ou obstáculo que esteja afetando o seu progresso?”
         - “O que você planeja fazer até a próxima?”
 
  - **Sprint Review** - Será realizada síncrona e assincronamente. Sendo a síncrona com a parte em que a equipe discute o que foi desenvolvido durante o sprint, essa reunião contará com a presença do Product Owner. Já na parte assíncrona o Product Owner testará a aplicação e nos enviará seus feedbacks.
