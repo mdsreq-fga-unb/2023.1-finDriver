@@ -2,24 +2,10 @@
 sidebar_position: 3
 ---
 
-# Backlog
-
-## Backlog do Produto
-Aqui você encontrará a lista de requisitos que estão aguardando para serem trabalhados e incluídos ao FinDriver. Eles foram organizados por priorização, de acordo com sua importância e valor.
-
-
-<br>
+# Requisitos do Produto
 
 ### **Histórico de Revisão**
 
-| Data | Versão | Descrição | Autor |
-|------| ------ | --------- | ----- |
-| 30/11/2022 | 1.0 | Primeira versão do backlog do produto | [Bruna Lima](https://github.com/libruna) |
-| 30/11/2022 | 1.1 | Adicionando os requisitos não funcionais | [Murilo Perazzo](https://github.com/murilopbs) |
-| 06/12/2022 | 1.2 | Adicionada nova feature ao backlog do produto e ajustes | [Maria Abritta](https://github.com/MariaAbritta) e [Bruna Lima](https://github.com/libruna) |
-| 20/12/2022 | 1.3 | Ajuste FEAT01 do backlog do produto | [Bruna Lima](https://github.com/libruna) |
-| 09/01/2023 | 1.4 | Atualização das FEAT05 e FEAT06 do backlog do produto | [Bruna Lima](https://github.com/libruna) |
-| 20/01/2023 | 1.5 | Adicionadas US16 e US17 na FEAT06 | [Bruna Lima](https://github.com/libruna) |
 
 ### Sumário
 - Backlog do Produto
@@ -30,14 +16,6 @@ Aqui você encontrará a lista de requisitos que estão aguardando para serem tr
 
 ## Backlog do Produto 
 O Backkog do Produto é um artefato da metodologia ágil SCRUM, que consiste em uma lista dos requisitos funcionais emergentes para o desenvolvimento do produto. A estrutura SAFe foi utilizada para auxiliar o planejamento e desenvolvimento desse artefato.
-
-| **Tema** | **Épico** | **História de Usuário** | 
-|----------------------------- |------------ |------------------------- | 
-| **[TE01]**<br>Gerenciamento de usuário  | **[EP01]**<br>Autenticação de usuário **[EP02]**<br>Visualização de dados do usuário | | 
-| **[TE02]**<br>Gerenciamento de corridas | **[EP03]**<br>Cadastro de corridas **[EP04]**<br>Visualização de dados das corridas | | 
-| **[TE03]**<br>Gerenciamento de despesas | **[EP05]**<br>Cadastro de despesas **[EP06]**<br>Visualização de despesas | |
-| **[TE04]**<br>Ferramentas de Cálculo    | **[EO07]**<br>Disponibilização dos cálculos **[EP08]**<br>Visualização dos resultados dos cálculos | | 
-| **[TE05]**<br>Gerenciamento do histórico| **[EP09]**<br>Disponibilização do histórico para o usuário **[EP10]**<br>Visualização do histórico | |
 
 ### User Roles
 É o personagem fictício da user story que representa o consumidor ideal do produto, no caso do GetPet o cliente, o motorista e o usuário que é uma generalização dos dois anteriores. Todas as histórias são escritas a partir da perspectiva de um tipo de consumidor.
