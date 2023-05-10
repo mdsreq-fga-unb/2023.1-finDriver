@@ -155,4 +155,4 @@ Os requisitos não funcionais (RNFs) definem os atributos do sistema, como segur
 
 ## Referências 
 - Material do moodle da disciplina
-- [SAFe](https://www.scaledagileframework.com/#)
+- [User Stories](https://www.atlassian.com/agile/project-management/user-stories)
