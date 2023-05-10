@@ -82,7 +82,7 @@ Aqui você encontrará a lista de requisitos que estão aguardando para serem tr
 |TH04|EP07|US36|Eu, como usuário, quero entender qual corrida é mais vantajosa, para tomar uma melhor decisão financeira.| 0,6 |
 
 
-*A pontuação aqui descrita foi estabelecida considerando critérios de viabilidade, valor de negócio e complexidade. Para seu cálculo foram distribuidos valores de 1 a 3 para os critérios acima descritos, as pontuações de valor de negócio e viabilidade foram somadas e divididas pela complexidade.
+*A pontuação aqui descrita foi estabelecida considerando critérios de viabilidade, valor de negócio e complexidade. Para seu cálculo foram distribuidos valores de 1 a 3 para os critérios acima descritos, as pontuações de valor de negócio e viabilidade foram multiplicadas entre si e divididas pela complexidade.
 
 #### User Roles
 - **Usuário:** Motoristas de aplicativo que têm a necessidade de fazer a gestão da renda proveniente da sua jornada de trabalho.
@@ -102,7 +102,7 @@ Os requisitos não funcionais (RNFs) definem os atributos do sistema, como segur
 |RNF07|Implementação|O sistema deve ser desenvolvido com padrão Clean Code.|
 |RNF07|Implementação|O sistema deve utilizar React Native como framework de desenvolvimento.|
 |RNF07|Implementação|O sistema deve utilizar o Firebase como banco de dados.|
-|RNF07|Implementação|O sistema deve poder recuperar localmente os dados já registrados no banco de dados, sem a necessidade de uma conexão com internet.*******|
+|RNF07|Implementação|O sistema deve poder recuperar localmente os dados como historicos e dados cadastrados no dia (já registrados no banco de dados), sem a necessidade de uma conexão com internet.|
 
 
 
@@ -149,6 +149,9 @@ Os requisitos não funcionais (RNFs) definem os atributos do sistema, como segur
 |US27|Eu, como usuário, quero ser capaz de editar valor, tipo e intervalo de tempo das manutenções cadastradas, para manter meus dados atualizados|
 |US28|Eu, como usuário, quero ser capaz de excluir uma manutenção, para removê-la dos cálculos de gasto|
 |US29|Eu, como usuário, quero ser capaz de filtrar o meu histórico de ganhos e despesas a partir do tempo, para que eu possa ter controle dos dados.|
+|US30|Eu, como usuário, quero ser capaz de obter o meu histórico de ganhos e despesas no formato de arquivo em pdf para que eu possa exportar para outras aplicações.|
+|US31|Eu, como usuário, quero saber qual gasolina será mais vantajosa, para ter facilidade na tomada de decisão financeira.|
+|US32|Eu, como usuário, quero entender quais os horários de trabalho mais lucrativos, para tomar uma melhor decisão financeira.|
 
 ## Referências 
 - Material do moodle da disciplina
