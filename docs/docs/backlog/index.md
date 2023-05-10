@@ -12,13 +12,6 @@ sidebar_position: 3
 |:------:|:--------:|:-----------:|:-------:|
 | 09/05/2023 | 1.0 | Primeira versão do backlog do produto e dos MVPs | [Maria Alice](https://github.com/Maliz30)|
 
-### Sumário
-- Backlog do Produto
-- Requisitos não funcionais
-- Mínimo Produto Viável 1
-- Mínimo Produto Viável 2
-- Referências
-
 ## Backlog do Produto 
 Aqui você encontrará a lista de requisitos que estão aguardando para serem trabalhados e incluídos ao FinDriver. Eles foram organizados por priorização, de acordo com sua importância e valor. 
 
