@@ -11,7 +11,7 @@ sidebar_position: 4
 | 10/05/2023 | 1.0 | Construção da Arquitetura | [Taynara Vitorino](https://github.com/taybalau)|
 
 ## Arquitetura do produto
-Estão dispostos nesse capítulo a
+Estão dispostos nesse capítulo as informações sobre as decisões arquiteturais do aplicativo FinDriver.
 
 ### 1. Tipo de arquitetura
 
