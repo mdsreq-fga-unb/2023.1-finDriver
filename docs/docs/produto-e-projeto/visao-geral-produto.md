@@ -9,7 +9,7 @@ sidebar_position: 1
 Um dos principais problemas enfrentados por motoristas de 
 aplicativo é a dificuldade de gerenciamento financeiro das suas despesas e ganhos durante sua jornada de trabalho.
 Muitos dos aplicativos de corrida não oferecem de forma intuitiva e organizada essas informações a fim de facilitar a administração financeira dos motoristas que os usam.
-Dessa forma, os mesmo precisam utilizar métodos menos eficientes, como anotar em cadernetas,  para fazer seu planejamento financeiro.
+Dessa forma, os mesmo precisam utilizar métodos menos eficientes, como anotar em cadernetas,  para fazer seu planejamento financeiro. Abaixo segue o diagrama de causa-efeito do produto.
 
 ![Diagrama de Ishikawa](img/diagrama_ishikawa.jpg)
 
