@@ -4,13 +4,12 @@ sidebar_position: 3
 
 # Backlog
 
-## Backlog do Produto
-
 ### **Histórico de Revisão**
 
 |**Data**|**Versão**|**Descrição**|**Autor**|
 |:------:|:--------:|:-----------:|:-------:|
 | 09/05/2023 | 1.0 | Construção do Backlog | [Maria Alice](https://github.com/Maliz30)|
+| 15/05/2023 | 1.1 | Correção na Priorização das US | [Victor](https://github.com/ViictorHugoo)|
 
 ## Backlog do Produto 
 Aqui você encontrará a lista de requisitos que estão aguardando para serem trabalhados e incluídos ao FinDriver. Eles foram organizados por priorização, de acordo com sua importância e valor. 
