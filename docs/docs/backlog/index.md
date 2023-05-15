@@ -45,20 +45,20 @@ Aqui você encontrará a lista de requisitos que estão aguardando para serem tr
 |:------:|:-------:|:--------------------:|:------------|:-------------:|
 |[TH01]|[EP01]|[US01]|Eu, como usuário, quero ser capaz de inserir meu nome, email e senha ao realizar meu cadastro para iniciar meu acesso no aplicativo.|14|
 |[TH01]|[EP02]|[US06]|Eu, como usuário, quero ser capaz de editar meu email e minha senha para que eu possa manter meus dados atualizados.|14|
-|[TH02]|[EP03]|[US07]|Eu, como usuário, quero ser capaz de inserir o valor ganho, o aplicativo de corrida utilizado, a quantidade de km rodado ao cadastrar minha corrida para registrar os dados que auxiliam meu controle financeiro.|14|
+|[TH02]|[EP03]|[US07]|Eu, como usuário, quero ser capaz de cadastrar minha corrida para registrar os dados que auxiliam meu controle financeiro.|14|
 |[TH02]|[EP03]|[US09]|Eu, como usuário, quero ser capaz de deletar as corridas que cadastrei, para que dados irrelevantes ou desatualizados não sejam fornecidos para o aplicativo.|14|
 |[TH05]|[EP10]|[US19]|Eu, como usuário, quero ter acesso ao histórico de despesas e ganhos que eu cadastrei, para ter fácil acesso a essas informações.|14|
-|[TH02]|[EP03]|[US08]|Eu, como usuário, quero ser capaz de editar o valor ganho, o aplicativo, quantidade de km rodado das minhas corridas cadastradas, para que os dados possam ser atualizados.|13|
+|[TH02]|[EP03]|[US08]|Eu, como usuário, quero ser capaz de editar as corridas cadastradas, para que os dados possam ser atualizados.|13|
 |[TH01]|[EP01]|[US02]|Eu, como usuário, quero ser capaz inserir email e senha ao realizar login no sistema para acessar o aplicativo.|12|
 |[TH01]|[EP01]|[US04]|Eu, como usuário, quero ser capaz de excluir meu perfil no aplicativo para que eu possa encerrar minhas atividades.|12|
-|[TH03]|[EP05]|[US12]|Eu, como usuário, quero ser capaz de inserir o motivo, valor e tipo de gasto ao cadastrar uma despesa para que os dados estejam melhor detalhados.|12|
-|[TH03]|[EP05]|[US13]|Eu, como usuário quero ser capaz de editar motivo, valor e tipo de gasto para manter minhas informações atualizadas.|12|
+|[TH03]|[EP05]|[US12]|Eu, como usuário, quero ser capaz de cadastrar uma despesa para que os dados estejam melhor detalhados.|12|
+|[TH03]|[EP05]|[US13]|Eu, como usuário quero ser capaz de editar a causa do gasto para manter minhas informações atualizadas.|12|
 |[TH03]|[EP05]|[US14]|Eu, como usuário, quero ser capaz de excluir minhas despesas cadastradas, para que informações irrelevantes ou desatualizadas não sejam fornecidas ao aplicativo.|12|
 |[TH02]|[EP03]|[US21]|Eu, como usuário, quero ser capaz de cadastrar uma meta de ganho com um valor e uma duração de tempo, para que eu tenha o controle da minha jornada diária de trabalho.|12|
 |[TH02]|[EP03]|[US24]|Eu, como usuário, quero ser capaz de excluir as metas de ganho, para que não sejam fornecidas ao aplicativo informações desatualizadas ou irrelevantes.|12|
 |[TH03]|[EP05]|[US28]|Eu, como usuário, quero ser capaz de excluir uma manutenção, para removê-la dos cálculos de gasto.|12|
 |[TH01]|[EP02]|[US05]|Eu, como usuário, quero ser capaz de visualizar meu perfil no aplicativo para que eu possa verificar meus dados.|11|
-|[TH03]|[EP05]|[US25]|Eu, como usuário, quero ser capaz de inserir valor, tipo e intervalo de tempo ao cadastrar uma manutenção, para que eu possa fornecer dados relevantes ao aplicativo no que se refere a manutenção.|11|
+|[TH03]|[EP05]|[US25]|Eu, como usuário, quero ser capaz de cadastrar uma manutenção, para que eu possa ter noção das necessidades do meu carro.|11|
 |[TH01]|[EP01]|[US03]|Eu, como usuário, quero ser capaz de realizar o logout no aplicativo para que eu possa encerrar meu acesso.|10|
 |[TH02]|[EP04]|[US10]|Eu, como usuário, quero ser capaz de pesquisar minhas corridas cadastradas em determinado dia, para facilitar a visualizacao dos dados cadastrados.|10|
 |[TH02]|[EP04]|[US11]|Eu, como usuário, quero ser capaz de visualizar minhas corridas cadastradas para ter acesso a dados já fornecidos.|10|
@@ -68,7 +68,7 @@ Aqui você encontrará a lista de requisitos que estão aguardando para serem tr
 |[TH02]|[EP03]|[US23]|Eu, como usuário, quero ser capaz de editar as metas de ganho, para atualizar os dados.|10|
 |[TH03]|[EP06]|[US26]|Eu,como usuário, quero ser capaz de visualizar minhas manutenções cadastradas, para que eu tenha acesso a informações já fornecidas.|10|
 |[TH02]|[EP04]|[US22]|Eu, como usuário, quero visualizar as minhas metas de ganhos diários, para que eu consiga analisar facilmente meus ganhos.|9|
-|[TH03]|[EP05]|[US27]|Eu, como usuário, quero ser capaz de editar valor, tipo e intervalo de tempo das manutenções cadastradas, para manter meus dados atualizados.|9|
+|[TH03]|[EP05]|[US27]|Eu, como usuário, quero ser capaz de editar as manutenções cadastradas, para manter meus dados atualizados.|9|
 |[TH04]|[EP07]|[US36]|Eu, como usuário, quero entender qual corrida é mais vantajosa, para tomar uma melhor decisão financeira.|9|
 |[TH05]|[EP10]|[US29]|Eu, como usuário, quero ser capaz de filtrar o meu histórico de ganhos e despesas a partir do tempo, para que eu possa ter controle dos dados.|8|
 |[TH05]|[EP09]|[US30]|Eu, como usuário, quero ser capaz de obter o meu histórico de ganhos e despesas no formato de arquivo em pdf para que eu possa exportar para outras aplicações.|8|
