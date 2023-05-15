@@ -15,7 +15,7 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
 
 |**Tema**|**Épico**|**Hitória de Usuário**|**Critérios de aceitação**|
 |:------:|:-------:|:--------------------:|:------------------------:|
-|TH01|EP01|US01|-Ter o campo de inserir o nome; -Ter o campo de inserir  o email; -Ter o campo de  inserir a senha.|
+|TH01|EP01|US01|- Ter o campo de inserir o nome; - Ter o campo de inserir  o email; - Ter o campo de  inserir a senha.|
 |TH01|EP02|US06|-Editar o email; -Editar a senha.|
 |TH02|EP03|US07|-Inserir o valor ganho na corrida; -Inserir o nome do aplicativo utilizado; -Inserir a quilometragem rodada da corrida.|
 |TH01|EP02|US03|-Todas as informações relacionadas a determinada corrida devem ser deletadas por meio de um botão.|
