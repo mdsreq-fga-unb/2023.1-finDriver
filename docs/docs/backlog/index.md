@@ -58,7 +58,7 @@ Aqui você encontrará a lista de requisitos que estão aguardando para serem tr
 |[TH02]|[EP03]|[US21]|Eu, como usuário, quero ser capaz de cadastrar uma meta de ganho com um valor e uma duração de tempo, para que eu tenha o controle da minha jornada diária de trabalho.|12|
 |[TH02]|[EP03]|[US24]|Eu, como usuário, quero ser capaz de excluir as metas de ganho, para que não sejam fornecidas ao aplicativo informações desatualizadas ou irrelevantes.|12|
 |[TH03]|[EP05]|[US28]|Eu, como usuário, quero ser capaz de excluir uma manutenção, para removê-la dos cálculos de gasto.|12|
-|[TH01]||[EP02]||[US05]|Eu, como usuário, quero ser capaz de visualizar meu perfil no aplicativo para que eu possa verificar meus dados.|11|
+|[TH01]|[EP02]|[US05]|Eu, como usuário, quero ser capaz de visualizar meu perfil no aplicativo para que eu possa verificar meus dados.|11|
 |[TH03]|[EP05]|[US25]|Eu, como usuário, quero ser capaz de inserir valor, tipo e intervalo de tempo ao cadastrar uma manutenção, para que eu possa fornecer dados relevantes ao aplicativo no que se refere a manutenção.|11|
 |[TH01]|[EP01]|[US03]|Eu, como usuário, quero ser capaz de realizar o logout no aplicativo para que eu possa encerrar meu acesso.|10|
 |[TH02]|[EP04]|[US10]|Eu, como usuário, quero ser capaz de pesquisar minhas corridas cadastradas em determinado dia, para facilitar a visualizacao dos dados cadastrados.|10|
