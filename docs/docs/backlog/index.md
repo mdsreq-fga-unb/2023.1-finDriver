@@ -58,7 +58,28 @@ Aqui você encontrará a lista de requisitos que estão aguardando para serem tr
 |[TH02]|[EP03]|[US21]|Eu, como usuário, quero ser capaz de cadastrar uma meta de ganho com um valor e uma duração de tempo, para que eu tenha o controle da minha jornada diária de trabalho.|12|
 |[TH02]|[EP03]|[US24]|Eu, como usuário, quero ser capaz de excluir as metas de ganho, para que não sejam fornecidas ao aplicativo informações desatualizadas ou irrelevantes.|12|
 |[TH03]|[EP05]|[US28]|Eu, como usuário, quero ser capaz de excluir uma manutenção, para removê-la dos cálculos de gasto.|12|
-
+|[TH01]||[EP02]||[US05]|Eu, como usuário, quero ser capaz de visualizar meu perfil no aplicativo para que eu possa verificar meus dados.|11|
+|[TH03]|[EP05]|[US25]|Eu, como usuário, quero ser capaz de inserir valor, tipo e intervalo de tempo ao cadastrar uma manutenção, para que eu possa fornecer dados relevantes ao aplicativo no que se refere a manutenção.|11|
+|[TH01]|[EP01]|[US03]|Eu, como usuário, quero ser capaz de realizar o logout no aplicativo para que eu possa encerrar meu acesso.|10|
+|[TH02]|[EP04]|[US10]|Eu, como usuário, quero ser capaz de pesquisar minhas corridas cadastradas em determinado dia, para facilitar a visualizacao dos dados cadastrados.|10|
+|[TH02]|[EP04]|[US11]|Eu, como usuário, quero ser capaz de visualizar minhas corridas cadastradas para ter acesso a dados já fornecidos.|10|
+|[TH03]|[EP06]|[US15]|Eu, como usuário, quero ser capaz de pesquisar minhas despesas cadastradas em determinado dia, para visualizar determinadas informações.|10|
+|[TH03]|[EP06]|[US16]|Eu, como usuario, quero ser capaz de visualizar meus gastos cadastrados, para que para ter acesso a informações já fornecidas.|10|
+|[TH04]|[EP07]|[US17]|Eu, como usuário, quero ter acesso ao cálculo da média das despesas diárias, para ter a noção dos valores necessários para minha gestão financeira.|10|
+|[TH02]|[EP03]|[US23]|Eu, como usuário, quero ser capaz de editar as metas de ganho, para atualizar os dados.|10|
+|[TH03]|[EP06]|[US26]|Eu,como usuário, quero ser capaz de visualizar minhas manutenções cadastradas, para que eu tenha acesso a informações já fornecidas.|10|
+|[TH02]|[EP04]|[US22]|Eu, como usuário, quero visualizar as minhas metas de ganhos diários, para que eu consiga analisar facilmente meus ganhos.|9|
+|[TH03]|[EP05]|[US27]|Eu, como usuário, quero ser capaz de editar valor, tipo e intervalo de tempo das manutenções cadastradas, para manter meus dados atualizados.|9|
+|[TH04]|[EP07]|[US36]|Eu, como usuário, quero entender qual corrida é mais vantajosa, para tomar uma melhor decisão financeira.|9|
+|[TH05]|[EP10]|[US29]|Eu, como usuário, quero ser capaz de filtrar o meu histórico de ganhos e despesas a partir do tempo, para que eu possa ter controle dos dados.|8|
+|[TH05]|[EP09]|[US30]|Eu, como usuário, quero ser capaz de obter o meu histórico de ganhos e despesas no formato de arquivo em pdf para que eu possa exportar para outras aplicações.|8|
+|[TH01]|[EP01]|[US34]|Eu, como usuário, quero que o aplicativo faca uma verificação de email para garantir a segurança dos dados.|8|
+|[TH01]|[EP02]|[US35]|Eu, como usuário, quero ser capaz de cadastrar lembretes, para que agregue a interatividade com o aplicativo.|8|
+|[TH04]|[EP08]|[US18]|Eu, como usuário, quero ser capaz de visualizar quantos quilômetros rodei por dia, para ter a noção da relação da quilometragem com as despesas.|7|
+|[TH04]|[EP07]|[US31]|Eu, como usuário, quero saber qual gasolina será mais vantajosa, para ter facilidade na tomada de decisão financeira.|7|
+|[TH04]|[EP08]|[US33]|Eu, como usuário, quero visualizar os resultados dos meus ganhos, os resultados das minhas metas, e o meu lucro geral em um dashboard para que facilite a visualização dos dados.|7|
+|[TH04]|[EP04]|[US20]|Eu, como usuário, quero ter acesso a diferença de ganhos entre aplicativos de corrida para entender qual a plataforma mais vantajosa no momento.|6|
+|[TH04]|[EP07]|[US32]|Eu, como usuário, quero entender quais os horários de trabalho mais lucrativos, para tomar uma melhor decisão financeira.|6|
 
 *A pontuação aqui descrita foi estabelecida considerando critérios de viabilidade, valor de negócio e complexidade. Para seu cálculo foram distribuidos pesos 2 para viabilidade e valor de negócio e peso 1 para complexidade, e, em seguida, foram somados.
 
