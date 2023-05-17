@@ -19,8 +19,8 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
 <table>
 <thead>
   <tr>
-    <th>Número<br></th>
-    <th>Nome<br></th>
+    <th>Número</th>
+    <th>Nome</th>
     <th>Critérios de aceitação </th>
   </tr>
 </thead>
@@ -28,17 +28,17 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
   <tr>
     <td>US01</td>
     <td>Cadastro de Usuário</td>
-    <td>- Ter o campo de inserir o nome;<br>- Ter o campo de inserir  o email; <br>- Ter o campo de  inserir a senha.</td>
+    <td>- Ter o campo de inserir o nome;<br/>- Ter o campo de inserir  o email; <br/>- Ter o campo de  inserir a senha.</td>
   </tr>
   <tr>
     <td>US06</td>
     <td>Editar conta de Usuário</td>
-    <td>- Editar o email;<br>- Editar a senha;</td>
+    <td>- Editar o email;<br/>- Editar a senha;</td>
   </tr>
   <tr>
     <td>US07</td>
-    <td>Cadastro de Corrida<br></td>
-    <td>- Inserir o valor ganho na corrida-Inserir o nome do aplicativo utilizado;<br>- Inserir a quilometragem rodada da corrida;</td>
+    <td>Cadastro de Corrida<br/></td>
+    <td>- Inserir o valor ganho na corrida-Inserir o nome do aplicativo utilizado;<br/>- Inserir a quilometragem rodada da corrida;</td>
   </tr>
   <tr>
     <td>US09</td>
@@ -53,12 +53,12 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
   <tr>
     <td>US08</td>
     <td>Editar Corridas Cadastradas</td>
-    <td>- Editar valor ganho; <br>- Editar aplicativo onde a corrida foi feita;<br>- Editar a quantidade de quilômetros rodados;</td>
+    <td>- Editar valor ganho; <br/>- Editar aplicativo onde a corrida foi feita;<br/>- Editar a quantidade de quilômetros rodados;</td>
   </tr>
   <tr>
     <td>US02</td>
     <td>Autenticação de Usuário</td>
-    <td>- Ser capaz de inserir email na hora de fazer o login;<br>- Ser capaz de inserir senha na hora de fazer o login;</td>
+    <td>- Ser capaz de inserir email na hora de fazer o login;<br/>- Ser capaz de inserir senha na hora de fazer o login;</td>
   </tr>
   <tr>
     <td>US04</td>
@@ -68,22 +68,22 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
   <tr>
     <td>US12</td>
     <td>Cadastrar Despesa</td>
-    <td>- Inserir a causa do gasto ao cadastrar uma despesa<br>- Inserir o tipo de gasto ao cadastrar uma despesa;</td>
+    <td>- Inserir a causa do gasto ao cadastrar uma despesa<br/>- Inserir o tipo de gasto ao cadastrar uma despesa;</td>
   </tr>
   <tr>
     <td>US13</td>
     <td>Editar Despesa Cadastrada</td>
-    <td>- Editar a causa do gasto; <br>- Editar o valor do gasto; <br>- Editar tipo do gasto; <br>- Devem existir tipos de dados pré-definidos para que o u<br>    - Os tipos devem ser gasolina, alimentação e pedágio;</td>
+    <td>- Editar a causa do gasto; <br/>- Editar o valor do gasto; <br/>- Editar tipo do gasto; <br/>- Devem existir tipos de dados pré-definidos para que o u<br/>    - Os tipos devem ser gasolina, alimentação e pedágio;</td>
   </tr>
   <tr>
     <td>US14</td>
-    <td>Deletar Despesa Cadastrada<br></td>
+    <td>Deletar Despesa Cadastrada<br/></td>
     <td>- Excluir as despesas através de um botão;</td>
   </tr>
   <tr>
     <td>US21</td>
     <td>Cadastrar meta</td>
-    <td>- Inserir valor da meta de ganho;<br>- Inserir duração de tempo da meta;</td>
+    <td>- Inserir valor da meta de ganho;<br/>- Inserir duração de tempo da meta;</td>
   </tr>
   <tr>
     <td>US24</td>
@@ -137,7 +137,7 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
   </tr>
   <tr>
     <td>US20</td>
-    <td>Visualizar diferença de ganhos entre aplicativos<br></td>
+    <td>Visualizar diferença de ganhos entre aplicativos<br/></td>
     <td>- Acessar e visualizar a diferença de ganhos entre aplicativos de corrida;</td>
   </tr>
   <tr>
@@ -153,7 +153,7 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
   <tr>
     <td>US25</td>
     <td>Cadastrar manutenção</td>
-    <td>- Inserir o valor da manutenção; <br>- Inserir o tipo de manutenção; <br>- Inserir o intervalo de tempo da notificação da manutenção;</td>
+    <td>- Inserir o valor da manutenção; <br/>- Inserir o tipo de manutenção; <br/>- Inserir o intervalo de tempo da notificação da manutenção;</td>
   </tr>
   <tr>
     <td>US26</td>
@@ -163,7 +163,7 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
   <tr>
     <td>US27</td>
     <td>Editar manutenção</td>
-    <td>- Editar o tipo de manutenção; <br>- Editar o intervalo de tempo da notificação da manutenção;</td>
+    <td>- Editar o tipo de manutenção; <br/>- Editar o intervalo de tempo da notificação da manutenção;</td>
   </tr>
   <tr>
     <td>US29</td>
@@ -178,7 +178,7 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
   <tr>
     <td>US31</td>
     <td>Cadastrar consumo de combustível</td>
-    <td>- Inserir o valor da gasolina; <br>- Inserir o valor do álcool; <br>- Visualizar resultado do calculo de valores;</td>
+    <td>- Inserir o valor da gasolina; <br/>- Inserir o valor do álcool; <br/>- Visualizar resultado do calculo de valores;</td>
   </tr>
   <tr>
     <td>US32</td>
