@@ -10,6 +10,7 @@ sidebar_position: 4
 |:------:|:--------:|:-----------:|:-------:|
 | 15/05/2023 | 1.0 | Construção dos Critérios de Aceitação | [Taynara Vitorino](https://github.com/taybalau)|
 | 16/05/2023 | 1.1 | Mudança nos Criérios de Aceitação| [Ana Catarina Santos](https://github.com/an4catarina)|
+| 17/05/2023 | 1.2 | Alteração na distribuição dos Criérios| [Victor Hugo](https://github.com/ViictorHugoo)|
 
 
 ## Critérios de Aceitação da História do Usuário 
@@ -17,7 +18,7 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
 
 | Número | Nome | Critérios de aceitação                                                                                                                                                                               |
 |--------|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| US01   |      | ⋄Ter o campo de inserir o nome; ⋄Ter o campo de inserir  o email;  ⋄Ter o campo de  inserir a senha.                                                                                                 |
+| US01   |      | - Ter o campo de inserir o nome; - Ter o campo de inserir  o email;  - Ter o campo de  inserir a senha.                                                                                                 |
 | US01   |      | - Editar o email; - Editar a senha;                                                                                                                                                                  |
 | US06   |      | - Inserir o valor ganho na corrida-Inserir o nome do aplicativo utilizado; - Inserir a quilometragem rodada da corrida;                                                                              |
 | US07   |      | - Inserir o valor ganho na corrida-Inserir o nome do aplicativo utilizado; - Inserir a quilometragem rodada da corrida;                                                                              |
