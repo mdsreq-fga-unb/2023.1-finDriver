@@ -28,162 +28,72 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
   <tr>
     <td>US01</td>
     <td>Cadastro de Usuário</td>
-    <td>- Ter o campo de inserir o nome;<br/>- Ter o campo de inserir  o email; <br/>- Ter o campo de  inserir a senha.</td>
+    <td> O usuário deve ser capaz de acessar a tela de cadastro a partir da tela inicial do aplicativo;<br/>Os campos obrigatórios a ser preenchidos serão:<br/>Nome;<br/>E-mail;<br/>Senha;<br/>Duas perguntas de segurança para garantir uma futura redefinição de senha;<br/>O e-mail deve ser validado;<br/>A senha deverá ter um comprimento mínimo e caracteres especiais;<br/>Deverá ter uma dupla verificação da senha, o sistema deverá passar quando ambas estiverem iguais;<br/>Exibir mensagem de erro caso o e-mail já tenha sido cadastrado;<br/>Direcionar para a tela de login após o cadastro ser bem-sucedido;</td>
   </tr>
   <tr>
     <td>US06</td>
     <td>Editar conta de Usuário</td>
-    <td>- Editar o email;<br/>- Editar a senha;</td>
+    <td>O usuário deve ser capaz de acessar a tela de cadastro a partir da tela inicial do aplicativo;<br/>Os campos obrigatórios a ser preenchidos serão:<br/>Nome;<br/>E-mail;<br/>Senha;<br/>Duas perguntas de segurança para garantir uma futura redefinição de senha;<br/>O e-mail deve ser validado;<br/>A senha deverá ter um comprimento mínimo e caracteres especiais;<br/>Deverá ter uma dupla verificação da senha, o sistema deverá passar quando ambas estiverem iguais;<br/>Exibir mensagem de erro caso o e-mail já tenha sido cadastrado;<br/>Direcionar para a tela de login após o cadastro ser bem-sucedid;</td>
   </tr>
   <tr>
     <td>US07</td>
     <td>Cadastro de Corrida<br/></td>
-    <td>- Inserir o valor ganho na corrida-Inserir o nome do aplicativo utilizado;<br/>- Inserir a quilometragem rodada da corrida;</td>
+    <td>Deverá ter uma tela ou uma função específica para o cadastro de corrida no aplicativo;<br/>Os dados que devem ser inseridos devem ser:<br/>Data;<br/>Valor;<br/>Quilometragem percorrida;<br/>Aplicativo de corrida utilizado;<br/>Os campos de quilometragem e valor deverão aceitar apenas valores numéricos;<br/>O campo de data deverá permitir ao usuário selecionar ou inserir a data da corrida no formato DD/MM/YYYY;<br/>O sistema deverá validar os campos de entrada, garantindo que não estejam errados, onde:<br/>Deverá exibir uma mensagem de erro caso tenha algo errado;<br/>Deverá exibir uma mensagem de êxito caso a operação tenha ocorrido com sucesso;<br/></td>
   </tr>
   <tr>
     <td>US09</td>
     <td>Deletar Corridas Cadastradas</td>
-    <td>- Todas as informações relacionadas a determinada corrida devem ser deletadas por meio de um botão;</td>
+    <td>O usuário deverá ter acesso à funcionalidade de exclusão de corridas no sistema;<br/>O sistema deve exibir uma lista de corridas previamente cadastradas pelo usuário, permitindo a identificação da corrida que o mesmo deseja excluir;<br/>O usuário pode selecionar uma ou mais corridas para serem excluídas;<br/>O sistema deve exibir uma confirmação de exclusão antes de apagar definitivamente as corridas selecionadas pelo usuário;<br/>Com a exclusão, o sistema deve se adequar corretamente, atualizando as informações de controle financeiro;</td>
   </tr>
   <tr>
     <td>US19</td>
     <td>Visualizar histórico de despesas e ganhos</td>
-    <td>- Visualizar o histórico com todas as despesas e ganhos das corridas;</td>
+    <td>O usuário deve ter acesso a uma tela ou função específica para visualizar o histórico de despesas e ganhos;<br/>O sistema deve exibir listas ou tabelas separadas com as seguintes informações:<br/>As corridas cadastradas;<br/>As despesas cadastradas;<br/>As metas cadastradas;<br/>O histórico deverá ser exibido em ordem cronológica, onde as entradas mais recentes deverão ser exibidas primeiro;<br/>O usuário deve poder aplicar filtros ou realizar buscas específicas;<br/>O usuário deve ter a opção de ordenar o histórico;</td>
   </tr>
   <tr>
     <td>US08</td>
     <td>Editar Corridas Cadastradas</td>
-    <td>- Editar valor ganho; <br/>- Editar aplicativo onde a corrida foi feita;<br/>- Editar a quantidade de quilômetros rodados;</td>
+    <td>O usuário deve ter acesso a uma tela ou função específica de edição de corridas cadastradas previamente;<br/>O sistema deve exibir os detalhes da corrida selecionada pelo usuário em campos editáveis;<br/>Os campos editáveis serão:<br/>Data;<br/>Valor;<br/>Quilometragem percorrida;<br/>Aplicativo de corrida utilizado;<br/>O sistema deve validar os campos editáveis e garantir que os campos foram preenchidos corretamente<br/>Caso tenha algum campo preenchido errado: <br/>Exibir mensagem de erro;<br/>Caso os campos tenham sido preenchidos corretamente:<br/>Exibir mensagem de sucesso e direcionar para a tela da corrida;<br/></td>
   </tr>
   <tr>
     <td>US02</td>
     <td>Autenticação de Usuário</td>
-    <td>- Ser capaz de inserir email na hora de fazer o login;<br/>- Ser capaz de inserir senha na hora de fazer o login;</td>
+    <td>O usuário deve ter acesso à tela de login;<br/>Os campos a serem preenchidos devem ser:<br/>E-mail;<br/>Senha;<br/>O sistema deve verificar se o e-mail inserido está cadastrado no sistema;<br/>O sistema deve verificar se a senha está correta e seja associada ao e-mail inserido;<br/>Caso negativo: Exibir mensagem de erro;<br/>Caso positivo: O usuário deve ser autenticado e direcionado para a tela principal do sistema;<br/>O usuário deve ter acesso a opção de recuperação de senha caso a tenha esquecido, fornecendo um mecanismo de redefinição da mesma;<br/>Na tela de login, o usuário deve ter acesso à uma opção que encaminha para o cadastro;<br/></td>
   </tr>
   <tr>
     <td>US04</td>
     <td>Deletar Perfl de Usuário</td>
-    <td>- Todas as informações relacionadas a um determinado o perfil devem ser excluídas através de um botão;</td>
+    <td>O usuário deve ter acesso à uma opção de exclusão de perfil no sistema;<br/>A opção deve estar clara e fácil de ser encontrada;<br/>O usuário deve receber um aviso explícito que a exclusão permanente resultará na perda irreversível de todas as informações e dados associados ao seu perfil;<br/>Para confirmar a exclusão, o usuário deverá colocar a sua senha;<br/>O sistema deverá fazer uma dupla confirmação da exclusão;<br/>Após confirmar a exclusão, o sistema deverá exibir uma mensagem de confirmação e encaminhar para a tela inicial de login;</td>
   </tr>
   <tr>
     <td>US12</td>
     <td>Cadastrar Despesa</td>
-    <td>- Inserir a causa do gasto ao cadastrar uma despesa<br/>- Inserir o tipo de gasto ao cadastrar uma despesa;</td>
+    <td>O sistema deve oferecer ao usuário uma opção de cadastro de despesa;<br/>Os campos a serem preenchidos devem ser:<br/>Causa do gasto;<br/>Valor do gasto;<br/>Tipo de gasto;<br/>Com relação ao tipo de gasto, o sistema deve oferecer dados pré definidos para que o usuário escolha, sendo eles:<br/>gasolina;<br/>alimentação;<br/>pedágio;<br/>O sistema deve permitir o anexo de imagens ou recibos para complementar as informações da despesa, caso necessário;<br/>O sistema deve validar a entrada de dados, garantindo que tenham sido preenchidos corretamente, onde:<br/>deverá enviar uma mensagem de falha em caso de erro;<br/>deverá enviar uma mensagem de sucesso e encaminhar para a tela principal, caso a operação tenha ocorrido corretamente;<br/></td>
   </tr>
   <tr>
     <td>US13</td>
     <td>Editar Despesa Cadastrada</td>
-    <td>- Editar a causa do gasto; <br/>- Editar o valor do gasto; <br/>- Editar tipo do gasto; <br/>- Devem existir tipos de dados pré-definidos para que o u<br/>    - Os tipos devem ser gasolina, alimentação e pedágio;</td>
+    <td>O usuário deve ter acesso a uma tela ou função específica de edição de despesas cadastradas previamente;<br/>O sistema deve exibir os detalhes da despesa selecionada pelo usuário em campos editáveis;<br/>Os campos editáveis serão:<br/>Causa do gasto;<br/>Valor do gasto;<br/>Tipo do gasto;<br/>O sistema deve validar os campos editáveis e garantir que os campos foram preenchidos corretamente<br/>Caso tenha algum campo preenchido errado:<br/>Exibir mensagem de erro;<br/>Caso os campos tenham sido preenchidos corretamente:<br/>Exibir mensagem de sucesso e direcionar para a tela do gasto;<br/></td>
   </tr>
   <tr>
     <td>US14</td>
     <td>Deletar Despesa Cadastrada<br/></td>
-    <td>- Excluir as despesas através de um botão;</td>
+    <td>O usuário deverá ter acesso à funcionalidade de exclusão de despesas cadastradas no sistema;<br/>O sistema deve exibir uma lista de despesas previamente cadastradas pelo usuário, permitindo a identificação da despesa que o mesmo deseja excluir;<br/>O usuário pode selecionar uma ou mais despesas para serem excluídas;<br/>O sistema deve exibir uma confirmação de exclusão antes de apagar definitivamente as despesas selecionadas pelo usuário;<br/>Com a exclusão, o sistema deve se adequar corretamente, atualizando as informações de controle financeiro;<br/></td>
   </tr>
   <tr>
     <td>US21</td>
     <td>Cadastrar meta</td>
-    <td>- Inserir valor da meta de ganho;<br/>- Inserir duração de tempo da meta;</td>
+    <td>O usuário deverá ter à função de cadastro de de meta de ganho no sistema;<br/>Ao cadastrar uma meta, os campos preenchíveis são:<br/>Nome da meta;<br/>Valor desejado para a meta;<br/>Definir o tempo da meta de ganho, sendo as opções:<br/>diário;<br/>semanal;<br/>mensal;<br/>Data inicial e Data final, para metas em uma janela de tempo específica;<br/>O sistema deve se adequar e lidar com a definição de metas simultâneas sem conflitos entre as mesmas;<br/>O sistema deve validar a entrada de dados, garantindo que tenham sido preenchidos corretamente, onde:<br/>deverá enviar uma mensagem de falha em caso de erro;<br/>deverá enviar uma mensagem de sucesso e encaminhar para a tela da meta específica criada, em caso de sucesso;<br/></td>
   </tr>
   <tr>
     <td>US24</td>
     <td>Excluir meta</td>
-    <td>- Excluir a meta do banco de dados através de um botão;</td>
+    <td>O usuário deverá ter acesso à funcionalidade de exclusão de metas de ganho cadastradas no sistema;<br/>O sistema deve exibir uma lista de metas de ganho previamente cadastradas pelo usuário, permitindo a identificação da meta de ganho que o mesmo deseja excluir;<br/>O usuário pode selecionar uma ou mais metas para serem excluídas;<br/>O sistema deve exibir uma confirmação de exclusão antes de apagar definitivamente as metas selecionadas pelo usuário;</td>
   </tr>
   <tr>
     <td>US28</td>
     <td>Excluir manutenção cadastrada</td>
-    <td>- Excluir os dados da manutenção do banco de dados através de um botão;</td>
-  </tr>
-  <tr>
-    <td>US03</td>
-    <td>Realizar logout</td>
-    <td>- Realizar logout no aplicativo;</td>
-  </tr>
-  <tr>
-    <td>US05</td>
-    <td>Visualizar perfil de usuário</td>
-    <td>- Visualização do perfil;</td>
-  </tr>
-  <tr>
-    <td>US10</td>
-    <td>Pesquisar corridas cadastradas</td>
-    <td>- Pesquisar minhas corridas cadastradas por determinados dias do mês;</td>
-  </tr>
-  <tr>
-    <td>US11</td>
-    <td>Visualizar corridas cadastradas</td>
-    <td>- Visualizar minhas corridas cadastradas;</td>
-  </tr>
-  <tr>
-    <td>US15</td>
-    <td>Pesquisar depesas cadastradas</td>
-    <td>- Pesquisar minhas despesas cadastradas por determinados dias do mês;</td>
-  </tr>
-  <tr>
-    <td>US16</td>
-    <td>Visualizar despesas cadastrados</td>
-    <td>- Visualizar meus gastos cadastrados;</td>
-  </tr>
-  <tr>
-    <td>US17</td>
-    <td>Acessar cálculo das depesas diárias</td>
-    <td>- Acessar ao cálculo da média das despesas diárias;</td>
-  </tr>
-  <tr>
-    <td>US18</td>
-    <td>Visualizar kilometragem</td>
-    <td>- Visualizar kilometros rodados por dia;</td>
-  </tr>
-  <tr>
-    <td>US20</td>
-    <td>Visualizar diferença de ganhos entre aplicativos<br/></td>
-    <td>- Acessar e visualizar a diferença de ganhos entre aplicativos de corrida;</td>
-  </tr>
-  <tr>
-    <td>US22</td>
-    <td>Visualizar metas</td>
-    <td>- Visualizar as minhas metas de ganhos diários;</td>
-  </tr>
-  <tr>
-    <td>US23</td>
-    <td>Editar metas</td>
-    <td>- Editar as metas de ganho diário;</td>
-  </tr>
-  <tr>
-    <td>US25</td>
-    <td>Cadastrar manutenção</td>
-    <td>- Inserir o valor da manutenção; <br/>- Inserir o tipo de manutenção; <br/>- Inserir o intervalo de tempo da notificação da manutenção;</td>
-  </tr>
-  <tr>
-    <td>US26</td>
-    <td>Visualizar manutenção cadastrada</td>
-    <td>- Visualizar minhas manutenções cadastradas;</td>
-  </tr>
-  <tr>
-    <td>US27</td>
-    <td>Editar manutenção</td>
-    <td>- Editar o tipo de manutenção; <br/>- Editar o intervalo de tempo da notificação da manutenção;</td>
-  </tr>
-  <tr>
-    <td>US29</td>
-    <td>Filtrar histórico</td>
-    <td>- Filtrar o meu histórico de ganhos e despesas por dia, semana e mês;</td>
-  </tr>
-  <tr>
-    <td>US30</td>
-    <td>Obter histórico em pdf</td>
-    <td>- Obter o meu histórico de ganhos e despesas em formato pdf;</td>
-  </tr>
-  <tr>
-    <td>US31</td>
-    <td>Cadastrar consumo de combustível</td>
-    <td>- Inserir o valor da gasolina; <br/>- Inserir o valor do álcool; <br/>- Visualizar resultado do calculo de valores;</td>
-  </tr>
-  <tr>
-    <td>US32</td>
-    <td>Visualizar horários lucrativos</td>
-    <td>- Visualizar os horários mais lucrativos;</td>
+    <td>O usuário deverá ter acesso à funcionalidade de exclusão de manutenções cadastradas no sistema;<br/>O sistema deve exibir uma lista de manutenções previamente cadastradas pelo usuário, permitindo a identificação da manutenção que o mesmo deseja excluir;<br/>O usuário pode selecionar uma ou mais manutenções para serem excluídas;<br/>O sistema deve exibir uma confirmação de exclusão antes de apagar definitivamente as manutenções selecionadas pelo usuário;</td>
   </tr>
 </tbody>
 </table>
