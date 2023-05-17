@@ -32,7 +32,7 @@ sidebar_position: 2
 - Definição do pair programming:
 
 |Sprint|Dupla 1|Dupla 2 |	Dupla 3 | Data Troca |	Data Ínicio |	Data Fim|
-|---------|-------|-------|	-------| ----------|	----------- |	--------|
+|--------|-----|--------|	-------| ----------|	----------- |	--------|
 |Sprint 1|	Vinicius; Pedro|	Victor; Taynara	|Alice; Catarina|	13/04	|06/04/2023|	20/04/2023|
 |Sprint 2|	Vinicius; Taynara|	Victor; Alice|	 Pedro; Catarina|	28/04	|21/04/2023|	04/05/2023|
 |Sprint 3|	Vinicius; Victor|	Alice; Pedro|	 Taynara; Catarina|	27/05	|20/05/2023|	03/06/2023|
