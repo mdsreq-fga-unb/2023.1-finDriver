@@ -6,7 +6,7 @@ sidebar_position: 2
 
 **Período: 20/04/2023 a 04/05/2023**
 
-- [Miro](ssss)
+- [Miro]()
 
 ## Sprint Planning
 
