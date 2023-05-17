@@ -8,7 +8,7 @@ sidebar_position: 2
 
 |**Data**|**Versão**|**Descrição**|**Autor**|
 |:------:|:--------:|:-----------:|:-------:|
-| 17/05/2023 | 1.0 | Construção das Definições | [Taynara Vitorino](https://github.com/taybalau)|
+| 17/05/2023 | 1.0 | Construção das Definições | [Taynara Vitorino](https://github.com/taybalau), [Vinícius Mendes](https://github.com/yabamiah)|
 
 ### 1. Definição de Preparado (DoR)
 - O tempo de desenvolvimentos dos itens deve estar estimado dentro do período da sprint.
