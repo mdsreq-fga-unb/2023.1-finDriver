@@ -7,8 +7,8 @@ sidebar_position: 6
 
 |**Data**|**Versão**|**Descrição**|**Autor**|
 |:------:|:--------:|:-----------:|:-------:|
-| 16/05/2023 | 1.0 | Definição do WorkFlow| [Pedro Eduardo Santo Sousa](https://github.com/PedroEduardoSS)|
-| 17/05/2023 | 1.1 | Aprimoramento do WorkFlow| [Pedro Eduardo Santo Sousa](https://github.com/PedroEduardoSS)|
+| 16/05/2023 | 1.0 | Definição do WorkFlow| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
+| 17/05/2023 | 1.1 | Aprimoramento do WorkFlow| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 
 ### Introdução
 Nessa seção se encontra a estrutura do workflow de testes, que será realizado
