@@ -92,7 +92,7 @@ Os requisitos não funcionais (RNFs) definem os atributos do sistema, como segur
 |:------:|:-----------------:|:--------------|
 |RNF01|Usabilidade|O sistema deve possuir um tema claro e um tema escuro, para tornar a visualização mais confortável.|
 |RNF02|Usabilidade|O sistema deve seguir a paleta de cores, para que o usuário possa identificar a aplicação.|
-|RNF03|Usabilidade|O sistema deve ser responsivo, para permitir seu uso em diferentes dispositivos.|
+|RNF03|Usabilidade| O sistema deve ser responsivo, para permitir seu uso em diferentes dispositivos.|
 |RNF04|Suportabilidade|O sistema deve utilizar GitHub Actions para automação de processos e testes.|
 |RNF05|Suportabilidade|O sistema deve utilizar Jest como biblioteca de teste.|
 |RNF06|Suportabilidade|O sistema deve possuir compatibilidade  Android e IOS, para ampliar os acesso na aplicação.|
