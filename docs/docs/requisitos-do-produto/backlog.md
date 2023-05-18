@@ -41,6 +41,9 @@ Aqui você encontrará a lista de requisitos que estão aguardando para serem tr
 
 ### 3. Histórias de Usuário
 
+#### User Roles
+- **Usuário:** Motoristas de aplicativo que têm a necessidade de fazer a gestão da renda proveniente da sua jornada de trabalho.
+
 |**Tema**|**Épico**|**Hitória de Usuário**|**Descrição**| **Pontuação***|
 |:------:|:-------:|:--------------------:|:------------|:-------------:|
 |[TH01]|[EP01]|[US01]|Eu, como usuário, quero ser capaz de inserir meu nome, email e senha ao realizar meu cadastro para iniciar meu acesso no aplicativo.|14|
@@ -52,7 +55,7 @@ Aqui você encontrará a lista de requisitos que estão aguardando para serem tr
 |[TH01]|[EP01]|[US02]|Eu, como usuário, quero ser capaz inserir email e senha ao realizar login no sistema para acessar o aplicativo.|12|
 |[TH01]|[EP01]|[US04]|Eu, como usuário, quero ser capaz de excluir meu perfil no aplicativo para que eu possa encerrar minhas atividades.|12|
 |[TH03]|[EP05]|[US12]|Eu, como usuário, quero ser capaz de cadastrar uma despesa para que os dados estejam melhor detalhados.|12|
-|[TH03]|[EP05]|[US13]|Eu, como usuário quero ser capaz de editar a causa do gasto para manter minhas informações atualizadas.|12|
+|[TH03]|[EP05]|[US13]|Eu, como usuário quero ser capaz de editar uma despesa para manter minhas informações atualizadas.|12|
 |[TH03]|[EP05]|[US14]|Eu, como usuário, quero ser capaz de excluir minhas despesas cadastradas, para que informações irrelevantes ou desatualizadas não sejam fornecidas ao aplicativo.|12|
 |[TH02]|[EP03]|[US21]|Eu, como usuário, quero ser capaz de cadastrar uma meta de ganho com um valor e uma duração de tempo, para que eu tenha o controle da minha jornada diária de trabalho.|12|
 |[TH02]|[EP03]|[US24]|Eu, como usuário, quero ser capaz de excluir as metas de ganho, para que não sejam fornecidas ao aplicativo informações desatualizadas ou irrelevantes.|12|
@@ -81,9 +84,6 @@ Aqui você encontrará a lista de requisitos que estão aguardando para serem tr
 |[TH04]|[EP07]|[US32]|Eu, como usuário, quero entender quais os horários de trabalho mais lucrativos, para tomar uma melhor decisão financeira.|6|
 
 *A pontuação aqui descrita foi estabelecida considerando critérios de viabilidade, valor de negócio e complexidade. Para seu cálculo foram distribuidos pesos 2 para viabilidade e valor de negócio e peso 1 para complexidade, e, em seguida, foram somados.
-
-#### User Roles
-- **Usuário:** Motoristas de aplicativo que têm a necessidade de fazer a gestão da renda proveniente da sua jornada de trabalho.
 
 ## Requisitos Não Funcionais
 Os requisitos não funcionais (RNFs) definem os atributos do sistema, como segurança, confiabilidade, desempenho, capacidade de manutenção, usabilidade. Eles servem como restrições ou constrangimentos no design do sistema em diferentes pendências.

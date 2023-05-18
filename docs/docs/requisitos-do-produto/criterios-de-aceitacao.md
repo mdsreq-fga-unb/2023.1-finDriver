@@ -33,7 +33,7 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
   <tr>
     <td>US06</td>
     <td>Editar conta de Usuário</td>
-    <td>- O usuário deve ser capaz de acessar a tela de cadastro a partir da tela inicial do aplicativo;<br/>- Os campos obrigatórios a ser preenchidos serão:<br/>&nbsp;&nbsp;- Nome;<br/>&nbsp;&nbsp;- E-mail;<br/>&nbsp;&nbsp;- Senha;<br/>-Duas perguntas de segurança para garantir uma futura redefinição de senha;<br/>- O e-mail deve ser validado;<br/>- A senha deverá ter um comprimento mínimo e caracteres especiais;<br/>- Deverá ter uma dupla verificação da senha, o sistema deverá passar quando ambas estiverem iguais;<br/>- Exibir mensagem de erro caso o e-mail já tenha sido cadastrado;<br/>- Direcionar para a tela de login após o cadastro ser bem-sucedid;</td>
+    <td>- Deverá ter um perfil ou uma área onde o usuário possa acessar e editar seus dados pessoais;<br/>- Os dados a serem editáveis devem ser:<br/>&nbsp;&nbsp;- Nome;<br/>&nbsp;&nbsp;- E-mail;<br/>&nbsp;&nbsp;- Senha;<br/>- O sistema deve permitir que o usuário salve as alterações feitas;<br/>- O sistema deve validar os campos modificados e entregar uma resposta imediata caso algum campo esteja preenchido corretamente;<br/>- DPara modificar a senha, deverá ter uma dupla confirmação;<br/>- Exibir uma mensagem de erro caso alguma informação tenha sido preenchida erroneamente;<br/>- Após as informações serem salvas com sucesso, apresentar uma mensagem de sucesso e direcionar para o perfil do usuário com as informações já atualizadas;</td>
   </tr>
   <tr>
     <td>US07</td>

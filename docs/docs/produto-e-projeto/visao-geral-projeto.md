@@ -20,10 +20,11 @@ sidebar_position: 2
 |------------|----------------------------------------------------|-----------------|--------------|
 | Sprint 1   | Definição do Produto e Planejamento do Projeto.    | 06/04/2023      | 20/04/2023   |
 | Sprint 2   | Definição dos requisitos e estudo das tecnologias. | 21/04/2023      | 04/05/2023   |
-| Sprint 3   | Produto(Entrega)                                   | 20/05/2023      | 03/06/2023   |
-| Sprint 4   | Produto(Entrega)                                   | 04/06/2023      | 18/06/2023   |
-| Sprint 5   | Produto(Entrega)                                   | 19/06/2023      | 03/07/2023   |
-| Sprint 6   | Produto(Entrega)                                   | 04/07/2023      | 21/07/2023   |
+| Sprint 3   | Produto(Entrega)                                   | 05/05/2023      | 19/05/2023   |
+| Sprint 4   | Produto(Entrega)                                   | 20/05/2023      | 03/06/2023   |
+| Sprint 5   | Produto(Entrega)                                   | 04/06/2023      | 18/06/2023   |
+| Sprint 6   | Produto(Entrega)                                   | 19/06/2023      | 03/07/2023   |
+| Sprint 7   | Produto(Entrega)                                   | 04/07/2023      | 21/07/2023   |
 
 ## 3. Matriz de Comunicação
 
