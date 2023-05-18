@@ -21,6 +21,11 @@ Foi definido que o tipo de arquitetura do FinDriver será a de aplicativos híbr
 
 O estilo arquitetural escolhido foi Model-View-Controller (MVC), motivado pela experiência prévia de toda a equipe com o estilo. Ademais, o MVC também permite: a separação clara entre apresentação e integração de dados; uma mudança de dados independentemente da apresentação e vice-versa; e uma menor complexidade do código quando comparado ao MVP e ao MVVM.
 
+### 3. Protótipo de baixa fidelidade
+
+Logo abaixo, há o nosso protótipo de baixa fidelidade feito no lucidchart.
+
+![Prototipo de baixa fidelidade](img/Tela_de_Autenticacao1.png)
 
 ## Referências 
 - Material do moodle da disciplina
