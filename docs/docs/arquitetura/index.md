@@ -9,6 +9,7 @@ sidebar_position: 5
 |**Data**|**Versão**|**Descrição**|**Autor**|
 |:------:|:--------:|:-----------:|:-------:|
 | 10/05/2023 | 1.0 | Construção da Arquitetura | [Taynara Vitorino](https://github.com/taybalau)|
+| 17/05/2023 | 1.1 | Protótipo de baixa e Fluxo de tela | [Victor](https://github.com/ViictorHugoo) [Maria Alice](https://github.com/Maliz30)|
 
 ## Arquitetura do produto
 Estão dispostos nesse capítulo as informações sobre as decisões arquiteturais do aplicativo FinDriver.
@@ -23,7 +24,7 @@ O estilo arquitetural escolhido foi Model-View-Controller (MVC), motivado pela e
 
 ### 3. Protótipo de baixa fidelidade
 
-Logo abaixo, há o nosso protótipo de baixa fidelidade feito no lucidchart.
+Logo abaixo, há o nosso protótipo de baixa fidelidade feito no canva e o fluxo de telas feito no Lucidchar.
 
 ![Prototipo de baixa fidelidade](img/Tela_de_Autenticacao1.png)
 
