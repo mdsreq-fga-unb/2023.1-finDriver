@@ -1,10 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
-# Lições Aprendidas
-
-## Unidade 1
+# Unidade 1
 
 No decorrer da Unidade 1 - e das aulas ministradas em sala de aula - aprendemos diversos conteúdos, principalmente sobre fundamentos da Engenharia de Software e metodologias ágeis, sendo elas: Scrum e XP. Os conhecimentos absorvidos pelo grupo foram utilizados e expressados durante todo o desenvolvimento desta primeira entrega do projeto, a Visão do Produto e Projeto.
 
