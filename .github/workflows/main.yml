@@ -15,6 +15,12 @@ jobs:
       - uses: expo/expo-github-action@v6
         with:
           expo-version: 4.x
-      - run: cd src/findriver
-      - run: yarn
-      - run: yarn test
+      - run: |
+        cd src/findriver
+        yarn install
+      - run: |
+        cd src/findriver
+        yarn
+      - run: |
+        cd src/findriver
+        yarn test
