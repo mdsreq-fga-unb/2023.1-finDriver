@@ -10,4 +10,4 @@ describe('<App />', () => {
   });
 });
 // testando a biblioteca jest
-// testando a action
+// testando a action pela ultima vez
