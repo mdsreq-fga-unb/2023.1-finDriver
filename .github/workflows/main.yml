@@ -16,11 +16,11 @@ jobs:
         with:
           expo-version: 4.x
       - run: |
-        cd src/findriver
-        yarn install
+          cd src/findriver
+          yarn install
       - run: |
-        cd src/findriver
-        yarn
+          cd src/findriver
+          yarn
       - run: |
-        cd src/findriver
-        yarn test
+          cd src/findriver
+          yarn test
