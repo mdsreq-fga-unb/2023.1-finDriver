@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "949285888454",
+    "project_id": "findriver-mds",
+    "storage_bucket": "findriver-mds.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949285888454:android:d31dd1f9076037453a12c7",
+        "android_client_info": {
+          "package_name": "com.mds.findriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949285888454-efn2t998chmhph2jk0pl7tgl68o0qj71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEphTUrbBlL-eh1uE2nkxt-nmyOf9QMJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949285888454-efn2t998chmhph2jk0pl7tgl68o0qj71.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
