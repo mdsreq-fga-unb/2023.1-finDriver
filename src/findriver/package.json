@@ -25,7 +25,9 @@
     "react-native-web": "~0.18.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "eslint": "^8.41.0",
+    "eslint-plugin-import": "^2.27.5"
   },
   "jest": {
     "preset": "jest-expo",
