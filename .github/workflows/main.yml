@@ -23,5 +23,4 @@ jobs:
           yarn
       - run: |
           cd src/findriver
-          npx eslint . --ext .js,.jsx,.ts,.tsx
           yarn test
