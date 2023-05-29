@@ -1,5 +1,3 @@
-//import { createClient } from '@supabase/supabase-js'
-//import { test } from '@supabase/doctest-js'
 import UserModel from '../model/User.js'
 
 describe('Supabase', () => {
