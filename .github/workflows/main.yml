@@ -22,7 +22,3 @@ jobs:
           cd src/findriver
           yarn
           yarn test
-      - run: |
-          cd src/findriver
-          git rm .env.js
-          git commit "Excluir o arquivo .env.js"
