@@ -1,4 +1,10 @@
-import UserModel from '../model/User.js'
+import UserModel from '../model/User';
+
+jest.mock('../model/User');
+
+beforeEach(() => {
+    UserModel.mockClear();
+});
 
 describe('Supabase', () => {
     it('Insert sucess', async () => {
@@ -8,6 +14,8 @@ describe('Supabase', () => {
         usuario1.insertUser();
 
         expect(usuarioFunc).toHaveBeenCalled();
-        usuarioFunc.mockRestore()
+        usuarioFunc.mockRestore();
     });
 });
+
+//echo "export const environment = {SUPABASE_URL: 'http://localhost:3000', SUPABASE_ANON_KEY: ''}" > .env.js
