@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
+import { getDefaultLibFilePath } from 'typescript';
 
 const Login: React.FC = () => {
 
@@ -106,4 +107,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export { Login };
+export default Login;
