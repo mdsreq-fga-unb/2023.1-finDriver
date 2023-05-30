@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
 
 const Login: React.FC = () => {
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setpassword] = useState('');
-    const [repeatPassword, setrepeatPassword] = useState('');
+    const [password, setPassword] = useState('');
+    const [repeatPassword, setRepeatPassword] = useState('');
 
-    const comparePassword = (password, repeatPassword) => {
-        return repeatPassword === password ? 1 : 0;
+    const comparePassword = () => {
+        return repeatPassword === password ? true : false;
     }
 
     return(
@@ -18,6 +18,7 @@ const Login: React.FC = () => {
                 <TextInput
                     style={styles.input}
                     value={nome}
+                    onChangeText={nome => setNome(nome)}
                     placeholder="Nome"
                     keyboardType="default"
                     cursorColor="#001f36"
@@ -25,6 +26,8 @@ const Login: React.FC = () => {
                 <Text style={styles.label}>E-mail</Text>
                 <TextInput
                     style={styles.input}
+                    value={email}
+                    onChangeText={email => setEmail(email)}
                     placeholder="Email"
                     keyboardType="email-address"
                     autoComplete="email"
@@ -33,6 +36,8 @@ const Login: React.FC = () => {
                 <Text style={styles.label}>Senha</Text>
                 <TextInput
                     style={styles.input}
+                    value={password}
+                    onChangeText={password => setPassword(password)}
                     placeholder="Senha"
                     keyboardType="default"
                     autoComplete= "off"
@@ -44,6 +49,8 @@ const Login: React.FC = () => {
                 <Text style={styles.label}>Confirme sua senha</Text>
                 <TextInput
                     style={styles.input}
+                    value={repeatPassword}
+                    onChangeText={repeatPassword => setRepeatPassword(repeatPassword)}
                     placeholder="Senha"
                     keyboardType="default"
                     autoComplete= "off"
@@ -51,8 +58,13 @@ const Login: React.FC = () => {
                     cursorColor="#001f36"
                     secureTextEntry={true}
                 />
-                <Pressable style={styles.button}>
+                <Pressable 
+                    style={styles.button}
+                    onPress={() => Alert.alert('Dados de login', [nome, email, password, repeatPassword].join(`\n`))}>
                     <Text style={styles.textButton}>Registrar</Text>
+                </Pressable>
+                <Pressable >
+                    <Text style={styles.link}>Já possuo conta</Text>
                 </Pressable>
             </View>
         </View>
@@ -96,6 +108,15 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#ffffff',
+    },
+    link: {
+        alignSelf: 'flex-end',
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#001f36',
+        marginTop: 30,
+        textDecorationLine: 'underline',
+        textDecorationColor: '#001f36',
     },
 });
 
