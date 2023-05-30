@@ -18,6 +18,7 @@ jobs:
       - run: |
           cd src/findriver
           yarn install
+          echo "export const environment = {SUPABASE_URL: '${{ secrets.SUPABASE_URL }}', SUPABASE_ANON_KEY: '${{ secrets.SUPABASE_ANON_KEY }}'}" > .env.js
       - run: |
           cd src/findriver
           yarn
