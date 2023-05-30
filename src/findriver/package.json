@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^18.0.1",
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
     "@supabase/supabase-js": "^2.22.0",
     "expo": "^48.0.17",
     "expo-status-bar": "~1.4.4",
@@ -22,12 +24,16 @@
     "react-dom": "18.2.0",
     "react-native": "0.71.7",
     "react-native-async-storage": "^0.0.1",
-    "react-native-web": "~0.18.10",
     "typescript": "^4.9.4",
+    "react-native-safe-area-context": "4.5.0",
+    "react-native-screens": "~3.20.0",
+    "react-native-web": "~0.18.10",
     "@types/react": "~18.0.27"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "eslint": "^8.41.0",
+    "eslint-plugin-import": "^2.27.5"
   },
   "jest": {
     "preset": "jest-expo",
