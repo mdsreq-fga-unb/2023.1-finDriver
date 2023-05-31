@@ -7,7 +7,7 @@ beforeEach(() => {
 });
 
 describe('Supabase', () => {
-    it('Insert sucess', async () => {
+    it('Insert success', async () => {
         let usuario1 = new UserModel("Felipe", "felipe@gmail.com", "1223455", "cachorro", "sorvete");
         let usuarioFunc = jest.spyOn(usuario1, 'insertUser');
 
