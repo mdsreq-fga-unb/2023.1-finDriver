@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 20,
         textDecorationLine: 'underline',
-        textDecorationColor: '#001f36',
+        textDecorationColor: '#1C5560',
     },
     signUp: {
         fontWeight: 'bold',
