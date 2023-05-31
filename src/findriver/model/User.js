@@ -17,10 +17,9 @@ export default class UserModel {
         const { data: Users, error } = await supabase
             .from('Users')
             .insert([{ name: this.name, email: this.email, password: this.password, 
-                    answerOne: this.answerOne }])
+                    answerOne: this.answerOne, answerTwo: this.answerTwo }])
     }
 }
-
 
 
 var usuario1 = new UserModel("Roberto", "pedro@gmail.com", "BababVerde1234", "linux", "cavalo");

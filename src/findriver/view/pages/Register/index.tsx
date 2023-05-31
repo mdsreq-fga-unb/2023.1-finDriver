@@ -11,6 +11,16 @@ const Register: React.FC = () => {
         return repeatPassword === password ? true : false;
     }
 
+    const handleRegister = () => {
+        if (!nome || !email || !password || !repeatPassword) {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+        } else if (!comparePassword()) {
+            Alert.alert('Erro', 'As senhas não coincidem. Por favor, tente novamente.');
+        } else {
+            Alert.alert('Dados de Registro', [nome, email, password, repeatPassword].join(`\n`));
+        }
+    };
+
     return(
         <View style={styles.container}>
            
@@ -71,7 +81,7 @@ const Register: React.FC = () => {
 
                 <Pressable 
                     style={styles.button}
-                    onPress={() => Alert.alert('Dados de Registro', [nome, email, password, repeatPassword].join(`\n`))}>
+                    onPress={handleRegister}>
                     <Text style={styles.textButton}>Registrar</Text>
                 </Pressable>
 
