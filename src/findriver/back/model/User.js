@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import {environment as env } from '../.env.js'
+import {environment as env } from '../../.env.js'
 
 // Create a single supabase client for interacting with your database
 const supabase = createClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY)

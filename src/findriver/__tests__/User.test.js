@@ -1,6 +1,6 @@
-import UserModel from '../model/User';
+import UserModel from '../back/model/User';
 
-jest.mock('../model/User');
+jest.mock('../back/model/User');
 
 beforeEach(() => {
     UserModel.mockClear();
