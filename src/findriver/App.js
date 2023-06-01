@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import Register from './view/pages/Register/index'
 
 import Login from './view/pages/Login';
-import Welcome from './view/pages/Welcome';
-import SecurityQuestion from './view/pages/SecurityQuestion';
+import Welcome from './front/view/pages/Welcome';
+import SecurityQuestion from './front/view/pages/SecurityQuestion';
 
 
 
