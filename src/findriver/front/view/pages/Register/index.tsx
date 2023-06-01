@@ -72,7 +72,7 @@ const Register: React.FC = () => {
                 <Pressable 
                     style={styles.button}
                     onPress={() => Alert.alert('Dados de Registro', [nome, email, password, repeatPassword].join(`\n`))}>
-                    <Text style={styles.textButton}>Registrar</Text>
+                    <Text style={styles.textButton}>Continuar</Text>
                 </Pressable>
 
                 <Pressable
