@@ -4,10 +4,10 @@
     "slug": "findriver",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logoCarro.png",
+    "icon": "./view/assets/logoCarro.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logoCarro.png",
+      "image": "./view/assets/logoCarro.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,12 +19,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logoCarro.png",
+        "foregroundImage": "./view/assets/logoCarro.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/logoCarro.png"
+      "favicon": "./view/assets/logoCarro.png"
     }
   }
 }

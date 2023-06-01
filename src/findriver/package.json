@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^18.0.1",
+    "@ouroboros/react-native-picker": "^0.3.1",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "@supabase/supabase-js": "^2.22.0",
