@@ -1,16 +1,24 @@
 import React from 'react';
 import { View, Image, Text, Pressable, StyleSheet } from 'react-native';
 
-const Welcome: React.FC = () => {
+const Welcome = ({ navigation }) => {
     return(
         <View style={styles.container}>
+
             <Image source={require('../../assets/logoCarro.png')} style={styles.logo}/>
-            <Pressable style={styles.button}>
-                <Text style={styles.textButton} >Entrar</Text>
+
+            <Pressable 
+                style={styles.button}
+                onPress={() => navigation.navigate('Login')}>
+                    <Text style={styles.textButton} >Entrar</Text>
             </Pressable>
-            <Pressable style={styles.button}>
-                <Text style={styles.textButton} >Cadastrar-se</Text>
+
+            <Pressable 
+                style={styles.button}
+                onPress={() => navigation.navigate('Register')}>
+                    <Text style={styles.textButton} >Cadastrar-se</Text>
             </Pressable>
+            
         </View>
     );
 };

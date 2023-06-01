@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
-const SecurityQuestion: React.FC = () => {
+const SecurityQuestion = ({ navigation }) => {
     const [questionOne, setQuestionOne] = useState('');
     const [answerOne, setAnswerOne] = useState('');
     const [questionTwo, setQuestionTwo] = useState('');
