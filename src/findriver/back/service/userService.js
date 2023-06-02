@@ -1,5 +1,5 @@
 const { createClient } = require("@supabase/supabase-js");
-const { User } = require("../models/userModel")
+const { User } = require("../model/userModel")
 var bcrypt = require('bcrypt')
 
 require("dotenv").config();
@@ -17,7 +17,8 @@ const createUser = async (User) => {
   const { data, error } = await supabase
     .from("Users").insert([{
       name: User.name, email: User.email, password: encryptedPassword,
-      answerOne: User.answerOne, answerTwo: User.answerTwo
+      answerOne: User.answerOne, answerTwo: User.answerTwo,
+      questionOne: User.questionOne, questionTwo: User.questionTwo
     }])
 
 
@@ -32,20 +33,20 @@ const createUser = async (User) => {
   }
 }
 
-  async function getUserByEmail(user) {
-    const { data, error } = await supabase
-      .from("Users")
-      .select("name")
-      .eq('email', user.email)
+async function getUserByEmail(user) {
+  const { data, error } = await supabase
+    .from("Users")
+    .select("name")
+    .eq('email', user.email)
 
-    if (error) {
-      console.log(error);
-      throw error;
-    } else if (data.length === 0) {
-      return "Usuário não existe";
-    } else {
-      return data;
-    }
+  if (error) {
+    console.log(error);
+    throw error;
+  } else if (data.length === 0) {
+    return "Usuário não existe";
+  } else {
+    return data;
   }
+}
 
-  module.exports = { createUser, getUserByEmail };
+module.exports = { createUser, getUserByEmail };
