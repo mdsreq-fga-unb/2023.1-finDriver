@@ -1,6 +1,6 @@
-import UserModel from '../back/model/User';
+import UserModel from '../back/model/userModel';
 
-jest.mock('../back/model/User');
+jest.mock('../back/model/userModel');
 
 beforeEach(() => {
     UserModel.mockClear();
@@ -8,7 +8,7 @@ beforeEach(() => {
 
 describe('Supabase', () => {
     it('Insert success', async () => {
-        let usuario1 = new UserModel("Felipe", "felipe@gmail.com", "1223455", "cachorro", "sorvete");
+        let usuario1 = new UserModel("Felipe", "felipe@gmail.com", "1223455", "cachorro", "sorvete", "food", "pet");
         let usuarioFunc = jest.spyOn(usuario1, 'insertUser');
 
         usuario1.insertUser();
