@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
 
-const Register: React.FC = () => {
+const Register = ({ navigation }) => {
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -71,12 +71,12 @@ const Register: React.FC = () => {
 
                 <Pressable 
                     style={styles.button}
-                    onPress={() => Alert.alert('Dados de Registro', [nome, email, password, repeatPassword].join(`\n`))}>
+                    onPress={() => navigation.navigate('SecurityQuestion')}>
                     <Text style={styles.textButton}>Continuar</Text>
                 </Pressable>
 
                 <Pressable
-                    onPress={() => Alert.alert('Ta chei das conta')}>
+                    onPress={() => navigation.navigate('Login')}>
                     <Text style={styles.link}>Já possuo conta</Text>
                 </Pressable>
 

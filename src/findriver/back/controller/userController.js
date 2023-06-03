@@ -29,6 +29,28 @@ async function getUser(req, res) {
   } 
 
   res.status(statusCode.OK).json({ value });
-}
+};
 
-module.exports = { addUser, getUser }
+async function updateUser(req, res) {
+  const user = req.body;
+  const { id } = req.params;
+
+  try{
+    await userService.updateUserById(user, id);
+
+    res.status(statusCode.OK).json({ message: 'Alterações feitas com sucesso!' });
+  } catch (e) {
+
+    res.status(e.status || 500).json({ message: e.message })
+  }
+};
+
+async function deleteUser(req, res) {
+  const { id } = req.params;
+
+  await userService.deleteUserById(id);
+
+  return res.status(statusCode.NO_CONTENT).send();
+};
+
+module.exports = { addUser, getUser, updateUser, deleteUser }

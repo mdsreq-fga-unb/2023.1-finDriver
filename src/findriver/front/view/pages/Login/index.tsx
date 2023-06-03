@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
 import { getDefaultLibFilePath } from 'typescript';
 
-const Login: React.FC = () => {
+const Login = ({ navigation }) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -43,7 +43,7 @@ const Login: React.FC = () => {
                 <Pressable onPress={() => Alert.alert('Tá muito esquecidinho em')}>
                     <Text style={styles.underlinedText}>Esqueceu a senha?</Text>
                 </Pressable>
-                <Pressable onPress={() => Alert.alert('Tá cadastrado!')}>
+                <Pressable onPress={() => navigation.navigate('Register')}>
                     <Text style={[styles.underlinedText , styles.signUp]}>Cadastre-se</Text>
                 </Pressable>
             </View>

@@ -1,5 +1,45 @@
 {
-    "name": "back",
+    "name": "backend",
     "version": "1.0.0",
-    "description": "Backend workspace"
+<<<<<<< HEAD
+    "description": "",
+    "main": "index.js",
+    "type": "commonjs",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+=======
+    "description": "Backend workspace",
+>>>>>>> bdc40b6a685f446e0d037f7bcaaf84cfacc25f49
+    "dependencies": {
+        "@supabase/supabase-js": "^2.24.0",
+        "bcrypt": "^5.1.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.1.3",
+<<<<<<< HEAD
+        "dotenv-safe": "^8.2.0",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.0",
+        "nodemon": "^2.0.22"
+    },
+    "devDependencies": {
+        "sequelize": "^6.31.1",
+        "sequelize-cli": "^6.6.0",
+        "supabase": "^1.64.8"
+    }
 }
+=======
+        "express": "^4.18.2",
+        "nodemon": "^2.0.22"
+      },
+      "devDependencies": {
+        "sequelize": "^6.31.1",
+        "sequelize-cli": "^6.6.0",
+        "supabase": "^1.64.8"
+      }
+}
+>>>>>>> bdc40b6a685f446e0d037f7bcaaf84cfacc25f49
