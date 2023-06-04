@@ -19,9 +19,13 @@ const createUser = async (User) => {
 
   const { error } = await supabase
     .from('Users').insert([{
-      name: User.name, email: User.email, password: encryptedPassword,
-      answerOne: User.answerOne, answerTwo: User.answerTwo,
-      questionOne: User.questionOne, questionTwo: User.questionTwo,
+      name: User.name, 
+      email: User.email, 
+      password: encryptedPassword,
+      answerOne: User.answerOne, 
+      answerTwo: User.answerTwo,
+      questionOne: User.questionOne, 
+      questionTwo: User.questionTwo,
       token: token
     }])
 
@@ -96,4 +100,4 @@ const createToken = (user) => {
   return token;
 };
 
-module.exports = { createUser, getUserByEmail, updateUserById, deleteUserById };
+module.exports = { createUser, getUserByEmail, updateUserById, deleteUserById, supabase };
