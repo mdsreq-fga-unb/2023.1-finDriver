@@ -6,4 +6,8 @@ router.post("/cadastro", userController.addUser)
 
 router.get("/", userController.getUser)
 
+router.put("/editar/:id", userController.updateUser)
+
+router.delete("/deletar/:id", userController.deleteUser)
+
 module.exports = router;
