@@ -1,5 +1,6 @@
 const userService = require("../service/userService");
-const { getUserByEmail } = require("../service/userService");
+const { getUserByEmail } = require("../service/userService"); 
+const { loginUserWithToken } = require("../service/loginService")
 const statusCode = require('../helpers/statusCode');
 
 async function addUser(req, res) {
@@ -53,4 +54,16 @@ async function deleteUser(req, res) {
   return res.status(statusCode.NO_CONTENT).send();
 };
 
-module.exports = { addUser, getUser, updateUser, deleteUser }
+async function loginUser(req, res) {
+  const user = req.body;
+
+  const token = await loginUserWithToken(user);
+
+  if (token == "Todos os campos são necessários" || token == "Credenciais inválidas" ) {
+    return res.status(statusCode.UNAUTHORIZED).json({ token });
+  }
+
+  res.status(statusCode.OK).json({ token });
+}
+
+module.exports = { addUser, getUser, updateUser, deleteUser, loginUser }
