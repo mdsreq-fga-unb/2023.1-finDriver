@@ -2,11 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
-const SecurityQuestion = ({ navigation }) => {
-    const [questionOne, setQuestionOne] = useState('');
-    const [answerOne, setAnswerOne] = useState('');
-    const [questionTwo, setQuestionTwo] = useState('');
-    const [answerTwo, setAnswerTwo] = useState('');
+const SecurityQuestion = ({ navigation, route }) => {
+    const { user } = route.params;
+    const {nome, password, repeatPassword, email} = user;
+    const [questionOne, setQuestionOne] = useState(user.questionOne);
+    const [answerOne, setAnswerOne] = useState(user.answerOne);
+    const [questionTwo, setQuestionTwo] = useState(user.questionTwo);
+    const [answerTwo, setAnswerTwo] = useState(user.answerTwo);
+
+    const handleCreateUser = () => {
+        if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+        } else {
+            Alert.alert('Dados de Registro', [nome, email, password, questionOne, answerOne, questionTwo, answerTwo].join(`\n`))
+        }
+    }
+    
 
     return(
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
@@ -22,6 +33,7 @@ const SecurityQuestion = ({ navigation }) => {
                     <Picker
                         onChanged={setQuestionOne}
                         options={[
+                            {value: '', text: ''},
                             {value: 'food', text: 'Qual sua comida favorita?'},
                             {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
                             {value: 'fear', text: 'Qual o seu maior medo?'},
@@ -44,6 +56,7 @@ const SecurityQuestion = ({ navigation }) => {
                     <Picker
                         onChanged={setQuestionTwo}
                         options={[
+                            {value: '', text: ''},
                             {value: 'food', text: 'Qual sua comida favorita?'},
                             {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
                             {value: 'fear', text: 'Qual o seu maior medo?'},
@@ -65,7 +78,7 @@ const SecurityQuestion = ({ navigation }) => {
             
                 <Pressable 
                     style={styles.button}
-                    onPress={() => Alert.alert('Dados de Registro', [questionOne, answerOne, questionTwo, answerTwo].join(`\n`))}>
+                    onPress={() => handleCreateUser()}>
                     <Text style={styles.textButton}>Registrar</Text>
                 </Pressable>
             </View>

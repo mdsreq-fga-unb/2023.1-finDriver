@@ -6,10 +6,37 @@ const Register = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
+    const [answerOne, setAnswerOne] = useState('');
+    const [answerTwo, setAnswerTwo] = useState('');
+    const [questionOne, setQuestionOne] = useState('');
+    const [questionTwo, setQuestionTwo] = useState('');
+
+
+
 
     const comparePassword = () => {
         return repeatPassword === password ? true : false;
     }
+    const handleRegister = () => {
+        if (!nome || !email || !password || !repeatPassword) {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+        } else if (!comparePassword()) {
+            Alert.alert('Erro', 'As senhas não coincidem. Por favor, tente novamente.');
+        } else {
+            const user = {
+                nome, 
+                email, 
+                password, 
+                repeatPassword, 
+                answerOne,
+                answerTwo,
+                questionOne,
+                questionTwo,
+            }
+
+            navigation.navigate('SecurityQuestion', { user });
+        }
+    };
 
     return(
         <View style={styles.container}>
@@ -71,7 +98,7 @@ const Register = ({ navigation }) => {
 
                 <Pressable 
                     style={styles.button}
-                    onPress={() => navigation.navigate('SecurityQuestion')}>
+                    onPress={() => handleRegister()}>
                     <Text style={styles.textButton}>Continuar</Text>
                 </Pressable>
 
