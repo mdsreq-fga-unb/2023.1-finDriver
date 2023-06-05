@@ -1,25 +1,28 @@
 const { createClient } = require("@supabase/supabase-js");
 const { Ride } = require("../model/rideModel")
-const { supabase } = require("./userService/supabase")
+const { supabase } = require("./userService")
+const jwt = require('jsonwebtoken')
+const env = require("dotenv");
 
 const createRide = async(userId, Ride) => {
+
     try{
-        const { data, error } = await supabase
-            .from("Rides")
-            .insert({
+        const { error } = await supabase
+            .from('Rides')
+            .insert([{
                 idUser: userId,
                 value: Ride.value,
                 kilometerage: Ride.kilometerage,
                 application: Ride.application,
                 description: Ride.description,
                 date: Ride.date
-            })
+            }])
             .single()
             
         if(error) throw error;
 
     } catch(error){
-        alert(error.message);
+        throw error;
     }
 }
 
@@ -37,7 +40,7 @@ const getRideByUserId = async(userId) => {
         }
 
     } catch(error){
-        alert(error.message);
+        throw error;
     }
 }
 
@@ -55,7 +58,7 @@ const getRideByRideId = async(Ride) => {
         }
 
     } catch(error){
-        alert(error.message);
+        throw error;
     }
 }
 
@@ -75,7 +78,7 @@ const updateRideById = async(Ride) => {
         if (error) throw error;
 
     } catch(error){
-        alert(error.message);
+        throw error;
     }
     
 }
@@ -90,8 +93,25 @@ const deleteRideById = async(Ride) => {
         if(error) throw error;
 
     } catch(error){
-        alert(error.message);
+        throw error;
     }
 }
 
-module.exports = { createRide, getRideByUserId, getRideByRideId, updateRideById, deleteRideById }
+const getUserIdByToken = (token) => {
+    
+    if(!token){
+        throw new Error('Token de autenticação não fornecido!');
+    }
+
+    try{
+        const decoded = jwt.verify(token, process.env.TOKEN_KEY);
+        //console.log(decoded.id);
+        var userId = decoded.id;
+        return userId;
+
+    } catch (error){
+        throw new Error('Token de autenticação inválido!');
+    }
+};
+
+module.exports = { createRide, getRideByUserId, getRideByRideId, updateRideById, deleteRideById, getUserIdByToken }
