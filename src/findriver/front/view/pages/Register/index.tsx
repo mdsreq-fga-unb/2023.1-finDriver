@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
 
 const Register = ({ navigation }) => {
-    const [nome, setNome] = useState('');
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
@@ -23,9 +23,9 @@ const Register = ({ navigation }) => {
                     <Text style={styles.label}>Nome</Text>
                     <TextInput
                         style={styles.input}
-                        value={nome}
-                        onChangeText={nome => setNome(nome)}
-                        placeholder="Nome"
+                        value={name}
+                        onChangeText={name => setName(name)}
+                        placeholder="Name"
                         keyboardType="default"
                         cursorColor="#001f36"
                     />
