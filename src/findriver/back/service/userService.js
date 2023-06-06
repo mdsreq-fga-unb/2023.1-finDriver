@@ -17,6 +17,8 @@ const createUser = async (User) => {
 
   const token = createToken(User)
 
+  console.log('to no backendsss')
+
   const { error } = await supabase
     .from('Users').insert([{
       name: User.name, email: User.email, password: encryptedPassword,

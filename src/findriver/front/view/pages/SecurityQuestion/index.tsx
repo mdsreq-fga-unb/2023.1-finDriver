@@ -22,10 +22,10 @@ const SecurityQuestion = ({ navigation }) => {
                     <Picker
                         onChanged={setQuestionOne}
                         options={[
-                            {value: 'food', text: 'Qual sua comida favorita?'},
-                            {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
-                            {value: 'fear', text: 'Qual o seu maior medo?'},
-                            {value: 'city', text: 'Qual a sua cidade natal?'},
+                            { value: 'food', text: 'Qual sua comida favorita?' },
+                            { value: 'pet', text: 'Qual o nome do seu primeiro Pet?' },
+                            { value: 'fear', text: 'Qual o seu maior medo?' },
+                            { value: 'city', text: 'Qual a sua cidade natal?' },
                         ]}
                         style={styles.picker}
                         value={questionOne}
@@ -44,10 +44,10 @@ const SecurityQuestion = ({ navigation }) => {
                     <Picker
                         onChanged={setQuestionTwo}
                         options={[
-                            {value: 'food', text: 'Qual sua comida favorita?'},
-                            {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
-                            {value: 'fear', text: 'Qual o seu maior medo?'},
-                            {value: 'city', text: 'Qual a sua cidade natal?'},
+                            { value: 'food', text: 'Qual sua comida favorita?' },
+                            { value: 'pet', text: 'Qual o nome do seu primeiro Pet?' },
+                            { value: 'fear', text: 'Qual o seu maior medo?' },
+                            { value: 'city', text: 'Qual a sua cidade natal?' },
                         ]}
                         style={styles.picker}
                         value={questionTwo}
