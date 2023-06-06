@@ -44,13 +44,13 @@ const getRideByUserId = async(userId) => {
     }
 }
 
-const getRideByRideId = async(Ride) => {
+const getRideByRideId = async(rideId) => {
     try{
         const { data, error } = await supabase
             .from("Rides")
             .select("*")
-            .eq('idUser', Ride.id)
-            .single
+            .eq('id', rideId)
+            .single();
 
         if(error) throw error;
         if (data != null){
@@ -62,7 +62,7 @@ const getRideByRideId = async(Ride) => {
     }
 }
 
-const updateRideById = async(Ride) => {
+const updateRideById = async(Ride, rideId) => {
     try{
         const { data, error } = await supabase
             .from("Rides")
@@ -73,7 +73,7 @@ const updateRideById = async(Ride) => {
                 description: Ride.description,
                 date: Ride.date
             })
-            .eq("id", Ride.id)
+            .eq("id", rideId)
         
         if (error) throw error;
 
@@ -83,12 +83,12 @@ const updateRideById = async(Ride) => {
     
 }
 
-const deleteRideById = async(Ride) => {
+const deleteRideById = async(rideId) => {
     try{
         const { data, error } = await supabase
             .from("Rides")
             .delete()
-            .eq("id", Ride.id)
+            .eq("id", rideId)
         
         if(error) throw error;
 
@@ -105,8 +105,7 @@ const getUserIdByToken = (token) => {
 
     try{
         const decoded = jwt.verify(token, process.env.TOKEN_KEY);
-        //console.log(decoded.id);
-        var userId = decoded.id;
+        var userId = decoded.data[0].id;
         return userId;
 
     } catch (error){

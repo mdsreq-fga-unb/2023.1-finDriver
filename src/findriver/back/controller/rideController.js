@@ -1,15 +1,13 @@
 const rideService = require("../service/rideService");
 const statusCode = require("../helpers/statusCode");
 const jwt = require("jsonwebtoken");
-const { getUserIdByToken, getRideByUserId } = require("../service/rideService");
-
 
 async function addRide(req, res) {
     const ride = req.body;
 
     try{
         const token = req.headers.authorization;
-        const userId = await getUserIdByToken(token);
+        const userId = await rideService.getUserIdByToken(token);
         await rideService.createRide(userId, ride);
 
         res.status(statusCode.CREATED).json({
@@ -26,19 +24,54 @@ async function addRide(req, res) {
 async function getRides(req, res){
     try{
         const token = req.headers.authorization;
-        const userId = await getUserIdByToken(token);
+        const userId = await rideService.getUserIdByToken(token);
 
         if (!userId) {
             return res.status(401).json({ message: 'Token de autenticação inválido!' });
-          }
+        }
 
-        var value = await getRideByUserId(userId);
+        var value = await rideService.getRideByUserId(userId);
         res.status(statusCode.OK).json({ value });
-        res.json({ userId });
 
     } catch(error){
-        res.status(statusCode.NOT_FOUND).json({ message: error.message && "entrei e não foi" });
+        res.status(statusCode.NOT_FOUND).json({ message: error.message });
     }
 };
 
-module.exports = { getUserIdByToken, addRide, getRides }
+async function getOneRide(req, res){
+    const { id } = req.params;
+    
+    try{
+        let value = await rideService.getRideByRideId(id);
+        console.log(value);
+        res.status(statusCode.OK).json({ value });
+    } catch(error){
+        res.status(statusCode.NOT_FOUND).json({ message: error.message })
+    }
+
+}
+
+async function updateRide(req, res){
+    const { id } = req.params;
+    const ride = req.body;
+
+    try{
+        let value = await rideService.updateRideById(ride, id);
+        res.status(statusCode.OK).json({ message: "Corrida atualizada com sucesso!"});
+    } catch(error){
+        res.status(statusCode.NOT_FOUND).json({ message: error.message })
+    }
+}
+
+async function deleteRide(req, res){
+    const { id } = req.params;
+
+    try{
+        await rideService.deleteRideById(id);
+        res.status(statusCode.OK).json({ message: "Corrida excluida com sucesso!"});
+    }catch(error){
+        res.status(statusCode.NOT_FOUND).json({ message: error.message })
+    }
+}
+
+module.exports = { addRide, getRides, getOneRide, updateRide, deleteRide }

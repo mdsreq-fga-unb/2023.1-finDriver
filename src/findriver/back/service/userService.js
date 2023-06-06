@@ -15,16 +15,23 @@ const createUser = async (User) => {
   var salt = bcrypt.genSaltSync(10)
   var encryptedPassword = bcrypt.hashSync(User.password, salt)
 
-  const token = createToken(User)
-
-  const { error } = await supabase
-    .from('Users').insert([{
-      name: User.name, email: User.email, password: encryptedPassword,
-      answerOne: User.answerOne, answerTwo: User.answerTwo,
-      questionOne: User.questionOne, questionTwo: User.questionTwo,
-      token: token
+  const { data, error } = await supabase
+    .from('Users')
+    .insert([{
+      name: User.name, 
+      email: User.email, 
+      password: encryptedPassword,
+      answerOne: User.answerOne, 
+      answerTwo: User.answerTwo,
+      questionOne: User.questionOne, 
+      questionTwo: User.questionTwo,
+      token: "null"
     }])
+    .select('id')
 
+    console.log(data);
+
+    const token = createToken(data);
 
   if (error) {
     if (error.code == '23505') {
@@ -93,7 +100,8 @@ const createToken = (user) => {
     { data: user }, 
     process.env.TOKEN_KEY,
     );
+    console.log(token);
   return token;
 };
 
-module.exports = { createUser, getUserByEmail, updateUserById, deleteUserById };
+module.exports = { createUser, getUserByEmail, updateUserById, deleteUserById, supabase };
