@@ -2,27 +2,52 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
-const SecurityQuestion = ({ navigation, route }) => {
-    const {user} = route.params;
-    const {name, email, password} = user;
+const SecurityQuestion = ({ route, navigation }) => {
+    const [questionOne, setQuestionOne] = useState('');
+    const [answerOne, setAnswerOne] = useState('');
+    const [questionTwo, setQuestionTwo] = useState('');
+    const [answerTwo, setAnswerTwo] = useState('');
 
-    const [questionOne, setQuestionOne] = useState(user.questionOne);
-    const [answerOne, setAnswerOne] = useState(user.answerOne);
-    const [questionTwo, setQuestionTwo] = useState(user.questionTwo);
-    const [answerTwo, setAnswerTwo] = useState(user.answerTwo);
+    const { name, email, password } = route.params
 
-    const handleCreateUser = () => {
-        if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
-            Alert.alert('Erro', 'Por favor, preencha todos os campos.');
-        } else {
-            Alert.alert('Dados de Registro', [name, email, password, questionOne, answerOne, questionTwo, answerTwo].join(`\n`))
-        }
+    function addUser() {
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password,
+                answerOne: answerOne,
+                answerTwo: answerTwo,
+                questionOne: questionOne,
+                questionTwo: questionTwo
+            })
+
+        };
+        fetch('http://192.168.1.3:3000/api/user/cadastro', requestOptions)
+            .then((response) => {
+                console.log(response.status)
+                if (response.status == 201) {
+                    Alert.alert('Usuário cadastrado com sucesso!');
+                }
+
+                else {
+                    Alert.alert('E-mail ou senha inválidos');
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
-    return(
+    return (
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
             <View>
-                <Image source={require('../../assets/logoCarro.png')} style={styles.logo}/>
+                <Image source={require('../../assets/logoCarro.png')} style={styles.logo} />
             </View>
             <View>
                 <Text style={styles.text}>Escolha duas perguntas para serem utilizadas em caso da necessidade de redefinição de senha.</Text>
@@ -33,7 +58,6 @@ const SecurityQuestion = ({ navigation, route }) => {
                     <Picker
                         onChanged={setQuestionOne}
                         options={[
-                            {value: '', text: ''},
                             {value: 'food', text: 'Qual sua comida favorita?'},
                             {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
                             {value: 'fear', text: 'Qual o seu maior medo?'},
@@ -56,7 +80,6 @@ const SecurityQuestion = ({ navigation, route }) => {
                     <Picker
                         onChanged={setQuestionTwo}
                         options={[
-                            {value: '', text: ''},
                             {value: 'food', text: 'Qual sua comida favorita?'},
                             {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
                             {value: 'fear', text: 'Qual o seu maior medo?'},
@@ -75,10 +98,10 @@ const SecurityQuestion = ({ navigation, route }) => {
                     />
                 </View>
 
-            
-                <Pressable 
+
+                <Pressable
                     style={styles.button}
-                    onPress={() => handleCreateUser()}>
+                    onPress={addUser}>
                     <Text style={styles.textButton}>Registrar</Text>
                 </Pressable>
             </View>
@@ -88,7 +111,7 @@ const SecurityQuestion = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection:"column",
+        flexDirection: "column",
         flex: 10,
         justifyContent: 'center',
         alignItems: 'center',
@@ -102,16 +125,16 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 15,
         color: '#696969',
-        textAlign:'justify',
+        textAlign: 'justify',
         marginHorizontal: 40,
         marginBottom: 35,
     },
-    componentsContainer:{
+    componentsContainer: {
     },
     questionOneContainer: {
         marginBottom: 15,
     },
-    questionTwoContainer:{
+    questionTwoContainer: {
         marginBottom: 25,
     },
     label: {
@@ -124,7 +147,7 @@ const styles = StyleSheet.create({
         borderColor: '#e0e0e0',
         borderWidth: 2,
         borderRadius: 10,
-        marginBottom: 5, 
+        marginBottom: 5,
         padding: 7,
     },
     input: {

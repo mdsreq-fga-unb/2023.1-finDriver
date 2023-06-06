@@ -29,9 +29,19 @@ const createUser = async (User) => {
     }])
     .select('id')
 
+<<<<<<< Updated upstream
     const token = createToken(data);
 
     await supabase.from('Users').update([{
+=======
+  console.log('to no backendsss')
+
+  const { error } = await supabase
+    .from('Users').insert([{
+      name: User.name, email: User.email, password: encryptedPassword,
+      answerOne: User.answerOne, answerTwo: User.answerTwo,
+      questionOne: User.questionOne, questionTwo: User.questionTwo,
+>>>>>>> Stashed changes
       token: token
     }]).eq('email', User.email)
 
