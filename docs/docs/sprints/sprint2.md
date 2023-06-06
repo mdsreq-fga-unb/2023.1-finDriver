@@ -18,8 +18,6 @@ sidebar_position: 3
 - Definir o Workflow de integração contínua;
 - Estudo das ferramentas utlizadas;
 
-UI: *Interface de usuário*
-
 ### Tasks
 
 - Apresentação: Material do Seminário de Processos e Ciclos de Vida
