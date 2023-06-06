@@ -11,6 +11,16 @@ const Register = ({ navigation }) => {
         return repeatPassword === password ? true : false;
     }
 
+    const handleRegister = () => {
+        if (!name || !email || !password || !repeatPassword) {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+        } else if (!comparePassword()) {
+            Alert.alert('Erro', 'As senhas não coincidem. Por favor, tente novamente.');
+        } else {
+            navigation.navigate('SecurityQuestion',{name: name, email: email, password: password});
+        }
+    };
+
 
     return(
         <View style={styles.container}>
@@ -72,7 +82,7 @@ const Register = ({ navigation }) => {
 
                 <Pressable 
                     style={styles.button}
-                    onPress={() => navigation.navigate('SecurityQuestion',{name: name, email: email, password: password})}>
+                    onPress={() => handleRegister()}>
                     <Text style={styles.textButton}>Continuar</Text>
                 </Pressable>
 

@@ -2,47 +2,52 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
-const SecurityQuestion = ({ route, navigation }) => {
+const SecurityQuestion = ({ route }) => {
     const [questionOne, setQuestionOne] = useState('');
     const [answerOne, setAnswerOne] = useState('');
     const [questionTwo, setQuestionTwo] = useState('');
     const [answerTwo, setAnswerTwo] = useState('');
 
-    const { name, email, password } = route.params
+    const { name, email, password } = route.params;
 
-    function addUser() {
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                password: password,
-                answerOne: answerOne,
-                answerTwo: answerTwo,
-                questionOne: questionOne,
-                questionTwo: questionTwo
-            })
-
-        };
-        fetch('http://192.168.1.3:3000/api/user/cadastro', requestOptions)
-            .then((response) => {
-                console.log(response.status)
-                if (response.status == 201) {
-                    Alert.alert('Usuário cadastrado com sucesso!');
-                }
-
-                else {
-                    Alert.alert('E-mail ou senha inválidos');
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+    const addUser = () => {
+        if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+        } else {
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    password: password,
+                    answerOne: answerOne,
+                    answerTwo: answerTwo,
+                    questionOne: questionOne,
+                    questionTwo: questionTwo
+                })
+    
+            };
+            fetch('http://172.29.80.138:3000/api/user/cadastro', requestOptions)
+                .then((response) => {
+                    console.log(response.status)
+                    if (response.status == 201) {
+                        Alert.alert('Usuário cadastrado com sucesso!');
+                    }
+    
+                    else {
+                        Alert.alert('E-mail ou senha inválidos');
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
     }
+       
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
