@@ -3,7 +3,16 @@
     "version": "1.0.0",
     "description": "Frontend workspace",
     "dependencies": {
+        "@expo/webpack-config": "^18.0.1",
+        "@ouroboros/react-native-picker": "^0.3.1",
         "@react-navigation/native": "^6.1.6",
-        "@react-navigation/stack": "^6.3.16"
+        "@react-navigation/stack": "^6.3.16",
+        "@types/hammerjs": "^2.0.41",
+        "@types/react": "~18.0.27",
+        "expo": "^48.0.19",
+        "expo-status-bar": "^1.4.4",
+        "react-dom": "^18.2.0",
+        "react-native-web": "^0.18.12",
+        "typescript": "^5.1.3"
     }
 }

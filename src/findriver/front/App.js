@@ -3,10 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Login from './front/view/pages/Login';
-import Register from './front/view/pages/Register/index'
-import Welcome from './front/view/pages/Welcome';
-import SecurityQuestion from './front/view/pages/SecurityQuestion';
+import Login from './view/pages/Login';
+import Register from './view/pages/Register/index'
+import Welcome from './view/pages/Welcome';
+import SecurityQuestion from './view/pages/SecurityQuestion';
 
 const Stack = createStackNavigator();
 

@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Backend workspace",
     "scripts": {
-      "start": "nodemon app.js"
+        "start": "nodemon app.js"
     },
     "dependencies": {
         "@supabase/supabase-js": "^2.24.0",
