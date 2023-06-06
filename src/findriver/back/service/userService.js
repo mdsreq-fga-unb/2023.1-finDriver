@@ -29,9 +29,12 @@ const createUser = async (User) => {
     }])
     .select('id')
 
-    console.log(data);
-
     const token = createToken(data);
+
+    await supabase.from('Users').update([{
+      token: token
+    }]).eq('email', User.email)
+
 
   if (error) {
     if (error.code == '23505') {
