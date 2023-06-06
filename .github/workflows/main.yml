@@ -5,9 +5,26 @@ on:
       - main
       - develop
 jobs:
-  teste:
-    name: test
+  teste_back:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+      - run: |
+          cd src/findriver/back
+          npm ci
+          echo "export const environment = {SUPABASE_URL: 'https://eoucvdzsxmmjhjwequzd.supabase.co', SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvdWN2ZHpzeG1tamhqd2VxdXpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUwMzAyNDgsImV4cCI6MjAwMDYwNjI0OH0.IWyHX5FCetOVvYAhjagF8xm5BjKWKoN55Cu7GLqFTMo'}" > .env.js
+      - run: |
+          cd src/findriver/back
+          npm test
+  
+  teste_front:
+    needs: teste_back
+    runs-on: ubuntu-latest
+    if: ${{ needs.teste_back.result == 'success' }}
+    
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -17,10 +34,9 @@ jobs:
         with:
           expo-version: 4.x
       - run: |
-          cd src/findriver
-          yarn install
+          cd src/findriver/front
+          npm ci
           echo "export const environment = {SUPABASE_URL: 'https://eoucvdzsxmmjhjwequzd.supabase.co', SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvdWN2ZHpzeG1tamhqd2VxdXpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUwMzAyNDgsImV4cCI6MjAwMDYwNjI0OH0.IWyHX5FCetOVvYAhjagF8xm5BjKWKoN55Cu7GLqFTMo'}" > .env.js
       - run: |
-          cd src/findriver
-          yarn
-          yarn test
+          cd src/findriver/front
+          npm test
