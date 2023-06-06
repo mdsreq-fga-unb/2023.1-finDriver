@@ -6,11 +6,17 @@ sidebar_position: 3
 
 **Período: 05/05/2023 a 19/05/2023**
 
+### Ferramentas Utilizadas
 - Miro
+- Discord
 
 ## Sprint Planning
 
-**Objetivo:** Organizar e atualizar o Backlog de requisitos do produto; Definir os padrões de *UI e arquitetura do produto; Definir do Workflow de integração contínua; Atualizar a visão de produto e projeto.
+**Objetivos:** 
+- Definir o escopo do backlog do produto; 
+- Definir os épicos, temas e histórias de usuário;
+- Definir o Workflow de integração contínua;
+- Estudo das ferramentas utlizadas;
 
 UI: *Interface de usuário*
 
@@ -18,15 +24,14 @@ UI: *Interface de usuário*
 
 - Apresentação: Material do Seminário de Processos e Ciclos de Vida
 - Atualização: Visão de Produto e Projeto
-- Atualização: Site do Projeto (GitPages)
-- Documentação: Vídeo de apresentação das entregas 1
-- Documentação: Vídeo de apresentação das entregas 2
+- Criação dos épicos e temas;
+- Criação do escopo do backlog;
 
 
 ## Sprint Review
 
-Não foi feito ainda.
+O cliente pré aprovou os requisitos e o escopo do backlog criado durante a sprint.
 
 ## Sprint Retrospective
 
-Não foi feito ainda.
+Durante a retrospectiva, o time conversou sobre as expectativas com relação ao andamento do projeto e sobre a dinâmica entre os integrantes.
