@@ -7,25 +7,23 @@ import Login from './view/pages/Login';
 import Register from './view/pages/Register/index'
 import Welcome from './view/pages/Welcome';
 import SecurityQuestion from './view/pages/SecurityQuestion';
+import Home from './view/pages/Home';
+
 
 const Stack = createStackNavigator();
 
 
 export default function App() {
   return (
-    
+
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Welcome} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="SecurityQuestion" component={SecurityQuestion} />
+      <Stack.Navigator initialRouteName="Bem-Vindo">
+        <Stack.Screen name="Bem-vindo" component={Welcome} />
+        <Stack.Screen name="Entrar" component={Login} />
+        <Stack.Screen name="Registrar" component={Register} />
+        <Stack.Screen name="Perguntas de Segurança" component={SecurityQuestion} />
+        <Stack.Screen name="Inicio" component={Home}/>
       </Stack.Navigator>
     </NavigationContainer>
-    //<Welcome/>
-    //<Login/>
-    //<Register/>
-    //<SecurityQuestion/>
-    
   );
 }
