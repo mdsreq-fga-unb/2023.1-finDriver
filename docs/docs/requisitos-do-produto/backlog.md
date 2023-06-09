@@ -117,15 +117,13 @@ Os requisitos não funcionais (RNFs) definem os atributos do sistema, como segur
 |US04|Eu, como usuário, quero ser capaz de excluir meu perfil no aplicativo para que eu possa encerrar minhas atividades.|
 |US05|Eu, como usuário, quero ser capaz de visualizar meu perfil no aplicativo para que eu possa verificar meus dados.|
 |US06|Eu, como usuário, quero ser capaz de editar meu email e minha senha para que eu possa manter meus dados atualizados.|
-|US07|Eu, como usuário, quero ser capaz de inserir o valor ganho, o aplicativo de corrida utilizado, a quantidade de km rodado ao cadastrar minha corrida para registrar os dados que auxiliam meu controle financeiro.|
+|US07|Eu, como usuário, quero ser capaz de cadastrar minha corrida para registrar os dados que auxiliam meu controle financeiro|
 |US08|Eu, como usuário, quero ser capaz de editar o valor ganho, o aplicativo, quantidade de km rodado das minhas corridas cadastradas, para que os dados possam ser atualizados.|
 |US09|Eu, como usuário, quero ser capaz de deletar as corridas que cadastrei, para que dados irrelevantes ou desatualizados não sejam fornecidos para o aplicativo|
-|US10|Eu, como usuário, quero ser capaz de pesquisar minhas corridas cadastradas em determinado dia, para facilitar a visualizacao dos dados cadastrados.|
 |US11|Eu, como usuário, quero ser capaz de visualizar minhas corridas cadastradas para ter acesso a dados já fornecidos.|
-|US12|Eu, como usuário, quero ser capaz de inserir o motivo, valor e tipo de gasto ao cadastrar uma despesa para que os dados estejam melhor detalhados.|
+|US12|Eu, como usuário, quero ser capaz de cadastrar uma despesa para que os dados estejam melhor detalhados|
 |US13|Eu, como usuário quero ser capaz de editar motivo, valor e tipo de gasto para manter minhas informações atualizadas.|
 |US14|Eu, como usuário, quero ser capaz de excluir minhas despesas cadastradas, para que informações irrelevantes ou desatualizadas não sejam fornecidas ao aplicativo.|
-|US15|Eu, como usuário, quero ser capaz de pesquisar minhas despesas cadastradas em determinado dia, para visualizar determinadas informações.|
 |US16|Eu, como usuario, quero ser capaz de visualizar meus gastos cadastrados, para que para ter acesso a informações já fornecidas.|
 |US17|Eu, como usuário, quero ter acesso ao cálculo da média das despesas diárias, para ter a noção dos valores necessários para minha gestão financeira.|
 |US18|Eu, como usuário, quero ser capaz de visualizar quantos quilômetros rodei por dia, para ter a noção da relação da quilometragem com as despesas.|
@@ -148,8 +146,7 @@ Os requisitos não funcionais (RNFs) definem os atributos do sistema, como segur
 |US28|Eu, como usuário, quero ser capaz de excluir uma manutenção, para removê-la dos cálculos de gasto|
 |US29|Eu, como usuário, quero ser capaz de filtrar o meu histórico de ganhos e despesas a partir do tempo, para que eu possa ter controle dos dados.|
 |US30|Eu, como usuário, quero ser capaz de obter o meu histórico de ganhos e despesas no formato de arquivo em pdf para que eu possa exportar para outras aplicações.|
-|US31|Eu, como usuário, quero saber qual gasolina será mais vantajosa, para ter facilidade na tomada de decisão financeira.|
-|US32|Eu, como usuário, quero entender quais os horários de trabalho mais lucrativos, para tomar uma melhor decisão financeira.|
+
 
 ## Referências 
 - Material do moodle da disciplina
