@@ -3,7 +3,7 @@ import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvo
 import Picker from '@ouroboros/react-native-picker';
 
 const EditExpense = ({ navigation, route }) => {
-    //pegar parametros da despeza a ser editada
+    //pegar parametros da despesa a ser editada
     //const { name, email, password } = route.params
 
     const [cause, setCause] = useState('');
@@ -31,7 +31,7 @@ const EditExpense = ({ navigation, route }) => {
                 </View>
 
                 <View>
-                    <Text style={styles.title}>Edição de despeza</Text>
+                    <Text style={styles.title}>Edição de despesa</Text>
                 </View>
 
                 <View style={styles.componentsContainer}>

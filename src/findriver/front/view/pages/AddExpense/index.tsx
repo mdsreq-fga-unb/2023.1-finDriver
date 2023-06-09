@@ -30,7 +30,7 @@ const AddExpense = ({ navigation, route }) => {
                 </View>
 
                 <View>
-                    <Text style={styles.title}>Cadastro de despeza</Text>
+                    <Text style={styles.title}>Cadastro de despesa</Text>
                 </View>
 
                 <View style={styles.componentsContainer}>
