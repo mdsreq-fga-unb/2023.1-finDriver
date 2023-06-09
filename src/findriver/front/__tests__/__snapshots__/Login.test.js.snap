@@ -169,14 +169,21 @@ exports[`<Login /> Renderiza corretamente 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "marginVertical": 10,
+          "maxWidth": 120,
+        }
+      }
     >
       <Text
         style={
           {
             "color": "#1C5560",
             "fontSize": 15,
-            "marginTop": 20,
-            "textAlign": "center",
+            "marginTop": 0,
+            "maxWidth": 120,
             "textDecorationColor": "#1C5560",
             "textDecorationLine": "underline",
           }
@@ -215,6 +222,14 @@ exports[`<Login /> Renderiza corretamente 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignSelf": "flex-end",
+          "marginTop": 50,
+          "maxHeight": 100,
+          "maxWidth": 100,
+        }
+      }
     >
       <Text
         style={
@@ -222,16 +237,15 @@ exports[`<Login /> Renderiza corretamente 1`] = `
             {
               "color": "#1C5560",
               "fontSize": 15,
-              "marginTop": 20,
-              "textAlign": "center",
+              "marginTop": 0,
+              "maxWidth": 120,
               "textDecorationColor": "#1C5560",
               "textDecorationLine": "underline",
             },
             {
               "color": "#000000",
               "fontWeight": "bold",
-              "marginTop": 80,
-              "textAlign": "right",
+              "textAlign": "center",
             },
           ]
         }
