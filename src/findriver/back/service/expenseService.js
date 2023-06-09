@@ -6,15 +6,18 @@ const env = require("dotenv");
 
 const createExpense = async (userId, Expense) => {
   try {
-    const { error } = await supabase.from("Expenses").insert([
-      {
-        idUser: userId,
-        cause: Expense.cause,
-        value: Expense.value,
-        date: Expense.date,
-        type: Expense.type,
-      },
-    ]).single;
+    const { error } = await supabase
+      .from("Expenses")
+      .insert([
+        {
+          idUser: userId,
+          cause: Expense.cause,
+          value: Expense.value,
+          date: Expense.date,
+          type: Expense.type,
+        },
+      ])
+      .single();
 
     if (error) throw error;
   } catch (error) {
@@ -23,7 +26,7 @@ const createExpense = async (userId, Expense) => {
   }
 };
 
-const getExpenseByUserID = async (userID) => {
+const getExpenseByUserID = async (userId) => {
   try {
     const { data, error } = await supabase
       .from("Expenses")
@@ -58,12 +61,15 @@ const getExpenseById = async (expenseId) => {
 
 const updateExpense = async (Expense, expenseId) => {
   try {
-    const { data, error } = await supabase.from("Expenses").update({
-      cause: Expense.cause,
-      value: Expense.value,
-      date: Expense.date,
-      type: Expense.type,
-    });
+    const { data, error } = await supabase
+      .from("Expenses")
+      .update({
+        cause: Expense.cause,
+        value: Expense.value,
+        date: Expense.date,
+        type: Expense.type,
+      })
+      .eq("id", expenseId);
 
     if (error) throw error;
   } catch (error) {
@@ -81,20 +87,6 @@ const deleteExpense = async (expenseId) => {
     if (error) throw error;
   } catch (error) {
     throw error;
-  }
-};
-
-const getUserIdByToken = (token) => {
-  if (!token) {
-    throw new Error("Token de autenticação não fornecido!");
-  }
-
-  try {
-    const decoded = jwt.verify(token, process.env.TOKEN_KEY);
-    var userId = decoded.data[0].id;
-    return userId;
-  } catch (error) {
-    throw new Error("Token de autenticação inválido!");
   }
 };
 
