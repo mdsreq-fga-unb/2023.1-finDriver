@@ -18,7 +18,7 @@ const EditUser = ({ navigation, route }) => {
         } else if (oldPassword !== senhaDeMentira){
             Alert.alert('Erro', 'Por favor, digite uma senha válida');
         } else {
-            Alert.alert('Tudo certo! :)')
+            
         }
     };
 
