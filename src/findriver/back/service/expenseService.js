@@ -1,35 +1,35 @@
 const { createClient } = require("@supabase/supabase-js");
-const { Ride } = require("../model/rideModel");
+const { Expense } = require("../model/expenseModel");
 const { supabase } = require("./userService");
 const jwt = require("jsonwebtoken");
 const env = require("dotenv");
 
-const createRide = async (userId, Ride) => {
+const createExpense = async (userId, Expense) => {
   try {
     const { error } = await supabase
-      .from("Rides")
+      .from("Expenses")
       .insert([
         {
           idUser: userId,
-          value: Ride.value,
-          kilometerage: Ride.kilometerage,
-          application: Ride.application,
-          description: Ride.description,
-          date: Ride.date,
+          cause: Expense.cause,
+          value: Expense.value,
+          date: Expense.date,
+          type: Expense.type,
         },
       ])
       .single();
 
     if (error) throw error;
   } catch (error) {
+    console.log("erro");
     throw error;
   }
 };
 
-const getRideByUserId = async (userId) => {
+const getExpenseByUserID = async (userId) => {
   try {
     const { data, error } = await supabase
-      .from("Rides")
+      .from("Expenses")
       .select("*")
       .eq("idUser", userId)
       .limit(50);
@@ -43,13 +43,12 @@ const getRideByUserId = async (userId) => {
   }
 };
 
-const getRideByRideId = async (rideId) => {
+const getExpenseById = async (expenseId) => {
   try {
     const { data, error } = await supabase
-      .from("Rides")
+      .from("Expenses")
       .select("*")
-      .eq("id", rideId)
-      .single();
+      .eq("id", expenseId);
 
     if (error) throw error;
     if (data != null) {
@@ -60,18 +59,17 @@ const getRideByRideId = async (rideId) => {
   }
 };
 
-const updateRideById = async (Ride, rideId) => {
+const updateExpense = async (Expense, expenseId) => {
   try {
     const { data, error } = await supabase
-      .from("Rides")
+      .from("Expenses")
       .update({
-        value: Ride.value,
-        kilometerage: Ride.kilometerage,
-        application: Ride.application,
-        description: Ride.description,
-        date: Ride.date,
+        cause: Expense.cause,
+        value: Expense.value,
+        date: Expense.date,
+        type: Expense.type,
       })
-      .eq("id", rideId);
+      .eq("id", expenseId);
 
     if (error) throw error;
   } catch (error) {
@@ -79,12 +77,12 @@ const updateRideById = async (Ride, rideId) => {
   }
 };
 
-const deleteRideById = async (rideId) => {
+const deleteExpense = async (expenseId) => {
   try {
     const { data, error } = await supabase
-      .from("Rides")
+      .from("Expenses")
       .delete()
-      .eq("id", rideId);
+      .eq("id", expenseId);
 
     if (error) throw error;
   } catch (error) {
@@ -93,9 +91,10 @@ const deleteRideById = async (rideId) => {
 };
 
 module.exports = {
-  createRide,
-  getRideByUserId,
-  getRideByRideId,
-  updateRideById,
-  deleteRideById,
+  createExpense,
+  getExpenseById,
+  getExpenseByUserID,
+  updateExpense,
+  deleteExpense,
+  getUserIdByToken,
 };
