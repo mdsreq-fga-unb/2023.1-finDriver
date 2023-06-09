@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
+import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView} from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
 const AddRide = ({ navigation, route }) => {
@@ -22,18 +22,20 @@ const AddRide = ({ navigation, route }) => {
     };
 
     return(
-        <View style={styles.container}>
-           
-            <View>
-                <Image source={require('../../assets/logoCarro.png')} style={styles.logo}/>
-            </View>
+        <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
 
-            <View>
-                <Text style={styles.title}>Cadastro de corrida</Text>
-            </View>
+            <View style={styles.container}>
+            
+                <View>
+                    <Image source={require('../../assets/logoCarro.png')} style={styles.logo}/>
+                </View>
 
-            <View style={styles.componentsContainer}>
-                
+                <View>
+                    <Text style={styles.title}>Cadastro de corrida</Text>
+                </View>
+
+                <View style={styles.componentsContainer}>
+                    
                     <Text style={styles.label}>Valor</Text>
                     <TextInput
                         style={styles.input}
@@ -86,14 +88,15 @@ const AddRide = ({ navigation, route }) => {
                     
                 
 
-                <Pressable 
-                    style={styles.button}
-                    onPress={() => handleAddRide()}>
-                    <Text style={styles.textButton}>Adicionar</Text>
-                </Pressable>
+                    <Pressable 
+                        style={styles.button}
+                        onPress={() => handleAddRide()}>
+                        <Text style={styles.textButton}>Adicionar</Text>
+                    </Pressable>
 
+                </View>
             </View>
-        </View>
+        </KeyboardAvoidingView>
     );
 };
 

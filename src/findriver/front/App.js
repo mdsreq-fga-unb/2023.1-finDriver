@@ -22,7 +22,7 @@ export default function App() {
 
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Editar Despeza">
-        
+
         <Stack.Screen name="Bem-vindo" component={Welcome} />
         <Stack.Screen name="Entrar" component={Login} />
         <Stack.Screen name="Registrar" component={Register} />
