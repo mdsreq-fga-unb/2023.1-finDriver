@@ -8,6 +8,7 @@ import Register from './view/pages/Register/index'
 import Welcome from './view/pages/Welcome';
 import SecurityQuestion from './view/pages/SecurityQuestion';
 import Home from './view/pages/Home';
+import EditUser from './view/pages/EditUser';
 
 
 const Stack = createStackNavigator();
@@ -17,12 +18,13 @@ export default function App() {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Bem-Vindo">
+      <Stack.Navigator initialRouteName="Edite seu perfil">
         <Stack.Screen name="Bem-vindo" component={Welcome} />
         <Stack.Screen name="Entrar" component={Login} />
         <Stack.Screen name="Registrar" component={Register} />
         <Stack.Screen name="Perguntas de Segurança" component={SecurityQuestion} />
         <Stack.Screen name="Inicio" component={Home}/>
+        <Stack.Screen name="Edite seu perfil" component={EditUser} />
       </Stack.Navigator>
     </NavigationContainer>
   );
