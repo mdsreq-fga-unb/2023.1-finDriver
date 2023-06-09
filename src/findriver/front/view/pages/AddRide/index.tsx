@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
-const EditExpense = ({ navigation, route }) => {
-    //pegar parametros da despeza a ser editada
+const AddRide = ({ navigation, route }) => {
     //const { name, email, password } = route.params
 
-    const [cause, setCause] = useState('');
     const [value, setValue] = useState('');
+    const [quilometers, setQuilometers] = useState('');
+    const [app, setApp] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
-    const [type, setType] = useState('');
+    const [description, setDescription] = useState('');
 
 
 
-    const handleEditExpense = () => {
-        if(!cause || !value || !selectedDate || !type){
+    const handleAddRide = () => {
+        if(!value || !quilometers || !app || !selectedDate || !description){
             Alert.alert('Erro','Por favor, preencha todos os campos');
         } else {
             
@@ -29,32 +29,42 @@ const EditExpense = ({ navigation, route }) => {
             </View>
 
             <View>
-                <Text style={styles.title}>Edição de despeza</Text>
+                <Text style={styles.title}>Cadastro de corrida</Text>
             </View>
 
             <View style={styles.componentsContainer}>
-                <View style={styles.causeValueContainer}>
-                    <Text style={styles.label}>Causa</Text>
-                    <TextInput
-                        style={styles.input}
-                        value={cause}
-                        onChangeText={cause => setCause(cause)}
-                        placeholder="Causa"
-                        keyboardType="default"
-                        cursorColor="#001f36"
-                    />
-
+                
                     <Text style={styles.label}>Valor</Text>
                     <TextInput
                         style={styles.input}
                         value={value}
                         onChangeText={value => setValue(value)}
-                        placeholder="00,00"
+                        placeholder="00.00"
+                        keyboardType="numeric"
                         cursorColor="#001f36"
                     />
-                </View>
 
-                <View style={styles.dataTypeContainer}>
+                    <Text style={styles.label}>Quilometragem percorrida</Text>
+                    <TextInput
+                        style={styles.input}
+                        value={quilometers}
+                        onChangeText={quilometers => setQuilometers(quilometers)}
+                        placeholder="00.0"
+                        keyboardType='numeric'
+                        cursorColor="#001f36"
+                    />
+
+                    <Text style={styles.label}>Aplicativo utilizado</Text>
+                    <TextInput
+                        style={styles.input}
+                        value={app}
+                        onChangeText={app => setApp(app)}
+                        placeholder="App de corrida"
+                        cursorColor="#001f36"
+                    />
+                
+
+                
                     <Text style={styles.label}>Data</Text>
                     <TextInput
                         style={styles.input}
@@ -65,24 +75,20 @@ const EditExpense = ({ navigation, route }) => {
                         cursorColor="#001f36"
                     />
                 
-                    <Text style={styles.label}>Tipo</Text>
-                    <Picker
-                        value={type}
-                        onChanged={setType}
-                        options={[
-                            {value: '', text: ''},
-                            {value: 'GAS', text: 'Gasolina'},
-                            {value: 'FOOD', text: 'Comida'},
-                            {value: 'TOLL', text: 'Pedágio'},
-                            {value: 'RENT', text: 'Aluguel de veículo'},
-                        ]}
-                        style={styles.picker}
+                    <Text style={styles.label}>Descrição</Text>
+                    <TextInput
+                        style={styles.input}
+                        value={description}
+                        onChangeText={description => setDescription(description)}
+                        placeholder="Descrição (opcional)"
+                        cursorColor="#001f36"
                     />
-                </View>
+                    
+                
 
                 <Pressable 
                     style={styles.button}
-                    onPress={() => handleEditExpense()}>
+                    onPress={() => handleAddRide()}>
                     <Text style={styles.textButton}>Adicionar</Text>
                 </Pressable>
 
@@ -99,24 +105,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logo: {
-        marginTop: -30,
+        marginTop: -50,
         width: 250,
         height: 250,
     },
     componentsContainer:{
+        marginBottom: 30,
     },
     title:{
         color: '#1c5560',
         fontWeight: 'bold',
         fontSize: 30,
         marginBottom: 10,
-    },
-    causeValueContainer: {
-        marginBottom: 30,
-
-    },
-    dataTypeContainer: {
-        marginBottom: 25,
     },
     label: {
         color: '#1c5560',
@@ -154,13 +154,6 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         textDecorationColor: '#001f36',
     },
-    picker: {
-        borderColor: '#e0e0e0',
-        borderWidth: 2,
-        borderRadius: 10,
-        marginBottom: 5,
-        padding: 7,
-    },
 });
 
-export default EditExpense;
+export default AddRide;

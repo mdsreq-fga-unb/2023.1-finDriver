@@ -38,7 +38,7 @@ const AddExpense = ({ navigation, route }) => {
                         style={styles.input}
                         value={cause}
                         onChangeText={cause => setCause(cause)}
-                        placeholder="Name"
+                        placeholder="Causa"
                         keyboardType="default"
                         cursorColor="#001f36"
                     />
@@ -48,9 +48,7 @@ const AddExpense = ({ navigation, route }) => {
                         style={styles.input}
                         value={value}
                         onChangeText={value => setValue(value)}
-                        placeholder="Email"
-                        keyboardType="email-address"
-                        autoComplete="email"
+                        placeholder="00,00"
                         cursorColor="#001f36"
                     />
                 </View>
