@@ -85,7 +85,7 @@ const EditExpense = ({ navigation, route }) => {
                     <Pressable 
                         style={styles.button}
                         onPress={() => handleEditExpense()}>
-                        <Text style={styles.textButton}>Adicionar</Text>
+                        <Text style={styles.textButton}>Confirmar</Text>
                     </Pressable>
 
                 </View>
