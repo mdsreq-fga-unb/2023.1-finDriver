@@ -40,10 +40,13 @@ const Login = ({ navigation }) => {
                     <Text style={styles.textButton}>Entrar</Text>
                 </Pressable>
 
-                <Pressable onPress={() => Alert.alert('Tá muito esquecidinho em')}>
+                <Pressable onPress={() => Alert.alert('Tá muito esquecidinho em')}
+                            style={styles.pressableTextForgotPassword}>
                     <Text style={styles.underlinedText}>Esqueceu a senha?</Text>
                 </Pressable>
-                <Pressable onPress={() => navigation.navigate('Register')}>
+
+                <Pressable onPress={() => navigation.navigate('Registrar')}
+                    style={styles.pressableTextSignUp}>
                     <Text style={[styles.underlinedText , styles.signUp]}>Cadastre-se</Text>
                 </Pressable>
             </View>
@@ -94,17 +97,27 @@ const styles = StyleSheet.create({
     underlinedText: {
         fontSize: 15,
         color: '#1C5560',
-        textAlign: 'center',
-        marginTop: 20,
+        marginTop: 0,
         textDecorationLine: 'underline',
         textDecorationColor: '#1C5560',
+        maxWidth: 120,
     },
     signUp: {
         fontWeight: 'bold',
         color: '#000000',
-        textAlign: 'right',
-        marginTop: 80,
+        textAlign: 'center',
     },
+    pressableTextSignUp: {
+        maxWidth: 100,
+        maxHeight: 100,
+        alignSelf: 'flex-end',
+        marginTop: 50,
+    },
+    pressableTextForgotPassword: {
+        marginVertical: 10,
+        maxWidth: 120,
+        alignItems: 'center'
+    }
 });
 
 export default Login;

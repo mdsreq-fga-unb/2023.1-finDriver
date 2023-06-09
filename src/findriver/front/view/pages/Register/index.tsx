@@ -11,6 +11,15 @@ const Register = ({ navigation }) => {
         return repeatPassword === password ? true : false;
     }
 
+    const handleRegister = () => {
+        if (!name || !email || !password || !repeatPassword) {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+        } else if (!comparePassword()) {
+            Alert.alert('Erro', 'As senhas não coincidem. Por favor, tente novamente.');
+        } else {
+            navigation.navigate('Perguntas de Segurança',{name: name, email: email, password: password});
+        }
+    };
 
     return(
         <View style={styles.container}>
@@ -72,12 +81,13 @@ const Register = ({ navigation }) => {
 
                 <Pressable 
                     style={styles.button}
-                    onPress={() => navigation.navigate('SecurityQuestion',{name: name, email: email, password: password})}>
+                    onPress={() => handleRegister()}>
                     <Text style={styles.textButton}>Continuar</Text>
                 </Pressable>
 
                 <Pressable
-                    onPress={() => navigation.navigate('Login')}>
+                    onPress={() => navigation.navigate('Entrar')}
+                    style={styles.pressableTextGoToLogin}>
                     <Text style={styles.link}>Já possuo conta</Text>
                 </Pressable>
 
@@ -140,9 +150,14 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         color: '#001f36',
-        marginTop: 30,
         textDecorationLine: 'underline',
         textDecorationColor: '#001f36',
+    },
+    pressableTextGoToLogin: {
+        maxWidth: 100,
+        maxHeight: 30,
+        alignSelf: 'flex-end',
+        marginTop: 20,
     },
 });
 

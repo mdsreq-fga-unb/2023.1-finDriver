@@ -9,13 +9,13 @@ const Welcome = ({ navigation }) => {
 
             <Pressable 
                 style={styles.button}
-                onPress={() => navigation.navigate('Login')}>
+                onPress={() => navigation.navigate('Entrar')}>
                     <Text style={styles.textButton} >Entrar</Text>
             </Pressable>
 
             <Pressable 
                 style={styles.button}
-                onPress={() => navigation.navigate('Register')}>
+                onPress={() => navigation.navigate('Registrar')}>
                     <Text style={styles.textButton} >Cadastrar-se</Text>
             </Pressable>
             
