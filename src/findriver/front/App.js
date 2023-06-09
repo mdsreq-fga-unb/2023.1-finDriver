@@ -10,6 +10,7 @@ import SecurityQuestion from './view/pages/SecurityQuestion';
 import Home from './view/pages/Home';
 import EditUser from './view/pages/EditUser';
 import AddExpense from './view/pages/AddExpense';
+import EditExpense from './view/pages/EditExpense';
 
 
 const Stack = createStackNavigator();
@@ -19,7 +20,7 @@ export default function App() {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Cadastrar Despeza">
+      <Stack.Navigator initialRouteName="Editar Despeza">
         <Stack.Screen name="Bem-vindo" component={Welcome} />
         <Stack.Screen name="Entrar" component={Login} />
         <Stack.Screen name="Registrar" component={Register} />
@@ -27,6 +28,7 @@ export default function App() {
         <Stack.Screen name="Inicio" component={Home}/>
         <Stack.Screen name="Edite seu perfil" component={EditUser} />
         <Stack.Screen name="Cadastrar Despeza" component={AddExpense} />
+        <Stack.Screen name="Editar Despeza" component={EditExpense} />
       </Stack.Navigator>
     </NavigationContainer>
   );

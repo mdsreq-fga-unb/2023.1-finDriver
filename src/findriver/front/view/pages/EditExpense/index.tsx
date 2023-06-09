@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
-const AddExpense = ({ navigation, route }) => {
+const EditExpense = ({ navigation, route }) => {
+    //pegar parametros da despeza a ser editada
     //const { name, email, password } = route.params
 
     const [cause, setCause] = useState('');
@@ -12,7 +13,7 @@ const AddExpense = ({ navigation, route }) => {
 
 
 
-    const handleAddExpense = () => {
+    const handleEditExpense = () => {
         if(!cause || !value || !selectedDate || !type){
             Alert.alert('Erro','Por favor, preencha todos os campos');
         } else {
@@ -28,7 +29,7 @@ const AddExpense = ({ navigation, route }) => {
             </View>
 
             <View>
-                <Text style={styles.title}>Cadastro de despeza</Text>
+                <Text style={styles.title}>Edição de despeza</Text>
             </View>
 
             <View style={styles.componentsContainer}>
@@ -83,7 +84,7 @@ const AddExpense = ({ navigation, route }) => {
 
                 <Pressable 
                     style={styles.button}
-                    onPress={() => handleAddExpense()}>
+                    onPress={() => handleEditExpense()}>
                     <Text style={styles.textButton}>Adicionar</Text>
                 </Pressable>
 
@@ -164,4 +165,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default AddExpense;
+export default EditExpense;
