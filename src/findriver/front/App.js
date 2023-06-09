@@ -17,18 +17,13 @@ export default function App() {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Inicio">
-        <Stack.Screen name="Inicio" component={Welcome} />
+      <Stack.Navigator initialRouteName="Bem-Vindo">
+        <Stack.Screen name="Bem-vindo" component={Welcome} />
         <Stack.Screen name="Entrar" component={Login} />
         <Stack.Screen name="Registrar" component={Register} />
-        <Stack.Screen name="Registrar" component={SecurityQuestion} />
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Perguntas de Segurança" component={SecurityQuestion} />
+        <Stack.Screen name="Inicio" component={Home}/>
       </Stack.Navigator>
     </NavigationContainer>
-    //<Welcome/>
-    //<Login/>
-    //<Register/>
-    //<SecurityQuestion/>
-
   );
 }

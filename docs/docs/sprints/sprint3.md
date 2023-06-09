@@ -26,7 +26,7 @@ sidebar_position: 4
 - Documentação: Vídeo de apresentação das entregas 2
 
 ## Sprint Review
-
+Foi apresentado o backlog completo e seus respectivos critérios pra o cliente e após algumas mínimas alterações, o cliente aprovou.
 
 ## Sprint Retrospective
 
