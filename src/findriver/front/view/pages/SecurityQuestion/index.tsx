@@ -10,9 +10,9 @@ const SecurityQuestion = ({ route }) => {
 
     const { name, email, password } = route.params;
 
-    const addUser = () => {
+    const handleCreateUser = () => {
         if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
-            Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+            Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
         } else {
             const requestOptions = {
                 method: 'POST',
@@ -29,15 +29,15 @@ const SecurityQuestion = ({ route }) => {
                     questionOne: questionOne,
                     questionTwo: questionTwo
                 })
-    
+
             };
-            fetch('http://172.29.80.138:3000/api/user/cadastro', requestOptions)
+            fetch('http://192.168.0.25:19000/api/user/cadastro', requestOptions)
                 .then((response) => {
                     console.log(response.status)
                     if (response.status == 201) {
                         Alert.alert('Usuário cadastrado com sucesso!');
                     }
-    
+
                     else {
                         Alert.alert('E-mail ou senha inválidos');
                     }
@@ -45,9 +45,9 @@ const SecurityQuestion = ({ route }) => {
                 .catch((err) => {
                     console.log(err);
                 });
+                //navigation.navigate('Inicio'); 
+            }
         }
-    }
-       
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
@@ -63,6 +63,7 @@ const SecurityQuestion = ({ route }) => {
                     <Picker
                         onChanged={setQuestionOne}
                         options={[
+                            {value: '', text: ''},
                             {value: 'food', text: 'Qual sua comida favorita?'},
                             {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
                             {value: 'fear', text: 'Qual o seu maior medo?'},
@@ -85,6 +86,7 @@ const SecurityQuestion = ({ route }) => {
                     <Picker
                         onChanged={setQuestionTwo}
                         options={[
+                            {value: '', text: ''},
                             {value: 'food', text: 'Qual sua comida favorita?'},
                             {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
                             {value: 'fear', text: 'Qual o seu maior medo?'},
@@ -106,7 +108,7 @@ const SecurityQuestion = ({ route }) => {
 
                 <Pressable
                     style={styles.button}
-                    onPress={addUser}>
+                    onPress={() => handleCreateUser()}>
                     <Text style={styles.textButton}>Registrar</Text>
                 </Pressable>
             </View>
