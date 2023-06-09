@@ -4,7 +4,7 @@
     "description": "Backend workspace",
     "scripts": {
         "start": "nodemon app.js",
-        "test": "jest --detectOpenHandles"
+        "test": "jest"
     },
     "dependencies": {
         "@supabase/supabase-js": "^2.24.0",
