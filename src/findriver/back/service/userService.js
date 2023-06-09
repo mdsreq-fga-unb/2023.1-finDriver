@@ -29,7 +29,6 @@ const createUser = async (User) => {
     }])
     .select('id')
 
-
     const token = createToken(data);
 
     await supabase.from('Users').update([{
