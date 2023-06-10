@@ -26,10 +26,7 @@ export default function App() {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Ver Despesas">
-
-        <Stack.Screen name="Inicio" component={Home}/>
-        <Stack.Screen name="Entrar" component={Login} />
+      <Stack.Navigator initialRouteName="Bem-Vindo">
         <Stack.Screen name="Bem-vindo" component={Welcome} />
         <Stack.Screen name="Registrar" component={Register} />
         <Stack.Screen name="Ver Corridas" component={SeeRides} />
@@ -40,7 +37,7 @@ export default function App() {
         <Stack.Screen name="Editar Despesa" component={EditExpense} />
         <Stack.Screen name="Cadastrar Despesa" component={AddExpense} />
         <Stack.Screen name="Perguntas de Segurança" component={SecurityQuestion} />
-     
+        <Stack.Screen name="Inicio" component={Home}/>
       </Stack.Navigator>
     </NavigationContainer>
     
