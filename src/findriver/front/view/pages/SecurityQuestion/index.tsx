@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
-const SecurityQuestion = ({ route, navigation }) => {
+const SecurityQuestion = ({ route }) => {
     const [questionOne, setQuestionOne] = useState('');
     const [answerOne, setAnswerOne] = useState('');
     const [questionTwo, setQuestionTwo] = useState('');
     const [answerTwo, setAnswerTwo] = useState('');
 
-    const { name, email, password } = route.params
+    const { name, email, password } = route.params;
 
     const handleCreateUser = () => {
         if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
@@ -31,7 +31,7 @@ const SecurityQuestion = ({ route, navigation }) => {
                 })
 
             };
-            fetch('http://192.168.0.25:19000/api/user/cadastro', requestOptions)
+            fetch('http://192.168.1.5:3000/api/user/cadastro', requestOptions)
                 .then((response) => {
                     console.log(response.status)
                     if (response.status == 201) {

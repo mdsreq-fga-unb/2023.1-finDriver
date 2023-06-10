@@ -15,21 +15,17 @@ const createUser = async (User) => {
   var encryptedPassword = bcrypt.hashSync(User.password, salt);
 
   const { data, error } = await supabase
-    .from("Users")
-    .insert([
-      {
-        name: User.name,
-        email: User.email,
-        password: encryptedPassword,
-        answerOne: User.answerOne,
-        answerTwo: User.answerTwo,
-        questionOne: User.questionOne,
-        questionTwo: User.questionTwo,
-      },
-    ])
-    .select("id");
-
-  const token = createToken(data);
+    .from('Users')
+    .insert([{
+      name: User.name, 
+      email: User.email, 
+      password: encryptedPassword,
+      answerOne: User.answerOne, 
+      answerTwo: User.answerTwo,
+      questionOne: User.questionOne, 
+      questionTwo: User.questionTwo,
+    }])
+    .select('id')
 
   if (error) {
     if (error.code == "23505") {
@@ -39,8 +35,8 @@ const createUser = async (User) => {
       throw error;
     }
   } else {
-    console.log(error);
-    return token;
+    console.log(error)
+    return ;
   }
 };
 
@@ -62,10 +58,8 @@ async function getUserByEmail(user) {
 
 async function updateUserById(user, id) {
   if (user.password) {
-    console.log("to aqui");
-    console.log(user.password);
-    var salt = bcrypt.genSaltSync(10);
-    var encryptedPassword = bcrypt.hashSync(user.password, salt);
+    const salt = bcrypt.genSaltSync(10)
+    var encryptedPassword = bcrypt.hashSync(user.password, salt)
   }
 
   const { error } = await supabase
@@ -84,19 +78,12 @@ async function updateUserById(user, id) {
 }
 
 async function deleteUserById(id) {
-  await supabase.from("Users").delete().eq("id", id);
-}
 
-const createToken = (user) => {
-  const token = jwt.sign({ data: user }, process.env.TOKEN_KEY);
-  console.log(token);
-  return token;
+  await supabase
+    .from('Users')
+    .delete()
+    .eq('id', id)
+    
 };
 
-module.exports = {
-  createUser,
-  getUserByEmail,
-  updateUserById,
-  deleteUserById,
-  supabase,
-};
+module.exports = { createUser, getUserByEmail, updateUserById, deleteUserById, supabase };
