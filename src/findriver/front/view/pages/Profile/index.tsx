@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, Text, Pressable, StyleSheet, Alert} from 'react-native';
 
 
-const Welcome = ({ navigation }) => {
+const Profile = ({ navigation }) => {
 
     return(
         <View style={styles.container}>
@@ -15,8 +15,8 @@ const Welcome = ({ navigation }) => {
                 <Text style={styles.text}>catarina@soulinda.com</Text>
 
                 <Pressable 
-                    onPress={() => Alert.alert('edita aqui')}
-                    style={styles.button}>
+                    style={styles.button}
+                    onPress={() => navigation.navigate('Edite seu perfil')}>
                     <Text style={styles.textButton}>Editar</Text>
                 </Pressable>
             </View>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 60,
+        marginTop: 50,
         paddingVertical: 10,
         paddingHorizontal: 120,
     },
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Welcome;
+export default Profile;
