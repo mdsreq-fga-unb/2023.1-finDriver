@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, ScrollView, KeyboardAvoidingView, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
+import RideCard from '../../components/RideCard';
 
 const Home = ({ navigation }) => {
     return(
@@ -33,6 +34,7 @@ const Home = ({ navigation }) => {
 
                 <View style={styles.raceContainer}>
                     <Text style={styles.white}>Minhas corridas</Text>
+                        <RideCard/>
                 </View>
 
                 <View style={styles.footer}>

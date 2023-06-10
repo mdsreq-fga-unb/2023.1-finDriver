@@ -41,7 +41,7 @@ const Login = ({ navigation }) => {
                 password: password,
             })
         };
-        fetch('http://192.168.1.5:3000/api/user/login', requestOptions)
+        fetch('http://192.168.0.25:3000/api/user/login', requestOptions)
             .then(response => response.json())
             .then(data => {
                 try {
@@ -65,7 +65,8 @@ const Login = ({ navigation }) => {
 
     var confere = function () {
         signIn();
-        navigation.navigate('Login')();
+        navigation.navigate('Inicio');
+        console.log(email, password);
     }
 
     return (
@@ -96,15 +97,16 @@ const Login = ({ navigation }) => {
                 />
                 <Pressable
                     style={styles.button}
-                    onPress={(signIn)}>
+                    onPress={(confere)}>
                     <Text style={styles.textButton}>Entrar</Text>
                 </Pressable>
 
                 <Pressable onPress={() => Alert.alert('Tá muito esquecidinho em')}
-                            style={styles.pressableTextForgotPassword}>
+                            style={[styles.pressableTextForgotPassword]}>
                     <Text style={styles.underlinedText}>Esqueceu a senha?</Text>
                 </Pressable>
-                <Pressable onPress={() => navigation.navigate('Registrar')}>
+                <Pressable onPress={() => navigation.navigate('Registrar')} 
+                            style={styles.pressableTextSignUp}>
                     <Text style={[styles.underlinedText, styles.signUp]}>Cadastre-se</Text>
                 </Pressable>
             </View>
@@ -175,7 +177,10 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         maxWidth: 120,
         alignItems: 'center'
-    }
+    },
+    pinkBackground: {
+        backgroundColor: 'pink',
+    },
 });
 
 export default Login;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
+import RideCard from '../../components/RideCard';
 
 const SeeRides = ({ route, navigation }) => {
     return(
@@ -10,7 +11,7 @@ const SeeRides = ({ route, navigation }) => {
             </View>
 
             <View>
-                {/* chamar cards aqui */}
+                <RideCard/>
             </View>
         </View>
     );

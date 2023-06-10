@@ -4,9 +4,11 @@ import { Swipeable } from "react-native-gesture-handler";
 
 import styles from './styles';
 
-const RideCard = (props) => {
+const RideCard = ({  }) => {
 
     const onSwipeRight = () => { //Função executada ao apertar delete
+    };
+    const onSwipeLeft = () => { //Função executada ao apertar delete
     };
 
 
@@ -17,10 +19,17 @@ const RideCard = (props) => {
         </View>
         </TouchableOpacity>
     );
-
+    const renderLeftActions = () => (
+        <TouchableOpacity onPress={onSwipeLeft}>
+        <View style={styles.editButtonArea}>
+            <Text style={styles.editButtonText}>Editar</Text>
+        </View>
+        </TouchableOpacity>
+    );
     return(
         <Swipeable
-            renderRightActions={renderRightActions}>
+            renderRightActions={renderRightActions}
+            renderLeftActions={renderLeftActions}>
             
             <View>
                 <Pressable>

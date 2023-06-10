@@ -4,9 +4,12 @@ import { Swipeable } from "react-native-gesture-handler";
 
 import styles from './styles';
 
-const ExpenseCard = (props) => {
+const ExpenseCard = (props, navigation) => {
 
         const onSwipeRight = () => { //Função executada ao apertar delete
+        };
+        const onSwipeLeft = () => { //Função executada ao apertar delete
+            navigation.navigate('Editar Despesa')
         };
     
 
@@ -15,6 +18,13 @@ const ExpenseCard = (props) => {
           <View style={styles.deleteButtonArea}>
             <Text style={styles.deleteButtonText}>Deletar</Text>
           </View>
+        </TouchableOpacity>
+    );
+    const renderLeftActions = () => (
+        <TouchableOpacity onPress={onSwipeLeft}>
+        <View style={styles.editButtonArea}>
+            <Text style={styles.editButtonText}>Editar</Text>
+        </View>
         </TouchableOpacity>
     );
 

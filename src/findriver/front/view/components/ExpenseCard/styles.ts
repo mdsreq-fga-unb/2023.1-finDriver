@@ -65,6 +65,24 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         alignSelf: 'center'
+    },
+    editButtonArea:{
+        padding: 10, 
+        elevation: 10,
+        width: '100%',
+        height: '90%',
+        marginLeft: 10,
+        borderRadius: 10,
+        marginVertical: 8,
+        backgroundColor: 'gray', 
+        justifyContent: "center",
+        alignSelf: 'flex-start'
+    },
+    editButtonText: {
+        color: 'white',
+        fontSize: 15,
+        fontWeight: 'bold',
+        alignSelf: 'center'
     }
 });
 
