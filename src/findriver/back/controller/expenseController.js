@@ -1,13 +1,14 @@
 const expenseService = require("../service/expenseService");
 const statusCode = require("../helpers/statusCode");
 const jwt = require("jsonwebtoken");
+const { getUserIdByToken } = require("../service/tokenService");
 
 async function addExpense(req, res) {
   const expense = req.body;
 
   try {
     const token = req.headers.authorization;
-    const userID = await expenseService.getUserIdByToken(token);
+    const userID = await getUserIdByToken(token);
     await expenseService.createExpense(userID, expense);
     res
       .status(statusCode.CREATED)
@@ -22,7 +23,9 @@ async function addExpense(req, res) {
 async function getExpenses(req, res) {
   try {
     const token = req.headers.authorization;
-    const userId = await expenseService.getUserIdByToken(token);
+    const userId = await getUserIdByToken(token);
+    var value = await expenseService.getExpenseByUserID(userId);
+    res.status(statusCode.OK).json({ value });
 
     if (!userId) {
       return res
@@ -66,10 +69,8 @@ async function deleteExpense(req, res) {
   const { id } = req.params;
 
   try {
-    await expenseService.deleteExpenseById(id);
-    res
-      .statusCode(statusCode.OK)
-      .json({ message: "Corrida excluída com sucesso" });
+    await expenseService.deleteExpense(id);
+    res.status(statusCode.OK).json({ message: "Corrida excluída com sucesso" });
   } catch (error) {
     res.status(statusCode.NOT_FOUND).json({ message: error.message });
   }

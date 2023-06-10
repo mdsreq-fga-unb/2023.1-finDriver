@@ -10,39 +10,44 @@ const SecurityQuestion = ({ route, navigation }) => {
 
     const { name, email, password } = route.params
 
-    function addUser() {
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                password: password,
-                answerOne: answerOne,
-                answerTwo: answerTwo,
-                questionOne: questionOne,
-                questionTwo: questionTwo
-            })
+    const handleCreateUser = () => {
+        if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+        } else {
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    password: password,
+                    answerOne: answerOne,
+                    answerTwo: answerTwo,
+                    questionOne: questionOne,
+                    questionTwo: questionTwo
+                })
 
-        };
-        fetch('http://192.168.1.3:3000/api/user/cadastro', requestOptions)
-            .then((response) => {
-                console.log(response.status)
-                if (response.status == 201) {
-                    Alert.alert('Usuário cadastrado com sucesso!');
-                }
+            };
+            fetch('http://192.168.0.25:19000/api/user/cadastro', requestOptions)
+                .then((response) => {
+                    console.log(response.status)
+                    if (response.status == 201) {
+                        Alert.alert('Usuário cadastrado com sucesso!');
+                        navigation.navigate('Entrar'); 
+                    }
 
-                else {
-                    Alert.alert('E-mail ou senha inválidos');
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }
+                    else {
+                        Alert.alert('E-mail ou senha inválidos');
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            }
+        }
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
@@ -58,6 +63,7 @@ const SecurityQuestion = ({ route, navigation }) => {
                     <Picker
                         onChanged={setQuestionOne}
                         options={[
+                            {value: '', text: ''},
                             {value: 'food', text: 'Qual sua comida favorita?'},
                             {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
                             {value: 'fear', text: 'Qual o seu maior medo?'},
@@ -80,6 +86,7 @@ const SecurityQuestion = ({ route, navigation }) => {
                     <Picker
                         onChanged={setQuestionTwo}
                         options={[
+                            {value: '', text: ''},
                             {value: 'food', text: 'Qual sua comida favorita?'},
                             {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
                             {value: 'fear', text: 'Qual o seu maior medo?'},
@@ -101,7 +108,7 @@ const SecurityQuestion = ({ route, navigation }) => {
 
                 <Pressable
                     style={styles.button}
-                    onPress={addUser}>
+                    onPress={() => handleCreateUser()}>
                     <Text style={styles.textButton}>Registrar</Text>
                 </Pressable>
             </View>
