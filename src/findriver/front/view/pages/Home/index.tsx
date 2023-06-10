@@ -1,52 +1,59 @@
 import React, { useEffect, useState } from 'react';
 import { View, ScrollView, KeyboardAvoidingView, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
-
+import RideCard from '../../components/RideCard'
 const Home = ({ navigation }) => {
     return(
-        <KeyboardAvoidingView>
+        <KeyboardAvoidingView style={styles.container}>
             <ScrollView>
-
-                <View style={styles.profitContainer}>
-                    <Text style={styles.white}>Lucro do dia</Text>
-                    <Text style={styles.white}>R$ 100.000,00</Text>
-                </View>
-
-                <View style={styles.weeklyContainer}>
-                    <View >
-                        <Pressable style={styles.earnExpenseContainer}>
-                            <Text style={styles.white}>Ganho semanal</Text>
-                            <Text style={[styles.white, styles.value]}>R$ 150.000,00</Text>
-                        </Pressable>
+                <View>
+                    <View style={styles.profitContainer}>
+                        <Text style={styles.white}>Lucro do dia</Text>
+                        <Text style={styles.white}>R$ 100.000,00</Text>
                     </View>
 
-                    <View >
-                        <Pressable style={styles.earnExpenseContainer}>
-                            <Text style={styles.white}>Gasto semanal</Text>
-                            <Text style={[styles.white, styles.value]}>R$ 50.000,00</Text>
-                        </Pressable>
+                    <View style={styles.weeklyContainer}>
+                        <View >
+                            <Pressable style={styles.earnExpenseContainer}>
+                                <Text style={styles.white}>Ganho semanal</Text>
+                                <Text style={[styles.white, styles.value]}>R$ 150.000,00</Text>
+                            </Pressable>
+                        </View>
+
+                        <View >
+                            <Pressable style={styles.earnExpenseContainer}>
+                                <Text style={styles.white}>Gasto semanal</Text>
+                                <Text style={[styles.white, styles.value]}>R$ 50.000,00</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                    
+                    <View style={styles.kmContainer}>
+                        <Text style={styles.kmText}>Você rodou 100.000 km</Text>
+                    </View>
+
+                    <View style={styles.rideContainer}>
+                        <Text style={styles.white}>Minhas corridas</Text>
+                        <RideCard/>
                     </View>
                 </View>
-                
-                <View style={styles.kmContainer}>
-                    <Text style={styles.kmText}>Você rodou 100.000 km</Text>
-                </View>
-
-                <View style={styles.raceContainer}>
-                    <Text style={styles.white}>Minhas corridas</Text>
-                </View>
-
-                <View style={styles.footer}>
-                    <Text style={styles.white}>casa</Text>
-                    <Text style={styles.white}>mais</Text>
-                    <Text style={styles.white}>config</Text>
-                </View>
-            </ScrollView>
+                    <View style={styles.footer}>
+                        <Text style={styles.white}>casa</Text>
+                        <Text style={styles.white}>mais</Text>
+                        <Text style={styles.white}>config</Text>
+                    </View>
+                </ScrollView>
         </KeyboardAvoidingView>
         
     );    
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'space-between',
+        flexDirection: 'column',
+        backgroundColor: 'pink'
+    },
     profitContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -80,7 +87,7 @@ const styles = StyleSheet.create({
     value: {
         alignSelf: 'center',
         fontWeight: 'bold',
-        fontSize: 22,
+        fontSize: 16,
     },
     kmText: {
         fontSize: 20,
@@ -92,18 +99,19 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         padding: 10
     },
-    raceContainer: {
+    rideContainer: {
         backgroundColor: '#1C5560',
         marginHorizontal: 25,
-        height: 150,
-        marginBottom: 40,
         borderRadius: 10,
+        marginBottom: 10,
 
     },
     footer: {
         flexDirection: 'row',
-        // position: 'absolute',
+        //position: 'absolute',
         bottom: 0,
+        left: 0,
+        right: 0,
         width: '100%',
         height: 50,
         backgroundColor: '#1C5560',
