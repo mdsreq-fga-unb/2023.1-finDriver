@@ -46,6 +46,7 @@ const SecurityQuestion = ({ route }) => {
                 .catch((err) => {
                     console.log(err);
                 });
+                //navigation.navigate('Inicio'); 
             }
         }
 
