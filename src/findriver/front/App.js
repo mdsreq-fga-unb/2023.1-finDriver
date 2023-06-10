@@ -1,7 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import Home from './view/pages/Home';
 import Login from './view/pages/Login';
@@ -17,18 +17,26 @@ import EditExpense from './view/pages/EditExpense';
 import SeeExpenses from './view/pages/SeeExpenses';
 import ExpenseCard from './view/components/ExpenseCard';
 import SecurityQuestion from './view/pages/SecurityQuestion';
+import Profile from "./view/pages/Profile";
+import Settings from "./view/pages/Settings";
 
 
 const Stack = createStackNavigator();
 
-
 export default function App() {
   return (
-
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Inicio">
         <Stack.Screen name="Bem-vindo" component={Welcome} />
         <Stack.Screen name="Registrar" component={Register} />
+        <Stack.Screen
+          name="Perguntas de Segurança"
+          component={SecurityQuestion}
+        />
+        <Stack.Screen name="Inicio" component={Home} />
+        <Stack.Screen name="Edite seu perfil" component={EditUser} />
+        <Stack.Screen name="Cadastrar Despesa" component={AddExpense} />
+        <Stack.Screen name="Editar Despesa" component={EditExpense} />
         <Stack.Screen name="Ver Corridas" component={SeeRides} />
         <Stack.Screen name="Editar Corrida" component={EditRide} />
         <Stack.Screen name="Ver Despesas" component={SeeExpenses} />
@@ -38,6 +46,9 @@ export default function App() {
         <Stack.Screen name="Cadastrar Despesa" component={AddExpense} />
         <Stack.Screen name="Perguntas de Segurança" component={SecurityQuestion} />
         <Stack.Screen name="Inicio" component={Home}/>
+        <Stack.Screen name="Editar Corrida" component={EditRide} />
+        <Stack.Screen name="Perfil" component={Profile} />
+        <Stack.Screen name="Ajustes" component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
     

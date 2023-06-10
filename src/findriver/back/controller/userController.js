@@ -57,13 +57,13 @@ async function deleteUser(req, res) {
 async function loginUser(req, res) {
   const user = req.body;
 
-  const token = await loginUserWithToken(user);
+  const response = await loginUserWithToken(user);
 
-  if (token == "Todos os campos são necessários" || token == "Credenciais inválidas" ) {
-    return res.status(statusCode.UNAUTHORIZED).json({ token });
+  if (response == "Todos os campos são necessários" || response == "Credenciais inválidas" ) {
+    return res.status(statusCode.UNAUTHORIZED).json({ response });
   }
 
-  res.status(statusCode.OK).json({ token });
+  res.status(statusCode.OK).json({ response });
 }
 
 module.exports = { addUser, getUser, updateUser, deleteUser, loginUser }
