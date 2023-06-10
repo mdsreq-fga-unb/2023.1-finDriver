@@ -1,9 +1,6 @@
 import { StyleSheet } from "react-native"
 
 const styles = StyleSheet.create({
-    body: {
-        backgroundColor: '#1C5560'   
-    },
     container: {
         flex: 0,
         flexDirection: 'column',
@@ -51,6 +48,24 @@ const styles = StyleSheet.create({
     dateText: {
         
     },
+    deleteButtonArea:{
+        padding: 10, 
+        elevation: 10,
+        width: '100%',
+        height: '90%',
+        marginRight: 10,
+        borderRadius: 10,
+        marginVertical: 8,
+        backgroundColor: 'red', 
+        justifyContent: "center",
+        alignSelf: 'flex-end'
+    },
+    deleteButtonText: {
+        color: 'white',
+        fontSize: 15,
+        fontWeight: 'bold',
+        alignSelf: 'center'
+    }
 });
 
 export default styles;
