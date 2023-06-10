@@ -30,13 +30,16 @@ const SecurityQuestion = ({ route }) => {
                     questionTwo: questionTwo
                 })
 
+
             };
             fetch('http://192.168.0.25:19000/api/user/cadastro', requestOptions)
                 .then((response) => {
                     console.log(response.status)
                     if (response.status == 201) {
                         Alert.alert('Usuário cadastrado com sucesso!');
+                        navigation.navigate('Entrar'); 
                     }
+
 
                     else {
                         Alert.alert('E-mail ou senha inválidos');
