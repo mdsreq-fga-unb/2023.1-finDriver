@@ -10,12 +10,12 @@ jest.mock('../model/rideModel', () => {
                 kilometerage,
                 application,
                 description,
-                date,
+                date
             };
         }),
     };
     return mockRide;
-  });
+});
 
 describe('Funções do rideService', () => {
     describe('Caso do createRide', () => {

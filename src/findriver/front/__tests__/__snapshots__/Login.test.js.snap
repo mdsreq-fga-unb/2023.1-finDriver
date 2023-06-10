@@ -222,14 +222,6 @@ exports[`<Login /> Renderiza corretamente 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        {
-          "alignSelf": "flex-end",
-          "marginTop": 50,
-          "maxHeight": 100,
-          "maxWidth": 100,
-        }
-      }
     >
       <Text
         style={
