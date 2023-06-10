@@ -36,6 +36,7 @@ const SecurityQuestion = ({ route }) => {
                     console.log(response.status)
                     if (response.status == 201) {
                         Alert.alert('Usuário cadastrado com sucesso!');
+                        navigation.navigate('Entrar'); 
                     }
 
                     else {
@@ -45,7 +46,6 @@ const SecurityQuestion = ({ route }) => {
                 .catch((err) => {
                     console.log(err);
                 });
-                //navigation.navigate('Inicio'); 
             }
         }
 
