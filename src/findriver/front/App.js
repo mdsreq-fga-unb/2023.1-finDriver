@@ -1,7 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import Home from './view/pages/Home';
 import Login from './view/pages/Login';
@@ -15,16 +15,16 @@ import RideCard from './view/components/RideCard';
 import AddExpense from './view/pages/AddExpense';
 import EditExpense from './view/pages/EditExpense';
 import SeeExpenses from './view/pages/SeeExpenses';
+
 import ExpenseCard from './view/components/ExpenseCard';
 import SecurityQuestion from './view/pages/SecurityQuestion';
+import Profile from "./view/pages/Profile";
 
 
 const Stack = createStackNavigator();
 
-
 export default function App() {
   return (
-
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Bem-Vindo">
         <Stack.Screen name="Bem-vindo" component={Welcome} />
@@ -38,6 +38,8 @@ export default function App() {
         <Stack.Screen name="Cadastrar Despesa" component={AddExpense} />
         <Stack.Screen name="Perguntas de Segurança" component={SecurityQuestion} />
         <Stack.Screen name="Inicio" component={Home}/>
+        <Stack.Screen name="Editar Corrida" component={EditRide} />
+        <Stack.Screen name="Perfil" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
     
