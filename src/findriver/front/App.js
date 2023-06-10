@@ -26,7 +26,7 @@ export default function App() {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Bem-Vindo">
+      <Stack.Navigator initialRouteName="Inicio">
         <Stack.Screen name="Bem-vindo" component={Welcome} />
         <Stack.Screen name="Registrar" component={Register} />
         <Stack.Screen name="Ver Corridas" component={SeeRides} />
