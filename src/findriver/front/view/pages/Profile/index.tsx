@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
         height: 250,
     },
     title: {
-        color: '#001F36',
+        color: '#1c5560',
         textAlign: 'center',
         fontWeight: 'bold',
-        fontSize: 40,
+        fontSize: 30,
         marginTop: -25
     },
     text: {
