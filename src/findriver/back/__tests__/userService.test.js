@@ -1,5 +1,22 @@
 jest.mock('../service/userService');
 
+import { User } from '../model/userModel';
+
+jest.mock('../model/userModel', () => {
+    const mockUser = {
+        User: jest.fn().mockImplementation((name, email, password, answerOne, answerTwo) => {
+            return {
+                name,
+                email,
+                password,
+                answerOne,
+                answerTwo
+            };
+        }),
+    };
+    return mockUser;
+});
+
 const users = {
     user1 : {
         id: 1,
@@ -24,39 +41,36 @@ describe('Funções do userService', () => {
                     id: 1,
                     name: "Roberto",
                     email: "robertao@email.com",
-                    password: "password"
+                    password: "password",
+                    answerOne: "aranha",
+                    answerTwo: "homem"
                 },
                 
                 {
                     id: 2,
                     name: "Melissa",
                     email: "melissa@email.com",
-                    password: "melsenha"
+                    password: "melsenha",
+                    answerOne: "mosca",
+                    answerTwo: "comida"
                 }
             ];
 
-            const newUser = {
-                id: 3,
-                name: "Elsa",
-                email: "elsa@email.com",
-                password: "elsasenha"
-            };
-
             const createUserMock = jest.fn((user) => {
-                let userExists = false;
-                usersBase.forEach(userInArray => {
-                    if (userInArray.id === user.id) {
+                var userExists = false;
+                var index = 0;
+                for (let user of Object.values(usersBase)){
+                    if (user.email === User.email) {                        
+                        usersBase.splice(index, 1);
                         userExists = true;
-                    }
-                });
-                if (userExists) {
-                    return false;
-                } else {
-                    usersBase.push(user);
-                    return true;
-                }
+                        return false;
+                    };
+                    index++;
+                };
+                usersBase.push(User);
+                return true;
             });
-
+            const newUser = new User("Elsa", "elsa@email.com", "elsasenha", "algo", "estranho");
             const result = createUserMock(newUser);
             expect(result).toBe(true);
         });
@@ -67,39 +81,37 @@ describe('Funções do userService', () => {
                     id: 1,
                     name: "Roberto",
                     email: "robertao@email.com",
-                    password: "password"
+                    password: "password",
+                    answerOne: "aranha",
+                    answerTwo: "homem"
                 },
                 
                 {
                     id: 2,
                     name: "Melissa",
                     email: "melissa@email.com",
-                    password: "melsenha"
+                    password: "melsenha",
+                    answerOne: "mosca",
+                    answerTwo: "comida"
                 }
             ];
 
-            const newUser = {
-                id: 2,
-                name: "Elsa",
-                email: "elsa@email.com",
-                password: "elsasenha"
-            };
-
-            const createUserMock = jest.fn((user) => {
-                let userExists = false;
-                usersBase.forEach(userInArray => {
-                    if (userInArray.id === user.id) {
+            const createUserMock = jest.fn((User) => {
+                var userExists = false;
+                var index = 0;
+                for (let user of Object.values(usersBase)){
+                    if (user.email === User.email) {                        
+                        usersBase.splice(index, 1);
                         userExists = true;
-                    }
-                });
-                if (userExists) {
-                    return false;
-                } else {
-                    usersBase.push(user);
-                    return true;
-                }
+                        return false;
+                    };
+                    index++;
+                };
+                usersBase.push(User);
+                return true;
             });
-
+            
+            const newUser = new User("Elsa", "melissa@email.com", "elsasenha", "resposta1", "resposta2");
             const result = createUserMock(newUser);
             expect(result).toBe(false);
         });
