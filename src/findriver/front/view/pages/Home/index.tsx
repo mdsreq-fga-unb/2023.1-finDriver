@@ -13,6 +13,7 @@ import Settings from '../Settings';
 import styles from './styles';
 import EditRide from '../EditRide';
 import ExpenseCard from '../../components/ExpenseCard';
+import Header from '../../components/Header';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,47 +21,48 @@ const Home = ({ navigation }) => {
     
     return(
         <View style={styles.container}>
+            <Header/>
             <ScrollView>
-                <View>
-                    <View style={styles.kmContainer}>
-                        <Text style={styles.kmText}>Você rodou 100.000 km</Text>
-                    </View>
-                    
-                    <View style={styles.kmContainer}>
-                        <Text style={styles.kmText}>Resumo diário:</Text>
+
+                <View style={styles.profitContainer}>
+                    <Text style={styles.profitText}>Lucro do dia</Text>
+                    <Text style={styles.profitText}>R$ 100.000,00</Text>
+                </View>
+
+                <View style={styles.summaryContainer}>
+                        <Text style={styles.title}>Resumo detalhado</Text>
+
+                    <View style={styles.summaryCard}>
+                        <Text style={styles.summaryTextTitle}>Hoje</Text>
+                        <Text style={styles.summaryText}>⬩Ganhos: </Text>
+                        <Text style={styles.summaryText}>⬩Gastos: </Text>
+                        <Text style={styles.summaryText}>⬩Saldo: </Text>
                     </View>
 
-                    <View style={styles.profitContainer}>
-                        <Text style={styles.white}>Lucro do dia</Text>
-                        <Text style={styles.white}>R$ 100.000,00</Text>
-                    </View>
+                    <View style={styles.summaryCard}>
+                        <Text style={styles.summaryTextTitle}>Esta Semana</Text>
+                        <Text style={styles.summaryText}>⬩Ganhos: </Text>
+                        <Text style={styles.summaryText}>⬩Gastos: </Text>
+                        <Text style={styles.summaryText}>⬩Saldo: </Text>
+                    </View>  
+                </View>
 
-                    <View style={styles.weeklyContainer}>
-                        <View >
-                            <Pressable style={styles.earnExpenseContainer}>
-                                <Text style={styles.white}>Ganho semanal</Text>
-                                <Text style={[styles.white, styles.value]}>R$ 150.000,00</Text>
-                            </Pressable>
-                        </View>
+                <View style={styles.kmContainer}>
+                    <Text style={styles.kmText}>Você rodou </Text>
+                    <Text style={[styles.kmText, {fontWeight: '700'}]}>100.000 km</Text>
 
-                        <View >
-                            <Pressable style={styles.earnExpenseContainer}>
-                                <Text style={styles.white}>Gasto semanal</Text>
-                                <Text style={[styles.white, styles.value]}>R$ 50.000,00</Text>
-                            </Pressable>
-                        </View>
-                    </View>
-                    
-
+                </View>
+                                  
+                <View style={{backgroundColor: 'transparent'}}> 
+                    <Text style={styles.title}>Corridas</Text>
                     <View style={styles.rideExpenseContainer}>
-                        <Text style={styles.white}>Minhas despesas</Text>
                         <RideCard/>
+                        <RideCard/>
+                    </View>
+
+                    <Text style={styles.title}>Despesas</Text>
+                    <View style={styles.rideExpenseContainer}>  
                         <ExpenseCard/>
-                    </View>
-
-                    <View style={styles.rideExpenseContainer}>
-                        <Text style={styles.white}>Minhas corridas</Text>
-                        <RideCard/>
                         <ExpenseCard/>
                     </View>
                 </View>
