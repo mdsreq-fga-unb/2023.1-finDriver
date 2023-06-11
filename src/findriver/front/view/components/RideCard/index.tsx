@@ -14,8 +14,6 @@ const RideCard = () => {
         console.log("tá apagado!")
         //navigation.navigate('Bem-vindo');
     };
-    const onSwipeLeft = () => { //Função executada ao apertar delete
-    };
 
     const handleEditRide = () => {
         navigation.navigate("Editar Corrida" as never);
@@ -28,17 +26,10 @@ const RideCard = () => {
         </View>
         </TouchableOpacity>
     );
-    const renderLeftActions = () => (
-        <TouchableOpacity onPress={onSwipeLeft}>
-        <View style={styles.editButtonArea}>
-            <Text style={styles.editButtonText}>Editar</Text>
-        </View>
-        </TouchableOpacity>
-    );
     return(
         <Swipeable
-            renderRightActions={renderRightActions}
-            renderLeftActions={renderLeftActions}>
+            renderRightActions={renderRightActions}>
+
             
             <View>
                 <Pressable onPress={() => handleEditRide()}>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
-import RideCard from '../../components/RideCard';
 
 import RideCard from '../../components/RideCard'
 import styles from './styles';
