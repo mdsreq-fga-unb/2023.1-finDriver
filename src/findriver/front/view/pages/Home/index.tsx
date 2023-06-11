@@ -2,7 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { View, ScrollView, KeyboardAvoidingView, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
 
 const Home = ({ navigation }) => {
-    return(
+
+    function signIn(id) {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+/*                 email: email,
+                password: password, */
+            })
+        };
+        fetch('http://192.168.1.5:3000/api/user/login', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    }
+    return (
         <KeyboardAvoidingView>
             <ScrollView>
 
@@ -26,7 +47,7 @@ const Home = ({ navigation }) => {
                         </Pressable>
                     </View>
                 </View>
-                
+
                 <View style={styles.kmContainer}>
                     <Text style={styles.kmText}>Você rodou 100.000 km</Text>
                 </View>
@@ -42,8 +63,8 @@ const Home = ({ navigation }) => {
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
-        
-    );    
+
+    );
 }
 
 const styles = StyleSheet.create({
@@ -76,7 +97,7 @@ const styles = StyleSheet.create({
         color: 'white',
         padding: 3,
         marginHorizontal: 10,
-        },
+    },
     value: {
         alignSelf: 'center',
         fontWeight: 'bold',
@@ -88,7 +109,7 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         color: '#001F36',
     },
-    kmContainer:{
+    kmContainer: {
         alignSelf: 'center',
         padding: 10
     },

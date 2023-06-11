@@ -50,7 +50,9 @@ const Login = ({ navigation }) => {
                         storeToken(token);
                         getToken();
 
-                        return Alert.alert('Usuário logado');
+                        Alert.alert('Usuário logado');
+
+                        return navigation.navigate('Inicio');
                     } else {
                         return Alert.alert('E-mail ou senha inválidos');
                     }
