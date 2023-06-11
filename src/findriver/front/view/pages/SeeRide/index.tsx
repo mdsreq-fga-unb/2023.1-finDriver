@@ -1,35 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
+import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 import RideCard from '../../components/RideCard';
 
-const SeeRides = ({ route, navigation }) => {
-    return(
-        <View style={styles.container}>
-            <View>
-                <Text style={styles.title}>Minhas Corridas</Text>
-            </View>
+import RideCard from '../../components/RideCard'
+import styles from './styles';
 
+const SeeRides = ({ route, navigation }) => {
+
+    const handleAddRideButton = () => {
+        navigation.navigate("Cadastrar Corrida")
+    }
+
+    return(
+        <ScrollView style={styles.container}>
+                <Text style={styles.title}>Minhas Corridas</Text>
+                <View style={styles.line}/>
+                <Pressable style={styles.addRideButton} onPress={handleAddRideButton}>
+                    <Text style={styles.addRideText}>Adicionar Corrida</Text>
+                </Pressable>
             <View>
                 <RideCard/>
             </View>
-        </View>
+        </ScrollView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "column",
-        flex: 10,
-        backgroundColor: '#1C5560'
-    },
-    title: {
-        color: 'white',
-        fontWeight: 'bold',
-        margin: 20,
-        fontSize: 30,
-    }
-});
-
 
 export default SeeRides;

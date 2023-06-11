@@ -1,20 +1,25 @@
 import React from "react";
 import { View, Text, Pressable, Animated, TouchableOpacity} from 'react-native';
 import { Swipeable } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from './styles';
 
-const ExpenseCard = (props, navigation) => {
+const ExpenseCard = ({}) => {
+    const navigation = useNavigation();
 
         const onSwipeRight = () => { //Função executada ao apertar delete
         };
         const onSwipeLeft = () => { //Função executada ao apertar delete
-            navigation.navigate('Editar Despesa')
+            navigation.navigate('Editar Despesa' as never)
         };
     
-
+        const handleEditExpense = () => {
+            navigation.navigate('Editar Despesa' as never);
+        }
+        
     const renderRightActions = () => (
-        <TouchableOpacity onPress={onSwipeRight}>
+        <TouchableOpacity onPressIn={onSwipeRight}>
           <View style={styles.deleteButtonArea}>
             <Text style={styles.deleteButtonText}>Deletar</Text>
           </View>
@@ -32,7 +37,7 @@ const ExpenseCard = (props, navigation) => {
     return(
          <Swipeable
          renderRightActions={renderRightActions}>
-             <Pressable>
+             <Pressable onPress={() => handleEditExpense()}>
                 <View style={styles.container}>
                     
                     <View style={styles.topArea}>

@@ -4,7 +4,7 @@ import Picker from '@ouroboros/react-native-picker';
 
 import styles from './styles';
 
-const SecurityQuestion = ({ navigation, route }) => {
+const PasswordRecovery = ({ navigation, route }) => {
     const [questionOne, setQuestionOne] = useState('');
     const [answerOne, setAnswerOne] = useState('');
     const [questionTwo, setQuestionTwo] = useState('');
@@ -16,47 +16,16 @@ const SecurityQuestion = ({ navigation, route }) => {
         if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
             Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
         } else {
-            const requestOptions = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    password: password,
-                    answerOne: answerOne,
-                    answerTwo: answerTwo,
-                    questionOne: questionOne,
-                    questionTwo: questionTwo
-                })
 
-            };
-            fetch('http://192.168.1.185:3000/api/user/cadastro', requestOptions)
-                .then((response) => {
-                    console.log(response.status)
-                    if (response.status == 201) {
-                        Alert.alert('Usuário cadastrado com sucesso!');
-                        navigation.navigate('Entrar'); 
-                    }
-                    else {
-                        Alert.alert('E-mail ou senha inválidos');
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-            }
         }
-
+    }
     return (
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
             <View>
                 <Image source={require('../../assets/logoCarro.png')} style={styles.logo} />
             </View>
             <View>
-                <Text style={styles.text}>Escolha duas perguntas para serem utilizadas em caso da necessidade de redefinição de senha.</Text>
+                <Text style={styles.text}>Escolha suas perguntas e recupere sua senha</Text>
             </View>
             <View style={styles.componentsContainer}>
                 <View style={styles.questionOneContainer}>
@@ -110,11 +79,12 @@ const SecurityQuestion = ({ navigation, route }) => {
                 <Pressable
                     style={styles.button}
                     onPress={() => handleCreateUser()}>
-                    <Text style={styles.textButton}>Registrar</Text>
+                    <Text style={styles.textButton}>Confirmar</Text>
                 </Pressable>
             </View>
         </KeyboardAvoidingView>
     );
 };
 
-export default SecurityQuestion;
+
+export default PasswordRecovery;

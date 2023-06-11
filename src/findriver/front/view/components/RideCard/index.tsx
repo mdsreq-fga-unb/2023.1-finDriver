@@ -1,16 +1,25 @@
 import React from "react";
 import { View, Text, Pressable, TouchableOpacity} from 'react-native';
 import { Swipeable } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
+
 
 import styles from './styles';
+import EditRide from "../../pages/EditRide";
 
-const RideCard = ({  }) => {
+const RideCard = () => {
+    const navigation = useNavigation();
 
     const onSwipeRight = () => { //Função executada ao apertar delete
+        console.log("tá apagado!")
+        //navigation.navigate('Bem-vindo');
     };
     const onSwipeLeft = () => { //Função executada ao apertar delete
     };
 
+    const handleEditRide = () => {
+        navigation.navigate("Editar Corrida" as never);
+    }
 
     const renderRightActions = () => (
         <TouchableOpacity onPress={onSwipeRight}>
@@ -32,7 +41,7 @@ const RideCard = ({  }) => {
             renderLeftActions={renderLeftActions}>
             
             <View>
-                <Pressable>
+                <Pressable onPress={() => handleEditRide()}>
                     <View style={styles.container}>
 
                     <View style={styles.topArea}>
