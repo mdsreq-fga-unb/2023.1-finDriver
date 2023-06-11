@@ -3,8 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flexDirection: "column",
-        backgroundColor: '#1c5560',
-        alignItems: 'center',
+        backgroundColor: '#79ae92',
         height: '100%',
     },
     line: {
@@ -32,6 +31,12 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '500',
         color: '#1c5560'
+    },
+    noExpenseText: {
+        marginHorizontal: 12,
+        color: '#F5F5F7',
+        fontSize: 17,
+        fontWeight: '400'
     }
 });
 

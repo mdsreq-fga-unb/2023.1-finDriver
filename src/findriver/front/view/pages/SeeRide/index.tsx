@@ -5,6 +5,7 @@ import Picker from '@ouroboros/react-native-picker';
 import RideCard from '../../components/RideCard'
 import styles from './styles';
 
+
 const SeeRides = ({ route, navigation }) => {
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZCI6MjQ1fV0sImlhdCI6MTY4NjQ2NDQ3Nn0.RHteRYmWNfjL8hktY89PFJ2rXsykTa29lvxGQstchjM';
 
@@ -20,7 +21,7 @@ const SeeRides = ({ route, navigation }) => {
                     'Authorization': token,
                 },
             };
-            fetch('http://192.168.1.185:3000/api/ride/ver', requestOptions)
+            fetch('http://192.168.0.25:3000/api/ride/ver', requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data.value);

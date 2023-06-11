@@ -1,18 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
-import Picker from '@ouroboros/react-native-picker';
 
-import Header from '../../components/Header';
 import ExpenseCard from '../../components/ExpenseCard';
-import RideCard from '../../components/RideCard';
 import styles from './styles';
 
 const SeeExpenses = ({ route, navigation }) => {
+    const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZCI6MjQ1fV0sImlhdCI6MTY4NjQ2NDQ3Nn0.RHteRYmWNfjL8hktY89PFJ2rXsykTa29lvxGQstchjM';
+    
+    const [expense, setExpense] = useState([]);
 
-    const handleAddExpenseButton = () => {
-
+    const fetchExpense =  async () => {
+        try{
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': token,
+                },
+            };
+            fetch('http://192.168.0.25:3000/api/expense/ver', requestOptions)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data.value);
+                    setExpense(data.value);
+                    console.log(expense);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        } catch (error) {
+            console.log(error);
+        } 
     }
 
+    useEffect(() => {
+        fetchExpense();
+    }, []);
+
+    const handleAddExpenseButton = () => {
+        navigation.navigate("Cadastrar Despesa")
+    }
+    
     return(
         <View style={styles.container}>
             <ScrollView >
@@ -25,19 +54,11 @@ const SeeExpenses = ({ route, navigation }) => {
                     </Pressable>
 
                     <View>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-
+                    {expense && expense.length > 0 ? (expense.map((expense) => (
+                    <ExpenseCard key={expense.id} expense={expense}/>
+                ))) : (
+                    <Text style={styles.noExpenseText}>Nenhuma despesa cadastrada!</Text>
+                )}
                     </View>
                 </View>
             </ScrollView>

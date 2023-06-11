@@ -5,15 +5,12 @@ import { useNavigation } from "@react-navigation/native";
 
 import styles from './styles';
 
-const ExpenseCard = ({}) => {
+const ExpenseCard = ({ expense }) => {
     const navigation = useNavigation();
 
         const onSwipeRight = () => { //Função executada ao apertar delete
         };
-        const onSwipeLeft = () => { //Função executada ao apertar delete
-            navigation.navigate('Editar Despesa' as never)
-        };
-    
+        
         const handleEditExpense = () => {
             navigation.navigate('Editar Despesa' as never);
         }
@@ -25,38 +22,31 @@ const ExpenseCard = ({}) => {
           </View>
         </TouchableOpacity>
     );
-    const renderLeftActions = () => (
-        <TouchableOpacity onPress={onSwipeLeft}>
-        <View style={styles.editButtonArea}>
-            <Text style={styles.editButtonText}>Editar</Text>
-        </View>
-        </TouchableOpacity>
-    );
 
 
     return(
          <Swipeable
          renderRightActions={renderRightActions}>
-             <Pressable onPress={() => handleEditExpense()}>
+             
                 <View style={styles.container}>
-                    
+                    <Pressable onPress={() => handleEditExpense()}>
                     <View style={styles.topArea}>
-                        <Text style={[styles.text, styles.valueText]}>R$ 50.000,00</Text>
-                        <Text style={[styles.text, styles.dateText]}>30/09/2023</Text>
+                        <Text style={[styles.text, styles.valueText]}>R$ {expense?.value}</Text>
+                        <Text style={[styles.text, styles.dateText]}>{expense?.ride}</Text>
                     </View>
                 
                     <View style={styles.bottomArea}>
                        
                         <View style={styles.informations}>
-                            <Text style={[styles.text, styles.baloon]}>Almoço do dia</Text>
-                            <Text style={[styles.text, styles.baloon]}>Comida</Text>
+                            <Text style={[styles.text, styles.baloon]}>{expense?.cause}</Text>
+                            <Text style={[styles.text, styles.baloon]}>{expense?.type}</Text>
                         </View>
                        
-                        <Text style={[styles.text, styles.descriptionText]}>Era um restaurante muito bom da zona sul, comprei um macarrão e me acabei naquele molho branco</Text>
+                        <Text style={[styles.text, styles.descriptionText]}>{expense?.description}</Text>
                     </View>
-                    
+                   </Pressable>   
                 </View>
-            </Pressable>     
+               
         </Swipeable>  
     )
 }

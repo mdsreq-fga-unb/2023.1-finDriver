@@ -48,7 +48,7 @@ const Home = ({ navigation }) => {
                 'Authorization': token
             }
         };
-        fetch('http://192.168.1.5:3000/api/ride/kmRodados', requestOptions)
+        fetch('http://192.168.0.25:300/api/ride/kmRodados', requestOptions)
             .then(response => response.json())
             .then(data => {
                 try {
@@ -111,14 +111,13 @@ const Home = ({ navigation }) => {
                             <Text >Nenhuma corrida cadastrada!</Text>
                         )} */}
                         <RideCard key={0} ride={null}/>
-                        <ExpenseCard/>
+                        
                     </View> 
                         
 
                     <Text style={styles.title}>Despesas</Text>
                     <View style={styles.rideExpenseContainer}>  
-                        <ExpenseCard/>
-                        <ExpenseCard/>
+                    
                     </View>
                 </View>
             </ScrollView>
