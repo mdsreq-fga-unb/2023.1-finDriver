@@ -121,7 +121,6 @@ const averageExpense = async (userId) => {
       ) {
         weekValues.push(data[i].value);
 
-        console.log(data[i]);
       }
     }
 
