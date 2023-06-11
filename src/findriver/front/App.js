@@ -21,6 +21,7 @@ import AddExpense from './view/pages/AddExpense';
 import AddRide from './view/pages/AddRide';
 import EditUser from './view/pages/EditUser';
 import EditRide from './view/pages/EditRide';
+import PasswordRecovery from './view/pages/PasswordRecovery';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -34,6 +35,8 @@ export default function App() {
           <Stack.Screen name="Entrar" component={Login} />
           <Stack.Screen name='Registrar' component={Register} />
           <Stack.Screen name="Perguntas" component={SecurityQuestion} />
+          <Stack.Screen name="Recovery" component={PasswordRecovery} />
+
 
           <Stack.Screen name="Cadastrar Despesa" component={AddExpense} />
           <Stack.Screen name="Editar Despesa" component={EditExpense} />
