@@ -19,7 +19,7 @@ const Register = ({ navigation }) => {
         } else if (!comparePassword()) {
             Alert.alert('Erro', 'As senhas não coincidem. Por favor, tente novamente.');
         } else {
-            navigation.navigate('Perguntas de Segurança',{name: name, email: email, password: password});
+            navigation.navigate('Perguntas',{name: name, email: email, password: password});
         }
     };
 

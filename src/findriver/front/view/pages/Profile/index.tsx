@@ -16,7 +16,7 @@ const Profile = ({ navigation }) => {
 
                 <Pressable 
                     style={styles.button}
-                    onPress={() => navigation.navigate('Edite seu perfil')}>
+                    onPress={() => navigation.navigate('Editar Perfil')}>
                     <Text style={styles.textButton}>Editar</Text>
                 </Pressable>
             </View>

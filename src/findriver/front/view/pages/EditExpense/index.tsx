@@ -19,7 +19,7 @@ const EditExpense = ({ navigation, route }) => {
         if(!cause || !value || !selectedDate || !type){
             Alert.alert('Erro','Por favor, preencha todos os campos');
         } else {
-            
+            navigation.goBack();
         }
     };
 

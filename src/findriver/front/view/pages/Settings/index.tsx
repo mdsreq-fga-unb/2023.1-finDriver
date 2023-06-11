@@ -11,7 +11,7 @@ const Settings = ({ navigation }) => {
         {
           text: 'Apagar',
           onPress: () => {
-            Alert.alert('Conta excluída')
+            navigation.navigate("Bem-Vindo");
           },
           style: 'destructive',
         },
@@ -34,7 +34,7 @@ const Settings = ({ navigation }) => {
         {
           text: 'Sair',
           onPress: () => {
-            Alert.alert('Deslogou')
+            navigation.navigate("Bem-Vindo");
           },
           style: 'destructive',
         },

@@ -65,8 +65,8 @@ const Login = ({ navigation }) => {
     }
 
     var confere = function () {
+        navigation.navigate('Tab');
         signIn();
-        navigation.navigate('Login')();
     }
 
     return (
@@ -97,7 +97,7 @@ const Login = ({ navigation }) => {
                 />
                 <Pressable
                     style={styles.button}
-                    onPress={(signIn)}>
+                    onPress={(() => confere())}>
                     <Text style={styles.textButton}>Entrar</Text>
                 </Pressable>
 

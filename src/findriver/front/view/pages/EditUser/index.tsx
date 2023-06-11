@@ -4,7 +4,6 @@ import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'reac
 import styles from './styles';
 
 const EditUser = ({ navigation, route }) => {
-    //const { name, email, password } = route.params
     const senhaDeMentira = 'victorlindo';
 
     const [newName, setNewName] = useState('Jorge Mateus da Silva');
@@ -20,7 +19,7 @@ const EditUser = ({ navigation, route }) => {
         } else if (oldPassword !== senhaDeMentira){
             Alert.alert('Erro', 'Por favor, digite uma senha válida');
         } else {
-            
+            navigation.navigate('Perfil');
         }
     };
 

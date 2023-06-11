@@ -13,13 +13,11 @@ const EditRide = ({ navigation, route }) => {
     const [selectedDate, setSelectedDate] = useState('');
     const [description, setDescription] = useState('');
 
-
-
     const handleEditRide = () => {
-        if(!value || !quilometers || !app || !selectedDate || !description){
+        if(!value || !quilometers || !app || !selectedDate ){
             Alert.alert('Erro','Por favor, preencha todos os campos');
         } else {
-            
+            navigation.goBack();
         }
     };
 

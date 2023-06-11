@@ -4,7 +4,7 @@ import Picker from '@ouroboros/react-native-picker';
 
 import styles from './styles';
 
-const SecurityQuestion = ({ route }) => {
+const SecurityQuestion = ({ navigation, route }) => {
     const [questionOne, setQuestionOne] = useState('');
     const [answerOne, setAnswerOne] = useState('');
     const [questionTwo, setQuestionTwo] = useState('');
@@ -33,12 +33,12 @@ const SecurityQuestion = ({ route }) => {
                 })
 
             };
-            fetch('http://192.168.1.5:3000/api/user/cadastro', requestOptions)
+            fetch('http://192.168.1.185:3000/api/user/cadastro', requestOptions)
                 .then((response) => {
                     console.log(response.status)
                     if (response.status == 201) {
                         Alert.alert('Usuário cadastrado com sucesso!');
-                        //navigation.navigate('Entrar'); 
+                        navigation.navigate('Entrar'); 
                     }
 
                     else {
