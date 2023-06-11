@@ -1,38 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
+import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
 import ExpenseCard from '../../components/ExpenseCard';
 import RideCard from '../../components/RideCard';
+import styles from './styles';
 
 const SeeExpenses = ({ route, navigation }) => {
+
+    const handleAddExpenseButton = () => {
+
+    }
+
     return(
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View>
                 <Text style={styles.title}>Minhas Despesas</Text>
             </View>
+            <View style={styles.line}/>
+
+            <Pressable style={styles.addExpenseButton} onPress={handleAddExpenseButton}>
+                <Text style={styles.addExpenseText}>Adicionar Despesa</Text>
+            </Pressable>
+
 
             <View>
                 <ExpenseCard/>
-                <RideCard/>
             </View>
-        </View>
+        </ScrollView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "column",
-        flex: 10,
-        backgroundColor: '#1C5560'
-    },
-    title: {
-        color: 'white',
-        fontWeight: 'bold',
-        margin: 20,
-        fontSize: 30,
-    }
-});
-
 
 export default SeeExpenses;

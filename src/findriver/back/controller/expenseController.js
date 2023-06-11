@@ -7,7 +7,8 @@ async function addExpense(req, res) {
   const expense = req.body;
 
   try {
-    const token = req.headers.authorization;
+    const token = req.headers.authorization.split(' ')[1];
+    console.log(token)
     const userID = await getUserIdByToken(token);
     await expenseService.createExpense(userID, expense);
     res
@@ -18,11 +19,12 @@ async function addExpense(req, res) {
       message: error.message,
     });
   }
-}
+};
 
 async function getExpenses(req, res) {
   try {
-    const token = req.headers.authorization;
+    const token = req.headers.authorization.split(' ')[1];
+    console.log(token)
     const userId = await getUserIdByToken(token);
     var value = await expenseService.getExpenseByUserID(userId);
     res.status(statusCode.OK).json({ value });
@@ -37,7 +39,7 @@ async function getExpenses(req, res) {
       message: error.message,
     });
   }
-}
+};
 
 async function getOneExpense(req, res) {
   const { id } = req.params;
@@ -49,7 +51,7 @@ async function getOneExpense(req, res) {
   } catch (error) {
     res.status(statusCode.NOT_FOUND).json({ message: error.message });
   }
-}
+};
 
 async function updateExpense(req, res) {
   const { id } = req.params;
@@ -63,7 +65,7 @@ async function updateExpense(req, res) {
   } catch (error) {
     res.status(statusCode.NOT_FOUND).json({ message: error.message });
   }
-}
+};
 
 async function deleteExpense(req, res) {
   const { id } = req.params;
@@ -74,7 +76,24 @@ async function deleteExpense(req, res) {
   } catch (error) {
     res.status(statusCode.NOT_FOUND).json({ message: error.message });
   }
-}
+};
+
+async function getExpenseAverage(req, res) {
+
+  try {
+    const token = req.headers.authorization.split(' ')[1];
+
+
+    const userID = await getUserIdByToken(token);
+
+    let value = await expenseService.averageExpense(userID);
+
+    res.status(statusCode.OK).json({ value });
+  } catch (error) {
+    console.log(error)
+    res.status(statusCode.NOT_FOUND).json({ message: error.message });
+  }
+};
 
 module.exports = {
   addExpense,
@@ -82,4 +101,5 @@ module.exports = {
   getOneExpense,
   updateExpense,
   deleteExpense,
+  getExpenseAverage
 };

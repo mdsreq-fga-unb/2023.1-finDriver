@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@react-navigation/native": "^6.1.6",
+    "react-native-vector-icons": "^9.2.0"
+  }
+}
