@@ -6,12 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import SeeRides from '../SeeRide';
-import SeeExpenses from '../SeeExpenses';
-import Settings from '../Settings';
-
 import styles from './styles';
-import EditRide from '../EditRide';
 import ExpenseCard from '../../components/ExpenseCard';
 import Header from '../../components/Header';
 
@@ -57,9 +52,15 @@ const Home = ({ navigation }) => {
                 <View style={{backgroundColor: 'transparent'}}> 
                     <Text style={styles.title}>Corridas</Text>
                     <View style={styles.rideExpenseContainer}>
-                        <RideCard/>
-                        <RideCard/>
-                    </View>
+                        {/* {rides.length > 0 ? (rides.map((ride) => (
+                            <RideCard key={ride.id} ride={ride}/>
+                        ))) : (
+                            <Text >Nenhuma corrida cadastrada!</Text>
+                        )} */}
+                        <RideCard key={0} ride={null}/>
+                        <ExpenseCard/>
+                    </View> 
+                        
 
                     <Text style={styles.title}>Despesas</Text>
                     <View style={styles.rideExpenseContainer}>  

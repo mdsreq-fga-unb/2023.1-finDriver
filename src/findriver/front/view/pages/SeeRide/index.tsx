@@ -43,8 +43,6 @@ const SeeRides = ({ route, navigation }) => {
         navigation.navigate("Cadastrar Corrida")
     }
 
-
-
     return(
         <ScrollView style={styles.container}>
                 <Text style={styles.title}>Minhas Corridas</Text>
