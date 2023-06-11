@@ -4,12 +4,16 @@ import Picker from '@ouroboros/react-native-picker';
 
 import RideCard from '../../components/RideCard'
 import styles from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const SeeRides = ({ route, navigation }) => {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZCI6MjQ1fV0sImlhdCI6MTY4NjQ2NDQ3Nn0.RHteRYmWNfjL8hktY89PFJ2rXsykTa29lvxGQstchjM';
+    //const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZCI6MjQ1fV0sImlhdCI6MTY4NjQ2NDQ3Nn0.RHteRYmWNfjL8hktY89PFJ2rXsykTa29lvxGQstchjM';
+
+    const HOST = 'http://192.168.1.5:3000'
 
     const [rides, setRides] = useState([]);
+    const [token, setToken] = useState('');
 
     const fetchRides = async () => {
         try{
@@ -18,15 +22,14 @@ const SeeRides = ({ route, navigation }) => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Authorization': token,
+                    'Authorization': token.toString(),
                 },
             };
-            fetch('http://192.168.0.25:3000/api/ride/ver', requestOptions)
+            fetch(`${HOST}/api/ride/ver`, requestOptions)
+
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data.value);
                     setRides(data.value);
-                    console.log(rides);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -36,9 +39,20 @@ const SeeRides = ({ route, navigation }) => {
         } 
     }
 
-    useEffect(() => {
-        fetchRides();
-    }, []);
+    const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                setToken(value)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    } 
+
+    getToken();
+
+    fetchRides();
 
     const handleAddRideButton = () => {
         navigation.navigate("Cadastrar Corrida")
