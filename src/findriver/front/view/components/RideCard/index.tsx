@@ -31,9 +31,8 @@ const RideCard = () => {
         <Swipeable
             renderRightActions={renderRightActions}>
             
-            <View>
+            <View style={styles.container}>
                 <Pressable onPress={() => handleEditRide()}>
-                    <View style={styles.container}>
 
                     <View style={styles.topArea}>
                         <Text style={[styles.text, styles.valueText]}>R$ 50.000,00</Text>
@@ -49,11 +48,8 @@ const RideCard = () => {
                             
                             <Text style={[styles.text, styles.descriptionText]}>Uma corrida muito doida, maluca, absurda de doida muito tensa</Text>
                         </View>
-                        
-                    </View>
                 </Pressable>
             </View>
-
        </Swipeable>
     )
 }

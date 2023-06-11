@@ -60,7 +60,12 @@ function AppTab() {
         headerShown: false, 
         tabBarActiveTintColor: '#001F36', 
         tabBarInactiveTintColor: 'gray',
-        tabBarStyle: {height: 60, alignContent: 'space-around'}
+        tabBarStyle: {
+          height: 60, 
+          alignContent: 'space-around', 
+          borderTopRightRadius: 10, 
+          borderTopLeftRadius: 10
+        }
       }}
     >
       <Tab.Screen name="Inicio" component={Home} options={{
