@@ -99,11 +99,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
     },
-    kmText: {
+    title: {
         fontSize: 20,
-        fontFamily: '',
         fontWeight: '500',
-        color: '#001F36',
+        color: '#1c5560',
+        marginHorizontal: 10
     },
     kmContainer:{
         alignSelf: 'center',
@@ -120,18 +120,26 @@ const styles = StyleSheet.create({
     rideExpenseContainer: {
         backgroundColor: '#1C5560',
         marginHorizontal: 25,
+        marginVertical: 5,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        backgroundColor: '#79ae92',
         borderRadius: 10,
-        marginBottom: 10,
-
+        elevation: 10
     },
-    footer: {
+    summaryTextTitle: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#F5F5F7',
+        marginBottom: 3
+    },
+    summaryText: {
+        color: '#F5F5F7'
+    },
+    kmContainer: {
         flexDirection: 'row',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        width: '100%',
-        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#1C5560',
         justifyContent: 'space-between',
         alignItems: 'center',

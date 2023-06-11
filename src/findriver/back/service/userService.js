@@ -30,8 +30,6 @@ const createUser = async (User) => {
     ])
     .select("id");
 
-    const token = createToken(data);
-
   if (error) {
     if (error.code == "23505") {
       return "Usuário já existe";

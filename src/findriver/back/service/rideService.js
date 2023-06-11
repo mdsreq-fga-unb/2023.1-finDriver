@@ -111,11 +111,8 @@ const kmDrivenInTheDay = async (userId) => {
       if (today.toLocaleDateString() == dbDate.toLocaleDateString()) {
         dayKilometers.push(data[i].kilometerage);
 
-        //console.log(data[i])
       }
     };
-
-    console.log(dayKilometers)
 
     var total = 0
 
