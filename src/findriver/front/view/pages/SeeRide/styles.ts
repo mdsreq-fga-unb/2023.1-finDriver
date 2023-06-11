@@ -31,6 +31,12 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '500',
         color: '#1c5560'
+    },
+    noRidesText: {
+        marginHorizontal: 12,
+        color: '#F5F5F7',
+        fontSize: 17,
+        fontWeight: '400'
     }
 });
 

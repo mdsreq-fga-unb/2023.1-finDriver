@@ -6,10 +6,44 @@ import RideCard from '../../components/RideCard'
 import styles from './styles';
 
 const SeeRides = ({ route, navigation }) => {
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZCI6MjQ1fV0sImlhdCI6MTY4NjQ2NDQ3Nn0.RHteRYmWNfjL8hktY89PFJ2rXsykTa29lvxGQstchjM';
+
+    const [rides, setRides] = useState([]);
+
+    const fetchRides = async () => {
+        try{
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': token,
+                },
+            };
+            fetch('http://192.168.1.185:3000/api/ride/ver', requestOptions)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data.value);
+                    setRides(data.value);
+                    console.log(rides);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        } catch (error) {
+            console.log(error);
+        } 
+    }
+
+    useEffect(() => {
+        fetchRides();
+    }, []);
 
     const handleAddRideButton = () => {
         navigation.navigate("Cadastrar Corrida")
     }
+
+
 
     return(
         <ScrollView style={styles.container}>
@@ -20,17 +54,11 @@ const SeeRides = ({ route, navigation }) => {
                     <Text style={styles.addRideText}>Adicionar Corrida</Text>
                 </Pressable>
             <View>
-                <RideCard/>
-                <RideCard/>
-                <RideCard/>
-                <RideCard/>
-                <RideCard/>
-                <RideCard/>
-                <RideCard/>
-                <RideCard/>
-                <RideCard/>
-                <RideCard/>
-
+                {rides.length > 0 ? (rides.map((ride) => (
+                    <RideCard key={ride.id} ride={ride}/>
+                ))) : (
+                    <Text style={styles.noRidesText}>Nenhuma corrida cadastrada!</Text>
+                )}
             </View>
         </ScrollView>
     );
