@@ -21,7 +21,6 @@ const createExpense = async (userId, Expense) => {
 
     if (error) throw error;
   } catch (error) {
-    console.log("erro");
     throw error;
   }
 };
@@ -71,6 +70,8 @@ const updateExpense = async (Expense, expenseId) => {
       })
       .eq("id", expenseId);
 
+
+
     if (error) throw error;
   } catch (error) {
     throw error;
@@ -90,11 +91,62 @@ const deleteExpense = async (expenseId) => {
   }
 };
 
+const averageExpense = async (userId) => {
+  try {
+    const { data, error } = await supabase
+      .from("Expenses")
+      .select("id, value, date")
+      .eq("idUser", userId);
+
+    const sizeData = data.length;
+
+    var weekValues = [];
+
+    //Calcula quais os dias pertencem à semana com base na data atual (today)
+
+    var today = new Date(Date.now());
+    var weekstart = today.getDate() - today.getDay();
+    var weekend = weekstart + 6;
+    var sunday = new Date(today.setDate(weekstart));
+    var saturday = new Date(today.setDate(weekend));
+
+    //Loop que adiciona os valores dos gastos da semana no array weekValues
+
+    for (let i = 0; i < sizeData; i++) {
+      var weekDate = new Date(data[i].date.replace(/-/g, '\/'))
+
+      if (weekDate.toLocaleDateString() >= sunday.toLocaleDateString() && weekDate.toLocaleDateString() <= saturday.toLocaleDateString()) {
+        weekValues.push(data[i].value);
+
+        console.log(data[i])
+      }
+    };
+
+    //Loop que soma os valores dos gastos da semana 
+
+    var total = 0
+
+    for (var i = 0; i < weekValues.length; i++) {
+      total += weekValues[i];
+    };
+
+    var average = total/weekValues.length
+
+    return average;
+
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+
 module.exports = {
   createExpense,
   getExpenseById,
   getExpenseByUserID,
   updateExpense,
   deleteExpense,
-  getUserIdByToken,
+  updateExpense,
+  averageExpense
 };

@@ -37,10 +37,7 @@ const createUser = async (User) => {
       console.log(error);
       throw error;
     }
-  } else {
-    console.log(error)
-    return ;
-  }
+  } 
 };
 
 async function getUserByEmail(user) {

@@ -92,10 +92,50 @@ const deleteRideById = async (rideId) => {
   }
 };
 
+const kmDrivenInTheDay = async (userId) => {
+  try {
+    const { data, error } = await supabase
+      .from("Rides")
+      .select("id, kilometerage, date")
+      .eq("idUser", userId);
+
+    const sizeData = data.length;
+
+    var dayKilometers = [];
+
+    var today = new Date(Date.now());
+
+    for (let i = 0; i < sizeData; i++) {
+      var dbDate = new Date(data[i].date.replace(/-/g, '\/'))
+
+      if (today.toLocaleDateString() == dbDate.toLocaleDateString()) {
+        dayKilometers.push(data[i].kilometerage);
+
+        //console.log(data[i])
+      }
+    };
+
+    console.log(dayKilometers)
+
+    var total = 0
+
+    for (var i = 0; i < dayKilometers.length; i++) {
+      total += dayKilometers[i];
+    };
+
+    return total;
+
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
 module.exports = {
   createRide,
   getRideByUserId,
   getRideByRideId,
   updateRideById,
   deleteRideById,
+  kmDrivenInTheDay
 };

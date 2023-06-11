@@ -7,14 +7,67 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import styles from './styles';
+import EditRide from '../EditRide';
 import ExpenseCard from '../../components/ExpenseCard';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../components/Header';
 
 const Tab = createBottomTabNavigator();
 
 const Home = ({ navigation }) => {
-    
-    return(
+
+    const [km, setKm] = useState(0);
+
+    const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                return value;
+                //onsole.log(value)
+            }
+        } catch (e) {
+            console.log(e)
+        }}
+        
+        const token = getToken()
+        console.log(token)
+        
+
+        useEffect(() => {
+            getDayKm(token);
+        }, [])
+
+
+    function getDayKm(token) {
+
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': token
+            }
+        };
+        fetch('http://192.168.1.5:3000/api/ride/kmRodados', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                try {
+                    if (data) {
+                        const km = data
+                        setKm(km.value)
+                        console.log(data.value)
+                    }
+
+                } catch (e) {
+                    console.log(e)
+                }
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    }
+
+    return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#F5F5F7" />
             <Header/>
@@ -68,10 +121,10 @@ const Home = ({ navigation }) => {
                         <ExpenseCard/>
                     </View>
                 </View>
-                </ScrollView>
+            </ScrollView>
         </View>
-        
-    );    
+
+    );
 }
 
 export default Home;

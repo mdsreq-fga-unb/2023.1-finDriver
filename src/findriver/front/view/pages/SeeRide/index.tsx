@@ -52,7 +52,7 @@ const SeeRides = ({ route, navigation }) => {
                     <Text style={styles.addRideText}>Adicionar Corrida</Text>
                 </Pressable>
             <View>
-                {rides.length > 0 ? (rides.map((ride) => (
+                {rides && rides.length > 0 ? (rides.map((ride) => (
                     <RideCard key={ride.id} ride={ride}/>
                 ))) : (
                     <Text style={styles.noRidesText}>Nenhuma corrida cadastrada!</Text>
