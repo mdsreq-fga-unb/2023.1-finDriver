@@ -23,9 +23,10 @@ const SeeRides = ({ route, navigation }) => {
             fetch('http://192.168.1.185:3000/api/ride/ver', requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data.value);
                     setRides(data.value);
-                    console.log(rides);
+                    //console.log('dados: \n');
+                    //console.log(data);
+
                 })
                 .catch((err) => {
                     console.log(err);
@@ -34,10 +35,7 @@ const SeeRides = ({ route, navigation }) => {
             console.log(error);
         } 
     }
-
-    useEffect(() => {
-        fetchRides();
-    }, []);
+    fetchRides();
 
     const handleAddRideButton = () => {
         navigation.navigate("Cadastrar Corrida")
@@ -53,7 +51,7 @@ const SeeRides = ({ route, navigation }) => {
                 </Pressable>
             <View>
                 {rides && rides.length > 0 ? (rides.map((ride) => (
-                    <RideCard key={ride.id} ride={ride}/>
+                    <RideCard key={ride.id} ride={ride} />
                 ))) : (
                     <Text style={styles.noRidesText}>Nenhuma corrida cadastrada!</Text>
                 )}
