@@ -25,8 +25,6 @@ async function loginUserWithToken(User) {
             .select("id, email, password")
             .eq('email', User.email);
 
-        console.log(data[0].email)
-
         if (await bcrypt.compareSync(User.password, (data[0].password).toString())) {
 
             const token = jwt.sign(

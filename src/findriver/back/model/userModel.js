@@ -1,10 +1,20 @@
-let User = function(name, email, password, answerOne, answerTwo) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.answerOne = answerOne;
-        this.answerTwo = answerTwo;
-        //this.car = car;
-    }
+let User = function (
+  name,
+  email,
+  password,
+  questionOne,
+  answerOne,
+  questionTwo,
+  answerTwo
+) {
+  this.name = name;
+  this.email = email;
+  this.password = password;
+  this.questionOne = questionOne;
+  this.answerOne = answerOne;
+  this.questionTwo = questionTwo;
+  this.answerTwo = answerTwo;
+  //this.car = car;
+};
 
 module.exports = User;

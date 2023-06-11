@@ -6,10 +6,12 @@ import RideCard from '../../components/RideCard'
 import dados from '../../../dados';
 
 import styles from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SeeRides = ({ route, navigation }) => {
 
     const [rides, setRides] = useState([]);
+    const [token, setToken] = useState('');
 
     const fetchRides = async () => {
         try{
@@ -18,7 +20,7 @@ const SeeRides = ({ route, navigation }) => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Authorization': dados.Token,
+                    'Authorization': token.toString(),
                 },
             };
             fetch(`${dados.Url}/api/ride/ver`, requestOptions)
@@ -35,6 +37,20 @@ const SeeRides = ({ route, navigation }) => {
             console.log(error);
         } 
     }
+
+    const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                setToken(value)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    } 
+
+    getToken();
+
     fetchRides();
 
     const handleAddRideButton = () => {

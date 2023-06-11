@@ -16,19 +16,19 @@ const createUser = async (User) => {
   var encryptedPassword = bcrypt.hashSync(User.password, salt);
 
   const { data, error } = await supabase
-    .from('Users')
-    .insert([{
-      name: User.name, 
-      email: User.email, 
-      password: encryptedPassword,
-      answerOne: User.answerOne, 
-      answerTwo: User.answerTwo,
-      questionOne: User.questionOne, 
-      questionTwo: User.questionTwo,
-    }])
-    .select('id')
-
-    const token = createToken(data);
+    .from("Users")
+    .insert([
+      {
+        name: User.name,
+        email: User.email,
+        password: encryptedPassword,
+        questionOne: User.questionOne,
+        answerOne: User.answerOne,
+        questionTwo: User.questionTwo,
+        answerTwo: User.answerTwo,
+      },
+    ])
+    .select("id");
 
   if (error) {
     if (error.code == "23505") {
@@ -37,7 +37,7 @@ const createUser = async (User) => {
       console.log(error);
       throw error;
     }
-  } 
+  }
 };
 
 async function getUserByEmail(user) {
@@ -58,8 +58,8 @@ async function getUserByEmail(user) {
 
 async function updateUserById(user, id) {
   if (user.password) {
-    const salt = bcrypt.genSaltSync(10)
-    var encryptedPassword = bcrypt.hashSync(user.password, salt)
+    const salt = bcrypt.genSaltSync(10);
+    var encryptedPassword = bcrypt.hashSync(user.password, salt);
   }
 
   const { error } = await supabase
@@ -78,12 +78,13 @@ async function updateUserById(user, id) {
 }
 
 async function deleteUserById(id) {
+  await supabase.from("Users").delete().eq("id", id);
+}
 
-  await supabase
-    .from('Users')
-    .delete()
-    .eq('id', id)
-    
+module.exports = {
+  createUser,
+  getUserByEmail,
+  updateUserById,
+  deleteUserById,
+  supabase,
 };
-
-module.exports = { createUser, getUserByEmail, updateUserById, deleteUserById, supabase };

@@ -8,7 +8,6 @@ async function addRide(req, res) {
 
   try {
     const token = req.headers.authorization.split(' ')[1];
-    console.log(token)
     const userId = await getUserIdByToken(token);
     await rideService.createRide(userId, ride);
 
@@ -45,7 +44,6 @@ async function getOneRide(req, res) {
 
   try {
     let value = await rideService.getRideByRideId(id);
-    console.log(value);
     res.status(statusCode.OK).json({ value });
   } catch (error) {
     res.status(statusCode.NOT_FOUND).json({ message: error.message });

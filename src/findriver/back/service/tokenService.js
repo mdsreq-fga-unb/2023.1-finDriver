@@ -5,8 +5,6 @@ const createToken = (user) => {
     { data: user }, 
     process.env.TOKEN_KEY,
     );
-    console.log(user);
-    console.log(token);
   return token;
 };
 
@@ -18,7 +16,8 @@ const getUserIdByToken = (token) => {
   try {
 
     const decoded = jwt.verify(token, process.env.TOKEN_KEY);
-    var userId = decoded.data[0].id
+
+    var userId = decoded.user[0].id
     return userId;
 
   } catch (error) {    

@@ -15,6 +15,7 @@ const createExpense = async (userId, Expense) => {
           value: Expense.value,
           date: Expense.date,
           type: Expense.type,
+          description: Expense.description,
         },
       ])
       .single();
@@ -67,10 +68,9 @@ const updateExpense = async (Expense, expenseId) => {
         value: Expense.value,
         date: Expense.date,
         type: Expense.type,
+        description: Expense.description,
       })
       .eq("id", expenseId);
-
-
 
     if (error) throw error;
   } catch (error) {
@@ -113,33 +113,33 @@ const averageExpense = async (userId) => {
     //Loop que adiciona os valores dos gastos da semana no array weekValues
 
     for (let i = 0; i < sizeData; i++) {
-      var weekDate = new Date(data[i].date.replace(/-/g, '\/'))
+      var weekDate = new Date(data[i].date.replace(/-/g, "/"));
 
-      if (weekDate.toLocaleDateString() >= sunday.toLocaleDateString() && weekDate.toLocaleDateString() <= saturday.toLocaleDateString()) {
+      if (
+        weekDate.toLocaleDateString() >= sunday.toLocaleDateString() &&
+        weekDate.toLocaleDateString() <= saturday.toLocaleDateString()
+      ) {
         weekValues.push(data[i].value);
 
-        console.log(data[i])
       }
-    };
+    }
 
-    //Loop que soma os valores dos gastos da semana 
+    //Loop que soma os valores dos gastos da semana
 
-    var total = 0
+    var total = 0;
 
     for (var i = 0; i < weekValues.length; i++) {
       total += weekValues[i];
-    };
+    }
 
-    var average = total/weekValues.length
+    var average = total / weekValues.length;
 
     return average;
-
   } catch (error) {
     console.log(error);
     throw error;
   }
 };
-
 
 module.exports = {
   createExpense,
@@ -148,5 +148,5 @@ module.exports = {
   updateExpense,
   deleteExpense,
   updateExpense,
-  averageExpense
+  averageExpense,
 };
