@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
     kmContainer:{
         alignSelf: 'center',
-        padding: 10
+        marginTop: 25
     },
     rideExpenseContainer: {
         backgroundColor: '#1C5560',
