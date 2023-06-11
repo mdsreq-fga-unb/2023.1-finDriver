@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flexDirection: "column",
-        flex: 10,
-        backgroundColor: '#1C5560'
+        backgroundColor: '#1C5560',
+        hei
     },
     title: {
         color: 'white',

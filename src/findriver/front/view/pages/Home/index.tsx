@@ -11,7 +11,6 @@ import SeeExpenses from '../SeeExpenses';
 import Settings from '../Settings';
 
 import styles from './styles';
-import NavBar from '../../components/NavBar';
 import EditRide from '../EditRide';
 import ExpenseCard from '../../components/ExpenseCard';
 
@@ -61,7 +60,6 @@ const Home = ({ navigation }) => {
                     </View>
                 </View>
                 </ScrollView>
-                {/* <NavBar /> */}
         </View>
         
     );    

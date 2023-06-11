@@ -3,6 +3,8 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import { MaterialIcons } from 'react-native-vector-icons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
 import Home from './view/pages/Home';
@@ -26,7 +28,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Bem-Vindo'>
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Tab'>
 
           <Stack.Screen name="Bem-Vindo" component={Welcome}/>
           <Stack.Screen name="Entrar" component={Login} />
@@ -48,13 +50,63 @@ export default function App() {
   );
 }
 
-function AppTab(){
+function AppTab() {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="Inicio" component={Home}/>
-      <Tab.Screen name="Corridas" component={SeeRides}/>
-      <Tab.Screen name="Despesas" component={SeeExpenses}/>
-      <Tab.Screen name="Ajustes" component={Settings}/>
+    <Tab.Navigator 
+      screenOptions={{ 
+        headerShown: false, 
+        tabBarActiveTintColor: '#001F36', 
+        tabBarInactiveTintColor: 'gray',
+        tabBarStyle: {height: 60, alignContent: 'space-around'}
+      }}
+    >
+      <Tab.Screen name="Inicio" component={Home} options={{
+        tabBarIcon: ({color, size}) => (
+          <Icon 
+            name="home"
+            color={color}
+            size={size}
+          />
+        )
+      }}/>
+      
+      <Tab.Screen name="Corridas" component={SeeRides} options={{
+        tabBarIcon: ({color, size}) => (
+          <Icon 
+            name="car"
+            color={color}
+            size={size}
+          />
+        )
+      }}/>
+      
+      <Tab.Screen 
+        name="Despesas" 
+        component={SeeExpenses} 
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Icon 
+              name="shopping-basket"
+              color={color}
+              size={size}
+            />
+          )
+        }}
+      />
+      
+      <Tab.Screen 
+        name="Ajustes" 
+        component={Settings} 
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Icon 
+              name="user-cog"
+              color={color}
+              size={size}
+            />
+          )
+        }}
+      />
     </Tab.Navigator>
-  )
+  );
 }

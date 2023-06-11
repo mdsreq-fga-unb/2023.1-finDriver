@@ -8,12 +8,9 @@ import styles from './styles';
 const SeeRides = ({ route, navigation }) => {
     return(
         <View style={styles.container}>
-            <View>
                 <Text style={styles.title}>Minhas Corridas</Text>
-            </View>
 
             <View>
-                {/* chamar cards aqui */}
                 <RideCard/>
             </View>
         </View>
