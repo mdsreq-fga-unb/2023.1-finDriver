@@ -22,6 +22,14 @@ const Home = ({ navigation }) => {
         <View style={styles.container}>
             <ScrollView>
                 <View>
+                    <View style={styles.kmContainer}>
+                        <Text style={styles.kmText}>Você rodou 100.000 km</Text>
+                    </View>
+                    
+                    <View style={styles.kmContainer}>
+                        <Text style={styles.kmText}>Resumo diário:</Text>
+                    </View>
+
                     <View style={styles.profitContainer}>
                         <Text style={styles.white}>Lucro do dia</Text>
                         <Text style={styles.white}>R$ 100.000,00</Text>
@@ -43,9 +51,6 @@ const Home = ({ navigation }) => {
                         </View>
                     </View>
                     
-                    <View style={styles.kmContainer}>
-                        <Text style={styles.kmText}>Você rodou 100.000 km</Text>
-                    </View>
 
                     <View style={styles.rideExpenseContainer}>
                         <Text style={styles.white}>Minhas despesas</Text>
