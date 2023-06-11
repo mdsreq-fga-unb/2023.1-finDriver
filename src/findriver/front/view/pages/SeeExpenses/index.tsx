@@ -4,6 +4,7 @@ import Picker from '@ouroboros/react-native-picker';
 
 import ExpenseCard from '../../components/ExpenseCard';
 import RideCard from '../../components/RideCard';
+import styles from './styles';
 
 const SeeExpenses = ({ route, navigation }) => {
     return(
@@ -19,20 +20,5 @@ const SeeExpenses = ({ route, navigation }) => {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "column",
-        flex: 10,
-        backgroundColor: '#1C5560'
-    },
-    title: {
-        color: 'white',
-        fontWeight: 'bold',
-        margin: 20,
-        fontSize: 30,
-    }
-});
-
 
 export default SeeExpenses;
