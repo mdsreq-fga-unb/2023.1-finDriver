@@ -3,13 +3,12 @@ import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvo
 import Picker from '@ouroboros/react-native-picker';
 
 import RideCard from '../../components/RideCard'
+import dados from '../../../dados';
+
 import styles from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SeeRides = ({ route, navigation }) => {
-    //const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZCI6MjQ1fV0sImlhdCI6MTY4NjQ2NDQ3Nn0.RHteRYmWNfjL8hktY89PFJ2rXsykTa29lvxGQstchjM';
-
-    const HOST = 'http://192.168.1.5:3000'
 
     const [rides, setRides] = useState([]);
     const [token, setToken] = useState('');
@@ -24,10 +23,12 @@ const SeeRides = ({ route, navigation }) => {
                     'Authorization': token.toString(),
                 },
             };
-            fetch(`${HOST}/api/ride/ver`, requestOptions)
+            fetch(`${dados.Url}/api/ride/ver`, requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
                     setRides(data.value);
+                    //console.log('dados: \n');
+                    //console.log(data);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -66,7 +67,7 @@ const SeeRides = ({ route, navigation }) => {
                 </Pressable>
             <View>
                 {rides && rides.length > 0 ? (rides.map((ride) => (
-                    <RideCard key={ride.id} ride={ride}/>
+                    <RideCard key={ride.id} ride={ride} />
                 ))) : (
                     <Text style={styles.noRidesText}>Nenhuma corrida cadastrada!</Text>
                 )}

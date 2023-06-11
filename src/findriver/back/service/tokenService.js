@@ -12,6 +12,7 @@ const getUserIdByToken = (token) => {
   if (!token) {
     throw new Error("Token de autenticação não fornecido!");
   }
+  //console.log(token)
   try {
 
     const decoded = jwt.verify(token, process.env.TOKEN_KEY);

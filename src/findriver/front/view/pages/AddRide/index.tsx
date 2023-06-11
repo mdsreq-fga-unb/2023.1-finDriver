@@ -105,18 +105,16 @@ const AddRide = ({ navigation, route }) => {
                         style={styles.input}
                         value={app}
                         onChangeText={app => setApp(app)}
-                        placeholder="App de corrida"
+                        placeholder="Ex.: Uber"
                         cursorColor="#001f36"
                     />
-                
-
                 
                     <Text style={styles.label}>Data</Text>
                     <TextInput
                         style={styles.input}
                         value={selectedDate}
                         onChangeText={selectedDate => setSelectedDate(selectedDate)}
-                        placeholder="YYY/MM/DD"
+                        placeholder="AAAA/MM/DD"
                         keyboardType="numbers-and-punctuation"
                         cursorColor="#001f36"
                     />
@@ -129,8 +127,6 @@ const AddRide = ({ navigation, route }) => {
                         placeholder="Descrição (opcional)"
                         cursorColor="#001f36"
                     />
-                    
-                
 
                     <Pressable 
                         style={styles.button}
