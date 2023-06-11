@@ -18,18 +18,6 @@ const Login = ({ navigation }) => {
         }
     }
 
-    const getToken = async () => {
-        try {
-            const value = await AsyncStorage.getItem('token')
-            if (value !== null) {
-                console.log(value)
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-
     function signIn() {
         const requestOptions = {
             method: 'POST',
@@ -49,11 +37,10 @@ const Login = ({ navigation }) => {
                     if (data.response.token !== undefined) {
                         var token = data.response.token.headers.Authorization;
                         storeToken(token);
-                        getToken();
 
                         Alert.alert('Usuário logado');
 
-                        return navigation.navigate('Inicio');
+                        //return navigation.navigate('Inicio');
                     } else {
                         return Alert.alert('E-mail ou senha inválidos');
                     }
