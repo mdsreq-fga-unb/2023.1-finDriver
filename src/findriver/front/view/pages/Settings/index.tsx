@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image, Text, Pressable, StyleSheet, Alert} from 'react-native';
+import { View, Image, Text, Pressable, StyleSheet, Alert } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 
 import styles from './styles';
@@ -40,8 +40,7 @@ const Settings = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      
+    <View style={styles.container}>   
       <Image source={require('../../assets/logoBranca.png')} style={styles.logo} />
       <Text style={styles.title}>Ajustes</Text>
       
@@ -55,7 +54,7 @@ const Settings = ({ navigation }) => {
         </Pressable>
        
         <Pressable style={[styles.button, { backgroundColor: '#E6332A' }]} onPress={deleteAccount}>
-          <Text style={styles.textButton}>Apagar conta</Text>
+          <Text style={[styles.textButton, { color: '#F5F5F7' }]}>Apagar conta</Text>
         </Pressable>
       </View>
     

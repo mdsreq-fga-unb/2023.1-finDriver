@@ -2,6 +2,7 @@ const { createClient } = require("@supabase/supabase-js");
 var bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const env = require("dotenv");
+const { createToken } = require('./tokenService');
 
 require("dotenv").config();
 
@@ -28,6 +29,8 @@ const createUser = async (User) => {
       },
     ])
     .select("id");
+
+    const token = createToken(data);
 
   if (error) {
     if (error.code == "23505") {
