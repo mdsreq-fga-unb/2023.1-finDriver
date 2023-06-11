@@ -1,27 +1,69 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView} from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 
+
 const AddRide = ({ navigation, route }) => {
     //const { name, email, password } = route.params
+    const HOST = 'http://192.168.1.5:3000'
 
     const [value, setValue] = useState('');
     const [quilometers, setQuilometers] = useState('');
     const [app, setApp] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
     const [description, setDescription] = useState('');
+    const [token, setToken] = useState('');
 
-
-
-    const handleAddRide = () => {
-        if(!value || !quilometers || !app || !selectedDate || !description){
-            Alert.alert('Erro','Por favor, preencha todos os campos');
-        } else {
-            
+    const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                setToken(value)
+            }
+        } catch (e) {
+            console.log(e)
         }
-    };
+    }
+
+    const handleAddRide = (token) => {
+        if (!value || !quilometers || !app || !selectedDate) {
+          Alert.alert("Erro", "Por favor, preencha todos os campos");
+        } else {
+          const requestOptions = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: token.toString(),
+            },
+            body: JSON.stringify({
+              value: value,
+              kilometerage: quilometers,
+              application: app,
+              description: description,
+              date: selectedDate,
+            }),
+          };
+          fetch(`${HOST}/api/ride/adicionar`, requestOptions)
+            .then((response) => {
+              console.log(response.status);
+              if (response.status === 201) {
+                Alert.alert("Corrida cadastrada com sucesso");
+                navigation.navigate("Corridas");
+              } else {
+                Alert.alert("Erro", "Ocorreu um erro ao cadastrar a corrida");
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
+      };
+
+      getToken();
 
     return(
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
@@ -92,7 +134,7 @@ const AddRide = ({ navigation, route }) => {
 
                     <Pressable 
                         style={styles.button}
-                        onPress={() => handleAddRide()}>
+                        onPress={() => handleAddRide(token)}>
                         <Text style={styles.textButton}>Adicionar</Text>
                     </Pressable>
 

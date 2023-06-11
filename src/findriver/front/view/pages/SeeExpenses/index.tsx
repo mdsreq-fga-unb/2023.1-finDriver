@@ -1,22 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
+import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
+import Header from '../../components/Header';
 import ExpenseCard from '../../components/ExpenseCard';
 import RideCard from '../../components/RideCard';
 import styles from './styles';
 
 const SeeExpenses = ({ route, navigation }) => {
+
+    const handleAddExpenseButton = () => {
+
+    }
+
     return(
         <View style={styles.container}>
-            <View>
-                <Text style={styles.title}>Minhas Despesas</Text>
-            </View>
+            <ScrollView >
+                <View>
+                    <Text style={styles.title}>Minhas Despesas</Text>
+                    <View style={styles.line}/>
 
-            <View>
-                <ExpenseCard/>
-                <RideCard/>
-            </View>
+                    <Pressable style={styles.addExpenseButton} onPress={handleAddExpenseButton}>
+                        <Text style={styles.addExpenseText}>Adicionar Despesa</Text>
+                    </Pressable>
+
+                    <View>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+
+                    </View>
+                </View>
+            </ScrollView>
         </View>
     );
 }

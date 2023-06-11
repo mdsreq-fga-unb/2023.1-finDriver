@@ -6,9 +6,14 @@ import styles from './styles';
 
 const Login = ({ navigation }) => {
 
+    const HOST = 'http://192.168.1.5:3000'
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const handleForgotPassword = () => {
+
+    }
 
     const storeToken = async (value) => {
         try {
@@ -26,9 +31,7 @@ const Login = ({ navigation }) => {
             }
         } catch (e) {
             console.log(e)
-        }
-    }
-
+        }}
 
     function signIn() {
         const requestOptions = {
@@ -42,7 +45,7 @@ const Login = ({ navigation }) => {
                 password: password,
             })
         };
-        fetch('http://192.168.1.5:3000/api/user/login', requestOptions)
+        fetch(`${HOST}/api/user/login`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 try {
@@ -51,7 +54,9 @@ const Login = ({ navigation }) => {
                         storeToken(token);
                         getToken();
 
-                        return Alert.alert('Usuário logado');
+                        Alert.alert('Usuário logado');
+
+                        return navigation.navigate('Tab');
                     } else {
                         return Alert.alert('E-mail ou senha inválidos');
                     }
@@ -65,8 +70,8 @@ const Login = ({ navigation }) => {
     }
 
     var confere = function () {
-        navigation.navigate('Tab');
         signIn();
+        navigation.navigate('Tab');
     }
 
     return (
@@ -97,11 +102,11 @@ const Login = ({ navigation }) => {
                 />
                 <Pressable
                     style={styles.button}
-                    onPress={(() => confere())}>
+                    onPress={(() => signIn())}>
                     <Text style={styles.textButton}>Entrar</Text>
                 </Pressable>
 
-                <Pressable onPress={() => Alert.alert('Tá muito esquecidinho em')}
+                <Pressable onPress={handleForgotPassword}
                             style={styles.pressableTextForgotPassword}>
                     <Text style={styles.underlinedText}>Esqueceu a senha?</Text>
                 </Pressable>

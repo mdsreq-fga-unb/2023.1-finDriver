@@ -50,7 +50,7 @@ const EditUser = ({ navigation, route }) => {
                         style={styles.input}
                         value={newEmail}
                         onChangeText={newEmail => setNewEmail(newEmail)}
-                        placeholder="Email"
+                        placeholder="email@gmail.com"
                         keyboardType="email-address"
                         autoComplete="email"
                         cursorColor="#001f36"
@@ -76,7 +76,7 @@ const EditUser = ({ navigation, route }) => {
                         style={styles.input}
                         value={newPassword}
                         onChangeText={newPassword => setNewPassword(newPassword)}
-                        placeholder="nova Senha"
+                        placeholder="Nova Senha"
                         keyboardType="default"
                         autoComplete= "off"
                         autoCorrect={false}
