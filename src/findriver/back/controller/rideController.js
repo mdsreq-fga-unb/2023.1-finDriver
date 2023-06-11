@@ -7,7 +7,8 @@ async function addRide(req, res) {
   const ride = req.body;
 
   try {
-    const token = req.headers.authorization;
+    const token = req.headers.authorization.split(' ')[1];
+    console.log(token)
     const userId = await getUserIdByToken(token);
     await rideService.createRide(userId, ride);
 
@@ -78,4 +79,19 @@ async function deleteRide(req, res) {
   }
 }
 
-module.exports = { addRide, getRides, getOneRide, updateRide, deleteRide };
+async function getKmDriveByUserId(req, res) {
+
+  try {
+    const token = req.headers.authorization.split(' ')[1];
+
+    const userID = await getUserIdByToken(token);
+
+    let value = await rideService.kmDrivenInTheDay(userID);
+
+    res.status(statusCode.OK).json({ value });
+  } catch (error) {
+    console.log(error)
+    res.status(statusCode.NOT_FOUND).json({ message: error.message });
+  }
+};
+module.exports = { addRide, getRides, getOneRide, updateRide, deleteRide, getKmDriveByUserId };

@@ -11,15 +11,67 @@ import SeeExpenses from '../SeeExpenses';
 import Settings from '../Settings';
 
 import styles from './styles';
-import NavBar from '../../components/NavBar';
+//import NavBar from '../../components/NavBar';
 import EditRide from '../EditRide';
 import ExpenseCard from '../../components/ExpenseCard';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Tab = createBottomTabNavigator();
 
 const Home = ({ navigation }) => {
-    
-    return(
+
+    const [km, setKm] = useState(0);
+
+    const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                return value;
+                //onsole.log(value)
+            }
+        } catch (e) {
+            console.log(e)
+        }}
+        
+        const token = getToken()
+        console.log(token)
+        
+
+        useEffect(() => {
+            getDayKm(token);
+        }, [])
+
+
+    function getDayKm(token) {
+
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': token
+            }
+        };
+        fetch('http://192.168.1.5:3000/api/ride/kmRodados', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                try {
+                    if (data) {
+                        const km = data
+                        setKm(km.value)
+                        console.log(data.value)
+                    }
+
+                } catch (e) {
+                    console.log(e)
+                }
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    }
+
+    return (
         <View style={styles.container}>
             <ScrollView>
                 <View>
@@ -43,28 +95,29 @@ const Home = ({ navigation }) => {
                             </Pressable>
                         </View>
                     </View>
-                    
+
                     <View style={styles.kmContainer}>
-                        <Text style={styles.kmText}>Você rodou 100.000 km</Text>
+                        {/* {km.map(kms =>  */}
+                        <Text style={styles.kmText}>Você rodou {km} km</Text>
                     </View>
 
                     <View style={styles.rideExpenseContainer}>
                         <Text style={styles.white}>Minhas despesas</Text>
-                        <RideCard/>
-                        <ExpenseCard/>
+                        <RideCard />
+                        <ExpenseCard />
                     </View>
 
                     <View style={styles.rideExpenseContainer}>
                         <Text style={styles.white}>Minhas corridas</Text>
-                        <RideCard/>
-                        <ExpenseCard/>
+                        <RideCard />
+                        <ExpenseCard />
                     </View>
                 </View>
-                </ScrollView>
-                {/* <NavBar /> */}
+            </ScrollView>
+            {/* <NavBar /> */}
         </View>
-        
-    );    
+
+    );
 }
 
 export default Home;

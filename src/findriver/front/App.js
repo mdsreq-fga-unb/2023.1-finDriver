@@ -28,7 +28,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Tab'>
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Bem-Vindo'>
 
           <Stack.Screen name="Bem-Vindo" component={Welcome}/>
           <Stack.Screen name="Entrar" component={Login} />
