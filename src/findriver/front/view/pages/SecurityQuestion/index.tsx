@@ -2,47 +2,54 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
-const SecurityQuestion = ({ route, navigation }) => {
+import styles from './styles';
+
+const SecurityQuestion = ({ navigation, route }) => {
     const [questionOne, setQuestionOne] = useState('');
     const [answerOne, setAnswerOne] = useState('');
     const [questionTwo, setQuestionTwo] = useState('');
     const [answerTwo, setAnswerTwo] = useState('');
 
-    const { name, email, password } = route.params
+    const { name, email, password } = route.params;
 
-    function addUser() {
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                password: password,
-                answerOne: answerOne,
-                answerTwo: answerTwo,
-                questionOne: questionOne,
-                questionTwo: questionTwo
-            })
+    const handleCreateUser = () => {
+        if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+        } else {
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    password: password,
+                    answerOne: answerOne,
+                    answerTwo: answerTwo,
+                    questionOne: questionOne,
+                    questionTwo: questionTwo
+                })
 
-        };
-        fetch('http://192.168.1.3:3000/api/user/cadastro', requestOptions)
-            .then((response) => {
-                console.log(response.status)
-                if (response.status == 201) {
-                    Alert.alert('Usuário cadastrado com sucesso!');
-                }
+            };
+            fetch('http://192.168.1.185:3000/api/user/cadastro', requestOptions)
+                .then((response) => {
+                    console.log(response.status)
+                    if (response.status == 201) {
+                        Alert.alert('Usuário cadastrado com sucesso!');
+                        navigation.navigate('Entrar'); 
+                    }
 
-                else {
-                    Alert.alert('E-mail ou senha inválidos');
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }
+                    else {
+                        Alert.alert('E-mail ou senha inválidos');
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            }
+        }
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
@@ -58,6 +65,7 @@ const SecurityQuestion = ({ route, navigation }) => {
                     <Picker
                         onChanged={setQuestionOne}
                         options={[
+                            {value: '', text: ''},
                             {value: 'food', text: 'Qual sua comida favorita?'},
                             {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
                             {value: 'fear', text: 'Qual o seu maior medo?'},
@@ -80,6 +88,7 @@ const SecurityQuestion = ({ route, navigation }) => {
                     <Picker
                         onChanged={setQuestionTwo}
                         options={[
+                            {value: '', text: ''},
                             {value: 'food', text: 'Qual sua comida favorita?'},
                             {value: 'pet', text: 'Qual o nome do seu primeiro Pet?'},
                             {value: 'fear', text: 'Qual o seu maior medo?'},
@@ -101,78 +110,12 @@ const SecurityQuestion = ({ route, navigation }) => {
 
                 <Pressable
                     style={styles.button}
-                    onPress={addUser}>
+                    onPress={() => handleCreateUser()}>
                     <Text style={styles.textButton}>Registrar</Text>
                 </Pressable>
             </View>
         </KeyboardAvoidingView>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "column",
-        flex: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    logo: {
-        marginTop: -20,
-        marginBottom: 0,
-        width: 250,
-        height: 250,
-    },
-    text: {
-        fontSize: 15,
-        color: '#696969',
-        textAlign: 'justify',
-        marginHorizontal: 40,
-        marginBottom: 35,
-    },
-    componentsContainer: {
-    },
-    questionOneContainer: {
-        marginBottom: 15,
-    },
-    questionTwoContainer: {
-        marginBottom: 25,
-    },
-    label: {
-        color: '#1c5560',
-        textAlign: 'left',
-        justifyContent: 'center',
-        fontSize: 13,
-    },
-    picker: {
-        borderColor: '#e0e0e0',
-        borderWidth: 2,
-        borderRadius: 10,
-        marginBottom: 5,
-        padding: 7,
-    },
-    input: {
-        width: 290,
-        height: 50,
-        padding: 7,
-        borderColor: '#e0e0e0',
-        borderWidth: 2,
-        borderRadius: 10,
-        marginBottom: 15,
-        fontSize: 15,
-    },
-    button: {
-        backgroundColor: '#001f36',
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
-    },
-    textButton: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#ffffff',
-    },
-
-});
 
 export default SecurityQuestion;

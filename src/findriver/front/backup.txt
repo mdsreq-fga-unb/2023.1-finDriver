@@ -1,94 +1,43 @@
-import React from "react";
-import { View, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native-web';
+import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer,  } from "@react-navigation/native";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Register: React.FC = () => {
-    return(
-        <View>
-            <Text>Nome</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Nome"
-                keyboardType="default"
-                autoComplete="off"
-                cursorColor="#001f36"
-            />
-            <Text>E-mail</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Email"
-                keyboardType="email-address"
-                autoComplete="email"
-                cursorColor="#001f36"
-            />
-            <Text>Senha</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Senha"
-                keyboardType="default"
-                autoComplete= "off"
-                autoCorrect={false}
-                cursorColor="#001f36"
-                secureTextEntry={true}
-            />
-            
-            <Text>Confirme sua senha</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Senha"
-                keyboardType="default"
-                autoComplete= "off"
-                autoCorrect={false}
-                cursorColor="#001f36"
-                secureTextEntry={true}
-            />
-        </View>
+import Home from './view/pages/Home';
+import Login from './view/pages/Login';
+import Welcome from './view/pages/Welcome';
+import AddRide from './view/pages/AddRide';
+import Register from './view/pages/Register/index'
+import EditUser from './view/pages/EditUser';
+import EditRide from './view/pages/EditRide';
+import SeeRides from './view/pages/SeeRide';
+import RideCard from './view/components/RideCard';
+import AddExpense from './view/pages/AddExpense';
+import EditExpense from './view/pages/EditExpense';
+import SeeExpenses from './view/pages/SeeExpenses';
+import ExpenseCard from './view/components/ExpenseCard';
+import SecurityQuestion from './view/pages/SecurityQuestion';
+import Profile from "./view/pages/Profile";
+import Settings from "./view/pages/Settings";
+import NavBar from "./view/components/NavBar";
 
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-
-    );
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    label: {
-        color: '#1c5560',
-        textAlign: 'left',
-        fontSize: 13,
-    },
-    input: {
-        width: 290,
-        height: 50,
-        padding: 10,
-        borderColor: '#e0e0e0',
-        borderWidth: 2,
-        borderRadius: 10,
-        marginBottom: 40,
-        fontSize: 15,
-    },
-    button: {
-        backgroundColor: '#001f36',
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 120,
-    },
-    textButton: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#ffffff',
-    },
-    forgotPassword: {
-        fontSize: 15,
-        color: '#001f36',
-        marginTop: 30,
-        textDecorationLine: 'underline',
-        textDecorationColor: '#001f36',
-    },
-});
-
-export { Register };
+export default function App() {
+  return (
+    <NavigationContainer>
+      {/* <Stack.Navigator initialRouteName="Inicio">
+        <Stack.Screen name="Bem-vindo" component={Welcome} />
+        <Stack.Screen name="Registrar" component={Register} />
+        <Stack.Screen name="Inicio" component={Home} />
+      </Stack.Navigator> */}
+       <Tab.Navigator>
+        {/* <Tab.Screen name="Ver despesas" component={SeeExpenses}/>
+        <Tab.Screen name="Ver corridas" component={SeeRides}/>
+        <Tab.Screen name="Configurações" component={Settings}/> */}
+        <Tab.Screen name="Inicio" component={Home}/>
+      </Tab.Navigator>  
+    </NavigationContainer>
+    
+  );
+}

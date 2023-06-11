@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Image, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Image, Text, Pressable } from 'react-native';
+
+import styles from './styles';
 
 const Welcome = ({ navigation }) => {
     return(
@@ -9,48 +11,18 @@ const Welcome = ({ navigation }) => {
 
             <Pressable 
                 style={styles.button}
-                onPress={() => navigation.navigate('Login')}>
+                onPress={() => navigation.navigate('Entrar')}>
                     <Text style={styles.textButton} >Entrar</Text>
             </Pressable>
 
             <Pressable 
                 style={styles.button}
-                onPress={() => navigation.navigate('Register')}>
+                onPress={() => navigation.navigate('Registrar')}>
                     <Text style={styles.textButton} >Cadastrar-se</Text>
             </Pressable>
             
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    logo: {
-        width:400,
-        height: 400,
-        marginTop: 0,
-        marginBottom: 50,
-    },
-    button: {
-        backgroundColor: '#001f36',
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
-        width: 250,
-        height: 55,
-        margin:10,
-    },
-    textButton: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#ffffff',
-    },
-
-})
 
 export default Welcome;
