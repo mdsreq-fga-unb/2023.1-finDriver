@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     line: {
         borderBottomColor: '#F5F5F7',
         borderBottomWidth: 2
+
     },
     title: {
         color: 'white',
