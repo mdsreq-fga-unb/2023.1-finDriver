@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         padding: 10,
         marginHorizontal: 10,
-        elevation: 10
+        elevation: 7
     },
     topArea: {
         flexDirection: 'row',
@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
     },
     baloon: {
         marginLeft: 10,
-        backgroundColor: '#79ae92',//FBFFCD
+        backgroundColor: '#79ae92',
         borderRadius: 20,
         paddingHorizontal: 6,
-        color: '#000000'
+        color: '#1D1D1F'
     },
     descriptionText: {
         marginLeft: 10,
