@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { View, Text, Pressable, TouchableOpacity} from 'react-native';
+import { View, Text, Pressable, TouchableOpacity, Alert} from 'react-native';
 import { Swipeable } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
+import dados from "../../../dados";
 import styles from './styles';
 import EditRide from "../../pages/EditRide";
 
@@ -20,10 +21,11 @@ const RideCard = ({ ride }) => {
                     'Accept': 'application/json'
                 },
             };
-            fetch(`http://192.168.1.185:3000/api/ride/deletar/${id}`, requestOptions)
+            fetch(`${dados.Url}/api/ride/deletar/${id}`, requestOptions)
                 .then((response) => response.json())
                 .then(() => {
                     console.log("Apagado com sucesso!");
+                    Alert.alert("Corrida apagada com sucesso!");
                 })
                 .catch((err) => console.log(err)
             );
@@ -52,7 +54,7 @@ const RideCard = ({ ride }) => {
                 <Pressable onPress={() => handleEditRide()}>
 
                     <View style={styles.topArea}>
-                        <Text style={[styles.text, styles.valueText]}>{id}R$ {ride?.value}</Text>
+                        <Text style={[styles.text, styles.valueText]}>R$ {ride?.value}</Text>
                         <Text style={[styles.text, styles.dateText]}>{ride?.date}</Text>
                     </View>
                     

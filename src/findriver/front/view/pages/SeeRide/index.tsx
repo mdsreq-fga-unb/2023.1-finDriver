@@ -3,10 +3,11 @@ import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvo
 import Picker from '@ouroboros/react-native-picker';
 
 import RideCard from '../../components/RideCard'
+import dados from '../../../dados';
+
 import styles from './styles';
 
 const SeeRides = ({ route, navigation }) => {
-    const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZCI6MjQ1fV0sImlhdCI6MTY4NjQ2NDQ3Nn0.RHteRYmWNfjL8hktY89PFJ2rXsykTa29lvxGQstchjM';
 
     const [rides, setRides] = useState([]);
 
@@ -17,16 +18,15 @@ const SeeRides = ({ route, navigation }) => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Authorization': token,
+                    'Authorization': dados.Token,
                 },
             };
-            fetch('http://192.168.1.185:3000/api/ride/ver', requestOptions)
+            fetch(`${dados.Url}/api/ride/ver`, requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
                     setRides(data.value);
                     //console.log('dados: \n');
                     //console.log(data);
-
                 })
                 .catch((err) => {
                     console.log(err);
