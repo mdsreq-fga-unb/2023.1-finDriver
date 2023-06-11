@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
-const SecurityQuestion = ({ route }) => {
+import styles from './styles';
+
+const SecurityQuestion = ({ navigation, route }) => {
     const [questionOne, setQuestionOne] = useState('');
     const [answerOne, setAnswerOne] = useState('');
     const [questionTwo, setQuestionTwo] = useState('');
@@ -32,7 +34,7 @@ const SecurityQuestion = ({ route }) => {
 
 
             };
-            fetch('http://192.168.0.25:19000/api/user/cadastro', requestOptions)
+            fetch('http://192.168.1.185:3000/api/user/cadastro', requestOptions)
                 .then((response) => {
                     console.log(response.status)
                     if (response.status == 201) {
@@ -118,71 +120,5 @@ const SecurityQuestion = ({ route }) => {
         </KeyboardAvoidingView>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "column",
-        flex: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    logo: {
-        marginTop: -20,
-        marginBottom: 0,
-        width: 250,
-        height: 250,
-    },
-    text: {
-        fontSize: 15,
-        color: '#696969',
-        textAlign: 'justify',
-        marginHorizontal: 40,
-        marginBottom: 35,
-    },
-    componentsContainer: {
-    },
-    questionOneContainer: {
-        marginBottom: 15,
-    },
-    questionTwoContainer: {
-        marginBottom: 25,
-    },
-    label: {
-        color: '#1c5560',
-        textAlign: 'left',
-        justifyContent: 'center',
-        fontSize: 13,
-    },
-    picker: {
-        borderColor: '#e0e0e0',
-        borderWidth: 2,
-        borderRadius: 10,
-        marginBottom: 5,
-        padding: 7,
-    },
-    input: {
-        width: 290,
-        height: 50,
-        padding: 7,
-        borderColor: '#e0e0e0',
-        borderWidth: 2,
-        borderRadius: 10,
-        marginBottom: 15,
-        fontSize: 15,
-    },
-    button: {
-        backgroundColor: '#001f36',
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
-    },
-    textButton: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#ffffff',
-    },
-
-});
 
 export default SecurityQuestion;
