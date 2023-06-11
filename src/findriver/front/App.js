@@ -5,7 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { MaterialIcons } from 'react-native-vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-
+import { SafeAreaView } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import Home from './view/pages/Home';
 import Welcome from './view/pages/Welcome';
@@ -28,28 +29,33 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Tab'>
+    <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Tab'>
 
-          <Stack.Screen name="Bem-Vindo" component={Welcome}/>
-          <Stack.Screen name="Entrar" component={Login} />
-          <Stack.Screen name='Registrar' component={Register} />
-          <Stack.Screen name="Perguntas" component={SecurityQuestion} />
-          <Stack.Screen name="Recovery" component={PasswordRecovery} />
+            <Stack.Screen name="Bem-Vindo" component={Welcome}/>
+            <Stack.Screen name="Entrar" component={Login} />
+            <Stack.Screen name='Registrar' component={Register} />
+            <Stack.Screen name="Perguntas" component={SecurityQuestion} />
+            <Stack.Screen name="Recovery" component={PasswordRecovery} />
 
 
-          <Stack.Screen name="Cadastrar Despesa" component={AddExpense} />
-          <Stack.Screen name="Editar Despesa" component={EditExpense} />
+            <Stack.Screen name="Cadastrar Despesa" component={AddExpense} />
+            <Stack.Screen name="Editar Despesa" component={EditExpense} />
+            
+            <Stack.Screen name="Cadastrar Corrida" component={AddRide} />
+            <Stack.Screen name="Editar Corrida" component={EditRide} />
           
-          <Stack.Screen name="Cadastrar Corrida" component={AddRide} />
-          <Stack.Screen name="Editar Corrida" component={EditRide} />
-         
-          <Stack.Screen name="Perfil" component={Profile} />
-          <Stack.Screen name="Editar Perfil" component={EditUser}/>
+            <Stack.Screen name="Perfil" component={Profile} />
+            <Stack.Screen name="Editar Perfil" component={EditUser}/>
 
-          <Stack.Screen name="Tab" component={AppTab} />
-        </Stack.Navigator>
-    </NavigationContainer>
+            <Stack.Screen name="Tab" component={AppTab} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </SafeAreaView>
+
   );
 }
 

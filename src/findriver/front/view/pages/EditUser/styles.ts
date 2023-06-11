@@ -2,23 +2,24 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 0,
         flexDirection:"column",
         justifyContent: 'center',
         alignItems: 'center',
     },
     logo: {
-        marginTop: -30,
+        marginTop: 20,
         width: 250,
         height: 250,
     },
     componentsContainer:{
     },
     title:{
-        color: '#1c5560',
-        fontWeight: 'bold',
-        fontSize: 30,
-        marginBottom: 10,
+        color: '#001F36',
+        fontWeight: '500',
+        fontSize: 25,
+        marginTop: -20,
+        marginBottom: 20,
     },
     nameEmailContainer: {
         marginBottom: 30,

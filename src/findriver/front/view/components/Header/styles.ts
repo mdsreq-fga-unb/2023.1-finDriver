@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 0,
         width: '100%',
-        height: '11%',
+        height: '8%',
         zIndex: 1,
         paddingHorizontal: 20,
         backgroundColor: '#F5F5F7',
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     logo: {
         width: 225,
         height: 33,
-        marginTop: '11%'
+        marginTop: '3%'
     }
 });
 

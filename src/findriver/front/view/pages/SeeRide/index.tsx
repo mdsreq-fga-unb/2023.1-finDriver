@@ -15,11 +15,22 @@ const SeeRides = ({ route, navigation }) => {
         <ScrollView style={styles.container}>
                 <Text style={styles.title}>Minhas Corridas</Text>
                 <View style={styles.line}/>
+                
                 <Pressable style={styles.addRideButton} onPress={handleAddRideButton}>
                     <Text style={styles.addRideText}>Adicionar Corrida</Text>
                 </Pressable>
             <View>
                 <RideCard/>
+                <RideCard/>
+                <RideCard/>
+                <RideCard/>
+                <RideCard/>
+                <RideCard/>
+                <RideCard/>
+                <RideCard/>
+                <RideCard/>
+                <RideCard/>
+
             </View>
         </ScrollView>
     );

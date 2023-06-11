@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, ScrollView, KeyboardAvoidingView, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
+import { View, ScrollView, KeyboardAvoidingView, Image, Text, StyleSheet, Alert, Pressable, TextInput, StatusBar } from 'react-native';
 import RideCard from '../../components/RideCard'
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -21,6 +21,7 @@ const Home = ({ navigation }) => {
     
     return(
         <View style={styles.container}>
+            <StatusBar barStyle="dark-content" backgroundColor="#F5F5F7" />
             <Header/>
             <ScrollView>
 

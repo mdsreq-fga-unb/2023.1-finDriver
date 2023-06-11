@@ -15,12 +15,9 @@ const SeeExpenses = ({ route, navigation }) => {
 
     return(
         <View style={styles.container}>
-            <Header/>
             <ScrollView >
-                <View style={{marginTop: 50}}>
-                    <View>
-                        <Text style={styles.title}>Minhas Despesas</Text>
-                    </View>
+                <View>
+                    <Text style={styles.title}>Minhas Despesas</Text>
                     <View style={styles.line}/>
 
                     <Pressable style={styles.addExpenseButton} onPress={handleAddExpenseButton}>
@@ -29,6 +26,18 @@ const SeeExpenses = ({ route, navigation }) => {
 
                     <View>
                         <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+                        <ExpenseCard/>
+
                     </View>
                 </View>
             </ScrollView>

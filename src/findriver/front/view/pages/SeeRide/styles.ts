@@ -4,18 +4,19 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "column",
         backgroundColor: '#79ae92',
-        height: '100%'
+        height: '100%',
     },
     line: {
         borderBottomColor: '#F5F5F7',
-        borderBottomWidth: 2
+        borderBottomWidth: 2,
+        marginHorizontal: 10
     },
     title: {
-        color: 'white',
-        fontWeight: 'bold',
-        marginTop: 50,
-        marginLeft: 15,
-        fontSize: 30,
+        color: '#F5F5F7',
+        marginTop: 20,
+        fontSize: 28,
+        fontWeight: '500',
+        marginHorizontal: 10
     },
     addRideButton: {
         backgroundColor: '#F5F5F7',
@@ -27,8 +28,8 @@ const styles = StyleSheet.create({
         elevation: 10
     },
     addRideText: {
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 18,
+        fontWeight: '500',
         color: '#1c5560'
     }
 });

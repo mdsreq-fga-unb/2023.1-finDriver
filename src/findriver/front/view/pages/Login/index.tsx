@@ -9,6 +9,9 @@ const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const handleForgotPassword = () => {
+
+    }
 
     const storeToken = async (value) => {
         try {
@@ -101,7 +104,7 @@ const Login = ({ navigation }) => {
                     <Text style={styles.textButton}>Entrar</Text>
                 </Pressable>
 
-                <Pressable onPress={() => Alert.alert('Tá muito esquecidinho em')}
+                <Pressable onPress={handleForgotPassword}
                             style={styles.pressableTextForgotPassword}>
                     <Text style={styles.underlinedText}>Esqueceu a senha?</Text>
                 </Pressable>
