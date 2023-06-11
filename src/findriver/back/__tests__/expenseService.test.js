@@ -3,13 +3,14 @@ import { Expense } from '../model/expenseModel';
 
 jest.mock('../model/expenseModel', () => {
     const mockExpense = {
-        Expense: jest.fn().mockImplementation((idUser, cause, value, date, type) => {
+        Expense: jest.fn().mockImplementation((idUser, cause, value, date, type, description) => {
             return {
                 idUser,
                 cause,
                 value,
                 date,
-                type
+                type,
+                description
             };
         }),
     };
@@ -28,14 +29,15 @@ describe('Funções do expenseService', () => {
                         cause: Expense.cause,
                         value: Expense.value,
                         date: Expense.date,
-                        type: Expense.type
+                        type: Expense.type,
+                        description: Expense.description
                     };
 
                     expenses.push(newExpense);
                 }
             });
 
-            const expense = new Expense(1, "deu ruim", 5000.99, "2023-05-04", "conserto");
+            const expense = new Expense(1, "deu ruim", 5000.99, "2023-05-04", "conserto", "algumacoisa");
 
             createExpenseMock(1, expense);
             expect(expenses).toEqual([{
@@ -43,7 +45,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu ruim",
                 value: 5000.99,
                 date: "2023-05-04",
-                type: "conserto"
+                type: "conserto",
+                description: "algumacoisa"
             }]);
         });
     });
@@ -55,14 +58,16 @@ describe('Funções do expenseService', () => {
                 cause: "deu ruim",
                 value: 5000.99,
                 date: "2023-05-04",
-                type: "troca de bateria"
+                type: "troca de bateria",
+                description: "algumacoisa"
             },
             {
                 idUser: 2,
                 cause: "deu mais ruim",
                 value: 10000.89,
                 date: "2023-05-15",
-                type: "conserto"
+                type: "conserto",
+                description: "algumacoisa"
             }];
 
             const getExpenseByUserIDMock = jest.fn((userId) => {
@@ -85,14 +90,16 @@ describe('Funções do expenseService', () => {
                 cause: "deu ruim",
                 value: 5000.99,
                 date: "2023-05-04",
-                type: "troca de bateria"
+                type: "troca de bateria",
+                description: "algumacoisa"
             },
             {
                 idUser: 2,
                 cause: "deu mais ruim",
                 value: 10000.89,
                 date: "2023-05-15",
-                type: "conserto"
+                type: "conserto",
+                description: "algumacoisa"
             }];
 
             const getExpenseByUserIDMock = jest.fn((userId) => {
@@ -118,7 +125,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu ruim",
                 value: 5000.99,
                 date: "2023-05-04",
-                type: "troca de bateria"
+                type: "troca de bateria",
+                description: "algumacoisa"
             },
             {
                 id: 2,
@@ -126,7 +134,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu mais ruim",
                 value: 10000.89,
                 date: "2023-05-15",
-                type: "conserto"
+                type: "conserto",
+                description: "algumacoisa"
             }];
 
             const getExpenseByIdMock = jest.fn((expenseId) => {
@@ -150,7 +159,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu ruim",
                 value: 5000.99,
                 date: "2023-05-04",
-                type: "troca de bateria"
+                type: "troca de bateria",
+                description: "algumacoisa"
             },
             {
                 id: 2,
@@ -158,7 +168,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu mais ruim",
                 value: 10000.89,
                 date: "2023-05-15",
-                type: "conserto"
+                type: "conserto",
+                description: "algumacoisa"
             }];
 
             const getExpenseByIdMock = jest.fn((expenseId) => {
@@ -184,7 +195,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu ruim",
                 value: 5000.99,
                 date: "2023-05-04",
-                type: "troca de bateria"
+                type: "troca de bateria",
+                description: "algumacoisa"
             },
             {
                 id: 2,
@@ -192,7 +204,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu mais ruim",
                 value: 10000.89,
                 date: "2023-05-15",
-                type: "conserto"
+                type: "conserto",
+                description: "algumacoisa"
             }];
 
             const updateExpenseMock = jest.fn((Expense, expenseId) => {
@@ -205,7 +218,8 @@ describe('Funções do expenseService', () => {
                             cause: Expense.cause,
                             value: Expense.value,
                             date: Expense.date,
-                            type: Expense.type
+                            type: Expense.type,
+                            description: Expense.description
                         };
                         
                         expenses.splice(index, 0, newExpense);
@@ -217,7 +231,7 @@ describe('Funções do expenseService', () => {
                 return {};
             });
 
-            const expense = new Expense(2, "deu um pouco ruim", 2000.00, "2023-08-02", "acidente");
+            const expense = new Expense(2, "deu um pouco ruim", 2000.00, "2023-08-02", "acidente", "algumacoisa");
             updateExpenseMock(expense, 2);
             expect(expenses[1]).toEqual({
                 id: 2,
@@ -225,7 +239,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu um pouco ruim",
                 value: 2000.00,
                 date: "2023-08-02",
-                type: "acidente"
+                type: "acidente",
+                description: "algumacoisa"
             });
         });
     });
@@ -238,7 +253,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu ruim",
                 value: 5000.99,
                 date: "2023-05-04",
-                type: "troca de bateria"
+                type: "troca de bateria",
+                description: "algumacoisa"
             },
             {
                 id: 2,
@@ -246,7 +262,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu mais ruim",
                 value: 10000.89,
                 date: "2023-05-15",
-                type: "conserto"
+                type: "conserto",
+                description: "algumacoisa"
             },
             {
                 id: 3,
@@ -254,7 +271,8 @@ describe('Funções do expenseService', () => {
                 cause: "so uma olhada",
                 value: 1200.10,
                 date: "2023-05-19",
-                type: "revisao"
+                type: "revisao",
+                description: "algumacoisa"
             }];
 
             const deleteExpenseMock = jest.fn((expenseId) => {
@@ -278,7 +296,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu ruim",
                 value: 5000.99,
                 date: "2023-05-04",
-                type: "troca de bateria"
+                type: "troca de bateria",
+                description: "algumacoisa"
             },
             {
                 id: 3,
@@ -286,7 +305,8 @@ describe('Funções do expenseService', () => {
                 cause: "so uma olhada",
                 value: 1200.10,
                 date: "2023-05-19",
-                type: "revisao"
+                type: "revisao",
+                description: "algumacoisa"
             }]);
         });
 
@@ -297,7 +317,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu ruim",
                 value: 5000.99,
                 date: "2023-05-04",
-                type: "troca de bateria"
+                type: "troca de bateria",
+                description: "algumacoisa"
             },
             {
                 id: 2,
@@ -305,7 +326,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu mais ruim",
                 value: 10000.89,
                 date: "2023-05-15",
-                type: "conserto"
+                type: "conserto",
+                description: "algumacoisa"
             },
             {
                 id: 3,
@@ -313,7 +335,8 @@ describe('Funções do expenseService', () => {
                 cause: "so uma olhada",
                 value: 1200.10,
                 date: "2023-05-19",
-                type: "revisao"
+                type: "revisao",
+                description: "algumacoisa"
             }];
 
             const deleteExpenseMock = jest.fn((expenseId) => {
@@ -337,7 +360,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu ruim",
                 value: 5000.99,
                 date: "2023-05-04",
-                type: "troca de bateria"
+                type: "troca de bateria",
+                description: "algumacoisa"
             },
             {
                 id: 2,
@@ -345,7 +369,8 @@ describe('Funções do expenseService', () => {
                 cause: "deu mais ruim",
                 value: 10000.89,
                 date: "2023-05-15",
-                type: "conserto"
+                type: "conserto",
+                description: "algumacoisa"
             },
             {
                 id: 3,
@@ -353,7 +378,8 @@ describe('Funções do expenseService', () => {
                 cause: "so uma olhada",
                 value: 1200.10,
                 date: "2023-05-19",
-                type: "revisao"
+                type: "revisao",
+                description: "algumacoisa"
             }]);
         });
     });
