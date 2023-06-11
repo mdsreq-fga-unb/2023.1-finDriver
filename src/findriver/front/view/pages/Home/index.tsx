@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { View, ScrollView, KeyboardAvoidingView, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
+import { View, ScrollView, KeyboardAvoidingView, Image, Text, StyleSheet, Alert, Pressable, TextInput, StatusBar } from 'react-native';
 import RideCard from '../../components/RideCard'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import SeeRides from '../SeeRide';
-import SeeExpenses from '../SeeExpenses';
-import Settings from '../Settings';
-
 import styles from './styles';
-//import NavBar from '../../components/NavBar';
 import EditRide from '../EditRide';
 import ExpenseCard from '../../components/ExpenseCard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Header from '../../components/Header';
 
 const Tab = createBottomTabNavigator();
 
@@ -73,59 +69,59 @@ const Home = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <StatusBar barStyle="dark-content" backgroundColor="#F5F5F7" />
+            <Header/>
             <ScrollView>
-                <View>
-                    <View style={styles.kmContainer}>
-                        <Text style={styles.kmText}>Você rodou 100.000 km</Text>
-                    </View>
-                    
-                    <View style={styles.kmContainer}>
-                        <Text style={styles.kmText}>Resumo diário:</Text>
-                    </View>
 
-                    <View style={styles.profitContainer}>
-                        <Text style={styles.white}>Lucro do dia</Text>
-                        <Text style={styles.white}>R$ 100.000,00</Text>
-                    </View>
+                <View style={styles.profitContainer}>
+                    <Text style={styles.profitText}>Lucro do dia</Text>
+                    <Text style={styles.profitText}>R$ 100.000,00</Text>
+                </View>
 
-                    <View style={styles.weeklyContainer}>
-                        <View >
-                            <Pressable style={styles.earnExpenseContainer}>
-                                <Text style={styles.white}>Ganho semanal</Text>
-                                <Text style={[styles.white, styles.value]}>R$ 150.000,00</Text>
-                            </Pressable>
-                        </View>
+                <View style={styles.summaryContainer}>
+                        <Text style={styles.title}>Resumo detalhado</Text>
 
-                        <View >
-                            <Pressable style={styles.earnExpenseContainer}>
-                                <Text style={styles.white}>Gasto semanal</Text>
-                                <Text style={[styles.white, styles.value]}>R$ 50.000,00</Text>
-                            </Pressable>
-                        </View>
+                    <View style={styles.summaryCard}>
+                        <Text style={styles.summaryTextTitle}>Hoje</Text>
+                        <Text style={styles.summaryText}>⬩Ganhos: </Text>
+                        <Text style={styles.summaryText}>⬩Gastos: </Text>
+                        <Text style={styles.summaryText}>⬩Saldo: </Text>
                     </View>
 
+                    <View style={styles.summaryCard}>
+                        <Text style={styles.summaryTextTitle}>Esta Semana</Text>
+                        <Text style={styles.summaryText}>⬩Ganhos: </Text>
+                        <Text style={styles.summaryText}>⬩Gastos: </Text>
+                        <Text style={styles.summaryText}>⬩Saldo: </Text>
+                    </View>  
+                </View>
 
-                    <View style={styles.kmContainer}>
-                        {/* {km.map(kms =>  */}
-                        <Text style={styles.kmText}>Você rodou {km} km</Text>
-                    </View>
+                <View style={styles.kmContainer}>
+                    <Text style={styles.kmText}>Você rodou </Text>
+                    <Text style={[styles.kmText, {fontWeight: '700'}]}>100.000 km</Text>
 
-                    
-
+                </View>
+                                  
+                <View style={{backgroundColor: 'transparent'}}> 
+                    <Text style={styles.title}>Corridas</Text>
                     <View style={styles.rideExpenseContainer}>
-                        <Text style={styles.white}>Minhas despesas</Text>
-                        <RideCard />
-                        <ExpenseCard />
-                    </View>
+                        {/* {rides.length > 0 ? (rides.map((ride) => (
+                            <RideCard key={ride.id} ride={ride}/>
+                        ))) : (
+                            <Text >Nenhuma corrida cadastrada!</Text>
+                        )} */}
+                        <RideCard key={0} ride={null}/>
+                        <ExpenseCard/>
+                    </View> 
+                        
 
-                    <View style={styles.rideExpenseContainer}>
-                        <Text style={styles.white}>Minhas corridas</Text>
-                        <RideCard />
-                        <ExpenseCard />
+                    <Text style={styles.title}>Despesas</Text>
+                    <View style={styles.rideExpenseContainer}>  
+                        <ExpenseCard/>
+                        <ExpenseCard/>
                     </View>
                 </View>
             </ScrollView>
-            {/* <NavBar /> */}
         </View>
 
     );

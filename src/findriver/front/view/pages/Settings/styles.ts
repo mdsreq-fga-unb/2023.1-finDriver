@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        backgroundColor: '#79ae92',
+        backgroundColor: '#1c5560',
         width: '100%',
         height: '100%',
         flexDirection: 'column'
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     },
     button: {
         width: '70%',
-        backgroundColor: '#1c5560',
+        backgroundColor: '#F5F5F7',
         borderRadius: 15,
         alignItems: 'center',
         justifyContent: 'center',
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     textButton: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: '#ffffff',
+        color: '#1c5560',
     },
 
 });
