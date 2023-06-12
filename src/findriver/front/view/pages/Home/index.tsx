@@ -11,12 +11,11 @@ import EditRide from '../EditRide';
 import ExpenseCard from '../../components/ExpenseCard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../components/Header';
+import dados from '../../../dados';
 
 const Tab = createBottomTabNavigator();
 
 const Home = ({ navigation }) => {
-
-    const HOST = 'http://192.168.1.5:3000'
 
     const [km, setKm] = useState(0);
     const [token, setToken] = useState('');
@@ -31,14 +30,14 @@ const Home = ({ navigation }) => {
                 'Authorization': token
             }
         };
-        fetch(`${HOST}/api/ride/kmRodados`, requestOptions)
+        fetch(`${dados.Url}/api/ride/kmRodados`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 try {
                     if (data) {
                         const km = data
                         setKm(km.value)
-                        console.log(km.value)
+                        //console.log(km.value)
                     }
 
                 } catch (e) {
@@ -98,27 +97,22 @@ const Home = ({ navigation }) => {
                     <View style={styles.kmContainer}>
                         <Text style={styles.kmText}>Você rodou </Text>
                         <Text style={[styles.kmText, {fontWeight: '700'}]}>{km} km</Text>
-    
+                    </View>
+                    <View style={styles.kmContainer}>
+                        <Text style={[styles.kmText]}>Sua média de gastos diária é: </Text>
+                        <Text style={[styles.kmText, {fontWeight: '700'}]}>R$ </Text>
                     </View>
                                       
                     <View style={{backgroundColor: 'transparent'}}> 
-                        <Text style={styles.title}>Corridas</Text>
+                        {/* <Text style={styles.title}>Corridas</Text>
                         <View style={styles.rideExpenseContainer}>
-                            {/* {rides.length > 0 ? (rides.map((ride) => (
-                                <RideCard key={ride.id} ride={ride}/>
-                            ))) : (
-                                <Text >Nenhuma corrida cadastrada!</Text>
-                            )} */}
-                            {/* <RideCard key={0} ride={null}/> */}
-                            <ExpenseCard/>
+                            <RideCard/>
                         </View> 
                             
-    
                         <Text style={styles.title}>Despesas</Text>
                         <View style={styles.rideExpenseContainer}>  
                             <ExpenseCard/>
-                            <ExpenseCard/>
-                        </View>
+                        </View> */}
                     </View>
                 </ScrollView>
             </View>
