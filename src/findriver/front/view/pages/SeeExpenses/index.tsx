@@ -6,8 +6,54 @@ import Header from '../../components/Header';
 import ExpenseCard from '../../components/ExpenseCard';
 import RideCard from '../../components/RideCard';
 import styles from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import dados from '../../../dados';
 
 const SeeExpenses = ({ route, navigation }) => {
+
+    const [expense, setExpense] = useState([]);
+    const [token, setToken] = useState('');
+
+    const fetchExpense = async () => {
+        try{
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': token.toString(),
+                },
+            };
+            fetch(`${dados.Url}/api/expense/ver`, requestOptions)
+                .then((response) => response.json())
+                .then((data) => {
+                    setExpense(data.value);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        } catch(error){
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        const getToken = async () => {
+            try {
+                const value = await AsyncStorage.getItem('token')
+                if (value !== null) {
+                    //console.log(token)
+                    setToken(value)
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        } 
+
+        getToken();
+        fetchExpense();
+       
+    }, [token, expense]);
 
     const handleAddExpenseButton = () => {
 
@@ -25,19 +71,10 @@ const SeeExpenses = ({ route, navigation }) => {
                     </Pressable>
 
                     <View>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-                        <ExpenseCard/>
-
+                        {expense && expense.length > 0 ? (expense.map((expense) => (<ExpenseCard key={expense.id} expense={expense} />
+                        ))) : (
+                            <Text style={styles.noExpensesText}>Nenhuma despesa cadastrada!</Text>
+                        )}
                     </View>
                 </View>
             </ScrollView>

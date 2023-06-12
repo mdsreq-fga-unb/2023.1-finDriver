@@ -5,18 +5,19 @@ import { useNavigation } from "@react-navigation/native";
 
 import styles from './styles';
 
-const ExpenseCard = ({}) => {
+const ExpenseCard = ({ expense }) => {
     const navigation = useNavigation();
+    const id = expense?.id;
 
-        const onSwipeRight = () => { //Função executada ao apertar delete
-        };
-    
-        const handleEditExpense = () => {
-            navigation.navigate('Editar Despesa' as never);
-        }
+    const onClickSwipeRight = () => { //Função executada ao apertar delete
+    };
+
+    const handleEditExpense = () => {
+        navigation.navigate('Editar Despesa' as never);
+    }
         
     const renderRightActions = () => (
-        <TouchableOpacity onPressIn={onSwipeRight}>
+        <TouchableOpacity onPressIn={onClickSwipeRight}>
           <View style={styles.deleteButtonArea}>
             <Text style={styles.deleteButtonText}>Deletar</Text>
           </View>
@@ -31,18 +32,18 @@ const ExpenseCard = ({}) => {
                 <View style={styles.container}>
                     
                     <View style={styles.topArea}>
-                        <Text style={[styles.text, styles.valueText]}>R$ 50.000,00</Text>
-                        <Text style={[styles.text, styles.dateText]}>30/09/2023</Text>
+                        <Text style={[styles.text, styles.valueText]}>R$ {expense?.value}</Text>
+                        <Text style={[styles.text, styles.dateText]}>{expense?.date}</Text>
                     </View>
                 
                     <View style={styles.bottomArea}>
                        
                         <View style={styles.informations}>
-                            <Text style={[styles.text, styles.baloon]}>Almoço do dia</Text>
-                            <Text style={[styles.text, styles.baloon]}>Comida</Text>
+                            <Text style={[styles.text, styles.baloon]}>{expense?.cause}</Text>
+                            <Text style={[styles.text, styles.baloon]}>{expense?.type}</Text>
                         </View>
                        
-                        <Text style={[styles.text, styles.descriptionText]}>Era um restaurante muito bom da zona sul, comprei um macarrão e me acabei naquele molho branco</Text>
+                        <Text style={[styles.text, styles.descriptionText]}>{expense?.description}</Text>
                     </View>
                     
                 </View>
