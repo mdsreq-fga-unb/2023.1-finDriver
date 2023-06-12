@@ -7,7 +7,7 @@ router.post("/adicionar", expenseController.addExpense);
 router.get("/ver", expenseController.getExpenses);
 router.get("/ver/:id", expenseController.getOneExpense);
 router.get("/mediaDespesa", expenseController.getExpenseAverage);
-router.put("/atualizar/:id", expenseController.updateExpense);
+router.put("/editar/:id", expenseController.updateExpense);
 router.delete("/deletar/:id", expenseController.deleteExpense);
 
 module.exports = router;

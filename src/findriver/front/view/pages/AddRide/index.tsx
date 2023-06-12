@@ -4,11 +4,9 @@ import Picker from '@ouroboros/react-native-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
-
+import dados from "../../../dados";
 
 const AddRide = ({ navigation, route }) => {
-    //const { name, email, password } = route.params
-    const HOST = 'http://192.168.1.5:3000'
 
     const [value, setValue] = useState('');
     const [quilometers, setQuilometers] = useState('');
@@ -47,7 +45,7 @@ const AddRide = ({ navigation, route }) => {
               date: selectedDate,
             }),
           };
-          fetch(`${HOST}/api/ride/adicionar`, requestOptions)
+          fetch(`${dados.Url}/api/ride/adicionar`, requestOptions)
             .then((response) => {
               console.log(response.status);
               if (response.status === 201) {
@@ -63,7 +61,9 @@ const AddRide = ({ navigation, route }) => {
         }
       };
 
-      getToken();
+      useEffect(() => {
+        getToken();  
+    }, [token]);
 
     return(
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>

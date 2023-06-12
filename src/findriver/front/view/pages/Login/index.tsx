@@ -3,10 +3,9 @@ import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'reac
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getDefaultLibFilePath } from 'typescript';
 import styles from './styles';
+import dados from "../../../dados";
 
 const Login = ({ navigation }) => {
-
-    const HOST = 'http://192.168.1.5:3000'
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -45,7 +44,7 @@ const Login = ({ navigation }) => {
                 password: password,
             })
         };
-        fetch(`${HOST}/api/user/login`, requestOptions)
+        fetch(`${dados.Url}/api/user/login`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 try {
@@ -69,10 +68,6 @@ const Login = ({ navigation }) => {
             });
     }
 
-    var confere = function () {
-        signIn();
-        navigation.navigate('Tab');
-    }
 
     return (
         <View style={styles.container}>

@@ -8,7 +8,8 @@ import styles from './styles';
 import EditRide from "../../pages/EditRide";
 
 const RideCard = ({ ride }) => {
-    const navigation = useNavigation();
+
+    const navigation = useNavigation<any>();
 
     const id = ride?.id;
 
@@ -34,8 +35,9 @@ const RideCard = ({ ride }) => {
         }
     };
 
+
     const handleEditRide = () => {
-        navigation.navigate("Editar Corrida" as never);
+        navigation.navigate("Editar Corrida" as never, {id: id});
     }
 
     const renderRightActions = () => (

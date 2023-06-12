@@ -92,4 +92,25 @@ async function getKmDriveByUserId(req, res) {
     res.status(statusCode.NOT_FOUND).json({ message: error.message });
   }
 };
-module.exports = { addRide, getRides, getOneRide, updateRide, deleteRide, getKmDriveByUserId };
+
+async function getAverageProfit(req, res) {
+
+  try {
+    const token = req.headers.authorization.split(' ')[1];
+
+    const userID = await getUserIdByToken(token);
+
+    let averageProfit = await rideService.averageProfit(userID);
+    let averageDayProfit = await rideService.averageDayProfit(userID);
+
+    let values = {averageDayProfit, averageProfit}
+
+
+    res.status(statusCode.OK).json({ values });
+  } catch (error) {
+    console.log(error)
+    res.status(statusCode.NOT_FOUND).json({ message: error.message });
+  }
+};
+
+module.exports = { addRide, getRides, getOneRide, updateRide, deleteRide, getKmDriveByUserId, getAverageProfit};
