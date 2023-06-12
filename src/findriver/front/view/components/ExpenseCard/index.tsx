@@ -1,15 +1,35 @@
 import React from "react";
-import { View, Text, Pressable, Animated, TouchableOpacity} from 'react-native';
+import { View, Text, Pressable, Animated, TouchableOpacity, Alert} from 'react-native';
 import { Swipeable } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
+import dados from "../../../dados";
 import styles from './styles';
 
 const ExpenseCard = ({ expense }) => {
     const navigation = useNavigation();
     const id = expense?.id;
 
-    const onClickSwipeRight = () => { //Função executada ao apertar delete
+    const onClickSwipeRight = () => { 
+        try{
+            const requestOptions = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+            };
+            fetch(`${dados.Url}/api/expense/deletar/${id}`, requestOptions)
+                .then((response) => response.json())
+                .then(() => {
+                    console.log("Despesa apagada com sucesso!");
+                    Alert.alert("Despesa apagada com sucesso!");
+                })
+                .catch((err) => console.log(err)
+            );
+        } catch(error){
+            console.log(error);
+        }
     };
 
     const handleEditExpense = () => {
