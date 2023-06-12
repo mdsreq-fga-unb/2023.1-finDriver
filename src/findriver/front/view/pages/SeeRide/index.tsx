@@ -38,7 +38,9 @@ const SeeRides = ({ route, navigation }) => {
         } 
     }
 
-    const getToken = async () => {
+    useEffect(() => {
+
+        const getToken = async () => {
         try {
             const value = await AsyncStorage.getItem('token')
             if (value !== null) {
@@ -49,9 +51,9 @@ const SeeRides = ({ route, navigation }) => {
         }
     } 
 
-    getToken();
-
-    fetchRides();
+        getToken();
+        fetchRides();
+    }, [token, rides]);
 
     const handleAddRideButton = () => {
         navigation.navigate("Cadastrar Corrida")
