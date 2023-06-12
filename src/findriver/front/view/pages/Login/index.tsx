@@ -6,6 +6,7 @@ import styles from './styles';
 import dados from '../../../dados';
 
 const Login = ({ navigation }) => {
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -67,10 +68,6 @@ const Login = ({ navigation }) => {
             });
     }
 
-    var confere = function () {
-        signIn();
-        navigation.navigate('Tab');
-    }
 
     return (
         <View style={styles.container}>

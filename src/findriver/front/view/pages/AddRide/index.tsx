@@ -4,8 +4,7 @@ import Picker from '@ouroboros/react-native-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
-import dados from '../../../dados';
-
+import dados from "../../../dados";
 
 const AddRide = ({ navigation, route }) => {
 
@@ -47,6 +46,7 @@ const AddRide = ({ navigation, route }) => {
             }),
           };
           fetch(`${dados.Url}/api/ride/adicionar`, requestOptions)
+          fetch(`${dados.Url}/api/ride/adicionar`, requestOptions)
             .then((response) => {
               console.log(response.status);
               if (response.status === 201) {
@@ -62,7 +62,9 @@ const AddRide = ({ navigation, route }) => {
         }
       };
 
-      getToken();
+      useEffect(() => {
+        getToken();  
+    }, [token]);
 
     return(
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>

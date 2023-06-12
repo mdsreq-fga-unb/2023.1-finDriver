@@ -1,25 +1,75 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView} from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import dados from "../../../dados";
 
 import styles from './styles';
 
 const EditRide = ({ navigation, route }) => {
-    //const { name, email, password } = route.params
+    const { id } = route.params
 
     const [value, setValue] = useState('');
     const [quilometers, setQuilometers] = useState('');
     const [app, setApp] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
     const [description, setDescription] = useState('');
+    const [token, setToken] = useState('');
+
+    const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                setToken(value)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    console.log(id)
 
     const handleEditRide = () => {
         if(!value || !quilometers || !app || !selectedDate ){
             Alert.alert('Erro','Por favor, preencha todos os campos');
         } else {
-            navigation.goBack();
-        }
-    };
+            const requestOptions = {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+                  Authorization: token.toString(),
+                },
+                body: JSON.stringify({
+                  value: value,
+                  kilometerage: quilometers,
+                  application: app,
+                  description: description,
+                  date: selectedDate,
+                }),
+              };
+              fetch(`${dados.Url}/api/ride/editar/${id}`, requestOptions)
+                .then((response) => {
+                  console.log(response.status);
+                  if (response.status === 200) {
+                    Alert.alert("Corrida atualizada com sucesso");
+                    navigation.goBack();
+                  } else {
+                    Alert.alert("Erro", "Ocorreu um erro ao atualizar a corrida");
+                    navigation.goBack();
+                  }
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            }
+          };
+
+          useEffect(() => {
+            getToken();  
+        }, [token]);
+           
 
     return(
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
