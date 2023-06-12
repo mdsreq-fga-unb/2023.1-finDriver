@@ -34,6 +34,50 @@ const Profile = ({ navigation }) => {
         }
     }
 
+    const fetchDeleteAccount = () => {
+        try{
+          const requestOptions = {
+            method: 'DELETE',
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: token.toString(),
+            },
+          };
+          fetch(`${dados.Url}/api/user/deletar/${user.id}`, requestOptions)
+            .then((response) => {
+                console.log(response.status);
+                if(response.status == 204){
+                    console.log("Conta excluída com sucesso!");
+                    Alert.alert("Conta excluída com sucesso!");
+                    navigation.navigate('Bem-Vindo');
+                } else{
+                    Alert.alert("Ocorreu um erro no servidor!");
+                }
+            })
+    
+        }catch(error){
+          console.log(error)
+        }
+    }
+
+    const deleteAccount = () => {
+        Alert.alert(
+          'Confirmação',
+          'Tem certeza de que deseja excluir permanentemente sua conta?\nEssa ação não pode ser desfeita e todos os seus dados serão perdidos.',
+          [
+            { text: 'Apagar',
+              onPress: () => fetchDeleteAccount(),
+              style: 'destructive' },
+            
+              { text: 'Cancelar',
+              onPress: () => {},
+              style: 'cancel' },
+          ],
+          { cancelable: false }
+        );
+      };
+
     useEffect(() => {
         const getToken = async () => {
             try {
@@ -70,6 +114,10 @@ const Profile = ({ navigation }) => {
                     style={styles.button}
                     onPress={() => handleEditProfile()}>
                     <Text style={styles.textButton}>Editar</Text>
+                </Pressable>
+
+                <Pressable style={[styles.button, { backgroundColor: '#E6332A' }]} onPress={deleteAccount}>
+                    <Text style={[styles.textButton, { color: '#F5F5F7' }]}>Apagar conta</Text>
                 </Pressable>
             </View>
         </View>
