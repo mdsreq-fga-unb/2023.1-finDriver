@@ -4,7 +4,6 @@ import Picker from '@ouroboros/react-native-picker';
 
 import RideCard from '../../components/RideCard'
 import dados from '../../../dados';
-
 import styles from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -61,6 +60,7 @@ const SeeRides = ({ route, navigation }) => {
 
     return(
         <ScrollView style={styles.container}>
+            
                 <Text style={styles.title}>Minhas Corridas</Text>
                 <View style={styles.line}/>
                 

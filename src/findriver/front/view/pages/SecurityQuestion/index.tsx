@@ -51,7 +51,6 @@ const SecurityQuestion = ({ navigation, route }) => {
                 .catch((err) => {
                     console.log(err);
                 });
-                //navigation.navigate('Inicio'); 
             }
         }
 
@@ -83,7 +82,7 @@ const SecurityQuestion = ({ navigation, route }) => {
                         style={styles.input}
                         value={answerOne}
                         onChangeText={answerOne => setAnswerOne(answerOne)}
-                        placeholder="Resposta"
+                        placeholder="Resposta 1"
                         cursorColor="#001f36"
                     />
                 </View>
@@ -106,7 +105,7 @@ const SecurityQuestion = ({ navigation, route }) => {
                         style={styles.input}
                         value={answerTwo}
                         onChangeText={answerTwo => setAnswerTwo(answerTwo)}
-                        placeholder="Resposta"
+                        placeholder="Resposta 2"
                         cursorColor="#001f36"
                     />
                 </View>

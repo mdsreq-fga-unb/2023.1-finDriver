@@ -18,9 +18,9 @@ const AddRide = ({ navigation, route }) => {
 
     const getToken = async () => {
         try {
-            const value = await AsyncStorage.getItem('token')
-            if (value !== null) {
-                setToken(value)
+            const tokenValue = await AsyncStorage.getItem('token')
+            if (tokenValue !== null) {
+                setToken(tokenValue)
             }
         } catch (e) {
             console.log(e)

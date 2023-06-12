@@ -9,9 +9,7 @@ const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleForgotPassword = () => {
-
-    }
+    // const handleForgotPassword = () => {}
 
     const storeToken = async (value) => {
         try {
@@ -53,6 +51,7 @@ const Login = ({ navigation }) => {
                         getToken();
 
                         Alert.alert('Usuário logado');
+                        navigation.navigate('Tab');
 
                         return navigation.navigate('Tab');
                     } else {
@@ -67,11 +66,6 @@ const Login = ({ navigation }) => {
             });
     }
 
-    var confere = function () {
-        signIn();
-        navigation.navigate('Tab');
-    }
-
     return (
         <View style={styles.container}>
             <Image source={require('../../assets/logoCarro.png')} style={styles.logo} />
@@ -81,7 +75,7 @@ const Login = ({ navigation }) => {
                     style={styles.input}
                     value={email}
                     onChangeText={email => setEmail(email)}
-                    placeholder="Email"
+                    placeholder="E-mail"
                     keyboardType="email-address"
                     autoComplete="email"
                     cursorColor="#001f36"
@@ -104,11 +98,12 @@ const Login = ({ navigation }) => {
                     <Text style={styles.textButton}>Entrar</Text>
                 </Pressable>
 
-                <Pressable onPress={handleForgotPassword}
+                {/* <Pressable onPress={handleForgotPassword}
                             style={styles.pressableTextForgotPassword}>
                     <Text style={styles.underlinedText}>Esqueceu a senha?</Text>
-                </Pressable>
-                <Pressable onPress={() => navigation.navigate('Registrar')}>
+                </Pressable> */}
+                
+                <Pressable onPress={() => navigation.navigate('Registrar')} style={styles.pressableTextSignUp}>
                     <Text style={[styles.underlinedText, styles.signUp]}>Cadastre-se</Text>
                 </Pressable>
             </View>

@@ -104,15 +104,15 @@ const Home = ({ navigation }) => {
                     </View>
                                       
                     <View style={{backgroundColor: 'transparent'}}> 
-                        {/* <Text style={styles.title}>Corridas</Text>
+                        <Text style={styles.title}>Corridas</Text>
                         <View style={styles.rideExpenseContainer}>
-                            <RideCard/>
+                            {/* <RideCard key={0}/> */}
                         </View> 
                             
                         <Text style={styles.title}>Despesas</Text>
                         <View style={styles.rideExpenseContainer}>  
-                            <ExpenseCard/>
-                        </View> */}
+                            {/* <ExpenseCard/> */}
+                        </View>
                     </View>
                 </ScrollView>
             </View>
