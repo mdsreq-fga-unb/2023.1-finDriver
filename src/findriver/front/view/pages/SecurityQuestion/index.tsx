@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
 
+import dados from '../../../dados';
 import styles from './styles';
 
 const SecurityQuestion = ({ navigation, route }) => {
@@ -32,14 +33,16 @@ const SecurityQuestion = ({ navigation, route }) => {
                     questionTwo: questionTwo
                 })
 
+
             };
-            fetch('http://192.168.1.5:3000/api/user/cadastro', requestOptions)
+            fetch(`${dados.Url}/api/user/cadastro`, requestOptions)
                 .then((response) => {
                     console.log(response.status)
                     if (response.status == 201) {
                         Alert.alert('Usuário cadastrado com sucesso!');
                         navigation.navigate('Entrar'); 
                     }
+
 
                     else {
                         Alert.alert('E-mail ou senha inválidos');
@@ -48,6 +51,7 @@ const SecurityQuestion = ({ navigation, route }) => {
                 .catch((err) => {
                     console.log(err);
                 });
+                //navigation.navigate('Inicio'); 
             }
         }
 

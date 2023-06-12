@@ -8,7 +8,6 @@ async function addExpense(req, res) {
 
   try {
     const token = req.headers.authorization.split(' ')[1];
-    console.log(token)
     const userID = await getUserIdByToken(token);
     await expenseService.createExpense(userID, expense);
     res
@@ -24,7 +23,6 @@ async function addExpense(req, res) {
 async function getExpenses(req, res) {
   try {
     const token = req.headers.authorization.split(' ')[1];
-    console.log(token)
     const userId = await getUserIdByToken(token);
     var value = await expenseService.getExpenseByUserID(userId);
     res.status(statusCode.OK).json({ value });
@@ -46,7 +44,6 @@ async function getOneExpense(req, res) {
 
   try {
     let value = await expenseService.getExpenseById(id);
-    console.log(value);
     res.status(statusCode.OK).json({ value });
   } catch (error) {
     res.status(statusCode.NOT_FOUND).json({ message: error.message });
@@ -82,7 +79,6 @@ async function getExpenseAverage(req, res) {
 
   try {
     const token = req.headers.authorization.split(' ')[1];
-
 
     const userID = await getUserIdByToken(token);
 

@@ -1,17 +1,37 @@
-import React from "react";
-import { View, Text, Pressable, TouchableOpacity} from 'react-native';
+import React, { useEffect } from "react";
+import { View, Text, Pressable, TouchableOpacity, Alert} from 'react-native';
 import { Swipeable } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
+import dados from "../../../dados";
 import styles from './styles';
 import EditRide from "../../pages/EditRide";
 
 const RideCard = ({ ride }) => {
     const navigation = useNavigation();
 
-    const onSwipeRight = () => {
-        console.log("tá apagado!")
-        //navigation.navigate('Bem-vindo');
+    const id = ride?.id;
+
+    const onClickSwipeRight = () => {
+        try{
+            const requestOptions = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+            };
+            fetch(`${dados.Url}/api/ride/deletar/${id}`, requestOptions)
+                .then((response) => response.json())
+                .then(() => {
+                    console.log("Apagado com sucesso!");
+                    Alert.alert("Corrida apagada com sucesso!");
+                })
+                .catch((err) => console.log(err)
+            );
+        } catch(error) {
+            console.log(error);
+        }
     };
 
     const handleEditRide = () => {
@@ -19,7 +39,7 @@ const RideCard = ({ ride }) => {
     }
 
     const renderRightActions = () => (
-        <TouchableOpacity onPress={onSwipeRight}>
+        <TouchableOpacity onPress={onClickSwipeRight}>
         <View style={styles.deleteButtonArea}>
             <Text style={styles.deleteButtonText}>Deletar</Text>
         </View>

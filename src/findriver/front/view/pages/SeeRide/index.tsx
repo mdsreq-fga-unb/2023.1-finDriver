@@ -3,12 +3,15 @@ import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvo
 import Picker from '@ouroboros/react-native-picker';
 
 import RideCard from '../../components/RideCard'
+import dados from '../../../dados';
+
 import styles from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SeeRides = ({ route, navigation }) => {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZCI6MjQ1fV0sImlhdCI6MTY4NjQ2NDQ3Nn0.RHteRYmWNfjL8hktY89PFJ2rXsykTa29lvxGQstchjM';
 
     const [rides, setRides] = useState([]);
+    const [token, setToken] = useState('');
 
     const fetchRides = async () => {
         try{
@@ -17,15 +20,15 @@ const SeeRides = ({ route, navigation }) => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Authorization': token,
+                    'Authorization': token.toString(),
                 },
             };
-            fetch('http://192.168.1.185:3000/api/ride/ver', requestOptions)
+            fetch(`${dados.Url}/api/ride/ver`, requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data.value);
                     setRides(data.value);
-                    console.log(rides);
+                    //console.log('dados: \n');
+                    //console.log(data);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -35,9 +38,20 @@ const SeeRides = ({ route, navigation }) => {
         } 
     }
 
-    useEffect(() => {
-        fetchRides();
-    }, []);
+    const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                setToken(value)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    } 
+
+    getToken();
+
+    fetchRides();
 
     const handleAddRideButton = () => {
         navigation.navigate("Cadastrar Corrida")
@@ -53,7 +67,7 @@ const SeeRides = ({ route, navigation }) => {
                 </Pressable>
             <View>
                 {rides && rides.length > 0 ? (rides.map((ride) => (
-                    <RideCard key={ride.id} ride={ride}/>
+                    <RideCard key={ride.id} ride={ride} />
                 ))) : (
                     <Text style={styles.noRidesText}>Nenhuma corrida cadastrada!</Text>
                 )}

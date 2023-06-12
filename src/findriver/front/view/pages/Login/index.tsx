@@ -6,6 +6,8 @@ import styles from './styles';
 
 const Login = ({ navigation }) => {
 
+    const HOST = 'http://192.168.1.5:3000'
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,6 +23,16 @@ const Login = ({ navigation }) => {
         }
     }
 
+    const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                console.log(value)
+            }
+        } catch (e) {
+            console.log(e)
+        }}
+
     function signIn() {
         const requestOptions = {
             method: 'POST',
@@ -33,17 +45,18 @@ const Login = ({ navigation }) => {
                 password: password,
             })
         };
-        fetch('http://192.168.1.5:3000/api/user/login', requestOptions)
+        fetch(`${HOST}/api/user/login`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 try {
                     if (data.response.token !== undefined) {
                         var token = data.response.token.headers.Authorization;
                         storeToken(token);
+                        getToken();
 
                         Alert.alert('Usuário logado');
 
-                        //return navigation.navigate('Inicio');
+                        return navigation.navigate('Tab');
                     } else {
                         return Alert.alert('E-mail ou senha inválidos');
                     }
@@ -57,8 +70,8 @@ const Login = ({ navigation }) => {
     }
 
     var confere = function () {
-        navigation.navigate('Tab');
         signIn();
+        navigation.navigate('Tab');
     }
 
     return (
@@ -89,7 +102,7 @@ const Login = ({ navigation }) => {
                 />
                 <Pressable
                     style={styles.button}
-                    onPress={(() => confere())}>
+                    onPress={(() => signIn())}>
                     <Text style={styles.textButton}>Entrar</Text>
                 </Pressable>
 
