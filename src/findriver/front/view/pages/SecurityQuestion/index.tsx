@@ -42,6 +42,9 @@ const SecurityQuestion = ({ navigation, route }) => {
                         Alert.alert('Usuário cadastrado com sucesso!');
                         navigation.navigate('Entrar'); 
                     }
+                    else if(response.status === 409)
+                        Alert.alert('Este usuário já existe!',"Cadastre um email diferente!");
+
 
 
                     else {
