@@ -128,11 +128,100 @@ const kmDrivenInTheDay = async (userId) => {
   }
 };
 
+const averageProfit = async (userId) => {
+  try {
+    const { data, error } = await supabase
+      .from("Rides")
+      .select("id, value, date")
+      .eq("idUser", userId);
+
+    const sizeData = data.length;
+
+    var weekValues = [];
+
+    //Calcula quais os dias pertencem à semana com base na data atual (today)
+
+    var today = new Date(Date.now());
+    var weekstart = today.getDate() - today.getDay();
+    var weekend = weekstart + 6;
+    var sunday = new Date(today.setDate(weekstart));
+    var saturday = new Date(today.setDate(weekend));
+
+    //Loop que adiciona os valores dos gastos da semana no array weekValues
+
+    for (let i = 0; i < sizeData; i++) {
+      var weekDate = new Date(data[i].date.replace(/-/g, "/"));
+
+      if (
+        weekDate.toLocaleDateString() >= sunday.toLocaleDateString() &&
+        weekDate.toLocaleDateString() <= saturday.toLocaleDateString()
+      ) {
+        weekValues.push(data[i].value);
+
+      }
+    }
+
+    //Loop que soma os valores dos gastos da semana
+
+    var total = 0;
+
+    for (var i = 0; i < weekValues.length; i++) {
+      total += weekValues[i];
+    }
+
+    var average = total;
+
+    return average.toFixed(2);
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+const averageDayProfit = async (userId) => {
+  try {
+    const { data, error } = await supabase
+      .from("Rides")
+      .select("id, value, date")
+      .eq("idUser", userId);
+
+    const sizeData = data.length;
+
+    var dayValues = [];
+
+    var today = new Date(Date.now());
+
+    for (let i = 0; i < sizeData; i++) {
+      var dbDate = new Date(data[i].date.replace(/-/g, '\/'))
+
+      if (today.toLocaleDateString() == dbDate.toLocaleDateString()) {
+        dayValues.push(data[i].value);
+
+      }
+    };
+
+    var total = 0
+
+    for (var i = 0; i < dayValues.length; i++) {
+      total += dayValues[i];
+    };
+
+    return total.toFixed(2);
+
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+
 module.exports = {
   createRide,
   getRideByUserId,
   getRideByRideId,
   updateRideById,
   deleteRideById,
-  kmDrivenInTheDay
+  kmDrivenInTheDay,
+  averageProfit,
+  averageDayProfit,
 };

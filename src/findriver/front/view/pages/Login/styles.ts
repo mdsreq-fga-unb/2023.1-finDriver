@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
         marginTop: 0,
         textDecorationLine: 'underline',
         textDecorationColor: '#1C5560',
-        maxWidth: 120,
     },
     signUp: {
         fontWeight: 'bold',
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
         maxWidth: 100,
         maxHeight: 100,
         alignSelf: 'flex-end',
-        marginTop: 50,
+        marginTop: 20,
     },
     pressableTextForgotPassword: {
         marginVertical: 10,

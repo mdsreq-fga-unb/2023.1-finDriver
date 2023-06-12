@@ -11,7 +11,6 @@ const createExpense = async (userId, Expense) => {
       .insert([
         {
           idUser: userId,
-          cause: Expense.cause,
           value: Expense.value,
           date: Expense.date,
           type: Expense.type,
@@ -64,7 +63,6 @@ const updateExpense = async (Expense, expenseId) => {
     const { data, error } = await supabase
       .from("Expenses")
       .update({
-        cause: Expense.cause,
         value: Expense.value,
         date: Expense.date,
         type: Expense.type,
@@ -132,13 +130,49 @@ const averageExpense = async (userId) => {
       total += weekValues[i];
     }
 
-    var average = total / weekValues.length;
+    var average = total;
 
-    return average;
+    return average.toFixed(2);
   } catch (error) {
     console.log(error);
     throw error;
   }
+};
+
+const averageDayExpense = async (userId) => {
+  try {
+    const { data, error } = await supabase
+      .from("Expenses")
+      .select("id, value, date")
+      .eq("idUser", userId);
+
+      const sizeData = data.length;
+
+      var dayExpense = [];
+  
+      var today = new Date(Date.now());
+  
+      for (let i = 0; i < sizeData; i++) {
+        var dbDate = new Date(data[i].date.replace(/-/g, '\/'))
+  
+        if (today.toLocaleDateString() == dbDate.toLocaleDateString()) {
+          dayExpense.push(data[i].value);
+  
+        }
+      };
+  
+      var total = 0
+  
+      for (var i = 0; i < dayExpense.length; i++) {
+        total += dayExpense[i];
+      };
+  
+      return (total).toFixed(2);;
+  
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
 };
 
 module.exports = {
@@ -149,4 +183,5 @@ module.exports = {
   deleteExpense,
   updateExpense,
   averageExpense,
+  averageDayExpense
 };

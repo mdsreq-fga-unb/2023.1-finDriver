@@ -16,6 +16,8 @@ const SecurityQuestion = ({ navigation, route }) => {
     const handleCreateUser = () => {
         if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
             Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+        } else if (questionOne === questionTwo){
+            Alert.alert('Erro', 'As perguntas não podem ser iguais')
         } else {
             const requestOptions = {
                 method: 'POST',
@@ -33,6 +35,7 @@ const SecurityQuestion = ({ navigation, route }) => {
                     questionTwo: questionTwo
                 })
 
+
             };
             fetch(`${dados.Url}/api/user/cadastro`, requestOptions)
                 .then((response) => {
@@ -41,6 +44,10 @@ const SecurityQuestion = ({ navigation, route }) => {
                         Alert.alert('Usuário cadastrado com sucesso!');
                         navigation.navigate('Entrar'); 
                     }
+                    else if(response.status === 409)
+                        Alert.alert('Este usuário já existe!',"Cadastre um email diferente!");
+
+
 
                     else {
                         Alert.alert('E-mail ou senha inválidos');
@@ -80,7 +87,7 @@ const SecurityQuestion = ({ navigation, route }) => {
                         style={styles.input}
                         value={answerOne}
                         onChangeText={answerOne => setAnswerOne(answerOne)}
-                        placeholder="Resposta"
+                        placeholder="Resposta 1"
                         cursorColor="#001f36"
                     />
                 </View>
@@ -103,7 +110,7 @@ const SecurityQuestion = ({ navigation, route }) => {
                         style={styles.input}
                         value={answerTwo}
                         onChangeText={answerTwo => setAnswerTwo(answerTwo)}
-                        placeholder="Resposta"
+                        placeholder="Resposta 2"
                         cursorColor="#001f36"
                     />
                 </View>

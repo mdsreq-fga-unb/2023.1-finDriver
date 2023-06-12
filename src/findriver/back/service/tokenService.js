@@ -14,12 +14,11 @@ const getUserIdByToken = (token) => {
   }
   //console.log(token)
   try {
-
     const decoded = jwt.verify(token, process.env.TOKEN_KEY);
+    //console.log(decoded);
+    var userId = decoded.user[0].id;
 
-    var userId = decoded.user[0].id
     return userId;
-
   } catch (error) {    
     throw new Error("Token de autenticação inválido!");
   }

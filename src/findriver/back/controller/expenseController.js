@@ -55,7 +55,7 @@ async function updateExpense(req, res) {
   const ride = req.body;
 
   try {
-    let valye = await expenseService.updateExpense(ride, id);
+    let value = await expenseService.updateExpense(ride, id);
     res
       .status(statusCode.OK)
       .json({ message: "Despesa atualizada com sucesso" });
@@ -82,9 +82,12 @@ async function getExpenseAverage(req, res) {
 
     const userID = await getUserIdByToken(token);
 
-    let value = await expenseService.averageExpense(userID);
+    let averageExpense = await expenseService.averageExpense(userID);
+    let averageDayExpense = await expenseService.averageDayExpense(userID);
 
-    res.status(statusCode.OK).json({ value });
+    let values = {averageDayExpense, averageExpense}
+
+    res.status(statusCode.OK).json({ values });
   } catch (error) {
     console.log(error)
     res.status(statusCode.NOT_FOUND).json({ message: error.message });

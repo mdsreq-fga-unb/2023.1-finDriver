@@ -8,7 +8,8 @@ import styles from './styles';
 import EditRide from "../../pages/EditRide";
 
 const RideCard = ({ ride }) => {
-    const navigation = useNavigation();
+
+    const navigation = useNavigation<any>();
 
     const id = ride?.id;
 
@@ -22,7 +23,7 @@ const RideCard = ({ ride }) => {
                 },
             };
             fetch(`${dados.Url}/api/ride/deletar/${id}`, requestOptions)
-                .then((response) => response.json())
+                .then((response) => console.log(response.status))
                 .then(() => {
                     console.log("Apagado com sucesso!");
                     Alert.alert("Corrida apagada com sucesso!");
@@ -34,8 +35,9 @@ const RideCard = ({ ride }) => {
         }
     };
 
+
     const handleEditRide = () => {
-        navigation.navigate("Editar Corrida" as never);
+        navigation.navigate("Editar Corrida" as never, {id: id});
     }
 
     const renderRightActions = () => (

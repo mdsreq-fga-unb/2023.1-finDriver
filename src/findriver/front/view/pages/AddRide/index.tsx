@@ -4,11 +4,9 @@ import Picker from '@ouroboros/react-native-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
-
+import dados from "../../../dados";
 
 const AddRide = ({ navigation, route }) => {
-    //const { name, email, password } = route.params
-    const HOST = 'http://192.168.1.5:3000'
 
     const [value, setValue] = useState('');
     const [quilometers, setQuilometers] = useState('');
@@ -19,9 +17,9 @@ const AddRide = ({ navigation, route }) => {
 
     const getToken = async () => {
         try {
-            const value = await AsyncStorage.getItem('token')
-            if (value !== null) {
-                setToken(value)
+            const tokenValue = await AsyncStorage.getItem('token')
+            if (tokenValue !== null) {
+                setToken(tokenValue)
             }
         } catch (e) {
             console.log(e)
@@ -47,7 +45,7 @@ const AddRide = ({ navigation, route }) => {
               date: selectedDate,
             }),
           };
-          fetch(`${HOST}/api/ride/adicionar`, requestOptions)
+          fetch(`${dados.Url}/api/ride/adicionar`, requestOptions)
             .then((response) => {
               console.log(response.status);
               if (response.status === 201) {
@@ -63,7 +61,9 @@ const AddRide = ({ navigation, route }) => {
         }
       };
 
-      getToken();
+      useEffect(() => {
+        getToken();  
+    }, [token]);
 
     return(
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
@@ -85,7 +85,7 @@ const AddRide = ({ navigation, route }) => {
                         style={styles.input}
                         value={value}
                         onChangeText={value => setValue(value)}
-                        placeholder="00.00"
+                        placeholder="Ex.: 00.00"
                         keyboardType="numeric"
                         cursorColor="#001f36"
                     />
@@ -95,7 +95,7 @@ const AddRide = ({ navigation, route }) => {
                         style={styles.input}
                         value={quilometers}
                         onChangeText={quilometers => setQuilometers(quilometers)}
-                        placeholder="00.0"
+                        placeholder="Ex.: 00.00"
                         keyboardType='numeric'
                         cursorColor="#001f36"
                     />
@@ -115,7 +115,7 @@ const AddRide = ({ navigation, route }) => {
                         value={selectedDate}
                         onChangeText={selectedDate => setSelectedDate(selectedDate)}
                         placeholder="AAAA/MM/DD"
-                        keyboardType="numbers-and-punctuation"
+                        keyboardType="phone-pad"
                         cursorColor="#001f36"
                     />
                 
