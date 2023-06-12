@@ -46,6 +46,7 @@ const AddRide = ({ navigation, route }) => {
             }),
           };
           fetch(`${dados.Url}/api/ride/adicionar`, requestOptions)
+          fetch(`${dados.Url}/api/ride/adicionar`, requestOptions)
             .then((response) => {
               console.log(response.status);
               if (response.status === 201) {

@@ -23,7 +23,7 @@ const RideCard = ({ ride }) => {
                 },
             };
             fetch(`${dados.Url}/api/ride/deletar/${id}`, requestOptions)
-                .then((response) => response.json())
+                .then((response) => console.log(response.status))
                 .then(() => {
                     console.log("Apagado com sucesso!");
                     Alert.alert("Corrida apagada com sucesso!");

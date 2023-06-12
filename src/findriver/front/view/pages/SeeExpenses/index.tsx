@@ -56,8 +56,7 @@ const SeeExpenses = ({ route, navigation }) => {
     }, [token, expense]);
 
     const handleAddExpenseButton = () => {
-        navigation.navigate("Cadastrar Despesa")
-
+        navigation.navigate("Cadastrar Despesa");
     }
 
     return(

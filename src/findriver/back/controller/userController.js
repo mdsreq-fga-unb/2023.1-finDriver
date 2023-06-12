@@ -2,6 +2,7 @@ const userService = require("../service/userService");
 const { getUserByEmail } = require("../service/userService"); 
 const { loginUserWithToken } = require("../service/loginService")
 const statusCode = require('../helpers/statusCode');
+const { getUserIdByToken } = require("../service/tokenService");
 
 async function addUser(req, res) {
   const user = req.body;
@@ -21,15 +22,26 @@ async function addUser(req, res) {
 };
 
 async function getUser(req, res) {
-  const email = req.body;
+  const token = req.headers.authorization.split(' ')[1];
 
-  var value = await getUserByEmail(email);
+  try{
+    const userId = await getUserIdByToken(token);
+    
+    if(!userId){
+      return res.status(statusCode.UNAUTHORIZED).json({ message: "Token de autenticação inválido!" });
+    }
+    
+    const value = await userService.getUserById(userId);
+    console.log(value);
+    if (value == "Usuário não existe") {
+      return res.status(statusCode.NOT_FOUND).json({ message: 'Usuário não existe' });
+    } 
 
-  if (value == "Usuário não existe") {
-    return res.status(statusCode.NOT_FOUND).json({ message: 'Usuário não existe' });
-  } 
-
-  res.status(statusCode.OK).json({ value });
+    res.status(statusCode.OK).json({ value });
+  } catch (error) {
+    res.status(statusCode.NOT_FOUND).json({ message: error.message });
+  }
+  
 };
 
 async function updateUser(req, res) {
