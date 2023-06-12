@@ -51,14 +51,14 @@ const Login = ({ navigation }) => {
                         storeToken(token);
                         getToken();
 
-                        Alert.alert('Usuário logado');
                         navigation.navigate('Tab');
 
                         return navigation.navigate('Tab');
                     } else {
-                        return Alert.alert('E-mail ou senha inválidos');
+                        return Alert.alert('Erro', 'E-mail ou senha inválidos');
                     }
                 } catch (e) {
+                    return Alert.alert('Erro', 'E-mail ou senha inválidos');
                     console.log(e)
                 }
             })
