@@ -46,7 +46,6 @@ const AddRide = ({ navigation, route }) => {
             }),
           };
           fetch(`${dados.Url}/api/ride/adicionar`, requestOptions)
-          fetch(`${dados.Url}/api/ride/adicionar`, requestOptions)
             .then((response) => {
               console.log(response.status);
               if (response.status === 201) {
@@ -86,7 +85,7 @@ const AddRide = ({ navigation, route }) => {
                         style={styles.input}
                         value={value}
                         onChangeText={value => setValue(value)}
-                        placeholder="00.00"
+                        placeholder="Ex.: 00.00"
                         keyboardType="numeric"
                         cursorColor="#001f36"
                     />
@@ -96,7 +95,7 @@ const AddRide = ({ navigation, route }) => {
                         style={styles.input}
                         value={quilometers}
                         onChangeText={quilometers => setQuilometers(quilometers)}
-                        placeholder="00.0"
+                        placeholder="Ex.: 00.00"
                         keyboardType='numeric'
                         cursorColor="#001f36"
                     />
@@ -116,7 +115,7 @@ const AddRide = ({ navigation, route }) => {
                         value={selectedDate}
                         onChangeText={selectedDate => setSelectedDate(selectedDate)}
                         placeholder="AAAA/MM/DD"
-                        keyboardType="numbers-and-punctuation"
+                        keyboardType="phone-pad"
                         cursorColor="#001f36"
                     />
                 

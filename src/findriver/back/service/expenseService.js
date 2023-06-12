@@ -167,7 +167,7 @@ const averageDayExpense = async (userId) => {
         total += dayExpense[i];
       };
   
-      return (total/dayExpense.length).toFixed(2);;
+      return (total).toFixed(2);;
   
     } catch (error) {
       console.log(error);

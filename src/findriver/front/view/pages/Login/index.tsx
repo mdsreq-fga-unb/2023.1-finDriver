@@ -55,10 +55,10 @@ const Login = ({ navigation }) => {
                         var token = data.response.token.headers.Authorization;
                         storeToken(token);
 
-                        Alert.alert('Usuário logado');
-                        navigation.navigate('Tab');
-                    }
+                        return navigation.navigate('Tab');
+                    } 
                 } catch (e) {
+                    return Alert.alert('Erro', 'E-mail ou senha inválidos');
                     console.log(e)
                     return Alert.alert('E-mail ou senha inválidos');
                 }

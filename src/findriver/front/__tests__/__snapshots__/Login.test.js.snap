@@ -37,7 +37,7 @@ exports[`<Login /> Renderiza corretamente 1`] = `
       cursorColor="#001f36"
       keyboardType="email-address"
       onChangeText={[Function]}
-      placeholder="Email"
+      placeholder="E-mail"
       style={
         {
           "borderColor": "#e0e0e0",
@@ -171,57 +171,12 @@ exports[`<Login /> Renderiza corretamente 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         {
-          "alignItems": "center",
-          "marginVertical": 10,
-          "maxWidth": 120,
+          "alignSelf": "flex-end",
+          "marginTop": 20,
+          "maxHeight": 100,
+          "maxWidth": 100,
         }
       }
-    >
-      <Text
-        style={
-          {
-            "color": "#1C5560",
-            "fontSize": 15,
-            "marginTop": 0,
-            "maxWidth": 120,
-            "textDecorationColor": "#1C5560",
-            "textDecorationLine": "underline",
-          }
-        }
-      >
-        Esqueceu a senha?
-      </Text>
-    </View>
-    <View
-      accessibilityState={
-        {
-          "busy": undefined,
-          "checked": undefined,
-          "disabled": undefined,
-          "expanded": undefined,
-          "selected": undefined,
-        }
-      }
-      accessibilityValue={
-        {
-          "max": undefined,
-          "min": undefined,
-          "now": undefined,
-          "text": undefined,
-        }
-      }
-      accessible={true}
-      collapsable={false}
-      focusable={true}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
     >
       <Text
         style={
@@ -230,7 +185,6 @@ exports[`<Login /> Renderiza corretamente 1`] = `
               "color": "#1C5560",
               "fontSize": 15,
               "marginTop": 0,
-              "maxWidth": 120,
               "textDecorationColor": "#1C5560",
               "textDecorationLine": "underline",
             },

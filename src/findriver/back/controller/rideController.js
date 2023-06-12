@@ -102,6 +102,7 @@ async function getAverageProfit(req, res) {
 
     let averageProfit = await rideService.averageProfit(userID);
     let averageDayProfit = await rideService.averageDayProfit(userID);
+    
 
     let values = {averageDayProfit, averageProfit}
 
@@ -112,5 +113,10 @@ async function getAverageProfit(req, res) {
     res.status(statusCode.NOT_FOUND).json({ message: error.message });
   }
 };
+
+
+
+
+
 
 module.exports = { addRide, getRides, getOneRide, updateRide, deleteRide, getKmDriveByUserId, getAverageProfit};
