@@ -16,6 +16,8 @@ const SecurityQuestion = ({ navigation, route }) => {
     const handleCreateUser = () => {
         if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
             Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+        } else if (questionOne === questionTwo){
+            Alert.alert('Erro', 'As perguntas não podem ser iguais')
         } else {
             const requestOptions = {
                 method: 'POST',
@@ -42,6 +44,9 @@ const SecurityQuestion = ({ navigation, route }) => {
                         Alert.alert('Usuário cadastrado com sucesso!');
                         navigation.navigate('Entrar'); 
                     }
+                    else if(response.status === 409)
+                        Alert.alert('Este usuário já existe!',"Cadastre um email diferente!");
+
 
 
                     else {

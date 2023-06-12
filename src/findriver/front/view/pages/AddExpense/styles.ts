@@ -21,11 +21,10 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     causeValueContainer: {
-        marginBottom: 30,
 
     },
     dataTypeContainer: {
-        marginBottom: 25,
+
     },
     label: {
         color: '#1c5560',
@@ -48,6 +47,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: 12,
         paddingVertical: 10,
     },
     textButton: {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         borderColor: '#e0e0e0',
         borderWidth: 2,
         borderRadius: 10,
-        marginBottom: 5,
+        marginBottom: 15,
         padding: 7,
     },
 });

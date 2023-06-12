@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         textDecorationColor: '#001f36',
     },
     pressableTextGoToLogin: {
-        maxWidth: 100,
+        maxWidth: 130,
         maxHeight: 30,
         alignSelf: 'flex-end',
         marginTop: 20,

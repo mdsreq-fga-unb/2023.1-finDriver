@@ -9,7 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Profile = ({ navigation }) => {
 
-    const [user, setUser] = useState();
+    const [user, setUser] = useState({id:'', name:'', email:''});
     const [token, setToken] = useState('');
     
     const fetchUser = async () => {

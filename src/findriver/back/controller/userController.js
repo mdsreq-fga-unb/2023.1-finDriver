@@ -70,6 +70,7 @@ async function loginUser(req, res) {
   const user = req.body;
 
   const response = await loginUserWithToken(user);
+  console.log(response)
 
   if (response == "Todos os campos são necessários" || response == "Credenciais inválidas" ) {
     return res.status(statusCode.UNAUTHORIZED).json({ response });
