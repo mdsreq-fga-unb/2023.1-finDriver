@@ -53,5 +53,8 @@ Possibilitar que os motoristas de aplicativo tenham o controle financeiro dos se
 Nosso produto será desenvolvido utilizando tecnologias de framework mobile, banco de dados e testes.
 
 - React Native e Expo - Frameworks mobile
+- TypeScript - Desenvolvimento Front-End
+- NodeJS - Desenvolvimento Back-End
 - Firebase - Banco de Dados
 - Jest - Testes
+- GitHub Actions - Integração contínua
