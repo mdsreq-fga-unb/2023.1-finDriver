@@ -99,7 +99,7 @@ const EditUser = ({ navigation, route }) => {
                             style={styles.input}
                             value={newEmail}
                             onChangeText={newEmail => setNewEmail(newEmail)}
-                            placeholder="email@gmail.com"
+                            placeholder="Ex.: email@gmail.com"
                             keyboardType="email-address"
                             autoComplete="email"
                             cursorColor="#001f36"

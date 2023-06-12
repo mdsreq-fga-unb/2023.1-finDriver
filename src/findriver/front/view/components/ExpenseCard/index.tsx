@@ -59,7 +59,6 @@ const ExpenseCard = ({ expense }) => {
                     <View style={styles.bottomArea}>
                        
                         <View style={styles.informations}>
-                            <Text style={[styles.text, styles.baloon]}>{expense?.cause}</Text>
                             <Text style={[styles.text, styles.baloon]}>{expense?.type}</Text>
                         </View>
                        

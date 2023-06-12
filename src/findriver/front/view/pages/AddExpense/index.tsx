@@ -7,7 +7,7 @@ import styles from './styles';
 import dados from "../../../dados";
 
 const AddExpense = ({ navigation, route }) => {
-    const [cause, setCause] = useState('');
+    const [description, setDescription] = useState('');
     const [value, setValue] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
     const [type, setType] = useState('');
@@ -25,7 +25,7 @@ const AddExpense = ({ navigation, route }) => {
     }
 
     const handleAddExpense = () => {
-        if(!cause || !value || !selectedDate || !type){
+        if(!description || !value || !selectedDate || !type){
             Alert.alert('Erro','Por favor, preencha todos os campos');
         } else {
             const requestOptions = {
@@ -38,8 +38,8 @@ const AddExpense = ({ navigation, route }) => {
             body: JSON.stringify({
                 value: value,
                 type: type,
-                description: cause,
-                date: selectedDate
+                description: description,
+                date: selectedDate,
             }),
           };
           fetch(`${dados.Url}/api/expense/adicionar`, requestOptions)
@@ -77,35 +77,22 @@ const AddExpense = ({ navigation, route }) => {
                 </View>
 
                 <View style={styles.componentsContainer}>
-                    <View style={styles.causeValueContainer}>
-                        <Text style={styles.label}>Causa</Text>
-                        <TextInput
-                            style={styles.input}
-                            value={cause}
-                            onChangeText={cause => setCause(cause)}
-                            placeholder="Causa"
-                            keyboardType="default"
-                            cursorColor="#001f36"
-                        />
-
                         <Text style={styles.label}>Valor</Text>
                         <TextInput
                             style={styles.input}
                             value={value}
                             onChangeText={value => setValue(value)}
                             placeholder="00.00"
+                            keyboardType='numeric'
                             cursorColor="#001f36"
                         />
-                    </View>
-
-                    <View style={styles.dataTypeContainer}>
                         <Text style={styles.label}>Data</Text>
                         <TextInput
                             style={styles.input}
                             value={selectedDate}
                             onChangeText={selectedDate => setSelectedDate(selectedDate)}
                             placeholder="YYYY/MM/DD"
-                            keyboardType="numbers-and-punctuation"
+                            keyboardType="phone-pad"
                             cursorColor="#001f36"
                         />
                     
@@ -115,15 +102,24 @@ const AddExpense = ({ navigation, route }) => {
                             onChanged={setType}
                             options={[
                                 {value: '', text: ''},
-                                {value: 'GAS', text: 'Gasolina'},
-                                {value: 'FOOD', text: 'Comida'},
-                                {value: 'TOLL', text: 'Pedágio'},
-                                {value: 'RENT', text: 'Aluguel de veículo'},
+                                {value: 'Gasolina', text: 'Gasolina'},
+                                {value: 'Comida', text: 'Comida'},
+                                {value: 'Pedágio', text: 'Pedágio'},
+                                {value: 'Aluguel de veículo', text: 'Aluguel de veículo'},
+                                {value: 'Outros', text: 'Outros'}
                             ]}
                             style={styles.picker}
                         />
-                    </View>
 
+                        <Text style={styles.label}>Descrição</Text>
+                        <TextInput
+                            style={styles.input}
+                            value={description}
+                            onChangeText={description => setDescription(description)}
+                            placeholder="Causa"
+                            keyboardType="default"
+                            cursorColor="#001f36"
+                        />
                     <Pressable 
                         style={styles.button}
                         onPress={() => handleAddExpense()}>

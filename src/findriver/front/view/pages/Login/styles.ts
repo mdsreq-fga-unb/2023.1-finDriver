@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         color: '#ffffff',
     },
     underlinedText: {
-        fontSize: 18,
+        fontSize: 15,
         color: '#1C5560',
         marginTop: 0,
         textDecorationLine: 'underline',

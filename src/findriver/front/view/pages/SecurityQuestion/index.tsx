@@ -16,6 +16,8 @@ const SecurityQuestion = ({ navigation, route }) => {
     const handleCreateUser = () => {
         if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
             Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+        } else if (questionOne === questionTwo){
+            Alert.alert('Erro', 'As perguntas não podem ser iguais')
         } else {
             const requestOptions = {
                 method: 'POST',
