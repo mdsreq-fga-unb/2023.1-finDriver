@@ -40,11 +40,11 @@ const createUser = async (User) => {
   }
 };
 
-async function getUserByEmail(user) {
+async function getUserById(id) {
   const { data, error } = await supabase
     .from("Users")
-    .select("name")
-    .eq("email", user.email);
+    .select("*")
+    .eq("id", id);
 
   if (error) {
     console.log(error);
@@ -83,7 +83,7 @@ async function deleteUserById(id) {
 
 module.exports = {
   createUser,
-  getUserByEmail,
+  getUserById,
   updateUserById,
   deleteUserById,
   supabase,
