@@ -71,6 +71,7 @@ async function loginUser(req, res) {
 
   const response = await loginUserWithToken(user);
 
+
   if (response == "Todos os campos são necessários" || response == "Credenciais inválidas" ) {
     return res.status(statusCode.UNAUTHORIZED).json({ response });
   }
