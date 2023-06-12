@@ -33,6 +33,7 @@ const SecurityQuestion = ({ navigation, route }) => {
                     questionTwo: questionTwo
                 })
 
+
             };
             fetch(`${dados.Url}/api/user/cadastro`, requestOptions)
                 .then((response) => {
@@ -42,6 +43,7 @@ const SecurityQuestion = ({ navigation, route }) => {
                         navigation.navigate('Entrar'); 
                     }
 
+
                     else {
                         Alert.alert('E-mail ou senha inválidos');
                     }
@@ -49,6 +51,7 @@ const SecurityQuestion = ({ navigation, route }) => {
                 .catch((err) => {
                     console.log(err);
                 });
+                //navigation.navigate('Inicio'); 
             }
         }
 
