@@ -206,7 +206,7 @@ const averageDayProfit = async (userId) => {
       total += dayValues[i];
     };
 
-    return (total/dayValues.length).toFixed(2);;
+    return total.toFixed(2);
 
   } catch (error) {
     console.log(error);
@@ -223,5 +223,5 @@ module.exports = {
   deleteRideById,
   kmDrivenInTheDay,
   averageProfit,
-  averageDayProfit
+  averageDayProfit,
 };
