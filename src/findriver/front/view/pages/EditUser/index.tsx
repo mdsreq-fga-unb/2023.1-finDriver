@@ -19,6 +19,7 @@ const EditUser = ({ navigation, route }) => {
     const [newPassword, setNewPassword] = useState('');
 
     const fetchEditUser = () => {
+        
         const requestOptions = {
             method: "PUT",
             headers: {
@@ -62,12 +63,18 @@ const EditUser = ({ navigation, route }) => {
     }, []);
 
     const handleEditUser = () => {
-        if(!newName || !newEmail || !oldPassword){
+        const specialChars = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+
+        if(!newName || !newEmail){
             Alert.alert('Erro','Por favor, preencha todos os campos');
-        } else if (oldPassword === newPassword){
-            console.log(oldPassword + " " + newPassword)
-            Alert.alert('Erro', 'Por favor, digite uma senha válida');
-        } else {
+        } else if (oldPassword !== newPassword){
+            Alert.alert('Erro', 'As senhas não coincidem')
+        }else if(newPassword.length < 8){
+            Alert.alert('Erro', 'A senha deve ter pelo menos 8 caracteres')
+        } else if(!specialChars.test(newPassword)){
+            Alert.alert('Erro', 'A senha deve ter pelo menos 1 caracteres especial')
+        } 
+        else {
             fetchEditUser();
         }
     };
@@ -107,12 +114,12 @@ const EditUser = ({ navigation, route }) => {
                     </View>
 
                     <View style={styles.passwordContainer}>
-                        <Text style={styles.label}>Senha Atual</Text>
+                        <Text style={styles.label}>Nova senha</Text>
                         <TextInput
                             style={styles.input}
                             value={oldPassword}
                             onChangeText={oldPassword => setOldPassword(oldPassword)}
-                            placeholder="Senha"
+                            placeholder="Nova senha"
                             keyboardType="default"
                             autoComplete= "off"
                             autoCorrect={false}
@@ -120,7 +127,7 @@ const EditUser = ({ navigation, route }) => {
                             secureTextEntry={true}
                         />
                     
-                        <Text style={styles.label}>Nova Senha</Text>
+                        <Text style={styles.label}>Confirme sua nova senha</Text>
                         <TextInput
                             style={styles.input}
                             value={newPassword}
