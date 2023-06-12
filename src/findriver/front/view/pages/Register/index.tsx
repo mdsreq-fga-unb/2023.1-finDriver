@@ -37,7 +37,7 @@ const Register = ({ navigation }) => {
                         style={styles.input}
                         value={name}
                         onChangeText={name => setName(name)}
-                        placeholder="Name"
+                        placeholder="Nome"
                         keyboardType="default"
                         cursorColor="#001f36"
                     />
@@ -46,7 +46,7 @@ const Register = ({ navigation }) => {
                         style={styles.input}
                         value={email}
                         onChangeText={email => setEmail(email)}
-                        placeholder="Email"
+                        placeholder="E-mail"
                         keyboardType="email-address"
                         autoComplete="email"
                         cursorColor="#001f36"
@@ -72,7 +72,7 @@ const Register = ({ navigation }) => {
                         style={styles.input}
                         value={repeatPassword}
                         onChangeText={repeatPassword => setRepeatPassword(repeatPassword)}
-                        placeholder="Senha"
+                        placeholder="Confirme sua senha"
                         keyboardType="default"
                         autoComplete= "off"
                         autoCorrect={false}
