@@ -32,6 +32,7 @@ async function getUser(req, res) {
     }
     
     const value = await userService.getUserById(userId);
+    console.log(value);
     if (value == "Usuário não existe") {
       return res.status(statusCode.NOT_FOUND).json({ message: 'Usuário não existe' });
     } 
