@@ -49,11 +49,16 @@ const Profile = ({ navigation }) => {
         getToken();
         fetchUser();
 
-    }, []);
+    }, [token]);
+
+    const handleEditProfile = () => {
+        navigation.navigate('Editar Perfil', {user})
+    }
 
     return(
         <View style={styles.container}>
             <Image source={require('../../assets/logoCarro.png')} style={styles.logo}/>
+
             <View>
                 <Text style={styles.title}>Perfil</Text>
                 <Text style={styles.label}>Nome:</Text>
@@ -63,7 +68,7 @@ const Profile = ({ navigation }) => {
 
                 <Pressable 
                     style={styles.button}
-                    onPress={() => navigation.navigate('Editar Perfil')}>
+                    onPress={() => handleEditProfile()}>
                     <Text style={styles.textButton}>Editar</Text>
                 </Pressable>
             </View>
