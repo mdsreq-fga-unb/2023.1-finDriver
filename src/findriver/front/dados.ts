@@ -1,6 +1,6 @@
 const dados = {
-    Url: 'http://192.168.0.25:3000',
-    Token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZCI6MjQ3LCJlbWFpbCI6ImFsaWNlQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJHEuT3pmWW5zQjVRQ01IblM5NUhnTy5QVFc4N2JwaXVQRlA2TmJiMnE1dWJrLnF3WkJ3SW82In1dLCJpYXQiOjE2ODY1NDAyMzB9.huDO3O2FhxH1h4HfQmJ0LBtWDp87tzm9PHPAX8UKunU'
+    Url: 'http://192.168.1.5:3000',
+    Token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZCI6MjQ1fV0sImlhdCI6MTY4NjQ2NDQ3Nn0.RHteRYmWNfjL8hktY89PFJ2rXsykTa29lvxGQstchjM'
 }
 
 export default dados;

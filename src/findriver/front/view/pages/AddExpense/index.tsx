@@ -1,22 +1,67 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView} from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
+import dados from "../../../dados";
 
 const AddExpense = ({ navigation, route }) => {
     const [cause, setCause] = useState('');
     const [value, setValue] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
     const [type, setType] = useState('');
+    const [token, setToken] = useState('');
+
+    const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                setToken(value)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     const handleAddExpense = () => {
         if(!cause || !value || !selectedDate || !type){
             Alert.alert('Erro','Por favor, preencha todos os campos');
         } else {
-            navigation.navigate("Cadastrar Despesa");
+            const requestOptions = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: token.toString(),
+            },
+            body: JSON.stringify({
+                value: value,
+                type: type,
+                description: cause,
+                date: selectedDate
+            }),
+          };
+          fetch(`${dados.Url}/api/expense/adicionar`, requestOptions)
+            .then((response) => {
+              console.log(response.status);
+              if (response.status === 201) {
+                Alert.alert("Despesa cadastrada com sucesso");
+                navigation.goBack();
+              } else {
+                Alert.alert("Erro", "Ocorreu um erro ao cadastrar a despesa");
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+            
         }
     };
+
+    useEffect(() => {
+        getToken();  
+    }, [token]);
 
     return(
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>

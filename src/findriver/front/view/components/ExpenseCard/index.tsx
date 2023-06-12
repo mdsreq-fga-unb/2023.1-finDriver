@@ -7,7 +7,7 @@ import dados from "../../../dados";
 import styles from './styles';
 
 const ExpenseCard = ({ expense }) => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<any>();
     const id = expense?.id;
 
     const onClickSwipeRight = () => { 
@@ -33,7 +33,7 @@ const ExpenseCard = ({ expense }) => {
     };
 
     const handleEditExpense = () => {
-        navigation.navigate('Editar Despesa' as never);
+        navigation.navigate('Editar Despesa' as never, {id: id});
     }
         
     const renderRightActions = () => (

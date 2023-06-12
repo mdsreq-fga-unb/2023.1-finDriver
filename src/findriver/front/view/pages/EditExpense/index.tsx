@@ -1,27 +1,70 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView } from 'react-native';
 import Picker from '@ouroboros/react-native-picker';
+import dados from "../../../dados";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 
 const EditExpense = ({ navigation, route }) => {
     //pegar parametros da despesa a ser editada
-    //const { name, email, password } = route.params
+    const { id } = route.params
 
     const [cause, setCause] = useState('');
     const [value, setValue] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
     const [type, setType] = useState('');
+    const [token, setToken] = useState('');
 
-
+    const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                setToken(value)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     const handleEditExpense = () => {
         if(!cause || !value || !selectedDate || !type){
             Alert.alert('Erro','Por favor, preencha todos os campos');
         } else {
-            navigation.goBack();
+            const requestOptions = {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+                  Authorization: token.toString(),
+                },
+                body: JSON.stringify({
+                  value: value,
+                  type: type,
+                  description: cause,
+                  date: selectedDate
+                }),
+              };
+              fetch(`${dados.Url}/api/expense/editar/${id}`, requestOptions)
+                .then((response) => {
+                  console.log(response.status);
+                  if (response.status === 200) {
+                    Alert.alert("Despesa atualizada com sucesso");
+                    navigation.goBack();
+                  } else {
+                    Alert.alert("Erro", "Ocorreu um erro ao atualizar a despesa");
+                    navigation.goBack();
+                  }
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
         }
     };
+
+    useEffect(() => {
+        getToken();  
+    }, [token]);
 
     return(
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
