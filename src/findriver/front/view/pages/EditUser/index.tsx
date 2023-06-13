@@ -132,7 +132,7 @@ const EditUser = ({ navigation, route }) => {
                             style={styles.input}
                             value={newPassword}
                             onChangeText={newPassword => setNewPassword(newPassword)}
-                            placeholder="Nova Senha"
+                            placeholder="Confirme sua senha"
                             keyboardType="default"
                             autoComplete= "off"
                             autoCorrect={false}
