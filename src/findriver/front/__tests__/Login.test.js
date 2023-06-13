@@ -1,5 +1,5 @@
 import React from 'react';
-import AsyncStorage from './__mocks__/@react-native-async-storage/async-storage'
+import AsyncStorage from '../__mocks__/@react-native-async-storage/async-storage'
 import { render, fireEvent } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 

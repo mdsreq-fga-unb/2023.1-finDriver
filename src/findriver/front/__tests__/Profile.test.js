@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import AsyncStorage from './__mocks__/@react-native-async-storage/async-storage'
+import AsyncStorage from '../__mocks__/@react-native-async-storage/async-storage'
 
 import Profile from '../view/pages/Profile/index';
 
