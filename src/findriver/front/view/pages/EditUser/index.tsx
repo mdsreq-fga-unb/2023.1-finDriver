@@ -64,7 +64,6 @@ const EditUser = ({ navigation, route }) => {
         console.log(e);
       }
     };
-
     getToken();
   }, []);
 
