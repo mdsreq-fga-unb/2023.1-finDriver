@@ -2,7 +2,7 @@ FROM Node:18
 
 WORKDIR ./src/findriver/back
 
-COPY --chown=node:node./src/findriver/back
+COPY * /src/findriver/back
 
 RUN npm install
 
