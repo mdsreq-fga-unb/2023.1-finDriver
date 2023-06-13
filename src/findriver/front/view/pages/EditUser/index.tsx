@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, } from "react";
 import {
   View,
   Image,
@@ -75,10 +75,12 @@ const EditUser = ({ navigation, route }) => {
       Alert.alert("Erro", "Por favor, preencha todos os campos");
     } else if (oldPassword !== newPassword) {
       Alert.alert("Erro", "As senhas não coincidem");
-    } else if (newPassword.length !== 0 || newPassword.length < 8) {
+    } else if (newPassword.length !== 0 && newPassword.length < 8) {
       Alert.alert("Erro", "A senha deve ter pelo menos 8 caracteres");
-    } else if (!specialChars.test(newPassword)) {
-      Alert.alert("Erro", "A senha deve ter pelo menos 1 caracteres especial");
+      
+      if (!specialChars.test(newPassword)) {
+          Alert.alert("Erro", "A senha deve ter pelo menos 1 caracteres especial");
+      }
     } else {
       fetchEditUser();
     }

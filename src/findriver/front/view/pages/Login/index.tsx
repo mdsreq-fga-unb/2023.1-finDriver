@@ -45,7 +45,7 @@ const Login = ({ navigation }) => {
         fetch(`${dados.Url}/api/user/login`, requestOptions)
             .then(response => {
                 if(response.status == 401){
-                    return Alert.alert('E-mail ou senha inválidos');
+                    return Alert.alert('Erro', 'E-mail ou senha inválidos');
                 }
                 return response.json()
             })
@@ -60,7 +60,6 @@ const Login = ({ navigation }) => {
                 } catch (e) {
                     return Alert.alert('Erro', 'E-mail ou senha inválidos');
                     console.log(e)
-                    return Alert.alert('E-mail ou senha inválidos');
                 }
             })
             .catch((e) => {
