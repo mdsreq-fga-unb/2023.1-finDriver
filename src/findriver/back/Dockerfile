@@ -1,6 +1,6 @@
 FROM Node:18
 
-WORKDIR /src/findriver/back
+WORKDIR ./src/findriver/back
 
 COPY ./src/findriver/back
 
@@ -14,3 +14,4 @@ ENV TOKEN_KEY=ALICELINDISSIMASUPERINCRIVEL123456VERDEAZUL
 EXPOSE 3000
 
 CMD ["npm", "start"]
+
