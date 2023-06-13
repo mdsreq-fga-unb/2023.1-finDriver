@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, Pressable, StyleSheet, Alert} from 'react-native';
+import { View, Image, Text, Pressable, StyleSheet, Alert, RefreshControl, ScrollView} from 'react-native';
 
 import styles from './styles';
 import dados from '../../../dados';
@@ -11,6 +11,7 @@ const Profile = ({ navigation }) => {
 
     const [user, setUser] = useState({id:'', name:'', email:''});
     const [token, setToken] = useState('');
+    const [refreshing, setRefreshing] = useState(false);
     
     const fetchUser = async () => {
         try{
@@ -78,18 +79,29 @@ const Profile = ({ navigation }) => {
         );
       };
 
-    useEffect(() => {
-        const getToken = async () => {
-            try {
-                const value = await AsyncStorage.getItem('token')
-                if (value !== null) {
-                    setToken(value)
-                }
-            } catch (e) {
-                console.log(e)
+      const getToken = async () => {
+        try {
+            const value = await AsyncStorage.getItem('token')
+            if (value !== null) {
+                setToken(value)
             }
-        } 
-    
+        } catch (e) {
+            console.log(e)
+        }
+    } 
+
+    const handleRefresh = () => {
+        setRefreshing(true);
+        
+        getToken();
+        fetchUser();
+
+        setTimeout(() => {
+            setRefreshing(false);
+    }, 1000);
+  };
+
+    useEffect(() => {
         getToken();
         fetchUser();
 
@@ -100,7 +112,10 @@ const Profile = ({ navigation }) => {
     }
 
     return(
-        <View style={styles.container}>
+        <ScrollView refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+          }>
+        <View style={styles.container} >
             <Image source={require('../../assets/logoCarro.png')} style={styles.logo}/>
 
             <View>
@@ -121,6 +136,7 @@ const Profile = ({ navigation }) => {
                 </Pressable>
             </View>
         </View>
+        </ScrollView>
     );
 };
 
