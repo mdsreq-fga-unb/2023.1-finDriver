@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'react-native';
+import { View, Image, Text, Alert, Pressable, TextInput, ScrollView, KeyboardAvoidingView} from 'react-native';
 
 import styles from './styles';
+import Header from '../../components/Header';
 
 const Register = ({ navigation }) => {
     const [name, setName] = useState('');
@@ -14,24 +15,31 @@ const Register = ({ navigation }) => {
     }
 
     const handleRegister = () => {
+
+        const specialChars = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+        
         if (!name || !email || !password || !repeatPassword) {
             Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
         } else if (!comparePassword()) {
             Alert.alert('Erro', 'As senhas não coincidem. Por favor, tente novamente.');
+        } else if(password.length < 8){
+            Alert.alert('Erro', 'A senha deve ter pelo menos 8 caracteres')
+        } else if(!specialChars.test(password)){
+            Alert.alert('Erro', 'A senha deve ter pelo menos 1 caracteres especial($@&*+=_#%)');               
         } else {
             navigation.navigate('Perguntas',{name: name, email: email, password: password});
         }
     };
 
     return(
-        <View style={styles.container}>
-           
-            <View>
+    <ScrollView >
+        <KeyboardAvoidingView style={styles.container}>               
+            <View>  
                 <Image source={require('../../assets/logoCarro.png')} style={styles.logo}/>
             </View>
 
             <View style={styles.componentsContainer}>
-                <View style={styles.nameEmailContainer}>
+                <View style={styles.topContainer}>
                     <Text style={styles.label}>Nome</Text>
                     <TextInput
                         style={styles.input}
@@ -53,7 +61,7 @@ const Register = ({ navigation }) => {
                     />
                 </View>
 
-                <View style={styles.passwordContainer}>
+                <View style={styles.bottomContainer}>
                     <Text style={styles.label}>Senha</Text>
                     <TextInput
                         style={styles.input}
@@ -79,22 +87,26 @@ const Register = ({ navigation }) => {
                         cursorColor="#001f36"
                         secureTextEntry={true}
                     />
+                    <Text style={styles.text}>A senha deve conter ao menos 8 caracteres, sendo um deles um caracter especial!</Text>
                 </View>
+                
+                <View style={styles.pressableContainer}>
+                    <Pressable 
+                        style={styles.button}
+                        onPress={() => handleRegister()}>
+                        <Text style={styles.textButton}>Continuar</Text>
+                    </Pressable>
 
-                <Pressable 
-                    style={styles.button}
-                    onPress={() => handleRegister()}>
-                    <Text style={styles.textButton}>Continuar</Text>
-                </Pressable>
-
-                <Pressable
-                    onPress={() => navigation.navigate('Entrar')}
-                    style={styles.pressableTextGoToLogin}>
-                    <Text style={styles.link}>Já possuo conta</Text>
-                </Pressable>
-
+                    <Pressable
+                        onPress={() => navigation.navigate('Entrar')}
+                        style={styles.pressableTextGoToLogin}>
+                        <Text style={styles.link}>Já possuo conta</Text>
+                    </Pressable>
+                </View>
             </View>
-        </View>
+
+        </KeyboardAvoidingView>
+        </ScrollView>
     );
 };
 

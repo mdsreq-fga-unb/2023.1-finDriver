@@ -14,6 +14,8 @@ const SecurityQuestion = ({ navigation, route }) => {
     const { name, email, password } = route.params;
 
     const handleCreateUser = () => {
+        const specialChars = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+
         if (!questionOne || !answerOne || !questionTwo || !answerTwo) {
             Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
         } else if (questionOne === questionTwo){
