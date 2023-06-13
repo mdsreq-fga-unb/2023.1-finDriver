@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Backend workspace",
     "engines": {
-        "node": "14.x"
+        "node": "18.x"
     },
     "scripts": {
         "start": "node app.js",
