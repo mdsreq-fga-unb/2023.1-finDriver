@@ -4,6 +4,8 @@ WORKDIR ./src/findriver/back
 
 COPY ./src/findriver/back
 
+COPY .src\findriver\back\package.json
+
 RUN npm install
 
 ENV PORT 3000
