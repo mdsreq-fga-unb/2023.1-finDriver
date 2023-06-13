@@ -12,7 +12,6 @@ A Sprint 4 marca o início do desenvolvimento do produto e representa um períod
 
 - Jira
 - Discord
-- VsCode
 
 ## Sprint Planning
 
