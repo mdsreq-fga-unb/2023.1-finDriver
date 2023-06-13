@@ -258,7 +258,8 @@ const Home = ({ navigation }) => {
 
                 <View style={styles.kmContainer}>
                         <Text style={styles.kmText}>Você rodou </Text>
-                        <Text style={[styles.kmText, {fontWeight: '700'}]}>{km} km</Text>
+                        <Text style={[styles.kmText, {fontWeight: '700'}]}>{km} km </Text>
+                        <Text style={styles.kmText}>hoje</Text>
                     </View>
                     <View style={styles.kmContainer}>
                         <Text style={[styles.kmText]}>Média de gastos semanal: </Text>

@@ -2,18 +2,25 @@
   "name": "front",
   "version": "1.0.0",
   "description": "Frontend workspace",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
+    "start": "node app.js",
     "test": "jest"
   },
   "dependencies": {
     "@expo/webpack-config": "^18.0.1",
+    "@ouroboros/clone": "^1.0.1",
     "@ouroboros/react-native-picker": "^0.3.1",
     "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "@react-navigation/stack": "^6.3.16",
+    "@testing-library/react-native": "^12.1.2",
     "@types/body-parser": "^1.19.2",
+    "@types/enzyme": "^3.10.13",
     "@types/hammerjs": "^2.0.41",
     "@types/react": "~18.0.27",
     "expo": "^48.0.19",
@@ -39,6 +46,7 @@
   "devDependencies": {
     "@types/node": "^20.3.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.4",
+    "enzyme": "^3.11.0",
     "react-native-dotenv": "^3.4.8"
   }
 }

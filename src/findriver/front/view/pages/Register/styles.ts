@@ -3,66 +3,80 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection:"column",
-        justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: 'column',
+        backgroundColor: '#F5F5F7',
+        alignItems: 'center'
     },
     logo: {
-        marginTop: -10,
-        width: 250,
-        height: 250,
+        width: 350,
+        height: 350,
+        
     },
-    componentsContainer:{
+    componentsContainer: {
+        flexDirection: 'column',
+        width: '100%',
+        paddingHorizontal: '15%',
+        marginTop: '-8%'
     },
-    nameEmailContainer: {
-        marginBottom: 30,
+    topContainer: {
+        width: '100%',
+        marginBottom: '8%',
 
     },
-    passwordContainer: {
-        marginBottom: 25,
+    bottomContainer: {
+        width: '100%',
+    },
+    pressableContainer: {
+        width: '100%'
     },
     label: {
         color: '#1c5560',
+        fontWeight: 'bold',
         textAlign: 'left',
-        justifyContent: 'center',
         fontSize: 13,
+        paddingLeft: 5,
     },
     input: {
-        width: 290,
-        height: 50,
-        padding: 10,
+        height: 48,
+        width: '95%',
+        borderWidth: 1.5,
         borderColor: '#e0e0e0',
-        borderWidth: 2,
         borderRadius: 10,
-        marginBottom: 15,
-        fontSize: 15,
+        marginBottom: 7,
+        padding: 8,
+    },
+    text: {
+        color: 'gray',
+        width: '95%',
+        marginBottom: 20,
+        paddingHorizontal: 5,
+        textAlign: 'justify'
     },
     button: {
-        backgroundColor: '#001f36',
+        height: 50,
+        width: '95%',
+        backgroundColor: '#001F36',
         borderRadius: 10,
+        padding: 5,
         alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
+        justifyContent: 'center'
     },
     textButton: {
+        color:"#F5F5F7",
         fontSize: 18,
-        fontWeight: 'bold',
-        color: '#ffffff',
-    },
-    link: {
-        alignSelf: 'flex-end',
-        fontSize: 15,
-        fontWeight: 'bold',
-        color: '#001f36',
-        textDecorationLine: 'underline',
-        textDecorationColor: '#001f36',
+        fontWeight: 'bold'
     },
     pressableTextGoToLogin: {
-        maxWidth: 130,
-        maxHeight: 30,
         alignSelf: 'flex-end',
-        marginTop: 20,
+        marginTop: 10,
     },
+    link: {
+        textDecorationLine: 'underline',
+        textDecorationColor: '#1c5560',
+        fontSize: 15,
+        color: '#1c5560',   
+        marginRight: '5%'
+    }
 });
 
 export default styles;

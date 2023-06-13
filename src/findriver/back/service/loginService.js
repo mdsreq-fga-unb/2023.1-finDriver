@@ -19,11 +19,14 @@ async function loginUserWithToken(User) {
             return "Todos os campos são necessários";
         }
 
-
         const { data } = await supabase
             .from("Users")
             .select("id, email, password")
             .eq('email', User.email);
+
+        if(JSON.stringify(data) == '[]' ){
+            return "Credenciais inválidas"
+        }
 
         if (await bcrypt.compareSync(User.password, (data[0].password).toString())) {
 
