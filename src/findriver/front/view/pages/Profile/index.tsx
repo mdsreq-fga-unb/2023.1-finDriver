@@ -1,3 +1,4 @@
+//testar na pr
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, Pressable, StyleSheet, Alert, RefreshControl, ScrollView} from 'react-native';
 
