@@ -2,7 +2,11 @@
   "name": "front",
   "version": "1.0.0",
   "description": "Frontend workspace",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
+    "start": "node app.js",
     "test": "jest"
   },
   "dependencies": {

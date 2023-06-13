@@ -1,0 +1,16 @@
+FROM Node:18
+
+WORKDIR /src/findriver/back
+
+COPY ./src/findriver/back
+
+RUN npm install
+
+ENV PORT 3000
+ENV DATABASE_URL=https://eoucvdzsxmmjhjwequzd.supabase.co/
+ENV DATABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvdWN2ZHpzeG1tamhqd2VxdXpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUwMzAyNDgsImV4cCI6MjAwMDYwNjI0OH0.IWyHX5FCetOVvYAhjagF8xm5BjKWKoN55Cu7GLqFTMo
+ENV TOKEN_KEY=ALICELINDISSIMASUPERINCRIVEL123456VERDEAZUL
+
+EXPOSE 3000
+
+CMD ["npm", "start"]

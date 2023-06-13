@@ -1,18 +1,19 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Arquitetura
 
 ### **Histórico de Revisão**
 
-|**Data**|**Versão**|**Descrição**|**Autor**|
-|:------:|:--------:|:-----------:|:-------:|
-| 10/05/2023 | 1.0 | Construção da Arquitetura | [Taynara Vitorino](https://github.com/taybalau)|
-| 17/05/2023 | 1.1 | Protótipo de baixa e Fluxo de tela | [Victor Hugo](https://github.com/ViictorHugoo) & [Maria Alice](https://github.com/Maliz30)|
-| 12/06/2023 | 1.2 | Lista de componentes e paleta de cores | [Victor](https://github.com/ViictorHugoo)|
+|  **Data**  | **Versão** |             **Descrição**              |                                         **Autor**                                          |
+| :--------: | :--------: | :------------------------------------: | :----------------------------------------------------------------------------------------: |
+| 10/05/2023 |    1.0     |       Construção da Arquitetura        |                      [Taynara Vitorino](https://github.com/taybalau)                       |
+| 17/05/2023 |    1.1     |   Protótipo de baixa e Fluxo de tela   | [Victor Hugo](https://github.com/ViictorHugoo) & [Maria Alice](https://github.com/Maliz30) |
+| 12/06/2023 |    1.2     | Lista de componentes e paleta de cores |                         [Victor](https://github.com/ViictorHugoo)                          |
 
 ## Arquitetura do produto
+
 Estão dispostos nesse capítulo as informações sobre as decisões arquiteturais do aplicativo FinDriver.
 
 ### 1. Tipo de arquitetura
@@ -25,9 +26,9 @@ Foi definido que o tipo de arquitetura do FinDriver será a de aplicativos híbr
 
 #### 1.2 Componentes
 
-   ⬩ Teremos um header na tela principal para proprositos de beleza apenas  
-   ⬩ Foram criados cards para conter as informações e depesas, afim de centralizar as informações obtidas  
-   ⬩ Para facilitar a navegação, é usado o Tab navigator do react-native-navigation, como ele se faz possível criar uma barra fixa na parte inferior da tela, facilitando a navegação entre as telas 
+⬩ Teremos um header na tela principal para proprositos de beleza apenas  
+ ⬩ Foram criados cards para conter as informações e depesas, afim de centralizar as informações obtidas  
+ ⬩ Para facilitar a navegação, é usado o Tab navigator do react-native-navigation, como ele se faz possível criar uma barra fixa na parte inferior da tela, facilitando a navegação entre as telas
 
 ### 2. Estilo arquitetural
 
@@ -39,5 +40,6 @@ Logo abaixo, há o nosso protótipo de baixa fidelidade feito no canva e o fluxo
 
 ![Prototipo de baixa fidelidade](img/Tela_de_Autenticacao1.png)
 
-## Referências 
+## Referências
+
 - Material do moodle da disciplina
