@@ -43,27 +43,29 @@ const Login = ({ navigation }) => {
             })
         };
         fetch(`${dados.Url}/api/user/login`, requestOptions)
-            .then(response => response.json())
+            .then(response => {
+                if(response.status == 401){
+                    return Alert.alert('E-mail ou senha inválidos');
+                }
+                return response.json()
+            })
             .then(data => {
                 try {
                     if (data.response.token !== undefined) {
                         var token = data.response.token.headers.Authorization;
                         storeToken(token);
-                        getToken();
-
-                        navigation.navigate('Tab');
 
                         return navigation.navigate('Tab');
-                    } else {
-                        return Alert.alert('Erro', 'E-mail ou senha inválidos');
-                    }
+                    } 
                 } catch (e) {
                     return Alert.alert('Erro', 'E-mail ou senha inválidos');
                     console.log(e)
+                    return Alert.alert('E-mail ou senha inválidos');
                 }
             })
             .catch((e) => {
                 console.log(e);
+                return Alert.alert('Erro no servidor');
             });
     }
 
