@@ -1,12 +1,12 @@
 FROM Node:18
 
-WORKDIR ./src/findriver/back
+WORKDIR ./back
 
-COPY ./src/findriver/back
-
-COPY .src/findriver/back/package.json
+COPY package.json 
 
 RUN npm install
+
+COPY . .
 
 ENV PORT 3000
 ENV DATABASE_URL=https://eoucvdzsxmmjhjwequzd.supabase.co/
