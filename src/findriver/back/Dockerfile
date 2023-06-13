@@ -4,7 +4,7 @@ WORKDIR ./src/findriver/back
 
 COPY ./src/findriver/back
 
-COPY .src\findriver\back\package.json
+COPY .src/findriver/back/package.json
 
 RUN npm install
 
