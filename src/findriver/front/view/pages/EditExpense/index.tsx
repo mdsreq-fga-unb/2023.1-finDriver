@@ -19,11 +19,11 @@ const EditExpense = ({ navigation, route }) => {
   //pegar parametros da despesa a ser editada
   const { expense } = route.params;
 
-  const [description, setDescription] = useState(expense.description);
-  const [value, setValue] = useState("");
-  const [selectedDate, setSelectedDate] = useState(expense.date);
-  const [type, setType] = useState(expense.type);
-  const [token, setToken] = useState("");
+    const [description, setDescription] = useState(expense.description);
+    const [value, setValue] = useState(expense.value);
+    const [selectedDate, setSelectedDate] = useState(expense.selectedDate);
+    const [type, setType] = useState('');
+    const [token, setToken] = useState('');
 
   const getToken = async () => {
     try {
