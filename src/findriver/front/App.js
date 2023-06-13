@@ -32,7 +32,7 @@ export default function App() {
     <SafeAreaView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Registrar'>
+          <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Bem-Vindo'>
 
             <Stack.Screen name="Bem-Vindo" component={Welcome}/>
             <Stack.Screen name="Entrar" component={Login} />
