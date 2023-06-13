@@ -1,4 +1,4 @@
-FROM Node:18
+FROM node:18
 
 WORKDIR /src/findriver/back
 
