@@ -31,6 +31,31 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
     <td>- O usuário deve ser capaz de acessar a tela de cadastro a partir da tela inicial do aplicativo;<br/>- Os campos obrigatórios a ser preenchidos serão:<br/>&nbsp;&nbsp;- Nome;<br/>&nbsp;&nbsp;- E-mail;<br/>&nbsp;&nbsp;- Senha;<br/>- Duas perguntas de segurança para garantir uma futura redefinição de senha;<br/>- O e-mail deve ser validado;<br/>- A senha deverá ter um comprimento mínimo e caracteres especiais;<br/>- Deverá ter uma dupla verificação da senha, o sistema deverá passar quando ambas estiverem iguais;<br/>- Exibir mensagem de erro caso o e-mail já tenha sido cadastrado;<br/>- Direcionar para a tela de login após o cadastro ser bem-sucedido;</td>
   </tr>
   <tr>
+    <td>US02</td>
+    <td>Autenticação de Usuário</td>
+    <td>- O usuário deve ter acesso à tela de login;<br/>- Os campos a serem preenchidos devem ser:<br/>&nbsp;&nbsp;- E-mail;<br/>&nbsp;&nbsp;- Senha;<br/>- O sistema deve verificar se o e-mail inserido está cadastrado no sistema;<br/>- O sistema deve verificar se a senha está correta e seja associada ao e-mail inserido;<br/>&nbsp;&nbsp;- Caso negativo: Exibir mensagem de erro;<br/>&nbsp;&nbsp;- Caso positivo: O usuário deve ser autenticado e direcionado para a tela principal do sistema;<br/>- Na tela de login, o usuário deve ter acesso à uma opção que encaminha para o cadastro;<br/></td>
+  </tr>
+  <tr>
+    <td>US03</td>
+    <td>Logout</td>
+    <td>- Na tela de configurações ou perfil do usuário, deve ter um botão ou opção claramente visível para fazer logout;<br/>- Ao selecionar a opção de logout, o usuário deve ser desconectado imediatamente e direcionado para a tela de login do aplicativo;<br/>- O usuário deve receber feedback visual ou uma mensagem clara de que o logout foi concluído com sucesso;<br/>- Após fazer logout, todas as informações de sessão ativas, como dados de autenticação, cookies ou tokens, devem ser completamente apagadas e invalidadas; <br/>
+  </tr>
+  <tr>
+    <td>US04</td>
+    <td>Deletar Perfl de Usuário</td>
+    <td>- O usuário deve ter acesso à uma opção de exclusão de perfil no sistema;<br/>- A opção deve estar clara e fácil de ser encontrada;<br/>- O usuário deve receber um aviso explícito que a exclusão permanente resultará na perda irreversível de todas as informações e dados associados ao seu perfil;<br/>- Para confirmar a exclusão, o usuário deverá colocar a sua senha;<br/>- O sistema deverá fazer uma dupla confirmação da exclusão;<br/>- Após confirmar a exclusão, o sistema deverá exibir uma mensagem de confirmação e encaminhar para a tela inicial de login;</td>
+  </tr>
+  <tr>
+    <td>US05</td>
+    <td>Logout</td>
+    <td>- - Na tela principal ou em uma seção específica do aplicativo, o usuário deve encontrar um botão ou opção claramente visível para acessar seu perfil;<br>
+- Ao selecionar a opção de visualizar perfil, o usuário deve ser direcionado para uma tela dedicada que exiba suas informações pessoais e dados relevantes;<br>
+- O perfil do usuário deve apresentar os dados do usuário;<br>
+- Os dados exibidos no perfil devem ser atualizados em tempo real e refletir com precisão os dados do usuário armazenados no banco de dados;<br>
+- Exibir a opção de edição de dados;<br>
+- O usuário deve ter a opção de retornar à tela anterior ou à tela principal do aplicativo após visualizar seu perfil.<br> <br/>
+  </tr>
+  <tr>
     <td>US06</td>
     <td>Editar conta de Usuário</td>
     <td>- Deverá ter um perfil ou uma área onde o usuário possa acessar e editar seus dados pessoais;<br/>- Os dados a serem editáveis devem ser:<br/>&nbsp;&nbsp;- Nome;<br/>&nbsp;&nbsp;- E-mail;<br/>&nbsp;&nbsp;- Senha;<br/>- O sistema deve permitir que o usuário salve as alterações feitas;<br/>- O sistema deve validar os campos modificados e entregar uma resposta imediata caso algum campo esteja preenchido corretamente;<br/>- DPara modificar a senha, deverá ter uma dupla confirmação;<br/>- Exibir uma mensagem de erro caso alguma informação tenha sido preenchida erroneamente;<br/>- Após as informações serem salvas com sucesso, apresentar uma mensagem de sucesso e direcionar para o perfil do usuário com as informações já atualizadas;</td>
@@ -54,16 +79,6 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
     <td>US08</td>
     <td>Editar Corridas Cadastradas</td>
     <td>- O usuário deve ter acesso a uma tela ou função específica de edição de corridas cadastradas previamente;<br/>- O sistema deve exibir os detalhes da corrida selecionada pelo usuário em campos editáveis;<br/>- Os campos editáveis serão:<br/>&nbsp;&nbsp;- Data;<br/>&nbsp;&nbsp;- Valor;<br/>&nbsp;&nbsp;- Quilometragem percorrida;<br/>&nbsp;&nbsp;- Aplicativo de corrida utilizado;<br/>- O sistema deve validar os campos editáveis e garantir que os campos foram preenchidos corretamente<br/>- Caso tenha algum campo preenchido errado: <br/>- Exibir mensagem de erro;<br/>- Caso os campos tenham sido preenchidos corretamente:<br/>- Exibir mensagem de sucesso e direcionar para a tela da corrida;<br/></td>
-  </tr>
-  <tr>
-    <td>US02</td>
-    <td>Autenticação de Usuário</td>
-    <td>- O usuário deve ter acesso à tela de login;<br/>- Os campos a serem preenchidos devem ser:<br/>&nbsp;&nbsp;- E-mail;<br/>&nbsp;&nbsp;- Senha;<br/>- O sistema deve verificar se o e-mail inserido está cadastrado no sistema;<br/>- O sistema deve verificar se a senha está correta e seja associada ao e-mail inserido;<br/>&nbsp;&nbsp;- Caso negativo: Exibir mensagem de erro;<br/>&nbsp;&nbsp;- Caso positivo: O usuário deve ser autenticado e direcionado para a tela principal do sistema;<br/>- O usuário deve ter acesso a opção de recuperação de senha caso a tenha esquecido, fornecendo um mecanismo de redefinição da mesma;<br/>- Na tela de login, o usuário deve ter acesso à uma opção que encaminha para o cadastro;<br/></td>
-  </tr>
-  <tr>
-    <td>US04</td>
-    <td>Deletar Perfl de Usuário</td>
-    <td>- O usuário deve ter acesso à uma opção de exclusão de perfil no sistema;<br/>- A opção deve estar clara e fácil de ser encontrada;<br/>- O usuário deve receber um aviso explícito que a exclusão permanente resultará na perda irreversível de todas as informações e dados associados ao seu perfil;<br/>- Para confirmar a exclusão, o usuário deverá colocar a sua senha;<br/>- O sistema deverá fazer uma dupla confirmação da exclusão;<br/>- Após confirmar a exclusão, o sistema deverá exibir uma mensagem de confirmação e encaminhar para a tela inicial de login;</td>
   </tr>
   <tr>
     <td>US12</td>
