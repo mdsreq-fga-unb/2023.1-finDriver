@@ -2,8 +2,11 @@
     "name": "backend",
     "version": "1.0.0",
     "description": "Backend workspace",
+    "engines": {
+        "node": "14.x"
+    },
     "scripts": {
-        "start": "nodemon app.js",
+        "start": "node app.js",
         "test": "jest"
     },
     "dependencies": {
