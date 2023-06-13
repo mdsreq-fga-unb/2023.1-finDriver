@@ -2,7 +2,7 @@ FROM Node:18
 
 WORKDIR ./src/findriver/back
 
-COPY * /back
+COPY . .
 
 RUN npm install
 
