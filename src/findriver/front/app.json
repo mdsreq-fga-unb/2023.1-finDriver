@@ -23,11 +23,18 @@
         "backgroundColor": "#ffffff"
       },
       "permissions": [
-        "WRITE_EXTERNAL_STORAGE", "READ_EXTERNAL_STORAGE"
-      ]
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_EXTERNAL_STORAGE"
+      ],
+      "package": "com.mcqueen.findriver"
     },
     "web": {
       "favicon": "./view/assets/logoCarro.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2277f87e-fc63-4481-9666-f0baeffcfa10"
+      }
     }
   }
 }
