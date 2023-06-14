@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.maliz.findriver"
+      "bundleIdentifier": "com.mcqueen.findriver"
     },
     "android": {
       "adaptiveIcon": {
@@ -27,7 +27,7 @@
         "WRITE_EXTERNAL_STORAGE",
         "READ_EXTERNAL_STORAGE"
       ],
-      "package": "com.maliz.findriver"
+      "package": "com.mcqueen.findriver"
     },
     "web": {
       "favicon": "./view/assets/iconFinDriverWhite.png"
