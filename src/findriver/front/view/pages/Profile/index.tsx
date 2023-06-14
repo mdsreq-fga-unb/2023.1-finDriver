@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Profile = ({ navigation }) => {
 
     const [user, setUser] = useState({id:'', name:'', email:''});
+    const [name, setName] = useState(user.email)
     const [token, setToken] = useState('');
     const [refreshing, setRefreshing] = useState(false);
     
@@ -27,6 +28,7 @@ const Profile = ({ navigation }) => {
             fetch(`${dados.Url}/api/user/`, requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
+                    console.log("entra, amor"); //that's what she said 
                     console.log(data.value[0])
                     setUser(data.value[0])
                 })
