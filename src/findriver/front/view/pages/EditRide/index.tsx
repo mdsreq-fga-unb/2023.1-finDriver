@@ -19,8 +19,8 @@ import styles from "./styles";
 const EditRide = ({ navigation, route }) => {
   const { ride } = route.params;
 
-  const [value, setValue] = useState("");
-  const [quilometers, setQuilometers] = useState("");
+  const [value, setValue] = useState(ride.value);
+  const [quilometers, setQuilometers] = useState(ride.kilometerage);
   const [app, setApp] = useState(ride.application);
   const [selectedDate, setSelectedDate] = useState(ride.date);
   const [description, setDescription] = useState(ride.description);
@@ -95,7 +95,7 @@ const EditRide = ({ navigation, route }) => {
           <Text style={styles.label}>Valor</Text>
           <TextInput
             style={styles.input}
-            value={value}
+            value={value.toString()}
             onChangeText={(value) => setValue(value)}
             placeholder="00.00"
             keyboardType="numeric"
@@ -105,7 +105,7 @@ const EditRide = ({ navigation, route }) => {
           <Text style={styles.label}>Quilometragem percorrida</Text>
           <TextInput
             style={styles.input}
-            value={quilometers}
+            value={quilometers.toString()}
             onChangeText={(quilometers) => setQuilometers(quilometers)}
             placeholder="00.0"
             keyboardType="numeric"
@@ -125,7 +125,7 @@ const EditRide = ({ navigation, route }) => {
           <TextInput
             style={styles.input}
             value={selectedDate}
-            onChangeText={(selectedDate) => setSelectedDate(selectedDate)}
+            onChangeText={(selectedDate) => setSelectedDate(selectedDate.toString())}
             placeholder="YYY/MM/DD"
             keyboardType="numbers-and-punctuation"
             cursorColor="#001f36"
