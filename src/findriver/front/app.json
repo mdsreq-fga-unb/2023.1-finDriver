@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Findriver",
-    "slug": "Findriver",
+    "name": "FinDriver",
+    "slug": "findriver",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./view/assets/iconFinDriverWhite.png",
@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mcqueen.findriver"
     },
     "android": {
       "adaptiveIcon": {
@@ -29,12 +30,13 @@
       "package": "com.mcqueen.findriver"
     },
     "web": {
-      "favicon": "./view/assets/logoCarro.png"
+      "favicon": "./view/assets/iconFinDriverWhite.png"
     },
     "extra": {
       "eas": {
         "projectId": "2277f87e-fc63-4481-9666-f0baeffcfa10"
       }
-    }
+    },
+    "owner": "maliz"
   }
 }
