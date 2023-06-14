@@ -3,12 +3,14 @@ import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput } from 'reac
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getDefaultLibFilePath } from 'typescript';
 import styles from './styles';
+import dados from '../../../dados';
 
 const Login = ({ navigation }) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    // const handleForgotPassword = () => {}
 
     const storeToken = async (value) => {
         try {
@@ -26,9 +28,7 @@ const Login = ({ navigation }) => {
             }
         } catch (e) {
             console.log(e)
-        }
-    }
-
+        }}
 
     function signIn() {
         const requestOptions = {
@@ -42,31 +42,30 @@ const Login = ({ navigation }) => {
                 password: password,
             })
         };
-        fetch('http://192.168.1.5:3000/api/user/login', requestOptions)
-            .then(response => response.json())
+        fetch(`${dados.Url}/api/user/login`, requestOptions)
+            .then(response => {
+                if(response.status == 401){
+                    return Alert.alert('Erro', 'E-mail ou senha inválidos');
+                }
+                return response.json()
+            })
             .then(data => {
                 try {
                     if (data.response.token !== undefined) {
                         var token = data.response.token.headers.Authorization;
                         storeToken(token);
-                        getToken();
 
-                        return Alert.alert('Usuário logado');
-                    } else {
-                        return Alert.alert('E-mail ou senha inválidos');
-                    }
+                        return navigation.navigate('Tab');
+                    } 
                 } catch (e) {
+                    return Alert.alert('Erro', 'E-mail ou senha inválidos');
                     console.log(e)
                 }
             })
             .catch((e) => {
                 console.log(e);
+                return Alert.alert('Erro no servidor');
             });
-    }
-
-    var confere = function () {
-        navigation.navigate('Tab');
-        signIn();
     }
 
     return (
@@ -78,7 +77,7 @@ const Login = ({ navigation }) => {
                     style={styles.input}
                     value={email}
                     onChangeText={email => setEmail(email)}
-                    placeholder="Email"
+                    placeholder="E-mail"
                     keyboardType="email-address"
                     autoComplete="email"
                     cursorColor="#001f36"
@@ -97,15 +96,16 @@ const Login = ({ navigation }) => {
                 />
                 <Pressable
                     style={styles.button}
-                    onPress={(() => confere())}>
+                    onPress={(() => signIn())}>
                     <Text style={styles.textButton}>Entrar</Text>
                 </Pressable>
 
-                <Pressable onPress={() => Alert.alert('Tá muito esquecidinho em')}
+                {/* <Pressable onPress={handleForgotPassword}
                             style={styles.pressableTextForgotPassword}>
                     <Text style={styles.underlinedText}>Esqueceu a senha?</Text>
-                </Pressable>
-                <Pressable onPress={() => navigation.navigate('Registrar')}>
+                </Pressable> */}
+                
+                <Pressable onPress={() => navigation.navigate('Registrar')} style={styles.pressableTextSignUp}>
                     <Text style={[styles.underlinedText, styles.signUp]}>Cadastre-se</Text>
                 </Pressable>
             </View>

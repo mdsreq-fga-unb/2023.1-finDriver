@@ -1,61 +1,79 @@
-import React from "react";
-import { View, Text, Pressable, TouchableOpacity} from 'react-native';
+import React, { useEffect } from "react";
+import { View, Text, Pressable, TouchableOpacity, Alert } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-
-import styles from './styles';
+import dados from "../../../dados";
+import styles from "./styles";
 import EditRide from "../../pages/EditRide";
 
-const RideCard = () => {
-    const navigation = useNavigation();
+const RideCard = ({ ride }) => {
+  const navigation = useNavigation<any>();
 
-    const onSwipeRight = () => { //Função executada ao apertar delete
-        console.log("tá apagado!")
-        //navigation.navigate('Bem-vindo');
-    };
+  const id = ride?.id;
 
-    const handleEditRide = () => {
-        navigation.navigate("Editar Corrida" as never);
+  const onClickSwipeRight = () => {
+    try {
+      const requestOptions = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      };
+      fetch(`${dados.Url}/api/ride/deletar/${id}`, requestOptions)
+        .then((response) => console.log(response.status))
+        .then(() => {
+          console.log("Apagado com sucesso!");
+          Alert.alert("Corrida apagada com sucesso!");
+        })
+        .catch((err) => console.log(err));
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    const renderRightActions = () => (
-        <TouchableOpacity onPress={onSwipeRight}>
-        <View style={styles.deleteButtonArea}>
-            <Text style={styles.deleteButtonText}>Deletar</Text>
-        </View>
-        </TouchableOpacity>
-    );
+  const handleEditRide = () => {
+    navigation.navigate("Editar Corrida" as never, { ride: ride });
+  };
 
-    return(
-        <Swipeable
-            renderRightActions={renderRightActions}>
-            
-            <View>
-                <Pressable onPress={() => handleEditRide()}>
-                    <View style={styles.container}>
+  const renderRightActions = () => (
+    <TouchableOpacity onPress={onClickSwipeRight}>
+      <View style={styles.deleteButtonArea}>
+        <Text style={styles.deleteButtonText}>Deletar</Text>
+      </View>
+    </TouchableOpacity>
+  );
 
-                    <View style={styles.topArea}>
-                        <Text style={[styles.text, styles.valueText]}>R$ 50.000,00</Text>
-                        <Text style={[styles.text, styles.dateText]}>30/09/2023</Text>
-                    </View>
-                    
-                        <View style={styles.bottomArea}>
-                            
-                            <View style={styles.informations}>
-                                <Text style={[styles.text, styles.baloon]}>100.2 km</Text>
-                                <Text style={[styles.text, styles.baloon]}>Uber</Text>
-                            </View>
-                            
-                            <Text style={[styles.text, styles.descriptionText]}>Uma corrida muito doida, maluca, absurda de doida muito tensa</Text>
-                        </View>
-                        
-                    </View>
-                </Pressable>
+  return (
+    <Swipeable renderRightActions={renderRightActions}>
+      <View style={styles.container}>
+        <Pressable onPress={() => handleEditRide()}>
+          <View style={styles.topArea}>
+            <Text style={[styles.text, styles.valueText]}>
+              R$ {ride?.value}
+            </Text>
+            <Text style={[styles.text, styles.dateText]}>{ride?.date}</Text>
+          </View>
+
+          <View style={styles.bottomArea}>
+            <View style={styles.informations}>
+              <Text style={[styles.text, styles.baloon]}>
+                {ride?.kilometerage} km
+              </Text>
+              <Text style={[styles.text, styles.baloon]}>
+                {ride?.application}
+              </Text>
             </View>
 
-       </Swipeable>
-    )
-}
+            <Text style={[styles.text, styles.descriptionText]}>
+              {ride?.description}
+            </Text>
+          </View>
+        </Pressable>
+      </View>
+    </Swipeable>
+  );
+};
 
 export default RideCard;

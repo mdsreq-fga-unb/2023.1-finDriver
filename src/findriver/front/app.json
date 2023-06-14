@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "findriver",
-    "slug": "findriver",
+    "name": "Findriver",
+    "slug": "Findriver",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./view/assets/logoCarro.png",
+    "icon": "./view/assets/iconFinDriverWhite.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./view/assets/logoCarro.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#F5F5F7"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,8 +19,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./view/assets/logoCarro.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./view/assets/iconFinDriverWhite.png",
+        "backgroundColor": "#001F36"
       },
       "permissions": [
         "WRITE_EXTERNAL_STORAGE",

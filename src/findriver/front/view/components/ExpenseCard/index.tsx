@@ -1,54 +1,79 @@
 import React from "react";
-import { View, Text, Pressable, Animated, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Pressable,
+  Animated,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-import styles from './styles';
+import dados from "../../../dados";
+import styles from "./styles";
 
-const ExpenseCard = ({}) => {
-    const navigation = useNavigation();
+const ExpenseCard = ({ expense }) => {
+  const navigation = useNavigation<any>();
+  const id = expense?.id;
 
-        const onSwipeRight = () => { //Função executada ao apertar delete
-        };
-    
-        const handleEditExpense = () => {
-            navigation.navigate('Editar Despesa' as never);
-        }
-        
-    const renderRightActions = () => (
-        <TouchableOpacity onPressIn={onSwipeRight}>
-          <View style={styles.deleteButtonArea}>
-            <Text style={styles.deleteButtonText}>Deletar</Text>
+  const onClickSwipeRight = () => {
+    try {
+      const requestOptions = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      };
+      fetch(`${dados.Url}/api/expense/deletar/${id}`, requestOptions)
+        .then((response) => response.json())
+        .then(() => {
+          console.log("Despesa apagada com sucesso!");
+          Alert.alert("Despesa apagada com sucesso!");
+        })
+        .catch((err) => console.log(err));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleEditExpense = () => {
+    navigation.navigate("Editar Despesa" as never, { expense: expense });
+  };
+
+  const renderRightActions = () => (
+    <TouchableOpacity onPressIn={onClickSwipeRight}>
+      <View style={styles.deleteButtonArea}>
+        <Text style={styles.deleteButtonText}>Deletar</Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  return (
+    <Swipeable renderRightActions={renderRightActions}>
+      <Pressable onPress={() => handleEditExpense()}>
+        <View style={styles.container}>
+          <View style={styles.topArea}>
+            <Text style={[styles.text, styles.valueText]}>
+              R$ {expense?.value}
+            </Text>
+            <Text style={[styles.text, styles.dateText]}>{expense?.date}</Text>
           </View>
-        </TouchableOpacity>
-    );
 
+          <View style={styles.bottomArea}>
+            <View style={styles.informations}>
+              <Text style={[styles.text, styles.baloon]}>{expense?.type}</Text>
+            </View>
 
-    return(
-         <Swipeable
-         renderRightActions={renderRightActions}>
-             <Pressable onPress={() => handleEditExpense()}>
-                <View style={styles.container}>
-                    
-                    <View style={styles.topArea}>
-                        <Text style={[styles.text, styles.valueText]}>R$ 50.000,00</Text>
-                        <Text style={[styles.text, styles.dateText]}>30/09/2023</Text>
-                    </View>
-                
-                    <View style={styles.bottomArea}>
-                       
-                        <View style={styles.informations}>
-                            <Text style={[styles.text, styles.baloon]}>Almoço do dia</Text>
-                            <Text style={[styles.text, styles.baloon]}>Comida</Text>
-                        </View>
-                       
-                        <Text style={[styles.text, styles.descriptionText]}>Era um restaurante muito bom da zona sul, comprei um macarrão e me acabei naquele molho branco</Text>
-                    </View>
-                    
-                </View>
-            </Pressable>     
-        </Swipeable>  
-    )
-}
+            <Text style={[styles.text, styles.descriptionText]}>
+              {expense?.description}
+            </Text>
+          </View>
+        </View>
+      </Pressable>
+    </Swipeable>
+  );
+};
 
 export default ExpenseCard;

@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Sprint 2
 
-**Período: 05/05/2023 a 19/05/2023**
+**Período: 21/04/2023 a 04/05/2023**
 
 ### Ferramentas Utilizadas
 - Miro

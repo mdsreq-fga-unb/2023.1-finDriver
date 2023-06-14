@@ -11,17 +11,16 @@ const createExpense = async (userId, Expense) => {
       .insert([
         {
           idUser: userId,
-          cause: Expense.cause,
           value: Expense.value,
           date: Expense.date,
           type: Expense.type,
+          description: Expense.description,
         },
       ])
       .single();
 
     if (error) throw error;
   } catch (error) {
-    console.log("erro");
     throw error;
   }
 };
@@ -64,10 +63,10 @@ const updateExpense = async (Expense, expenseId) => {
     const { data, error } = await supabase
       .from("Expenses")
       .update({
-        cause: Expense.cause,
         value: Expense.value,
         date: Expense.date,
         type: Expense.type,
+        description: Expense.description,
       })
       .eq("id", expenseId);
 
@@ -90,11 +89,99 @@ const deleteExpense = async (expenseId) => {
   }
 };
 
+const averageExpense = async (userId) => {
+  try {
+    const { data, error } = await supabase
+      .from("Expenses")
+      .select("id, value, date")
+      .eq("idUser", userId);
+
+    const sizeData = data.length;
+
+    var weekValues = [];
+
+    //Calcula quais os dias pertencem à semana com base na data atual (today)
+
+    var today = new Date(Date.now());
+    var weekstart = today.getDate() - today.getDay();
+    var weekend = weekstart + 6;
+    var sunday = new Date(today.setDate(weekstart));
+    var saturday = new Date(today.setDate(weekend));
+
+    //Loop que adiciona os valores dos gastos da semana no array weekValues
+
+    for (let i = 0; i < sizeData; i++) {
+      var weekDate = new Date(data[i].date.replace(/-/g, "/"));
+
+      if (
+        weekDate.toLocaleDateString() >= sunday.toLocaleDateString() &&
+        weekDate.toLocaleDateString() <= saturday.toLocaleDateString()
+      ) {
+        weekValues.push(data[i].value);
+
+      }
+    }
+
+    //Loop que soma os valores dos gastos da semana
+
+    var total = 0;
+
+    for (var i = 0; i < weekValues.length; i++) {
+      total += weekValues[i];
+    }
+
+    var average = total;
+
+    return average.toFixed(2);
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+const averageDayExpense = async (userId) => {
+  try {
+    const { data, error } = await supabase
+      .from("Expenses")
+      .select("id, value, date")
+      .eq("idUser", userId);
+
+      const sizeData = data.length;
+
+      var dayExpense = [];
+  
+      var today = new Date(Date.now());
+  
+      for (let i = 0; i < sizeData; i++) {
+        var dbDate = new Date(data[i].date.replace(/-/g, '\/'))
+  
+        if (today.toLocaleDateString() == dbDate.toLocaleDateString()) {
+          dayExpense.push(data[i].value);
+  
+        }
+      };
+  
+      var total = 0
+  
+      for (var i = 0; i < dayExpense.length; i++) {
+        total += dayExpense[i];
+      };
+  
+      return (total).toFixed(2);;
+  
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+};
+
 module.exports = {
   createExpense,
   getExpenseById,
   getExpenseByUserID,
   updateExpense,
   deleteExpense,
-  getUserIdByToken,
+  updateExpense,
+  averageExpense,
+  averageDayExpense
 };

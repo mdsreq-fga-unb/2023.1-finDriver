@@ -7,7 +7,7 @@ async function addRide(req, res) {
   const ride = req.body;
 
   try {
-    const token = req.headers.authorization;
+    const token = req.headers.authorization.split(' ')[1];
     const userId = await getUserIdByToken(token);
     await rideService.createRide(userId, ride);
 
@@ -23,7 +23,7 @@ async function addRide(req, res) {
 
 async function getRides(req, res) {
   try {
-    const token = req.headers.authorization;
+    const token = req.headers.authorization.split(' ')[1];
     const userId = await getUserIdByToken(token);
 
     if (!userId) {
@@ -44,7 +44,6 @@ async function getOneRide(req, res) {
 
   try {
     let value = await rideService.getRideByRideId(id);
-    console.log(value);
     res.status(statusCode.OK).json({ value });
   } catch (error) {
     res.status(statusCode.NOT_FOUND).json({ message: error.message });
@@ -78,4 +77,46 @@ async function deleteRide(req, res) {
   }
 }
 
-module.exports = { addRide, getRides, getOneRide, updateRide, deleteRide };
+async function getKmDriveByUserId(req, res) {
+
+  try {
+    const token = req.headers.authorization.split(' ')[1];
+
+    const userID = await getUserIdByToken(token);
+
+    let value = await rideService.kmDrivenInTheDay(userID);
+
+    res.status(statusCode.OK).json({ value });
+  } catch (error) {
+    console.log(error)
+    res.status(statusCode.NOT_FOUND).json({ message: error.message });
+  }
+};
+
+async function getAverageProfit(req, res) {
+
+  try {
+    const token = req.headers.authorization.split(' ')[1];
+
+    const userID = await getUserIdByToken(token);
+
+    let averageProfit = await rideService.averageProfit(userID);
+    let averageDayProfit = await rideService.averageDayProfit(userID);
+    
+
+    let values = {averageDayProfit, averageProfit}
+
+
+    res.status(statusCode.OK).json({ values });
+  } catch (error) {
+    console.log(error)
+    res.status(statusCode.NOT_FOUND).json({ message: error.message });
+  }
+};
+
+
+
+
+
+
+module.exports = { addRide, getRides, getOneRide, updateRide, deleteRide, getKmDriveByUserId, getAverageProfit};
