@@ -1,5 +1,5 @@
 const dados = {
-    Url: 'https://mds1-taynaravitorino.b4a.run/',
+    Url: 'https://20231-findriver-production.up.railway.app/',
 }
 
 export default dados;
