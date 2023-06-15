@@ -28,7 +28,7 @@ Em relação à definição das histórias de usuário para esta sprint, foram t
     - US12, US13, US14: Tema TH03 - Gerenciamento de despesas.
 
 ## Sprint Review
-Durante a Sprint 4, que foi focada na adaptação dos integrantes, algumas histórias de usuário não foram concluídas como esperado. As histórias US03 e US04 não foram totalmente integradas ao front-end, e as histórias US12, US13 e US14 estavam em andamento.
+Durante a Sprint 4, que foi focada na adaptação dos integrantes, algumas histórias de usuário não foram concluídas como esperado. As histórias US01, US03 e US04 não foram totalmente integradas ao front-end, e as histórias US12, US13 e US14 estavam em andamento.
 
 Na Sprint Review, houve uma conversa entre o cliente e a Scrum Master. Foram mencionados os problemas técnicos que surgiram durante a sprint e foram mostradas as histórias US01 e US02 já implementadas em um aplicativo local. Comprometeu-se a concluir todas as histórias de usuário na próxima sprint, juntamente com a primeira versão da aplicação mobile.
 
@@ -36,7 +36,7 @@ Espera-se que, com esse compromisso, seja possível finalizar as tarefas pendent
 
 ## Sprint Retrospective
 
-A Sprint Retrospective ocorreu após receber o feedback do Professor Georgeo no ponto de controle da unidade, onde discutimos o desempenho da equipe durante a sprint e identificamos possíveis áreas de melhoria. Durante a retrospectiva, destacamos os seguintes pontos:
+A Sprint Retrospective ocorreu após receber o feedback do Professor George no ponto de controle da unidade, onde discutimos o desempenho da equipe durante a sprint e identificamos possíveis áreas de melhoria. Durante a retrospectiva, destacamos os seguintes pontos:
 
 ### O que deu certo na sprint:
 - O Back-End estava em um estágio avançado, testado e desenvolvido corretamente de acordo com os critérios de aceitação.
