@@ -10,7 +10,7 @@
   FinDriver
 </h1>
 
-[Clique aqui para baixar o FinDriver V.1.0!](https://github.com/mdsreq-fga-unb/2023.1-finDriver/raw/main/Downloads/Findriver1.0.apk)
+[Clique aqui para baixar o FinDriver V.1.0!](https://raw.githubusercontent.co/mdsreq-fga-unb/2023.1-finDriver/blob/main/Downloads/FinDriver_V1.0/Findriver1.0.apk)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/138f3675-569b-4d03-bc4c-7f2b1d596715/deploy-status)](https://app.netlify.com/sites/mdsreq-fga-findriver/deploys)
 
