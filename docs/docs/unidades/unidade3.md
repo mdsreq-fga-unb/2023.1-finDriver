@@ -10,8 +10,6 @@ Durante a Unidade 3, demos início ao processo de desenvolvimento do produto e d
 
 Essa experiência nos proporcionou valiosas lições sobre a importância da comunicação eficaz, da adaptação ágil e do gerenciamento proativo dos desafios durante o desenvolvimento de um projeto. Além disso, adquirimos um conhecimento aprofundado sobre o funcionamento de aplicações mobile e seu desenvolvimento. Estamos muito satisfeitos com nosso desempenho e entrega na Unidade 3. Embora não tenha sido um trabalho fácil, é gratificante entregar uma aplicação funcional. Estamos animados com os novos desafios que o MVP2 nos reserva e prontos para enfrentá-los com entusiasmo e determinação.
 
-[Clique aqui para baixar a primeira versão do FinDriver]
-
 ## Vídeo de Apresentação
 
 <iframe src="https://unbbr-my.sharepoint.com/personal/211041099_aluno_unb_br/_layouts/15/embed.aspx?UniqueId=7dfb1568-a322-4e52-a076-d7ec5952e1c1&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Meu Filme 2.mov"></iframe>
