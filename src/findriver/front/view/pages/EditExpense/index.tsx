@@ -21,8 +21,8 @@ const EditExpense = ({ navigation, route }) => {
 
     const [description, setDescription] = useState(expense.description);
     const [value, setValue] = useState(expense.value);
-    const [selectedDate, setSelectedDate] = useState(expense.selectedDate);
-    const [type, setType] = useState('');
+    const [selectedDate, setSelectedDate] = useState(expense.date);
+    const [type, setType] = useState(expense.type);
     const [token, setToken] = useState('');
 
   const getToken = async () => {
@@ -104,9 +104,9 @@ const EditExpense = ({ navigation, route }) => {
             <Text style={styles.label}>Valor</Text>
             <TextInput
               style={styles.input}
-              value={value}
-              onChangeText={(value) => setValue(value)}
-              placeholder="00,00"
+              value={value.toString()}
+              onChangeText={(value) => setValue(value.toString())}
+              placeholder="00.00"
               cursorColor="#001f36"
             />
           </View>
@@ -116,7 +116,7 @@ const EditExpense = ({ navigation, route }) => {
             <TextInput
               style={styles.input}
               value={selectedDate}
-              onChangeText={(selectedDate) => setSelectedDate(selectedDate)}
+              onChangeText={(selectedDate) => setSelectedDate(selectedDate.toString())}
               placeholder="YYYY/MM/DD"
               keyboardType="numbers-and-punctuation"
               cursorColor="#001f36"
