@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, ScrollView, KeyboardAvoidingView, Image, Text, StyleSheet, Alert, Pressable, TextInput, StatusBar, RefreshControl } from 'react-native';
+import { Screen } from 'react-native-screens'
 import RideCard from '../../components/RideCard'
 
 import { NavigationContainer } from '@react-navigation/native';

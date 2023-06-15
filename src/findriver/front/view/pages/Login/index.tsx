@@ -14,6 +14,7 @@ const Login = ({ navigation }) => {
 
     const storeToken = async (value) => {
         try {
+            console.log(value)
             await AsyncStorage.setItem('token', value)
         } catch (e) {
             console.log(e)
@@ -23,6 +24,7 @@ const Login = ({ navigation }) => {
     const getToken = async () => {
         try {
             const value = await AsyncStorage.getItem('token')
+            console.log(value)
             if (value !== null) {
                 console.log(value)
             }
@@ -64,7 +66,7 @@ const Login = ({ navigation }) => {
             })
             .catch((e) => {
                 console.log(e);
-                return Alert.alert('Erro no servidor');
+                return Alert.alert('Erro', 'Ocorreu um erro no servidor!');
             });
     }
 
