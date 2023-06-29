@@ -14,7 +14,7 @@ sidebar_position: 7
 
 ## Sprint Planning
 
-**Objetivos: Finalizar o MVP1** 
+**Objetivos: Dar início ao MVP2** 
 
 
 ## Sprint Review
