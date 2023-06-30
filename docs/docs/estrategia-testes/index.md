@@ -8,6 +8,7 @@ sidebar_position: 8
 |**Data**|**Versão**|**Descrição**|**Autor**|
 |:------:|:--------:|:-----------:|:-------:|
 | 23/06/2023 | 1.0 | Definição da Estratégia de Testes| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
+| 30/06/2023 | 1.1 | Aprimoração da Estratégia de Testes| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 
 ### Introdução
 Nessa seção se encontra a estratégia de testes que deverá ser seguida pela equipe.
@@ -15,13 +16,7 @@ Nessa seção se encontra a estratégia de testes que deverá ser seguida pela e
 ### Tipos de teste
 - **Funcional**: A equipe deve  para garantir que o produto está funcionando de acordo com os requisitos definidos e seus respectivos critérios de aceitação.
 - **Usabilidade**: O cliente precisa entender e usar o produto da forma como foi acordado com a equipe, também seguindo os requisitos, *user stories* e seus respectivos critérios de aceitação
-- **Confiabilidade**: A equipe não estabeleceu um padrão de desempenho, mas será considerado a experiência do cliente para melhorias se alguma função não estiver se
-comportando da maneira desejada.
-- **Eficiência**: A equipe não estabeleceu e não tem experiência para definir e verificar
-a eficiência em relação a tempo de processamento ou resposta da aplicação. Contudo,
-a experiência do usuário será de suma importância para corrigir esses aspectos da melhor
-forma o possível, caso ocorram.
-- **Suportabilidade**: O produto precisa passar por mudanças frequentemente devido a integração contínua. Logo, cada desenvolvedor precisa implementar e testar seu código manualmente antes de enviar qualquer alteração para as branchs *develop* e *main*, além de seguir os padrões de codificação definidos para que sejam compreensíveis por toda a equipe, facilitando também as revisões de código.
+- **Suportabilidade**: O produto precisa passar por cada requisito não funcional definidos pela equipe.
 
 ### Níveis de Teste 
 - **Unitário**: Obrigatório implementar, principalmente para as funções e classes mais importantes considerando somente os critérios de aceitação. O backend é prioridade, mas também serão feitos alguns testes de frontend. A biblioteca de teste usada pela equipe será o Jest.
@@ -32,60 +27,66 @@ forma o possível, caso ocorram.
 ### Técnicas de teste
 - **Caixa Branca**: Deve-se testar as funcionalidades considerando a estrutura do código, se está seguindo os padrões de codificação definidos pela equipe e se o resultado esperado não tiver passado pela técnica da *caixa preta*.
 - **Caixa Preta**: Deve-se verificar se as entradas e saídas correspondem com o esperado, sem considerar o código. Será útil para economizar tempo, sabendo como o código está implementado. Se não passar nessa técnica, será utilizado o método *caixa branca* 
-- **TDD**: Não será utilizado pela equipe pelo fato de ninguém ter experiência e acabar
-prejudicando o atual andamento do sistema.
-- **Manual**: Todo desenvolvedor deverá testar o código manualmente na sua máquina e corrigir o mais rápido o possivel, agilizando o desenvolvimento. Em alguns casos, será o uso de ferramentas como Postman, quando se tratar de requisição e resposta.
-- **Automática**: A cada integração, será chamada a Actions do github para rodar os testes do backend e frontend, verificando se não há nenhum teste falhando em alguma parte de todo o projeto.
+- **Manual**: Todo desenvolvedor deverá testar o código manualmente na sua máquina e o usuário de testar o produto quando este for entregue.
+- **Automática**: A cada integração, será chamada a Actions do github para rodar os testes do backend e frontend, verificando se não há nenhum teste unitário falhando em alguma parte de todo o projeto.
+
+### Estratégias de teste
+A seguir se encontra as relações entre os tipos, níveis e técnicas de teste. As estratégias variam a cada parte do desenvolvimento do produto.
+1. Funcional -> Unitário -> Automática
+2. Funcional -> Integração -> Caixa Preta
+3. Funcional -> Sistema -> Caixa Branca
+4. Usabilidade -> Aceitação -> Manual
+5. Suportabilidade -> Sistema -> Manual
 
 ### Tabelas de Estratégia de Testes para cada MVP
 
 #### MVP 1
-| Testes | Tipo                    | Nível                         | Técnica                          |
-|:------:|-------------------------|-------------------------------|----------------------------------|
-|  US01  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US02  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US03  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US04  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US05  | Funcional, Usabilidade e suportabilidade | Unitário, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US06  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US07  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US08  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US09  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US10  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US11  | Funcional, Usabilidade e suportabilidade | Unitário, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US12  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US13  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US14  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US15  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US16  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US17  | Funcional, Usabilidade e suportabilidade | Unitário, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US18  | Funcional, Usabilidade e suportabilidade | Unitário, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US19  | Funcional, Usabilidade e suportabilidade | Unitário, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
+| Testes | Estratégias               |
+|:------:|:-------------------------:|
+|  US01  |1 - 2 - 3 - 4 - 5|
+|  US02  |1 - 2 - 3 - 4 - 5|
+|  US03  |1 - 2 - 3 - 4 - 5|
+|  US04  |1 - 2 - 3 - 4 - 5|
+|  US05  |1 - 3 - 4 - 5|
+|  US06  |1 - 2 - 3 - 4 - 5|
+|  US07  |1 - 2 - 3 - 4 - 5|
+|  US08  |1 - 2 - 3 - 4 - 5|
+|  US09  |1 - 2 - 3 - 4 - 5|
+|  US10  |1 - 2 - 3 - 4 - 5|
+|  US11  |1 - 3 - 4 - 5|
+|  US12  |1 - 2 - 3 - 4 - 5|
+|  US13  |1 - 2 - 3 - 4 - 5|
+|  US14  |1 - 2 - 3 - 4 - 5|
+|  US15  |1 - 2 - 3 - 4 - 5|
+|  US16  |1 - 2 - 3 - 4 - 5|
+|  US17  |1 - 3 - 4 - 5|
+|  US18  |1 - 2 - 3 - 4 - 5|
+|  US19  |1 - 2 - 3 - 4 - 5|
 
 #### MVP 2
-| Testes | Tipo                    | Nível                         | Técnica                          |
-|:------:|-------------------------|-------------------------------|----------------------------------|
-|  US20  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US21  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US22  | Funcional, Usabilidade e suportabilidade | Unitário, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US23  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US24  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US25  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US26  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US27  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US28  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US29  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US30  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US31  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US32  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US33  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US34  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US35  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US36  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US37  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US38  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US39  | Funcional, Usabilidade e suportabilidade | Unitário, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
-|  US40  | Funcional, Usabilidade e suportabilidade | Unitário, Integração, Sistema e Aceitação | Caixa Branca, Caixa Preta, Manual e Automática |
+| Testes | Estratégias               |
+|:------:|:-------------------------:|
+|  US20  |1 - 2 - 3 - 4 - 5|
+|  US21  |1 - 2 - 3 - 4 - 5|
+|  US22  |1 - 3 - 4 - 5|
+|  US23  |1 - 2 - 3 - 4 - 5|
+|  US24  |1 - 2 - 3 - 4 - 5|
+|  US25  |1 - 2 - 3 - 4 - 5|
+|  US26  |1 - 2 - 3 - 4 - 5|
+|  US27  |1 - 2 - 3 - 4 - 5|
+|  US28  |1 - 2 - 3 - 4 - 5|
+|  US29  |1 - 2 - 3 - 4 - 5|
+|  US30  |1 - 2 - 3 - 4 - 5|
+|  US31  |1 - 2 - 3 - 4 - 5|
+|  US32  |1 - 2 - 3 - 4 - 5|
+|  US33  |1 - 2 - 3 - 4 - 5|
+|  US34  |1 - 2 - 3 - 4 - 5|
+|  US35  |1 - 2 - 3 - 4 - 5|
+|  US36  |1 - 2 - 3 - 4 - 5|
+|  US37  |1 - 2 - 3 - 4 - 5|
+|  US38  |1 - 2 - 3 - 4 - 5|
+|  US39  |1 - 3 - 4 - 5|
+|  US40  |1 - 2 - 3 - 4 - 5|
 
 ## Referências 
 - Material do moodle da disciplina
