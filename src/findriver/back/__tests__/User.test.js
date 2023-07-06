@@ -108,18 +108,16 @@ describe('Funções do userService', () => {
         });
     });
     
-    describe('Dois casos do updateUserById', () => {
+    describe('Caso do updateUserById', () => {
         test('updateUserById caso de sucesso', () => {
             const updateUserByIdMock = jest.fn((user, id) => {
-                if (users[id].id === id){
+                if(users[id].id === id){
                     users[id].name = user.name;
                     users[id].email = user.email;
                     users[id].password = user.password;
-                } else {
-                    return false;
-                };
-    
-                return users[id];
+                    return true;
+                }
+                
             });
             users[1].name = "Clark";
             users[1].email = "kent@gmail.com";
@@ -127,7 +125,7 @@ describe('Funções do userService', () => {
             const result = updateUserByIdMock(users[1], 1);
             
             expect(result).toBeDefined();
-            expect(result).toMatchObject({
+            expect(users[1]).toMatchObject({
                 id: 1,
                 name: "Clark",
                 email: "kent@gmail.com",
@@ -137,6 +135,19 @@ describe('Funções do userService', () => {
                 questionTwo: "Pergunta4",
                 answerTwo: "reprovado"
             });
+        });
+    });
+
+    describe('Função para deletar a conta', () => {
+        test('Teste para verificar a senha antes de deletar', () => {
+            const deleteUserByIdMock = jest.fn((password, id) => {
+                if (users[id].password === password){
+                    users.splice(id, 1); // linha equivalente => await supabase.from("Users").delete().eq("id", id);
+                    return true;
+                }
+            });
+            const result = deleteUserByIdMock("password", 0);
+            expect(result).toBe(true);
         });
     });
 });
