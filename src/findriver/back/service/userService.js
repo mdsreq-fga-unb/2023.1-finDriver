@@ -77,8 +77,21 @@ async function updateUserById(user, id) {
   return;
 }
 
-async function deleteUserById(id) {
-  await supabase.from("Users").delete().eq("id", id);
+async function deleteUserById(password, id) {
+  const userPassword = await supabase
+    .from("Users")
+    .select("password")
+    .eq("id", id);
+  if (userPassword === password){
+    await supabase.from("Users").delete().eq("id", id);
+    
+    if (error) {
+      console.log(error);
+      throw error;
+    }
+    
+    return;  
+  }
 }
 
 module.exports = {
