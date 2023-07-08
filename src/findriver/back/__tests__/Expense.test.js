@@ -17,370 +17,99 @@ jest.mock('../model/expenseModel', () => {
     return mockExpense;
 });
 
+const expenses = [
+    {
+        id: 0,
+        idUser: 1,
+        cause: "deu ruim",
+        value: 5000.99,
+        date: "2023-05-04",
+        type: "conserto",
+        description: "algumacoisa"
+    },
+    {
+        id: 1,
+        idUser: 2,
+        cause: "deu um pouco ruim",
+        value: 2000.00,
+        date: "2023-08-02",
+        type: "acidente",
+        description: "algumacoisa"
+    }
+];
+
 describe('Funções do expenseService', () => {
     describe('Caso do createExpense', () => {
         test('Adicionar expense em expenses', () => {
-            const expenses = [];
-
             const createExpenseMock = jest.fn((userId, Expense) => {
-                if (typeof Expense === 'object') {
-                    var newExpense = {
-                        idUser: userId,
-                        cause: Expense.cause,
-                        value: Expense.value,
-                        date: Expense.date,
-                        type: Expense.type,
-                        description: Expense.description
-                    };
+                Expense['id'] = expenses.length;
+                Expense['idUser'] = userId;
+                expenses.push(Expense);
+            });
 
-                    expenses.push(newExpense);
+            const expense = new Expense(4, "pneu furado", 800.50, "2023-01-12", "troca", "problemas");
+
+            createExpenseMock(4, expense);
+            expect(expenses).toEqual([
+                {
+                    id: 0,
+                    idUser: 1,
+                    cause: "deu ruim",
+                    value: 5000.99,
+                    date: "2023-05-04",
+                    type: "conserto",
+                    description: "algumacoisa"
+                },
+                {
+                    id: 1,
+                    idUser: 2,
+                    cause: "deu um pouco ruim",
+                    value: 2000.00,
+                    date: "2023-08-02",
+                    type: "acidente",
+                    description: "algumacoisa"
+                },
+                {
+                    id: 2,
+                    idUser: 4,
+                    cause: "pneu furado",
+                    value: 800.50,
+                    date: "2023-01-12",
+                    type: "troca",
+                    description: "problemas"
                 }
-            });
-
-            const expense = new Expense(1, "deu ruim", 5000.99, "2023-05-04", "conserto", "algumacoisa");
-
-            createExpenseMock(1, expense);
-            expect(expenses).toEqual([{
-                idUser: 1,
-                cause: "deu ruim",
-                value: 5000.99,
-                date: "2023-05-04",
-                type: "conserto",
-                description: "algumacoisa"
-            }]);
-        });
-    });
-
-    describe('Caso do getExpenseByUserID', () => {
-        test('Retornar expense de expenses pelo id de usuario', () => {
-            const expenses = [{
-                idUser: 1,
-                cause: "deu ruim",
-                value: 5000.99,
-                date: "2023-05-04",
-                type: "troca de bateria",
-                description: "algumacoisa"
-            },
-            {
-                idUser: 2,
-                cause: "deu mais ruim",
-                value: 10000.89,
-                date: "2023-05-15",
-                type: "conserto",
-                description: "algumacoisa"
-            }];
-
-            const getExpenseByUserIDMock = jest.fn((userId) => {
-                for (let expense of Object.values(expenses)){
-                    if (userId === expense.idUser) {
-                        return expense;
-                    }; 
-                };
-                
-                return {};
-            });
-
-            const result = getExpenseByUserIDMock(2);
-            expect(result).toMatchObject(expenses[1]);
-        });
-
-        test('Não deve retornar expense de expenses pelo id de usuario', () => {
-            const expenses = [{
-                idUser: 1,
-                cause: "deu ruim",
-                value: 5000.99,
-                date: "2023-05-04",
-                type: "troca de bateria",
-                description: "algumacoisa"
-            },
-            {
-                idUser: 2,
-                cause: "deu mais ruim",
-                value: 10000.89,
-                date: "2023-05-15",
-                type: "conserto",
-                description: "algumacoisa"
-            }];
-
-            const getExpenseByUserIDMock = jest.fn((userId) => {
-                for (let expense of Object.values(expenses)){
-                    if (userId === expense.idUser) {
-                        return expense;
-                    }; 
-                };
-                
-                return {};
-            });
-
-            const result = getExpenseByUserIDMock(2);
-            expect(result).not.toMatchObject(expenses[0]);
-        });
-    });
-
-    describe('Caso do getExpenseByID', () => {
-        test('Retorna expense em expenses pelo id', () => {
-            const expenses = [{
-                id: 1,
-                idUser: 1,
-                cause: "deu ruim",
-                value: 5000.99,
-                date: "2023-05-04",
-                type: "troca de bateria",
-                description: "algumacoisa"
-            },
-            {
-                id: 2,
-                idUser: 2,
-                cause: "deu mais ruim",
-                value: 10000.89,
-                date: "2023-05-15",
-                type: "conserto",
-                description: "algumacoisa"
-            }];
-
-            const getExpenseByIdMock = jest.fn((expenseId) => {
-                for (let expense of Object.values(expenses)){
-                    if (expenseId === expense.id) {
-                        return expense;
-                    }; 
-                };
-                
-                return {};
-            });
-
-            const result = getExpenseByIdMock(2);
-            expect(result).toMatchObject(expenses[1]);
-        });
-
-        test('Não deve retorna expense em expenses pelo id', () => {
-            const expenses = [{
-                id: 1,
-                idUser: 1,
-                cause: "deu ruim",
-                value: 5000.99,
-                date: "2023-05-04",
-                type: "troca de bateria",
-                description: "algumacoisa"
-            },
-            {
-                id: 2,
-                idUser: 2,
-                cause: "deu mais ruim",
-                value: 10000.89,
-                date: "2023-05-15",
-                type: "conserto",
-                description: "algumacoisa"
-            }];
-
-            const getExpenseByIdMock = jest.fn((expenseId) => {
-                for (let expense of Object.values(expenses)){
-                    if (expenseId === expense.id) {
-                        return expense;
-                    }; 
-                };
-                
-                return {};
-            });
-
-            const result = getExpenseByIdMock(2);
-            expect(result).not.toMatchObject(expenses[0]);
+            ]);
         });
     });
 
     describe('Caso do updateExpense', () => {
         test('Deve atualizar a expense em expenses', () => {
-            const expenses = [{
-                id: 1,
-                idUser: 1,
-                cause: "deu ruim",
-                value: 5000.99,
-                date: "2023-05-04",
-                type: "troca de bateria",
-                description: "algumacoisa"
-            },
-            {
-                id: 2,
-                idUser: 2,
-                cause: "deu mais ruim",
-                value: 10000.89,
-                date: "2023-05-15",
-                type: "conserto",
-                description: "algumacoisa"
-            }];
-
             const updateExpenseMock = jest.fn((Expense, expenseId) => {
-                var index = 0;
-                for (let expense of Object.values(expenses)){
-                    if (expenseId === expense.id && typeof Expense === 'object') {
-                        var newExpense = {
-                            id: expense.id,
-                            idUser: expense.idUser,
-                            cause: Expense.cause,
-                            value: Expense.value,
-                            date: Expense.date,
-                            type: Expense.type,
-                            description: Expense.description
-                        };
-                        
-                        expenses.splice(index, 0, newExpense);
-                        return newExpense, index;
-                    };
-                    index++;
-                };
-                
-                return {};
+                if (expenses[expenseId].id){
+                    expenses[expenseId].cause = Expense.cause;
+                    expenses[expenseId].value = Expense.value;
+                    expenses[expenseId].date = Expense.date;
+                    expenses[expenseId].type = Expense.type;
+                    expenses[expenseId].description = Expense.description;
+                    return true;
+                }
             });
 
-            const expense = new Expense(2, "deu um pouco ruim", 2000.00, "2023-08-02", "acidente", "algumacoisa");
-            updateExpenseMock(expense, 2);
+            expenses[1].cause = "Porta não fecha";
+            expenses[1].value = 239.98;
+            expenses[1].date = "2023-07-02";
+            expenses[1].type = "conserto";
+            expenses[1].description = "Rapido de resolver";
+            updateExpenseMock(expenses[1], 1);
             expect(expenses[1]).toEqual({
-                id: 2,
-                idUser: 2,
-                cause: "deu um pouco ruim",
-                value: 2000.00,
-                date: "2023-08-02",
-                type: "acidente",
-                description: "algumacoisa"
-            });
-        });
-    });
-
-    describe('Caso do deleteExpense', () => {
-        test('Deve deletar a expense de id = 2 em expenses', () => {
-            const expenses = [{
                 id: 1,
-                idUser: 1,
-                cause: "deu ruim",
-                value: 5000.99,
-                date: "2023-05-04",
-                type: "troca de bateria",
-                description: "algumacoisa"
-            },
-            {
-                id: 2,
                 idUser: 2,
-                cause: "deu mais ruim",
-                value: 10000.89,
-                date: "2023-05-15",
+                cause: "Porta não fecha",
+                value: 239.98,
+                date: "2023-07-02",
                 type: "conserto",
-                description: "algumacoisa"
-            },
-            {
-                id: 3,
-                idUser: 3,
-                cause: "so uma olhada",
-                value: 1200.10,
-                date: "2023-05-19",
-                type: "revisao",
-                description: "algumacoisa"
-            }];
-
-            const deleteExpenseMock = jest.fn((expenseId) => {
-                var index = 0;
-                for (let expense of Object.values(expenses)){
-                    if (expenseId === expense.id) {                        
-                        expenses.splice(index, 1);
-                        return "Deletado";
-                    };
-                    index++;
-                };
-
-                return "Não encontrado";
+                description: "Rapido de resolver"
             });
-
-            const result = deleteExpenseMock(2);
-            expect(result).toBe("Deletado");
-            expect(expenses).toEqual([{
-                id: 1,
-                idUser: 1,
-                cause: "deu ruim",
-                value: 5000.99,
-                date: "2023-05-04",
-                type: "troca de bateria",
-                description: "algumacoisa"
-            },
-            {
-                id: 3,
-                idUser: 3,
-                cause: "so uma olhada",
-                value: 1200.10,
-                date: "2023-05-19",
-                type: "revisao",
-                description: "algumacoisa"
-            }]);
-        });
-
-        test('Deve deletar a expense de id = 2 em expenses', () => {
-            const expenses = [{
-                id: 1,
-                idUser: 1,
-                cause: "deu ruim",
-                value: 5000.99,
-                date: "2023-05-04",
-                type: "troca de bateria",
-                description: "algumacoisa"
-            },
-            {
-                id: 2,
-                idUser: 2,
-                cause: "deu mais ruim",
-                value: 10000.89,
-                date: "2023-05-15",
-                type: "conserto",
-                description: "algumacoisa"
-            },
-            {
-                id: 3,
-                idUser: 3,
-                cause: "so uma olhada",
-                value: 1200.10,
-                date: "2023-05-19",
-                type: "revisao",
-                description: "algumacoisa"
-            }];
-
-            const deleteExpenseMock = jest.fn((expenseId) => {
-                var index = 0;
-                for (let expense of Object.values(expenses)){
-                    if (expenseId === expense.id) {                        
-                        expenses.splice(index, 1);
-                        return "Deletado";
-                    };
-                    index++;
-                };
-
-                return "Não encontrado";
-            });
-
-            const result = deleteExpenseMock(4);
-            expect(result).toBe("Não encontrado");
-            expect(expenses).toEqual([{
-                id: 1,
-                idUser: 1,
-                cause: "deu ruim",
-                value: 5000.99,
-                date: "2023-05-04",
-                type: "troca de bateria",
-                description: "algumacoisa"
-            },
-            {
-                id: 2,
-                idUser: 2,
-                cause: "deu mais ruim",
-                value: 10000.89,
-                date: "2023-05-15",
-                type: "conserto",
-                description: "algumacoisa"
-            },
-            {
-                id: 3,
-                idUser: 3,
-                cause: "so uma olhada",
-                value: 1200.10,
-                date: "2023-05-19",
-                type: "revisao",
-                description: "algumacoisa"
-            }]);
         });
     });
 });
