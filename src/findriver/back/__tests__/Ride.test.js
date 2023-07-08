@@ -86,7 +86,7 @@ describe('Funções do rideService', () => {
         test('Deve atualizar informações da ride de id = 0', () => {
             
             const updateRideByIdMock = jest.fn((Ride, rideId) => {
-                if (rides[rideId].id === rideId){
+                if (rides[rideId].id){
                     rides[rideId].application = Ride.application;
                     rides[rideId].date = Ride.date;
                     rides[rideId].description = Ride.description;
