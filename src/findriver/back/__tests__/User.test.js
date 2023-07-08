@@ -55,7 +55,7 @@ describe('Funções do userService', () => {
             expect(result).toBe(true);
         });
 
-        it('Deve retornar false, senha não está correta', async () => {
+        test('Deve retornar false, senha não está correta', async () => {
             const password = 'password123';
             const incorrectPassword = 'password456';
         
@@ -117,7 +117,7 @@ describe('Funções do userService', () => {
                     users[id].password = user.password;
                     return true;
                 }
-                
+
             });
             users[1].name = "Clark";
             users[1].email = "kent@gmail.com";
