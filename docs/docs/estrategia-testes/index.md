@@ -33,6 +33,7 @@ Nessa seção se encontra a estratégia de testes que deverá ser seguida pela e
 
 ### Estratégias de teste
 A seguir se encontra as relações entre os tipos, níveis e técnicas de teste. As estratégias variam a cada parte do desenvolvimento do produto.
+    
 | Estratégia |       Tipo      |    Nível   |    Técnica   |      Objetivo     | Perspectiva |
 |:----------:|:---------------:|:----------:|:------------:|:-----------------:|:-----------:|
 |      1     |    Funcional    |  Unitário  |  Automática  | Qualidade Interna |   Técnica   |
