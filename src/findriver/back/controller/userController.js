@@ -59,9 +59,10 @@ async function updateUser(req, res) {
 };
 
 async function deleteUser(req, res) {
+  const password = req.body
   const { id } = req.params;
 
-  await userService.deleteUserById(id);
+  await userService.deleteUserById(password, id);
 
   return res.status(statusCode.NO_CONTENT).send();
 };
