@@ -10,6 +10,7 @@ sidebar_position: 8
 | 23/06/2023 | 1.0 | Definição da Estratégia de Testes| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 | 30/06/2023 | 1.1 | Aprimoração da Estratégia de Testes| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 | 09/07/2023 | 1.2 | Objetivos e perspectivas| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
+| 10/07/2023 | 1.3 | Atualização das estratégias| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 
 ### Introdução
 Nessa seção se encontra a estratégia de testes que deverá ser seguida pela equipe.
@@ -31,52 +32,23 @@ Nessa seção se encontra a estratégia de testes que deverá ser seguida pela e
 - **Manual**: Todo desenvolvedor deverá testar o código manualmente na sua máquina e o usuário de testar o produto quando este for entregue.
 - **Automática**: A cada integração, será chamada a Actions do github para rodar os testes do backend e frontend, verificando se não há nenhum teste unitário falhando em alguma parte de todo o projeto.
 
-### Estratégias de teste
-A seguir se encontra as relações entre os tipos, níveis e técnicas de teste. As estratégias variam a cada parte do desenvolvimento do produto.
-    
-| Estratégia |       Tipo      |    Nível   |    Técnica   |      Objetivo     | Perspectiva |
-|:----------:|:---------------:|:----------:|:------------:|:-----------------:|:-----------:|
-|      1     |    Funcional    |  Unitário  |  Automática  | Qualidade Interna |   Técnica   |
-|      2     |    Funcional    | Integração | Caixa Branca | Qualidade Interna |   Técnica   |
-|      3     |    Funcional    |   Sistema  |  Caixa Preta | Qualidade Interna |   Negócio   |
-|      4     |   Usabilidade   |  Aceitação |    Manual    | Qualidade Externa |   Negócio   |
-|      5     | Suportabilidade |   Sistema  |    Manual    | Qualidade Externa |   Técnica   |
-
 ### Tabelas de Estratégia de Testes para cada MVP
 
 #### MVP 1
-| Testes | Estratégias               |
-|:------:|:-------------------------:|
-|  US01  |1 - 2 - 3 - 4 - 5|
-|  US02  |1 - 2 - 3 - 4 - 5|
-|  US03  |2 - 3 - 4 - 5|
-|  US04  |2 - 3 - 4 - 5|
-|  US05  |3 - 4 - 5|
-|  US06  |1 - 2 - 3 - 4 - 5|
-|  US07  |1 - 2 - 3 - 4 - 5|
-|  US08  |1 - 2 - 3 - 4 - 5|
-|  US09  |1 - 2 - 3 - 4 - 5|
-|  US11  |3 - 4 - 5|
-|  US12  |1 - 2 - 3 - 4 - 5|
-|  US13  |1 - 2 - 3 - 4 - 5|
-|  US14  |1 - 2 - 3 - 4 - 5|
-|  US16  |1 - 2 - 3 - 4 - 5|
-|  US17  |1 - 3 - 4 - 5|
-|  US18  |1 - 2 - 3 - 4 - 5|
-|  US19  |1 - 2 - 3 - 4 - 5|
+|       Tipo      |    Nível   |    Técnica   |      Objetivo     | Perspectiva |
+|:---------------:|:----------:|:------------:|:-----------------:|:-----------:|
+|    Funcional    |  Unitário  |  Automática  | Qualidade Interna |   Técnica   |
+|    Funcional    |   Sistema  |  Caixa Preta, Manual | Qualidade Interna |   Negócio   |
+|   Usabilidade   |  Aceitação |    Manual    | Qualidade Externa |   Negócio   |
 
 #### MVP 2
-| Testes | Estratégias               |
-|:------:|:-------------------------:|
-|  US21  |1 - 2 - 3 - 4 - 5|
-|  US22  |3 - 4 - 5|
-|  US23  |1 - 2 - 3 - 4 - 5|
-|  US24  |2 - 3 - 4 - 5|
-|  US29  |1 - 2 - 3 - 4 - 5|
-|  US32  |1 - 2 - 3 - 4 - 5|
-|  US33  |1 - 2 - 3 - 4 - 5|
-|  US34  |3 - 4 - 5|
-|  US35  |1 - 2 - 3 - 4 - 5|
+|       Tipo      |    Nível   |    Técnica   |      Objetivo     | Perspectiva |
+|:---------------:|:----------:|:------------:|:-----------------:|:-----------:|
+|    Funcional    |  Unitário  |  Automática  | Qualidade Interna |   Técnica   |
+|    Funcional    | Integração | Caixa Branca, Manual | Qualidade Interna |   Técnica   |
+|    Funcional    |   Sistema  | Caixa Preta, Manual | Qualidade Interna |   Negócio   |
+|   Usabilidade   |  Aceitação | Caixa Preta, Manual    | Qualidade Externa |   Negócio   |
+| Suportabilidade |   Sistema  |    Manual    | Qualidade Externa |   Técnica   |
 
 ## Referências 
 - Material do moodle da disciplina
