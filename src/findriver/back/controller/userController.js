@@ -59,7 +59,8 @@ async function updateUser(req, res) {
 };
 
 async function deleteUser(req, res) {
-  const { password, id } = req.params;
+  const password = req.body
+  const { id } = req.params;
 
   await userService.deleteUserById(password, id);
 

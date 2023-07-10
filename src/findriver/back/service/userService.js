@@ -78,11 +78,11 @@ async function updateUserById(user, id) {
 }
 
 async function deleteUserById(password, id) {
-  const userPassword = await supabase
+  const { data } = await supabase
     .from("Users")
     .select("password")
     .eq("id", id);
-  if (userPassword === password){
+  if (await bcrypt.compareSync(password, (data[0].password).toString())){
     await supabase.from("Users").delete().eq("id", id);
     
     if (error) {
