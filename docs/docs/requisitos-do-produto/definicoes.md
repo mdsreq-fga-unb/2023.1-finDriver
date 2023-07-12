@@ -19,7 +19,6 @@ sidebar_position: 2
 - Os requisitos devem possuir critérios de aceitação.
 - Os requisitos devem estar no nível de user story.
 - Os itens devem ser independentes ou ter suas dependências identificadas.
-- O protótipo da interface deve estar pronto.
 
 ### 2. Definição de Pronto (DoD)
 
