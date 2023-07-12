@@ -47,6 +47,7 @@ Nessa seção se encontra a estratégia de testes que deverá ser seguida pela e
 |    Funcional    |  Unitário  |  Automática  | Qualidade Interna |   Técnica   |
 |    Funcional    | Integração | Automática, Caixa Branca, Manual | Qualidade Interna |   Técnica   |
 |    Funcional    |   Sistema  | Caixa Preta, Manual | Qualidade Interna |   Negócio   |
+|   Usabilidade   |   Sistema  |  Manual    | Qualidade Externa |   Técnica   |
 |   Usabilidade   |  Aceitação | Caixa Preta, Manual    | Qualidade Externa |   Negócio   |
 
 ## Referências 
