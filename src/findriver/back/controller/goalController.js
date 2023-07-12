@@ -1,27 +1,30 @@
 const goalService = require("../service/goalService");
 const statusCode = require("../helpers/statusCode");
 const jwt = require("jsonwebtoken");
-const { getUserByIDToken } = require("../service/tokenService");
+const { getUserIdByToken } = require("../service/tokenService");
+const { supabase } = require("../service/userService");
 
 async function addGoal(req, res) {
     const goal = req.body;
-    
+
     try {
         const token = req.headers.authorization.split(' ')[1];
-        const userID = await getUserByIDToken(token);
-        await goalService.createGoal(userID, goal);
+        const userId = await getUserIdByToken(token);
 
         const existingGoal = await supabase
-        .from("Goal")
-        .select()
-        .eq("idUser", userId);
+            .from("Goal")
+            .select("*")
+            .eq("idUser", userId)
     
         if(existingGoal.data.length > 0){
-            res.status(400).json({ error: "Você já possui uma meta cadastrada!"})
-        } 
+            res.status(statusCode.ALREADY_EXISTS).json({ error: "Você já possui uma meta cadastrada!"})
 
-        res.status(statusCode.CREATED)
-            .json({ message: "Meta cadastrada com sucesso!" });
+        } else{
+            await goalService.createGoal(userId, goal);
+
+            res.status(statusCode.CREATED)
+                .json({ message: "Meta cadastrada com sucesso!" });
+        }
     } catch (error) {
         res.status(error.status || statusCode.INTERNAL_SERVER_ERROR).json({
             message: error.message,
@@ -32,13 +35,15 @@ async function addGoal(req, res) {
 async function getGoal(req, res) {
     try {
         const token = req.headers.authorization.split(' ')[1];
-        const userID = await getUserByIDToken(token);
-        var value = await goalService.getGoalByUserID(userID);
-        res.status(statusCode.OK).json({ value });
+        const userId = await getUserIdByToken(token);
 
-        if(!userID) {
+        if(!userId) {
             return res.status(401).json({ message: "Token de autenticação inválido" });
         }
+
+        var value = await goalService.getGoalByUserId(userId);
+        res.status(statusCode.OK).json({ value });
+
     } catch (error) {
         res.status(error.status || statusCode.INTERNAL_SERVER_ERROR).json({
             message: error.message,
@@ -49,9 +54,9 @@ async function getGoal(req, res) {
 async function updateGoal(req, res) {
     const { id } = req.params;
     const goal = req.body;
-
+    
     try { 
-        let value = await goalService.updateGoal(ride, id);
+        let value = await goalService.updateGoal(goal, id);
         res.status(statusCode.OK).json({ message: "Meta atualizada com sucesso" });
     } catch (error) {
         res.status(statusCode.NOT_FOUND).json({ message: error.message });
@@ -69,9 +74,4 @@ async function deleteGoal(req, res) {
     }
 };
 
-module.exports = {
-    addGoal,
-    getGoal,
-    updateGoal,
-    deleteGoal,
-}
+module.exports = { addGoal, getGoal, updateGoal, deleteGoal }

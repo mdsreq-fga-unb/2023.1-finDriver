@@ -1,4 +1,4 @@
-const supabase = require("./userService")
+const { supabase } = require("./userService")
 const jwt = require("jsonwebtoken")
 const env = require("dotenv")
 
@@ -11,18 +11,20 @@ const createGoal = async (userId, Goal) => {
                 idUser: userId,
                 name: Goal.name,
                 valueCurrent: 0,
-                valueGoal: Goal.goal,
-                deadLine: Goal.deadLine,
+                valueGoal: Goal.valueGoal,
+                deadline: Goal.deadline,
                 inicialDate: new Date().toISOString(),
             },
         ])
         .single();
+
+        if (error) throw error;
     } catch (error) {
         throw error
     }
 }
 
-const getGoalByUserID = async (userId) => {
+const getGoalByUserId = async (userId) => {
     try {
         const {data, error} = await supabase
             .from("Goal")
@@ -43,12 +45,10 @@ const updateGoal = async (Goal, goalId) => {
         const {data, error} = await supabase
             .from("Goal")
             .update({
-                idUser: userId,
                 name: Goal.name,
                 valueCurrent: Goal.valueCurrent,
                 valueGoal: Goal.goal,
                 deadLine: Goal.deadLine,
-                inicialDate: Goal.inicialDate,
             })
             .eq("id", goalId);
 
@@ -70,3 +70,5 @@ const deleteGoal = async (goalId) => {
         throw error;
     }
 };
+
+module.exports = {createGoal, getGoalByUserId, updateGoal, deleteGoal}
