@@ -19,12 +19,11 @@ Nessa seção se encontra a estratégia de testes que deverá ser seguida pela e
 ### Tipos de teste
 - **Funcional**: A equipe deve  para garantir que o produto está funcionando de acordo com os requisitos definidos e seus respectivos critérios de aceitação.
 - **Usabilidade**: O cliente precisa entender e usar o produto da forma como foi acordado com a equipe, também seguindo os requisitos, *user stories* e seus respectivos critérios de aceitação
-- **Suportabilidade**: O produto precisa passar por cada requisito não funcional definidos pela equipe.
 
 ### Níveis de Teste 
 - **Unitário**: Obrigatório implementar as funções e classes mais importantes considerando somente os critérios de aceitação. O backend é prioridade, mas também serão feitos alguns testes de frontend. A biblioteca de teste usada pela equipe será o Jest.
 - **Integração**: Será testado a integração entre os componentes, no caso, o será necessário testar se o front está chamando corretamente as funções do back. Será considerado a *user story* como um todo.
-- **Sistema**: Será necessário verificar o sistema como um todo do ponto de vista técnico, ou seja, todas as funcionalidades definidas pelas *user stories* e passar por todos os critérios de aceitação. A principal ferramenta usada para testar a integração é o postman.
+- **Sistema**: Será necessário verificar o sistema como um todo do ponto de vista técnico, ou seja, todas as funcionalidades definidas pelas *user stories* e passar por todos os critérios de aceitação, além dos requisitos não funcionais. A principal ferramenta usada para testar a integração é o postman.
 - **Aceitação**: O cliente precisa experimentar o software e validar todo o produto de acordo com sua experiência e do que era esperado e acordado com a equipe.
 
 ### Técnicas de teste
@@ -48,8 +47,8 @@ Nessa seção se encontra a estratégia de testes que deverá ser seguida pela e
 |    Funcional    |  Unitário  |  Automática  | Qualidade Interna |   Técnica   |
 |    Funcional    | Integração | Automática, Caixa Branca, Manual | Qualidade Interna |   Técnica   |
 |    Funcional    |   Sistema  | Caixa Preta, Manual | Qualidade Interna |   Negócio   |
-|   Usabilidade   |  Aceitação | Caixa Preta, Manual    | Qualidade Externa |   Negócio   |
-| Suportabilidade |   Sistema  |    Manual    | Qualidade Externa |   Técnica   |
+|   Usabilidade   |   Sistema  |    Manual    | Qualidade Externa |   Técnica   |
+|   Usabilidade   |  Aceitação |    Manual    | Qualidade Externa |   Negócio   |
 
 ## Referências 
 - Material do moodle da disciplina
