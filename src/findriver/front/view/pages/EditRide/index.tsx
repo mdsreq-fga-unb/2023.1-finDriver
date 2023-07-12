@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import Picker from "@ouroboros/react-native-picker";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import validator from 'validator'
 
 import dados from "../../../dados";
 
@@ -37,45 +38,53 @@ const EditRide = ({ navigation, route }) => {
     }
   };
 
-  const handleEditRide = () => {
-    if (!value || !quilometers || !app || !selectedDate) {
-      Alert.alert("Erro", "Por favor, preencha todos os campos");
-    } else {
-      const requestOptions = {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: token.toString(),
-        },
-        body: JSON.stringify({
-          value: value,
-          kilometerage: quilometers,
-          application: app,
-          description: description,
-          date: selectedDate,
-        }),
-      };
-      fetch(`${dados.Url}/api/ride/editar/${ride.id}`, requestOptions)
-        .then((response) => {
-          console.log(response.status);
-          if (response.status === 200) {
-            Alert.alert("Corrida atualizada com sucesso");
-            navigation.goBack();
-          } else {
-            Alert.alert("Erro", "Ocorreu um erro ao atualizar a corrida");
-            navigation.goBack();
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  };
-
   useEffect(() => {
     getToken();
   }, [token]);
+
+  const handleEditRide = () => {
+    const specialChars = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+
+    if (!value || !quilometers || !app || !selectedDate) {
+      Alert.alert("Erro", "Por favor, preencha todos os campos");
+    } else if (value <= 0 || value >= 1000) {
+      Alert.alert("Erro", "Os valores inseridos não são válidos");
+    } else if (quilometers <= 0 || quilometers >= 600) {
+      Alert.alert("Erro", "A quilometragem inserida não é válida");
+    } else if (validator.isDate(selectedDate) ) {
+      Alert.alert("Erro", "A data inserida não é válida");
+    } else {
+        const requestOptions = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: token.toString(),
+          },
+          body: JSON.stringify({
+            value: value,
+            kilometerage: quilometers,
+            application: app,
+            description: description,
+            date: selectedDate,
+          }),
+        };
+        fetch(`${dados.Url}/api/ride/editar/${ride.id}`, requestOptions)
+          .then((response) => {
+            console.log(response.status);
+            if (response.status === 200) {
+              Alert.alert("Corrida atualizada com sucesso");
+              navigation.goBack();
+            } else {
+              Alert.alert("Erro", "Ocorreu um erro ao atualizar a corrida");
+              navigation.goBack();
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    }
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
@@ -146,7 +155,8 @@ const EditRide = ({ navigation, route }) => {
         </View>
       </View>
     </KeyboardAvoidingView>
-  );
-};
+  )
+
+}
 
 export default EditRide;
