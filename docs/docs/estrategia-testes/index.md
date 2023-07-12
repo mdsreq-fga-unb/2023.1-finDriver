@@ -11,6 +11,7 @@ sidebar_position: 8
 | 30/06/2023 | 1.1 | Aprimoração da Estratégia de Testes| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 | 09/07/2023 | 1.2 | Objetivos e perspectivas| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 | 10/07/2023 | 1.3 | Atualização das estratégias| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
+| 12/07/2023 | 1.4 | Adição da técnica automática nos testes funcionais de integração| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 
 ### Introdução
 Nessa seção se encontra a estratégia de testes que deverá ser seguida pela equipe.
@@ -45,7 +46,7 @@ Nessa seção se encontra a estratégia de testes que deverá ser seguida pela e
 |       Tipo      |    Nível   |    Técnica   |      Objetivo     | Perspectiva |
 |:---------------:|:----------:|:------------:|:-----------------:|:-----------:|
 |    Funcional    |  Unitário  |  Automática  | Qualidade Interna |   Técnica   |
-|    Funcional    | Integração | Caixa Branca, Manual | Qualidade Interna |   Técnica   |
+|    Funcional    | Integração | Automática, Caixa Branca, Manual | Qualidade Interna |   Técnica   |
 |    Funcional    |   Sistema  | Caixa Preta, Manual | Qualidade Interna |   Negócio   |
 |   Usabilidade   |  Aceitação | Caixa Preta, Manual    | Qualidade Externa |   Negócio   |
 | Suportabilidade |   Sistema  |    Manual    | Qualidade Externa |   Técnica   |
