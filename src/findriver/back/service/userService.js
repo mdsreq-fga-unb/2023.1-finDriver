@@ -77,22 +77,27 @@ async function updateUserById(user, id) {
   return;
 }
 
-async function deleteUserById(password, id) {
-  const { data } = await supabase
+async function deleteUserById(user, id) {
+
+  const { data, error } = await supabase
     .from("Users")
     .select("password")
-    .eq("id", id);
-  if (await bcrypt.compareSync(password, (data[0].password).toString())){
-    await supabase.from("Users").delete().eq("id", id);
-    
+    .eq("id", id.id);
+
     if (error) {
       console.log(error);
       throw error;
     }
-    
-    return;  
+
+  if (await bcrypt.compareSync(user.password, (data[0].password).toString())){
+    await supabase.from("Users").delete().eq("id", id.id); 
+
+    return "Usuário excluido com sucesso"
+  } else {
+    return "Senha incorreta"
   }
 }
+
 
 module.exports = {
   createUser,
