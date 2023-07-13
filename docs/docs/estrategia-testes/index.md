@@ -38,7 +38,7 @@ Nessa seção se encontra a estratégia de testes que deverá ser seguida pela e
 #### MVP1/MVP 2
 |       Tipo      |    Nível   |    Técnica   |      Objetivo     | Perspectiva |
 |:---------------:|:----------:|:------------:|:-----------------:|:-----------:|
-|    Funcional    |  Unitário  |  Automática  | Qualidade Interna |   Técnica   |
+|    Funcional    |  Unitário  |  Automática, Caixa Branca  | Qualidade Interna |   Técnica   |
 |    Funcional    | Integração | Automática, Caixa Branca, Manual | Qualidade Interna |   Técnica   |
 |   Usabilidade   |   Sistema  |    Caixa Preta, Manual    | Qualidade Externa |   Técnica   |
 |   Usabilidade   |  Aceitação |    Manual    | Qualidade Externa |   Negócio   |
