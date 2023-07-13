@@ -12,6 +12,7 @@ sidebar_position: 8
 | 09/07/2023 | 1.2 | Objetivos e perspectivas| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 | 10/07/2023 | 1.3 | Atualização das estratégias| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 | 12/07/2023 | 1.4 | Adição da técnica automática nos testes funcionais de integração| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
+| 13/07/2023 | 1.5 | Atualização das estratégias | [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 
 ### Introdução
 Nessa seção se encontra a estratégia de testes que deverá ser seguida pela equipe.
@@ -34,20 +35,12 @@ Nessa seção se encontra a estratégia de testes que deverá ser seguida pela e
 
 ### Tabelas de Estratégia de Testes para cada MVP
 
-#### MVP 1
-|       Tipo      |    Nível   |    Técnica   |      Objetivo     | Perspectiva |
-|:---------------:|:----------:|:------------:|:-----------------:|:-----------:|
-|    Funcional    |  Unitário  |  Automática  | Qualidade Interna |   Técnica   |
-|    Funcional    |   Sistema  |  Caixa Preta, Manual | Qualidade Interna |   Negócio   |
-|   Usabilidade   |  Aceitação |    Manual    | Qualidade Externa |   Negócio   |
-
-#### MVP 2
+#### MVP1/MVP 2
 |       Tipo      |    Nível   |    Técnica   |      Objetivo     | Perspectiva |
 |:---------------:|:----------:|:------------:|:-----------------:|:-----------:|
 |    Funcional    |  Unitário  |  Automática  | Qualidade Interna |   Técnica   |
 |    Funcional    | Integração | Automática, Caixa Branca, Manual | Qualidade Interna |   Técnica   |
-|    Funcional    |   Sistema  | Caixa Preta, Manual | Qualidade Interna |   Negócio   |
-|   Usabilidade   |   Sistema  |    Manual    | Qualidade Externa |   Técnica   |
+|   Usabilidade   |   Sistema  |    Caixa Preta, Manual    | Qualidade Externa |   Técnica   |
 |   Usabilidade   |  Aceitação |    Manual    | Qualidade Externa |   Negócio   |
 
 ## Referências 
