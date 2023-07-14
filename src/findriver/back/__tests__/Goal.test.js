@@ -75,6 +75,26 @@ describe('Funções do goalService', () => {
         });
     });
 
+    describe('Caso do getGoalById', () => {
+        test('getGoalById deve retornar a meta de id = 1', () => {
+            const getGoalByIdMock = jest.fn((id) => {
+                const goal = goals[id];
+                return goal;
+            });
+
+            const result = getGoalByIdMock(1);
+            expect(result).toEqual(
+            {
+                id: 1,
+                idUser: 5,
+                total: 22000.00,
+                got: 1201.75,
+                deadline: "2025-07-04",
+                description: "Trocar de carro"
+            });
+        });
+    });
+
     describe('Caso do updateGoal', () => {
         test('Atualizar meta em goals', () => {
             const updateGoalMock = jest.fn((Goal, goalId) => {
@@ -100,6 +120,19 @@ describe('Funções do goalService', () => {
                 deadline: "2023-09-14",
                 description: "Trocar pneu"
             });
+        });
+    });
+
+    describe('Função para deletar a meta', () => {
+        test('Teste para verificar se a meta foi deletada', () => {
+            const deleteGoalByIdMock = jest.fn((id) => {
+                if (goals[id].id === id){
+                    goals.splice(id, 1);
+                    return true;
+                }
+            });
+            const result = deleteGoalByIdMock(1);
+            expect(result).toBe(true);
         });
     });
 });
