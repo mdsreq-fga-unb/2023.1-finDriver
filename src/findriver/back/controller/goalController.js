@@ -52,22 +52,26 @@ async function getGoal(req, res) {
 };
 
 async function updateGoal(req, res) {
-    const { id } = req.params;
     const goal = req.body;
     
     try { 
-        let value = await goalService.updateGoal(goal, id);
+        const token = req.headers.authorization.split(' ')[1];
+        const userId = await getUserIdByToken(token);
+        
+       await goalService.updateGoal(goal, userId);
         res.status(statusCode.OK).json({ message: "Meta atualizada com sucesso" });
+
     } catch (error) {
         res.status(statusCode.NOT_FOUND).json({ message: error.message });
     }
 };
 
 async function deleteGoal(req, res) { 
-    const { id } = req.params;
-
     try { 
-        await goalService.deleteGoal(id);
+        const token = req.headers.authorization.split(' ')[1];
+        const userId = await getUserIdByToken(token);
+
+        await goalService.deleteGoal(userId);
         res.status(statusCode.OK).json({ message: "Meta excluida com sucesso" });
     } catch (error) {
         res.status(statusCode.NOT_FOUND).json({ message: error.message });

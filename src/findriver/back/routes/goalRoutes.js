@@ -4,7 +4,7 @@ const goalController = require("../controller/goalController")
 
 router.post("/adicionar", goalController.addGoal)
 router.get("/", goalController.getGoal)
-router.put("/editar/:id", goalController.updateGoal)
-router.delete("/deletar/:id", goalController.deleteGoal)
+router.put("/editar", goalController.updateGoal)
+router.delete("/deletar", goalController.deleteGoal)
 
 module.exports = router
