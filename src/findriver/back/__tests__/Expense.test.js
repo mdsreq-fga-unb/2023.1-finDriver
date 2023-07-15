@@ -82,6 +82,27 @@ describe('Funções do expenseService', () => {
         });
     });
 
+    describe('Caso do getExpenseById', () => {
+        test('getExpenseById deve retornar a Expense de id = 1', () => {
+            const getExpenseByIdMock = jest.fn((id) => {
+                const expense = expenses[id];
+                return expense;
+            });
+
+            const result = getExpenseByIdMock(1);
+            expect(result).toEqual(
+            {
+                id: 1,
+                idUser: 2,
+                cause: "deu um pouco ruim",
+                value: 2000.00,
+                date: "2023-08-02",
+                type: "acidente",
+                description: "algumacoisa"
+            });
+        });
+    });
+
     describe('Caso do updateExpense', () => {
         test('Deve atualizar a expense em expenses', () => {
             const updateExpenseMock = jest.fn((Expense, expenseId) => {
@@ -110,6 +131,19 @@ describe('Funções do expenseService', () => {
                 type: "conserto",
                 description: "Rapido de resolver"
             });
+        });
+    });
+
+    describe('Função para deletar a Expense', () => {
+        test('Teste para verificar se a Expense foi deletada', () => {
+            const deleteExpenseByIdMock = jest.fn((id) => {
+                if (expenses[id].id === id){
+                    expenses.splice(id, 1);
+                    return true;
+                }
+            });
+            const result = deleteExpenseByIdMock(1);
+            expect(result).toBe(true);
         });
     });
 });

@@ -45,7 +45,7 @@ const users = [
 ];
 
 describe('Funções do userService', () => {
-    describe('Testanda a encriptação da senha', () => {
+    describe('Testando a encriptação da senha', () => {
         test('Deve retornar true, senha foi encriptada', async () => {
             const password = 'password123';
         
@@ -108,6 +108,28 @@ describe('Funções do userService', () => {
         });
     });
     
+    describe('Caso do getUserById', () => {
+        test('getUserById deve retornar o usuario de id = 1', () => {
+            const getUserByIdMock = jest.fn((id) => {
+                const user = users[id];
+                return user
+            });
+
+            const result = getUserByIdMock(1);
+            expect(result).toEqual(
+            {
+                id: 1,
+                name: "Melissa",
+                email: "melissa@email.com",
+                password: "melsenha",
+                questionOne: "Pergunta3",
+                answerOne: "algoritmo",
+                questionTwo: "Pergunta4",
+                answerTwo: "reprovado"
+            })
+        });
+    });
+
     describe('Caso do updateUserById', () => {
         test('updateUserById caso de sucesso', () => {
             const updateUserByIdMock = jest.fn((user, id) => {
