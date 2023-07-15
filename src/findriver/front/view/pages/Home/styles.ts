@@ -31,6 +31,20 @@ const styles = StyleSheet.create({
         color: '#1c5560',
         marginHorizontal: 10
     },
+    goalCard: {
+        marginHorizontal: 25,
+        marginVertical: 5,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        backgroundColor: '#386F71',
+        borderRadius: 10,
+        elevation: 10
+    },
+    goalContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginRight: 15,
+    },
     summaryCard: {
         marginHorizontal: 25,
         marginVertical: 5,
