@@ -10,7 +10,7 @@ const createGoal = async (userId, Goal) => {
             {
                 idUser: userId,
                 name: Goal.name,
-                valueCurrent: 0,
+                valueCurrent: Goal.valueCurrent,
                 valueGoal: Goal.valueGoal,
                 deadline: Goal.deadline,
                 inicialDate: new Date().toISOString(),
@@ -40,17 +40,17 @@ const getGoalByUserId = async (userId) => {
     }
 };
 
-const updateGoal = async (Goal, goalId) => {
+const updateGoal = async (Goal, userId) => {
     try { 
-        const {data, error} = await supabase
+        const {error} = await supabase
             .from("Goal")
             .update({
                 name: Goal.name,
                 valueCurrent: Goal.valueCurrent,
-                valueGoal: Goal.goal,
-                deadLine: Goal.deadLine,
+                valueGoal: Goal.valueGoal,
+                deadline: Goal.deadline,
             })
-            .eq("id", goalId);
+            .eq("idUser", userId);
 
         if(error) throw error;
     } catch (error) {
@@ -58,12 +58,12 @@ const updateGoal = async (Goal, goalId) => {
     }
 };
 
-const deleteGoal = async (goalId) => {
+const deleteGoal = async (userId) => {
     try {
-        const {data, error} = await supabase
+        const {error} = await supabase
             .from("Goal")
             .delete()
-            .eq("id", goalId);
+            .eq("idUser", userId);
 
         if(error) throw error;
     } catch (error) {
