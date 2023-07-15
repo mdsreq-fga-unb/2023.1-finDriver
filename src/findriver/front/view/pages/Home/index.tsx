@@ -238,6 +238,16 @@ const Home = ({ navigation }) => {
                     <Text style={[styles.profitText, styles.kmText, {fontWeight: '700'}]}>R$ {(dayAverageProfit - dayAverageExpense).toFixed(2)}</Text>
                 </View>
 
+                <View style={styles.kmContainer}>
+                    <Text style={styles.kmText}>Você rodou </Text>
+                    <Text style={[styles.kmText, {fontWeight: '700'}]}>{km} km </Text>
+                    <Text style={styles.kmText}>hoje</Text>
+                </View>
+                <View style={styles.kmContainer}>
+                    <Text style={[styles.kmText]}>Média de gastos semanal: </Text>
+                    <Text style={[styles.kmText, {fontWeight: '700'}]}>R$ {(weekAverageExpense/7).toFixed(2)}</Text>
+                </View>    
+
                 <View style={styles.goalContainer}>
                     <Text style={styles.title}>Meta</Text>
                     <Pressable  onPress={() => navigation.navigate("")}>
@@ -251,6 +261,15 @@ const Home = ({ navigation }) => {
                     <Text style={styles.summaryText}>⬩Você alcançou: {} </Text>
                 </View>
                
+                <View >
+                    <Text style={styles.title}>Ferramentas de cálculo</Text>
+                    <Pressable style={styles.toolsContainer} onPress={() => navigation.navigate("")}>
+                        <View style={styles.toolCard}>
+                            <Text style={[styles.summaryTextTitle]}>Gasolina ou Álcool?</Text>
+                            <Icon name="gas-pump" size={25} color={"#f5f5f7"}/>
+                        </View>
+                    </Pressable>
+                </View>
 
                 <View style={styles.summaryContainer}>
                     <Text style={styles.title}>Resumo detalhado</Text>
@@ -276,19 +295,9 @@ const Home = ({ navigation }) => {
                         <Text style={styles.summaryText}>⬩Saldo: {(weekAverageProfit - weekAverageExpense).toFixed(2)}</Text>
                     </View>
 
-                </View>
-                
-                <View style={styles.kmContainer}>
-                        <Text style={styles.kmText}>Você rodou </Text>
-                        <Text style={[styles.kmText, {fontWeight: '700'}]}>{km} km </Text>
-                        <Text style={styles.kmText}>hoje</Text>
-                    </View>
-                    <View style={styles.kmContainer}>
-                        <Text style={[styles.kmText]}>Média de gastos semanal: </Text>
-                        <Text style={[styles.kmText, {fontWeight: '700'}]}>R$ {(weekAverageExpense/7).toFixed(2)}</Text>
-                    </View>               
-                </ScrollView>
-            </View>
+                </View>           
+            </ScrollView>
+        </View>
     
         );
     }
