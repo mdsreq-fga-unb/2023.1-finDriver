@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         marginTop: 6
     },
     buttonArea: {
-        marginTop: 40,
+        marginTop: 30,
         alignItems: 'center',
         width: '100%'
     },
