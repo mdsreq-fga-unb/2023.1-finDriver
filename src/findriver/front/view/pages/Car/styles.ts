@@ -10,26 +10,34 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'column'
     },
+    titleArea:{
+        marginTop: '20%',
+        marginBottom: '10%',
+        width: '70%',
+        flexDirection: 'row',
+        alignItems: "center",
+        justifyContent: 'space-between'
+    },
     title: {
         fontSize: 25,
         fontWeight: 'bold',
         color: '#F5F5F7',
-        marginTop: '30%'
     },
     textArea: {
         width: '70%',
+        justifyContent: 'space-between',
+        marginBottom: 30
     },
     label: {
         color: '#87b0b7',
         fontWeight: 'bold',
         fontSize: 15,
-        marginTop: 15
+        // marginTop: 15
     },    
     text: {
         fontSize: 18,
         color: '#f5f5f7',
         marginLeft: 20,
-        marginTop: 5,
         marginBottom: 10,
 
     },
@@ -44,7 +52,6 @@ const styles = StyleSheet.create({
         marginTop: 6
     },
     buttonArea: {
-        marginTop: 30,
         alignItems: 'center',
         width: '100%'
     },
@@ -54,16 +61,15 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         alignItems: 'center',
         justifyContent: 'center',
-        marginVertical: 10,
         paddingVertical: 10,
-        elevation: 10
+        elevation: 10,
+        marginBottom: 20
     },
     textButton: {
         fontSize: 18,
         fontWeight: 'bold',
         color: '#1c5560',
     },
-
 });
 
 export default styles;

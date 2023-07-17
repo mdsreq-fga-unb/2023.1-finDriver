@@ -95,7 +95,7 @@ const AddExpense = ({ navigation, route }) => {
                             keyboardType="phone-pad"
                             cursorColor="#001f36"
                         />
-                    
+                                
                         <Text style={styles.label}>Tipo</Text>
                         <Picker
                             value={type}

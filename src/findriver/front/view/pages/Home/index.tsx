@@ -289,7 +289,7 @@ const Home = ({ navigation }) => {
                     </View>
 
                     <View style={styles.summaryCard}>
-                        <Text style={styles.summaryTextTitle}>Este mes</Text>
+                        <Text style={styles.summaryTextTitle}>Este Mês</Text>
                         <Text style={styles.summaryText}>⬩Ganhos: {weekAverageProfit} </Text>
                         <Text style={styles.summaryText}>⬩Gastos: {weekAverageExpense} </Text>
                         <Text style={styles.summaryText}>⬩Saldo: {(weekAverageProfit - weekAverageExpense).toFixed(2)}</Text>
