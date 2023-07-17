@@ -123,6 +123,8 @@ async function deleteUserById(password, id) {
   } else {
     return "Senha incorreta!"
   }
+
+  
 }
 
 module.exports = {
