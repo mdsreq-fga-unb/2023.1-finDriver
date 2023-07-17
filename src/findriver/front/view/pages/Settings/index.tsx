@@ -34,7 +34,7 @@ const Settings = ({ navigation }) => {
         <Pressable style={styles.button} onPress={() => navigation.navigate('Perfil')}>
           <Text style={styles.textButton}>Meu Perfil</Text>
         </Pressable>
-        <Pressable style={styles.button} onPress={() => navigation.navigate('Carro')}>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Carro', false)}>
           <Text style={styles.textButton}>Meu Carro</Text>
         </Pressable>
         <Pressable style={styles.button} onPress={exitAccount}>

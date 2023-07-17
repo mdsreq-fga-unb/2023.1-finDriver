@@ -6,11 +6,10 @@ const { supabase } = require("../service/userService");
 
 async function addGoal(req, res) {
     const goal = req.body;
-
     try {
         const token = req.headers.authorization.split(' ')[1];
         const userId = await getUserIdByToken(token);
-
+        
         const existingGoal = await supabase
             .from("Goal")
             .select("*")
