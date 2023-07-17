@@ -9,16 +9,15 @@ import dados from '../../../dados';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../components/Header';
 
-const Goal = ({ navigation, route }) => {
-    const isCreate = route.params;
+const Goal = ({ navigation, isCreate }) => {
     const [refreshing, setRefreshing] = useState(false);
-    console.log("EUUUUUUUUUUUUUUUUUUU\n")
-    console.log(isCreate)
+
+    const [token, setToken] = useState('');
     const [total, setTotal] = useState("1500");
     const [currentMoney, setCurrentMoney] = useState("50");
     const [deadline, setDeadline] = useState("12/10/2023");
     const [description, setDescription] = useState("geladeira duas portas");
-
+   
 
     const handleCancelPress = () => {
         navigation.goBack();
@@ -27,13 +26,44 @@ const Goal = ({ navigation, route }) => {
     const handleSavePress = () => {
        /*Enviar os dados pro banco*/ 
 
-    //    if(isCreate){
-    //         //criar meta
-    //         console.log(isCreate)
-    //     } else{
-    //         //salvar meta
-    //         console.log(isCreate)
-    //     }
+       if(isCreate){
+            if(!total || !currentMoney || !deadline){
+                Alert.alert("Erro", "Por favor, preencha todos os campos");
+            } else {
+                const requestOptions = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        Authorization: token.toString(),
+                    },
+                    body: JSON.stringify({
+                        total: total,
+                        currentMoney: currentMoney,
+                        deadline: deadline,
+                        description: description,
+                        date: selectedDate,
+                    }),
+                    };
+                    fetch(`${dados.Url}/api/ride/adicionar`, requestOptions)
+                        .then((response) => {
+                            console.log(response.status);
+                            if (response.status === 201) {
+                            Alert.alert("Corrida cadastrada com sucesso");
+                            navigation.navigate("Corridas");
+                            } else {
+                            Alert.alert("Erro", "Ocorreu um erro ao cadastrar a corrida");
+                            }
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+            }
+            console.log(isCreate)
+        } else{
+            //salvar meta
+            console.log(isCreate)
+        }
 
        navigation.goBack();
     }
