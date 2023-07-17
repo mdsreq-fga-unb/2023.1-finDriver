@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, Alert, Pressable, TextInput, ScrollView, KeyboardAvoidingView} from 'react-native';
 
+import Emailable from 'emailable';
+var emailable = require('emailable')('live_19b8b00816058a3a98ca');
+
 import styles from './styles';
 import Header from '../../components/Header';
+import { isConstructorDeclaration } from 'typescript';
+import { response } from 'express';
 
 const Register = ({ navigation }) => {
+    const emailable = Emailable('live_19b8b00816058a3a98ca');
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,15 +24,27 @@ const Register = ({ navigation }) => {
     const handleRegister = () => {
 
         const specialChars = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+
+        var state: string;
+        emailable.verify(email)
+            .then(response => {
+                state = response.state;
+                console.log(state);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         
         if (!name || !email || !password || !repeatPassword) {
             Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
         } else if (!comparePassword()) {
             Alert.alert('Erro', 'As senhas não coincidem. Por favor, tente novamente.');
-        } else if(password.length < 8){
+        } else if (password.length < 8){
             Alert.alert('Erro', 'A senha deve ter pelo menos 8 caracteres')
-        } else if(!specialChars.test(password)){
+        } else if (!specialChars.test(password)){
             Alert.alert('Erro', 'A senha deve ter pelo menos 1 caracteres especial($@&*+=_#%)');               
+        } else if (state == 'undeliverable') {
+            Alert.alert('Erro', 'O email inserido não é válido.')
         } else {
             navigation.navigate('Perguntas',{name: name, email: email, password: password});
         }
