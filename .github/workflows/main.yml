@@ -34,7 +34,7 @@ jobs:
           expo-version: 4.x
       - run: |
           cd src/findriver/front
-          npm ci
+          npm install
       - run: |
           cd src/findriver/front
           npm test
