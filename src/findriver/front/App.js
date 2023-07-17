@@ -24,6 +24,7 @@ import EditUser from "./view/pages/EditUser";
 import EditRide from "./view/pages/EditRide";
 import Car from "./view/pages/Car"
 import PasswordRecovery from "./view/pages/PasswordRecovery";
+import Goal from "./view/pages/EditGoal"
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -39,6 +40,8 @@ export default function App() {
             <Stack.Screen name="Registrar" component={Register} />
             <Stack.Screen name="Perguntas" component={SecurityQuestion} />
             <Stack.Screen name="Recovery" component={PasswordRecovery} />
+
+            <Stack.Screen name="Meta" component={Goal}/>
 
             <Stack.Screen name="Cadastrar Despesa" component={AddExpense} />
             <Stack.Screen name="Editar Despesa" component={EditExpense} />
