@@ -33,6 +33,7 @@ const Profile = ({ navigation }) => {
                     console.log("entra, amor"); //that's what she said 
                     console.log(data.value[0])
                     setUser(data.value[0])
+                    // console.log({user})
                 })
                 .catch((err) => console.log(err));
         } catch (error){
