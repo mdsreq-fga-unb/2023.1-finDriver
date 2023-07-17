@@ -30,6 +30,8 @@ const Home = ({ navigation }) => {
     const [rides, setRides] = useState([]);
     const [expense, setExpense] = useState([]);
     const [refreshing, setRefreshing] = useState(false);
+    const [isGoalRegistered, setIsGoalRegistered] = useState(false)
+    const [goal, setGoal] = useState({valueGoal: 0, valueCurrent: 0, deadline: '', description: ''})
 
   
     const fetchExpense = async () => {
@@ -202,11 +204,47 @@ const Home = ({ navigation }) => {
             });
     }
     
+    function getGoal(token) {
+        const requestOptions = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": token,
+            },
+        };
+        fetch(`${dados.Url}/api/goal/`, requestOptions)
+            // .then((response) => {
+            //     console.log(response.status);
+            //     if (response.status === 201) {
+            //         Alert.alert("Meta cadastrada!", "Sua meta foi cadastrada com sucesso. Fique atento à data final e mantenha o valor alcançado atualizado.");
+            //     } else if(response.status === 409){
+            //         Alert.alert("Você já possui uma meta!", "Você não pode criar mais de uma meta. Tente alterar ou excluir sua meta atual.");
+            //     }else {
+            //         Alert.alert("Erro", "Ocorreu um erro ao cadastrar sua meta");
+            //     }
+            // })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data.value[0])
+                setGoal(data.value[0])
+                console.log(goal)
+                
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+            const deadlineDate = new Date(goal.deadline)
+            
+    }    
+
     const handleRefresh = () => {
         setRefreshing(true);
         getDayKm(token);
         getExpense(token);
         getProfit(token);
+        getGoal(token);
         getToken();
 
     // Simulando um atraso de 2 segundos antes de concluir a atualização
@@ -219,6 +257,7 @@ const Home = ({ navigation }) => {
         getDayKm(token);
         getExpense(token);
         getProfit(token);
+        getGoal(token);
         getToken();
     }, [token, rides, expense]);
     
@@ -257,10 +296,11 @@ const Home = ({ navigation }) => {
                 <Pressable  onPress={() => navigation.navigate("Meta", { isCreate: false , token: token})}>
                     <View style={styles.goalCard}>
                         <Text style={[styles.summaryTextTitle, {marginTop: 5}]}>Seu progresso atual </Text>
-                        <ProgressBar progress={30}/>
-                        <Text style={styles.summaryText}>⬩Sua meta é: {} </Text>
-                        <Text style={styles.summaryText}>⬩Você alcançou: {} </Text>
-                        <Text style={styles.summaryText}>⬩Faltam {} para o fim</Text>
+                        <ProgressBar progress={((goal.valueCurrent/goal.valueGoal)*100)}/>
+                        <Text style={styles.summaryText}>⬩⬩⬩ {goal?.description}</Text>
+                        <Text style={styles.summaryText}>⬩Você alcançou: {goal.valueCurrent} </Text>
+                        <Text style={styles.summaryText}>⬩Sua meta é: {goal.valueGoal} </Text>
+                        <Text style={styles.summaryText}>⬩Faltam {} dias para o fim da sua meta</Text>
                     </View>
                 </Pressable>
                

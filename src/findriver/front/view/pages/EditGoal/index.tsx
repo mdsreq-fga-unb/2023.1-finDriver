@@ -39,8 +39,8 @@ const Goal = ({ navigation, route }) => {
                         "Authorization": token,
                     },
                     body: JSON.stringify({
-                        valueCurrent: total,
-                        valueGoal: currentMoney,
+                        valueCurrent: currentMoney,
+                        valueGoal: total,
                         deadline: deadline,
                         description: description,
                     }),

@@ -4,6 +4,7 @@ const env = require("dotenv")
 
 const createGoal = async (userId, Goal) => {
     try {
+        console.log(Goal)
         const { error } = await supabase
         .from("Goal")
         .insert([
@@ -12,7 +13,6 @@ const createGoal = async (userId, Goal) => {
                 valueCurrent: Goal.valueCurrent,
                 valueGoal: Goal.valueGoal,
                 deadline: Goal.deadline,
-                inicialDate: new Date().toISOString(),
                 description: Goal.description,
             },
         ])
