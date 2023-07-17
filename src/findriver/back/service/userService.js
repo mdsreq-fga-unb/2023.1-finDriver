@@ -30,6 +30,21 @@ const createUser = async (User) => {
     ])
     .select("id");
 
+  // const { car, carError } = await supabase
+  //   .from("Cars")
+  //   .insert([
+  //     {
+  //       idUser: data[0].id,
+  //       license_plate: "XXX000",
+  //       year: "0",
+  //       mileage: "0",
+  //       kmPerAlcool: "0",
+  //       kmPerGas: "0",
+  //       notes: "-",
+  //       model: "-",
+  //     },
+  //   ])
+
   if (error) {
     if (error.code == "23505") {
       return "Usuário já existe";
@@ -77,7 +92,7 @@ async function updateUserById(user, id) {
   return;
 }
 
-async function deleteUserById(user, id) {
+async function deleteUserById(password, id) {
 
   const { data, error } = await supabase
     .from("Users")
@@ -89,15 +104,16 @@ async function deleteUserById(user, id) {
       throw error;
     }
 
-  if (await bcrypt.compareSync(user.password, (data[0].password).toString())){
-    await supabase.from("Users").delete().eq("id", id.id); 
+    const isEqual = await bcrypt.compareSync(password, (data[0].password).toString())
 
-    return "Usuário excluido com sucesso"
+  if (isEqual){
+    await supabase.from("Users").delete().eq("id", id.id); 
+    return "Usuário excluido com sucesso!"
+
   } else {
-    return "Senha incorreta"
+    return "Senha incorreta!"
   }
 }
-
 
 module.exports = {
   createUser,
