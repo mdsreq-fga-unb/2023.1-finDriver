@@ -24,7 +24,7 @@ import EditUser from "./view/pages/EditUser";
 import EditRide from "./view/pages/EditRide";
 import Car from "./view/pages/Car"
 import PasswordRecovery from "./view/pages/PasswordRecovery";
-import Goal from "./view/pages/Goal"
+import Goal from "./view/pages/EditGoal"
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();

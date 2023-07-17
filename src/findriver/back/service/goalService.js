@@ -9,11 +9,11 @@ const createGoal = async (userId, Goal) => {
         .insert([
             {
                 idUser: userId,
-                name: Goal.name,
                 valueCurrent: Goal.valueCurrent,
                 valueGoal: Goal.valueGoal,
                 deadline: Goal.deadline,
                 inicialDate: new Date().toISOString(),
+                description: Goal.description,
             },
         ])
         .single();
