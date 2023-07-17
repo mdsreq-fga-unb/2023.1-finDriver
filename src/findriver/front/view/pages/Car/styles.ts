@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column'
     },
     titleArea:{
-        marginTop: '20%',
+        marginTop: '27%',
         marginBottom: '10%',
         width: '70%',
         flexDirection: 'row',

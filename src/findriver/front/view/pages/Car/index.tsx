@@ -9,8 +9,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../components/Header';
 import { TextInput } from 'react-native-gesture-handler';
 
-const Car = ({ navigation, route }) => {
-    const { name, email, password, isFirstTime } = route.params;
+const Car = ({ navigation, isFirstTime }) => {
+    // const { isFirstTime } = route.params;
     const [refreshing, setRefreshing] = useState(false);
     const [editing, setEditing] = useState(false);
 
