@@ -11,7 +11,7 @@ const SecurityQuestion = ({ navigation, route }) => {
     const [questionTwo, setQuestionTwo] = useState('');
     const [answerTwo, setAnswerTwo] = useState('');
 
-    const { name, email, password } = route.params;
+    const { name, email, password} = route.params;
 
     const handleCreateUser = () => {
         const specialChars = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;

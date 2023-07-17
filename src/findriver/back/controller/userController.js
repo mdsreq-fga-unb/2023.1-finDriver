@@ -59,7 +59,7 @@ async function updateUser(req, res) {
 };
 
 async function deleteUser(req, res) {
-  const password = req.body
+  const { password } = req.body
   const id = req.params;
 
   try{
