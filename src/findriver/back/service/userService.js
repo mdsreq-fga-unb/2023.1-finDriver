@@ -88,7 +88,7 @@ async function deleteUserById(user, id) {
       console.log(error);
       throw error;
     }
-
+    
   if (await bcrypt.compareSync(user.password, (data[0].password).toString())){
     await supabase.from("Users").delete().eq("id", id.id); 
 
@@ -96,6 +96,8 @@ async function deleteUserById(user, id) {
   } else {
     return "Senha incorreta"
   }
+
+  
 }
 
 
