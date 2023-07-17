@@ -82,6 +82,27 @@ describe('Funções do rideService', () => {
         });
     });
 
+    describe('Caso do getRideById', () => {
+        test('getRideById deve retornar a corrida de id = 1', () => {
+            const getRideByIdMock = jest.fn((id) => {
+                const ride = rides[id];
+                return ride;
+            });
+
+            const result = getRideByIdMock(1);
+            expect(result).toEqual(
+            {
+                id: 1,
+                idUser: 1,
+                value: 20.7,
+                kilometerage: 5.7,
+                application: '99',
+                description: 'Something',
+                date: '2023-09-06'
+            });
+        });
+    });
+
     describe('Caso do updateRideById', () => {
         test('Deve atualizar informações da ride de id = 0', () => {
             
@@ -112,6 +133,19 @@ describe('Funções do rideService', () => {
                 description: 'Something',
                 date: '2023-10-08'
             });
+        });
+    });
+
+    describe('Função para deletar a corrida', () => {
+        test('Teste para verificar se a corrida foi deletada', () => {
+            const deleteRideByIdMock = jest.fn((id) => {
+                if (rides[id].id === id){
+                    rides.splice(id, 1);
+                    return true;
+                }
+            });
+            const result = deleteRideByIdMock(1);
+            expect(result).toBe(true);
         });
     });
 });

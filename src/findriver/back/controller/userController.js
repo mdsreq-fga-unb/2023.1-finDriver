@@ -59,18 +59,16 @@ async function updateUser(req, res) {
 };
 
 async function deleteUser(req, res) {
-  //const password = req.body
-  const { id, password } = req.params;
+  const password = req.body
+  const id = req.params;
 
   try{
-    await userService.deleteUserById(password, id);
+    let serviceResponse = await userService.deleteUserById(password, id);
 
-    res.status(statusCode.OK).json({ message: 'Alterações feitas com sucesso!' });
+    res.status(statusCode.OK).json({ message: serviceResponse });
   } catch (e) {
     res.status(e.status || 500).json({ message: e.message });
   }
-
-  return res.status(statusCode.NO_CONTENT).send();
 };
 
 async function loginUser(req, res) {

@@ -2,9 +2,10 @@ const jwt = require("jsonwebtoken");
 
 const createToken = (user) => {
   const token = jwt.sign(
-    { data: user }, 
-    process.env.TOKEN_KEY,
+      { data: user }, 
+      process.env.TOKEN_KEY,
     );
+    console.log(token);
   return token;
 };
 
@@ -12,7 +13,7 @@ const getUserIdByToken = (token) => {
   if (!token) {
     throw new Error("Token de autenticação não fornecido!");
   }
-  //console.log(token)
+  // console.log(token)
   try {
     const decoded = jwt.verify(token, process.env.TOKEN_KEY);
     //console.log(decoded);
