@@ -9,8 +9,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../components/Header';
 import { TextInput } from 'react-native-gesture-handler';
 
-const Car = ({ navigation }) => {
-    
+const Car = ({ navigation, route }) => {
+    const { name, email, password, isFirstTime } = route.params;
     const [refreshing, setRefreshing] = useState(false);
     const [editing, setEditing] = useState(false);
 
@@ -22,6 +22,10 @@ const Car = ({ navigation }) => {
     const [mileage, setMileage] = useState("300903");
     const [notes, setNotes] = useState("Carro futuro da marys");
 
+    if(isFirstTime){
+        setEditing(true);
+    }
+
     const handleEditPress = () => {
         setEditing(!editing);
     };
@@ -31,17 +35,15 @@ const Car = ({ navigation }) => {
     }
 
     const handleSavePress = () => {
-       /*Enviar os dados pro banco*/ 
-
-        setEditing(!editing);
+        /* Fazer o fetch, se os dados forem undefined rota criar, se não rota salvar */
+        /*Enviar os dados pro banco*/ 
+            
+            setEditing(!editing);
+        
     }
 
     const handleDelete = () => {
         /* Tayanara apague os dados do banco */
-
-
-
-
 
         setModel("-");
         setYear("-");
@@ -134,7 +136,7 @@ const Car = ({ navigation }) => {
                                 </Pressable> 
                             </View>    
                         ): (
-                        <Pressable style={styles.button} onPress={handleEditPress}>
+                            <Pressable style={styles.button} onPress={handleEditPress}>
                                 <Text style={styles.textButton}>Editar</Text>
                             </Pressable> 
                         )}

@@ -20,7 +20,7 @@ import ProgressBar from '../../components/ProgressBar/ProgressBar';
 const Tab = createBottomTabNavigator();
 
 const Home = ({ navigation }) => {
-
+    console.log("EEEEEEEEEEEEEEEEEEEEEEUUUUUUUUUUUUUUUUUUUUUU")
     const [km, setKm] = useState(0);
     const [weekAverageExpense, setweekAverageExpense] = useState(0);
     const [weekAverageProfit, setweekAverageProfit] = useState(0);
@@ -248,18 +248,22 @@ const Home = ({ navigation }) => {
                     <Text style={[styles.kmText, {fontWeight: '700'}]}>R$ {(weekAverageExpense/7).toFixed(2)}</Text>
                 </View>    
 
+                
                 <View style={styles.goalContainer}>
                     <Text style={styles.title}>Meta</Text>
-                    <Pressable  onPress={() => navigation.navigate("")}>
+                    <Pressable  onPress={() => navigation.navigate("Meta", true)}>
                         <Icon name="plus" size={25} color={"#1c5560"}/>
                     </Pressable>
                 </View>
-                <View style={styles.goalCard}>
-                    <Text style={[styles.summaryTextTitle, {marginTop: 5}]}>Seu progresso atual </Text>
-                    <ProgressBar progress={30}/>
-                    <Text style={styles.summaryText}>⬩Sua meta é: {} </Text>
-                    <Text style={styles.summaryText}>⬩Você alcançou: {} </Text>
-                </View>
+                <Pressable  onPress={() => navigation.navigate("Meta", false)}>
+                    <View style={styles.goalCard}>
+                        <Text style={[styles.summaryTextTitle, {marginTop: 5}]}>Seu progresso atual </Text>
+                        <ProgressBar progress={30}/>
+                        <Text style={styles.summaryText}>⬩Sua meta é: {} </Text>
+                        <Text style={styles.summaryText}>⬩Você alcançou: {} </Text>
+                        <Text style={styles.summaryText}>⬩Faltam {} para o fim</Text>
+                    </View>
+                </Pressable>
                
                 <View >
                     <Text style={styles.title}>Ferramentas de cálculo</Text>
