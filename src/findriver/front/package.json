@@ -24,6 +24,7 @@
     "@types/enzyme": "^3.10.13",
     "@types/hammerjs": "^2.0.41",
     "@types/react": "~18.0.27",
+    "emailable": "^3.0.3",
     "expo": "^48.0.19",
     "expo-constants": "~14.2.1",
     "expo-status-bar": "~1.4.4",
