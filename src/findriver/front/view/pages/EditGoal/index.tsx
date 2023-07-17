@@ -9,22 +9,23 @@ import dados from '../../../dados';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../components/Header';
 
-const Goal = ({ navigation, isCreate }) => {
+const Goal = ({ navigation, route }) => {
     const [refreshing, setRefreshing] = useState(false);
+    const { isCreate, token} = route.params;
+    console.log(isCreate)
 
-    const [token, setToken] = useState('');
     const [total, setTotal] = useState("1500");
     const [currentMoney, setCurrentMoney] = useState("50");
     const [deadline, setDeadline] = useState("12/10/2023");
     const [description, setDescription] = useState("geladeira duas portas");
    
-
     const handleCancelPress = () => {
         navigation.goBack();
     }
 
     const handleSavePress = () => {
        /*Enviar os dados pro banco*/ 
+       console.log(isCreate)
 
        if(isCreate){
             if(!total || !currentMoney || !deadline){
@@ -34,35 +35,35 @@ const Goal = ({ navigation, isCreate }) => {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        Accept: "application/json",
-                        Authorization: token.toString(),
+                        "Accept": "application/json",
+                        "Authorization": token,
                     },
                     body: JSON.stringify({
-                        total: total,
-                        currentMoney: currentMoney,
+                        valueCurrent: total,
+                        valueGoal: currentMoney,
                         deadline: deadline,
                         description: description,
-                        date: selectedDate,
                     }),
-                    };
-                    fetch(`${dados.Url}/api/ride/adicionar`, requestOptions)
-                        .then((response) => {
-                            console.log(response.status);
-                            if (response.status === 201) {
-                            Alert.alert("Corrida cadastrada com sucesso");
-                            navigation.navigate("Corridas");
-                            } else {
-                            Alert.alert("Erro", "Ocorreu um erro ao cadastrar a corrida");
-                            }
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                        });
+                };
+                fetch(`${dados.Url}/api/goal/adicionar`, requestOptions)
+                    .then((response) => {
+                        console.log(response.status);
+                        if (response.status === 201) {
+                            Alert.alert("Meta cadastrada!", "Sua meta foi cadastrada com sucesso. Fique atento à data final e mantenha o valor alcançado atualizado.");
+                        } else if(response.status === 409){
+                            Alert.alert("Você já possui uma meta!", "Você não pode criar mais de uma meta. Tente alterar ou excluir sua meta atual.");
+                        }else {
+                            Alert.alert("Erro", "Ocorreu um erro ao cadastrar sua meta");
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
             }
             console.log(isCreate)
         } else{
             //salvar meta
-            console.log(isCreate)
+            // console.log(isCreate)
         }
 
        navigation.goBack();
