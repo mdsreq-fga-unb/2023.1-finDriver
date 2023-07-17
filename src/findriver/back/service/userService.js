@@ -15,7 +15,7 @@ const createUser = async (User) => {
   var salt = bcrypt.genSaltSync(10);
   var encryptedPassword = bcrypt.hashSync(User.password, salt);
 
-  const { data, error } = await supabase
+  const { data: userData, error: userError } = await supabase
     .from("Users")
     .insert([
       {
@@ -28,30 +28,40 @@ const createUser = async (User) => {
         answerTwo: User.answerTwo,
       },
     ])
-    .select("id");
+    .select("id")
 
-  // const { car, carError } = await supabase
-  //   .from("Cars")
-  //   .insert([
-  //     {
-  //       idUser: data[0].id,
-  //       license_plate: "XXX000",
-  //       year: "0",
-  //       mileage: "0",
-  //       kmPerAlcool: "0",
-  //       kmPerGas: "0",
-  //       notes: "-",
-  //       model: "-",
-  //     },
-  //   ])
-
-  if (error) {
-    if (error.code == "23505") {
+  if (userError) {
+    if (userError.code == "23505") {
       return "Usuário já existe";
     } else {
       console.log(error);
       throw error;
     }
+  }
+
+  const { data: carData, error: carError } = await supabase
+    .from("Cars")
+    .insert([
+      {
+        idUser: userData[0].id,
+        license_plate: "XXX000",
+        year: "0",
+        mileage: "0",
+        kmPerAlcool: "0",
+        kmPerGas: "0",
+        notes: "-",
+        model: "-",
+      },
+    ])
+    .single()
+    .select("*");
+
+  console.log({ carData });
+
+
+  if (carError) {
+    console.log(carError);
+    throw carError;
   }
 };
 
