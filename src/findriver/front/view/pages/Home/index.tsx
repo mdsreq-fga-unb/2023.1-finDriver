@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, ScrollView, KeyboardAvoidingView, Image, Text, StyleSheet, Alert, Pressable, TextInput, StatusBar, RefreshControl } from 'react-native';
+import { Modal, View, ScrollView, KeyboardAvoidingView, Image, Text, StyleSheet, Alert, Pressable, TextInput, StatusBar, RefreshControl } from 'react-native';
 import { Screen } from 'react-native-screens'
 import RideCard from '../../components/RideCard'
 
@@ -32,7 +32,24 @@ const Home = ({ navigation }) => {
     const [refreshing, setRefreshing] = useState(false);
     const [isGoalRegistered, setIsGoalRegistered] = useState(false)
     const [goal, setGoal] = useState({valueGoal: 0, valueCurrent: 0, deadline: '', description: ''})
+    const [modalVisible, setModalVisible] = useState(false);
+    const [precoAl, setPrecoAl] = useState(0)
+    const [precoGs, setPrecoGs] = useState(0)
+    const [message, setMessage] = useState("")
 
+
+    function calcularCombustivelVantajoso(precoAlcool, precoGasolina) {
+        // Calcula o preço relativo do álcool em relação à gasolina
+        var relacao = precoAlcool / precoGasolina;
+
+        if (relacao < 0.7) {
+            setMessage("Álcool é mais vantajoso.");
+        } else if (relacao > 0.7) {
+            setMessage("Gasolina é mais vantajosa.");
+        } else {
+            setMessage("Tanto faz usar álcool ou gasolina.");
+        }
+      }
   
     const fetchExpense = async () => {
         try{
@@ -257,6 +274,7 @@ const Home = ({ navigation }) => {
         getGoal(token);
         getToken();
     }, [token, rides, expense]);
+
     
     return (
         <View style={styles.container}>
@@ -310,7 +328,7 @@ const Home = ({ navigation }) => {
                
                 <View >
                     <Text style={styles.title}>Ferramentas de cálculo</Text>
-                    <Pressable style={styles.toolsContainer} onPress={() => navigation.navigate("")}>
+                    <Pressable style={styles.toolsContainer} onPress={() => setModalVisible(true)}>
                         <View style={styles.toolCard}>
                             <Text style={[styles.summaryTextTitle]}>Gasolina ou Álcool?</Text>
                             <Icon name="gas-pump" size={25} color={"#f5f5f7"}/>
@@ -344,6 +362,64 @@ const Home = ({ navigation }) => {
 
                 </View>           
             </ScrollView>
+
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                }}>
+                
+                <View style={styles.modalContainer}>
+                    <View style={styles.modalContent}>
+                        <View style={{flexDirection: 'row', marginBottom: 15, width: 300}}>
+                            <Text style={[styles.modalText, { fontWeight: 'bold'}]}>Qual combustível é mais vantajoso hoje?
+                            </Text>
+                            <Pressable
+                                style={[styles.modalButton, {backgroundColor: '#ed0000', width: 30, height: 30, padding: 0, marginHorizontal: 10}]}
+                                onPress={() => setModalVisible(false)}>
+                                <Text style={styles.modalButtonText}>x</Text>
+                            </Pressable>
+                        </View>
+
+                        <View style={{flexDirection: 'row'}}>
+                            <Text style={[styles.modalText, {marginBottom: 4}]}>Preço Álcool:</Text>
+
+                            <TextInput
+                                style={styles.modalTextInput}
+                                value={String(precoAl)}
+                                onChangeText={value => setPrecoAl(Number(value))}
+                                placeholder="Preço Álcool"
+                                keyboardType="numeric"
+                                cursorColor="#001f36"
+                            />
+                        </View>
+
+                        <View style={{flexDirection: 'row'}}>
+                            <Text style={[styles.modalText, {marginBottom: 4}]}>Preço Gasolina:</Text>
+
+                            <TextInput
+                                style={styles.modalTextInput}
+                                value={String(precoGs)}
+                                onChangeText={value => setPrecoGs(Number(value))}
+                                placeholder="Preço Gasolina"
+                                keyboardType="numeric"
+                                cursorColor="#001f36"
+                            />
+                        </View>
+                        {message ? (<Text style={styles.modalText} >{message}</Text>) : ("")}
+
+                        <View style={styles.modalButtonArea}>
+                            <Pressable
+                                style={styles.modalButton}
+                                onPress={() => calcularCombustivelVantajoso(precoAl, precoGs)}>
+                                <Text style={styles.modalButtonText}>Calcular</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
         </View>
     
         );
