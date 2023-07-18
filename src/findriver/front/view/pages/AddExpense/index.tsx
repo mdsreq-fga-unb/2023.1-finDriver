@@ -26,7 +26,7 @@ const AddExpense = ({ navigation, route }) => {
 
 
     const handleAddExpense = () => {
-        if(!description || !value || !type){
+        if(!selectedDate || !value || !type){
             Alert.alert('Erro','Por favor, preencha todos os campos');
         } else {
             const requestOptions = {

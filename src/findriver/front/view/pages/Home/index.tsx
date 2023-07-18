@@ -33,14 +33,14 @@ const Home = ({ navigation }) => {
     const [isGoalRegistered, setIsGoalRegistered] = useState(false)
     const [goal, setGoal] = useState({valueGoal: 0, valueCurrent: 0, deadline: '', description: ''})
     const [modalVisible, setModalVisible] = useState(false);
-    const [precoAl, setPrecoAl] = useState(0)
-    const [precoGs, setPrecoGs] = useState(0)
+    const [precoAl, setPrecoAl] = useState("0")
+    const [precoGs, setPrecoGs] = useState("0")
     const [message, setMessage] = useState("")
 
 
     function calcularCombustivelVantajoso(precoAlcool, precoGasolina) {
         // Calcula o preço relativo do álcool em relação à gasolina
-        var relacao = precoAlcool / precoGasolina;
+        var relacao = Number(precoAlcool) / Number(precoGasolina);
 
         if (relacao < 0.7) {
             setMessage("Álcool é mais vantajoso.");
@@ -316,7 +316,7 @@ const Home = ({ navigation }) => {
                                 <Text style={styles.summaryText}>⬩Sua meta é: {goal.valueGoal} </Text>
                            </Pressable>
                         ) : (
-                            <Pressable  onPress={() => navigation.navigate("Meta", { isCreate: true , goal: null, token: token})}>
+                            <Pressable  onPress={() => navigation.navigate("Meta", { isCreate: true , goal: {total: "", currentMoney: "", deadline: "", description:""}, token: token})}>
                                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                                     <Text style={styles.summaryTextTitle} >Cadastre uma meta aqui</Text>
                                     <Icon name="plus" size={25} color={"#f5f5f7"}/>
@@ -389,7 +389,7 @@ const Home = ({ navigation }) => {
                             <TextInput
                                 style={styles.modalTextInput}
                                 value={String(precoAl)}
-                                onChangeText={value => setPrecoAl(Number(value))}
+                                onChangeText={value => setPrecoAl(value)}
                                 placeholder="Preço Álcool"
                                 keyboardType="numeric"
                                 cursorColor="#001f36"
@@ -402,7 +402,7 @@ const Home = ({ navigation }) => {
                             <TextInput
                                 style={styles.modalTextInput}
                                 value={String(precoGs)}
-                                onChangeText={value => setPrecoGs(Number(value))}
+                                onChangeText={value => setPrecoGs(value)}
                                 placeholder="Preço Gasolina"
                                 keyboardType="numeric"
                                 cursorColor="#001f36"

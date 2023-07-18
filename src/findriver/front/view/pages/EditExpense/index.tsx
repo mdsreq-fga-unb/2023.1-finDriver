@@ -37,7 +37,7 @@ const EditExpense = ({ navigation, route }) => {
   };
 
   const handleEditExpense = () => {
-    if (!description || !value || !selectedDate || !type) {
+    if (!value || !selectedDate || !type) {
       Alert.alert("Erro", "Por favor, preencha todos os campos");
     } else {
       const requestOptions = {
@@ -91,16 +91,6 @@ const EditExpense = ({ navigation, route }) => {
 
         <View style={styles.componentsContainer}>
           <View style={styles.causeValueContainer}>
-            <Text style={styles.label}>Descrição</Text>
-            <TextInput
-              style={styles.input}
-              value={description}
-              onChangeText={(description) => setDescription(description)}
-              placeholder="Causa"
-              keyboardType="default"
-              cursorColor="#001f36"
-            />
-
             <Text style={styles.label}>Valor</Text>
             <TextInput
               style={styles.input}
@@ -109,9 +99,6 @@ const EditExpense = ({ navigation, route }) => {
               placeholder="00.00"
               cursorColor="#001f36"
             />
-          </View>
-
-          <View style={styles.dataTypeContainer}>
             <Text style={styles.label}>Data</Text>
             <TextInput
               style={styles.input}
@@ -121,6 +108,9 @@ const EditExpense = ({ navigation, route }) => {
               keyboardType="numbers-and-punctuation"
               cursorColor="#001f36"
             />
+          </View>
+
+          <View style={styles.dataTypeContainer}>
 
             <Text style={styles.label}>Tipo</Text>
             <Picker
@@ -135,6 +125,15 @@ const EditExpense = ({ navigation, route }) => {
               ]}
               style={styles.picker}
             />
+              <Text style={styles.label}>Descrição</Text>
+              <TextInput
+                style={styles.input}
+                value={description}
+                onChangeText={(description) => setDescription(description)}
+                placeholder="Causa"
+                keyboardType="default"
+                cursorColor="#001f36"
+              />
           </View>
 
           <Pressable style={styles.button} onPress={() => handleEditExpense()}>
