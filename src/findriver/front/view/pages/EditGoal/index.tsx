@@ -70,7 +70,19 @@ const Goal = ({ navigation, route }) => {
     }
 
     const handleDelete = () => {
-        /* Tayanara apague os dados do banco */
+        const requestOptions = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": token
+            }
+        };
+        fetch(`${dados.Url}/api/goal/deletar`, requestOptions)
+        .then((response) => response.json())
+            .catch((error) => {
+                console.log(error);
+            });
         
         setTotal('');
         setCurrentMoney('');
