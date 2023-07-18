@@ -14,13 +14,26 @@ const Car = ({ navigation, isFirstTime }) => {
     const [refreshing, setRefreshing] = useState(false);
     const [editing, setEditing] = useState(false);
 
-    const [model, setModel] = useState("Celta");
-    const [year, setYear] = useState("1999");
-    const [licensePlate, setLicensePlate] = useState("FGA309");
-    const [kmPerAlcool, setKmPerAlcool] = useState("10.7");
-    const [kmPerGas, setKmPerGas] = useState("13");
-    const [mileage, setMileage] = useState("300903");
-    const [notes, setNotes] = useState("Carro futuro da marys");
+    const [id, setId] = useState(0);
+    const [model, setModel] = useState("");
+    const [year, setYear] = useState("");
+    const [licensePlate, setLicensePlate] = useState("");
+    const [kmPerAlcool, setKmPerAlcool] = useState("");
+    const [kmPerGas, setKmPerGas] = useState("");
+    const [mileage, setMileage] = useState("");
+    const [notes, setNotes] = useState("");
+    const [token, setToken] = useState('');
+
+    const getToken = async () => {
+        try {
+          const tokenValue = await AsyncStorage.getItem("token");
+          if (tokenValue !== null) {
+            setToken(tokenValue);
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      };
 
     if(isFirstTime){
         setEditing(true);
@@ -34,25 +47,112 @@ const Car = ({ navigation, isFirstTime }) => {
         setEditing(!editing);
     }
 
+    const getCar = () => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                Authorization: token.toString() 
+                //'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZCI6NDgyLCJlbWFpbCI6IjEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRBT1h0TkFVcWFNQ1U1WEhkRUw0d2F1aW9mdjQxNVVndU1sc3lxUWdHai53eUFnekNtNGRhNiJ9XSwiaWF0IjoxNjg5NjQxODkyfQ.5RP_bmla4XmlDfekcIr31rBKcwvy8gBrxs4XR2mk-ac'
+            }
+        };
+        fetch(`${dados.Url}/api/car/ver/`, requestOptions)
+        .then((response) => response.json())
+                .then((data) => {
+                    console.log(data.value[0].id)
+                    setId(data.value[0].id);
+                    setModel(data.value[0].model);
+                    setYear(data.value[0].year)
+                    setMileage(data.value[0].mileage);
+                    setLicensePlate(data.value[0].license_plate);
+                    setKmPerAlcool(data.value[0].kmPerAlcool);
+                    setKmPerGas(data.value[0].kmPerGas);
+                    setNotes(data.value[0].notes);
+                })
+        .catch((error) => {
+          console.log(error);
+        });
+        
+    }
+
     const handleSavePress = () => {
-        /* Fazer o fetch, se os dados forem undefined rota criar, se não rota salvar */
-        /*Enviar os dados pro banco*/ 
+
+        getCar();
+
+        const requestOptions = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                
+            },
+            body: JSON.stringify({
+                model: model,
+                mileage: mileage,
+                license_plate: licensePlate,
+                year: year,
+                kmPerAlcool: kmPerAlcool,
+                kmPerGas: kmPerGas,
+                notes: notes
+            })
+        };
+        fetch(`${dados.Url}/api/car/editar/${id}`, requestOptions)
+        .then((response) => {
+          console.log(response.status);
+          if (response.status === 200) {
+            Alert.alert("Carro atualizado com sucesso");
+          } else {
+            Alert.alert("Erro", "Ocorreu um erro ao atualizar os dados do carro");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
             
             setEditing(!editing);
         
     }
 
     const handleDelete = () => {
-        /* Tayanara apague os dados do banco */
 
-        setModel("-");
-        setYear("-");
-        setLicensePlate("-");
-        setKmPerAlcool("0");
-        setKmPerGas("0");
-        setMileage("0");
-        setNotes("");
+        getCar();
+
+        const requestOptions = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',   
+            },
+            body: JSON.stringify({
+                model: "-",
+                mileage: "0",
+                license_plate: "-",
+                year: "-",
+                kmPerAlcool: "0",
+                kmPerGas: "0",
+                notes: ""
+            })
+        };
+
+        fetch(`${dados.Url}/api/car/editar/${id}`, requestOptions)
+        .then((response) => {
+          console.log(response.status);
+          if (response.status === 200) {
+            Alert.alert("Carro excluido com sucesso");
+          } else {
+            Alert.alert("Erro", "Ocorreu um erro ao excluir os dados do carro");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
+
+    useEffect(() => {
+        getToken();
+        getCar();
+      }, [token]);
 
     return(
         <ScrollView /*refreshControl={}*/ style={styles.body}>
