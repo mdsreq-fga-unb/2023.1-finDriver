@@ -13,9 +13,9 @@ Foi analisado um problema em relação a analide do DoR e DoD, basicamente a cri
 
 As histórias finalizadas foram: US21, US22, US23, US24, US29, US32, US33, US34, US35, US36, US37;
 
-Os débitos técnicos do MVP1 que foram resolvidos:US03, US04, US06, US07, US18
+Os débitos técnicos do MVP1 que foram resolvidos:US03, US04, US06
 
-Os débitos técnicos do MVP1 que não foram resolvidos: US01
+Os débitos técnicos do MVP1 que não foram resolvidos: US01, US07, US12, US18
 
 ## Sprint Review
 Mostramos o produto final ao cliente e ele estava satisfeito. 
