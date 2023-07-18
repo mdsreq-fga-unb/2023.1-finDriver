@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView} from 'react-native';
+import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView, ScrollView} from 'react-native';
+// import CalendarPicker from 'react-native-calendar-picker';
 import Picker from '@ouroboros/react-native-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -9,10 +10,13 @@ import dados from "../../../dados";
 const AddExpense = ({ navigation, route }) => {
     const [description, setDescription] = useState('');
     const [value, setValue] = useState('');
-    const [selectedDate, setSelectedDate] = useState('');
+    const [selectedDate, setSelectedDate] = useState(new Date());
     const [type, setType] = useState('');
     const [token, setToken] = useState('');
-
+    
+    // const selectedStartDate = new Date();
+    // const startDate = selectedStartDate ? selectedStartDate.toString() : '';
+    
     const getToken = async () => {
         try {
             const value = await AsyncStorage.getItem('token')
@@ -24,8 +28,9 @@ const AddExpense = ({ navigation, route }) => {
         }
     }
 
+
     const handleAddExpense = () => {
-        if(!description || !value || !selectedDate || !type){
+        if(!description || !value || !type){
             Alert.alert('Erro','Por favor, preencha todos os campos');
         } else {
             const requestOptions = {
@@ -64,8 +69,9 @@ const AddExpense = ({ navigation, route }) => {
     }, [token]);
 
     return(
+    <ScrollView>
         <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
-
+            
             <View style={styles.container}>
             
                 <View>
@@ -87,15 +93,24 @@ const AddExpense = ({ navigation, route }) => {
                             cursorColor="#001f36"
                         />
                         <Text style={styles.label}>Data</Text>
-                        <TextInput
+                        {/* <CalendarPicker value={selectedDate}
+                        startFromMonday={true}
+                        minDate={20/12/1900}
+                        maxDate={20/12/2035}
+                        todayBackgroundColor="#f2e6ff"
+                        enableDateChange={true}
+                        selectedDayColor="#7300e6"
+                        selectedDayTextColor="#FFFFFF"
+                         onDateChange={(selectedDate) => setSelectedDate(selectedDate)} /> */}
+                        {/* <TextInput
                             style={styles.input}
                             value={selectedDate}
                             onChangeText={selectedDate => setSelectedDate(selectedDate)}
                             placeholder="YYYY/MM/DD"
                             keyboardType="phone-pad"
                             cursorColor="#001f36"
-                        />
-                    
+                        /> */}
+                                
                         <Text style={styles.label}>Tipo</Text>
                         <Picker
                             value={type}
@@ -129,6 +144,7 @@ const AddExpense = ({ navigation, route }) => {
                 </View>
             </View>
         </KeyboardAvoidingView>
+        </ScrollView>
     );
 };
 

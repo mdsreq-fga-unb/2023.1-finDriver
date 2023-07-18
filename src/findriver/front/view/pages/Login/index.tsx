@@ -60,8 +60,8 @@ const Login = ({ navigation }) => {
                         return navigation.navigate('Tab');
                     } 
                 } catch (e) {
-                    return Alert.alert('Erro', 'E-mail ou senha inválidos');
                     console.log(e)
+                    return Alert.alert('Erro', 'E-mail ou senha inválidos');
                 }
             })
             .catch((e) => {

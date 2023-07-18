@@ -3,6 +3,8 @@ import { View, Image, Text, Alert, Pressable, TextInput, ScrollView, KeyboardAvo
 
 import styles from './styles';
 import Header from '../../components/Header';
+import { isConstructorDeclaration } from 'typescript';
+import { response } from 'express';
 
 const Register = ({ navigation }) => {
     const [name, setName] = useState('');
@@ -14,18 +16,32 @@ const Register = ({ navigation }) => {
         return repeatPassword === password ? true : false;
     }
 
+    const validateEmail = (email: string) => {
+        var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (regex.test(email)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     const handleRegister = () => {
 
         const specialChars = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+
+        const emailValidate = validateEmail(email);
         
         if (!name || !email || !password || !repeatPassword) {
             Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
         } else if (!comparePassword()) {
             Alert.alert('Erro', 'As senhas não coincidem. Por favor, tente novamente.');
-        } else if(password.length < 8){
+        } else if (password.length < 8){
             Alert.alert('Erro', 'A senha deve ter pelo menos 8 caracteres')
-        } else if(!specialChars.test(password)){
+        } else if (!specialChars.test(password)){
             Alert.alert('Erro', 'A senha deve ter pelo menos 1 caracteres especial($@&*+=_#%)');               
+        } else if (!emailValidate) {
+            Alert.alert('Erro', 'O email inserido não é válido.')
         } else {
             navigation.navigate('Perguntas',{name: name, email: email, password: password});
         }
