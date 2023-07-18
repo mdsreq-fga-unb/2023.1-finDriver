@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView, ScrollView} from 'react-native';
-// import CalendarPicker from 'react-native-calendar-picker';
 import Picker from '@ouroboros/react-native-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -97,7 +96,7 @@ const AddExpense = ({ navigation, route }) => {
                             placeholder="YYYY/MM/DD"
                             keyboardType="phone-pad"
                             cursorColor="#001f36"
-                        />
+                        />                       
                                 
                         <Text style={styles.label}>Tipo</Text>
                         <Picker
