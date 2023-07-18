@@ -4,7 +4,8 @@ sidebar_position: 4
 
 # Unidade 4
 
-A Unidade 4 foi uma etapa extremamente decisiva no projeto, não nos dedicamos o tanto quanto queríamos por conflitos externos e o produto não foi entregue da forma que queríamos, mas considerando o tempo que tivemos para o aprimoramento do mesmo, a Unidade foi um sucesso. Nessa unidade, além de focar em resolver débitos técnicos, focamos no desenvolvimento final das 9 histórias de usuário pendentes para o MVP2.
+A Unidade 4 foi uma etapa importante do projeto, durante a mesma, enfrentamos alguns problemas externos que limitaram o nosso progresso. Apesar disso, conseguimos avançar com sucesso, considerando o tempo disponível para isso. Focamos em resolver os débitos técnicos e finalizar as 9 histórias de usuário restantes para a conclusão do MVP2.
+Embora o produto final não tenha sido entregue conforme desejávamos, é importante reconhecer o progresso alcançado ao concluir as tasks finais.
 
 ## Vídeo de Apresentação
 
