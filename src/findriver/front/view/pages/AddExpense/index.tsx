@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Alert, Pressable, TextInput, KeyboardAvoidingView, ScrollView} from 'react-native';
-// import CalendarPicker from 'react-native-calendar-picker';
 import Picker from '@ouroboros/react-native-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -10,12 +9,9 @@ import dados from "../../../dados";
 const AddExpense = ({ navigation, route }) => {
     const [description, setDescription] = useState('');
     const [value, setValue] = useState('');
-    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [selectedDate, setSelectedDate] = useState('');
     const [type, setType] = useState('');
     const [token, setToken] = useState('');
-    
-    // const selectedStartDate = new Date();
-    // const startDate = selectedStartDate ? selectedStartDate.toString() : '';
     
     const getToken = async () => {
         try {
@@ -93,23 +89,14 @@ const AddExpense = ({ navigation, route }) => {
                             cursorColor="#001f36"
                         />
                         <Text style={styles.label}>Data</Text>
-                        {/* <CalendarPicker value={selectedDate}
-                        startFromMonday={true}
-                        minDate={20/12/1900}
-                        maxDate={20/12/2035}
-                        todayBackgroundColor="#f2e6ff"
-                        enableDateChange={true}
-                        selectedDayColor="#7300e6"
-                        selectedDayTextColor="#FFFFFF"
-                         onDateChange={(selectedDate) => setSelectedDate(selectedDate)} /> */}
-                        {/* <TextInput
+                        <TextInput
                             style={styles.input}
                             value={selectedDate}
                             onChangeText={selectedDate => setSelectedDate(selectedDate)}
                             placeholder="YYYY/MM/DD"
                             keyboardType="phone-pad"
                             cursorColor="#001f36"
-                        /> */}
+                        />                       
                                 
                         <Text style={styles.label}>Tipo</Text>
                         <Picker

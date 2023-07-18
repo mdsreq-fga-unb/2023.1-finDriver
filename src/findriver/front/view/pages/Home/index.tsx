@@ -308,7 +308,7 @@ const Home = ({ navigation }) => {
                     
                         <View style={styles.goalCard}>
                         {goal ? (
-                            <Pressable  onPress={() => navigation.navigate("Meta", { isCreate: false , token: token})}>
+                            <Pressable  onPress={() => navigation.navigate("Meta", { isCreate: false , goal: goal, token: token})}>
                                 <Text style={[styles.summaryTextTitle, {marginTop: 5}]}>Seu progresso atual </Text>
                                 <ProgressBar progress={((goal.valueCurrent/goal.valueGoal)*100)}/>
                                 <Text style={styles.summaryText}>⬩⬩⬩ {goal?.description}</Text>
@@ -316,7 +316,7 @@ const Home = ({ navigation }) => {
                                 <Text style={styles.summaryText}>⬩Sua meta é: {goal.valueGoal} </Text>
                            </Pressable>
                         ) : (
-                            <Pressable  onPress={() => navigation.navigate("Meta", { isCreate: true , token: token})}>
+                            <Pressable  onPress={() => navigation.navigate("Meta", { isCreate: true , goal: null, token: token})}>
                                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                                     <Text style={styles.summaryTextTitle} >Cadastre uma meta aqui</Text>
                                     <Icon name="plus" size={25} color={"#f5f5f7"}/>
