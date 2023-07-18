@@ -12,7 +12,9 @@ Na sprint 7, a equipe trabalhará nas histórias de usuário 21, 22, 23 e 24 rel
 Foi analisado um problema em relação a analide do DoR e DoD, basicamente a criação de tela como requisito do DoR não fazia sentido para o fluxo do andamneto do projeto, sendo assim, esse requisito foi excluído.
 
 As histórias finalizadas foram: US21, US22, US23, US24, US29, US32, US33, US34, US35, US36, US37;
+
 Os débitos técnicos do MVP1 que foram resolvidos:US03, US04, US06, US07, US18
+
 Os débitos técnicos do MVP1 que não foram resolvidos: US01
 
 ## Sprint Review
