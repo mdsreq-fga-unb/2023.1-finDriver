@@ -14,6 +14,7 @@ sidebar_position: 6
 | 12/07/2023 | 1.4 | Adição da técnica automática nos testes funcionais de integração| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 | 13/07/2023 | 1.5 | Atualização das estratégias | [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 | 17/07/2023 | 1.6 | Adição dos resultados dos testes | [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
+| 18/07/2023 | 1.7 | Correção da tabela | [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 
 ### Introdução
 Nessa seção se encontra a estratégia de testes que deverá ser seguida pela equipe.
@@ -52,29 +53,29 @@ A seguir se encontra os resutados das quatro estratégias para cada *user story*
 |    US01   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US02   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US03   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US04   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
+|    US04   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
 |    US05   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US06   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US07   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US08   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
+|    US06   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
+|    US07   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
+|    US08   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
 |    US09   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US11   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US12   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
+|    US12   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
 |    US13   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US14   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US16   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US17   |         FALHOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US18   |         FALHOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US19   |         FALHOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US21   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US22   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US23   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US24   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US29   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US32   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US33   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US34   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US35   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
+|    US21   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
+|    US22   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
+|    US23   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
+|    US24   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
+|    US29   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
+|    US32   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
+|    US33   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
+|    US34   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
+|    US35   |         PASSOU        |         PASSOU        |         PASSOU        |         ANDAMENTO        |
 
 ## Referências 
 - Material do moodle da disciplina
