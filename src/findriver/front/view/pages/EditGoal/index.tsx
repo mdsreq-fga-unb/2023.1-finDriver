@@ -13,15 +13,25 @@ const Goal = ({ navigation, route }) => {
     const [refreshing, setRefreshing] = useState(false);
     const { isCreate, goal, token} = route.params;
     console.log(isCreate)
+    console.log(goal)
 
-    const [total, setTotal] = useState(String(goal.valueGoal));
-    const [currentMoney, setCurrentMoney] = useState(String(goal.valueCurrent));
-    const [deadline, setDeadline] = useState(goal.deadline);
-    const [description, setDescription] = useState(goal.description);
+    const [total, setTotal] = useState("");
+    const [currentMoney, setCurrentMoney] = useState("");
+    const [deadline, setDeadline] = useState("");
+    const [description, setDescription] = useState("");
    
     const handleCancelPress = () => {
         navigation.goBack();
     }
+
+    useEffect(() => {
+        if(!isCreate){
+            setTotal(String(goal?.valueGoal));
+            setCurrentMoney(String(goal?.valueCurrent));
+            setDeadline(goal?.deadline);
+            setDescription(goal?.description);
+        }
+    }, [])
 
     const handleSavePress = () => {
        /*Enviar os dados pro banco*/ 
