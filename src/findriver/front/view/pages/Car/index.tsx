@@ -54,7 +54,6 @@ const Car = ({ navigation, isFirstTime }) => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 Authorization: token.toString() 
-                //'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZCI6NDgyLCJlbWFpbCI6IjEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRBT1h0TkFVcWFNQ1U1WEhkRUw0d2F1aW9mdjQxNVVndU1sc3lxUWdHai53eUFnekNtNGRhNiJ9XSwiaWF0IjoxNjg5NjQxODkyfQ.5RP_bmla4XmlDfekcIr31rBKcwvy8gBrxs4XR2mk-ac'
             }
         };
         fetch(`${dados.Url}/api/car/ver/`, requestOptions)

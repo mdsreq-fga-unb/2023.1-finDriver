@@ -11,17 +11,27 @@ import Header from '../../components/Header';
 
 const Goal = ({ navigation, route }) => {
     const [refreshing, setRefreshing] = useState(false);
-    const { isCreate, token} = route.params;
+    const { isCreate, goal, token} = route.params;
     console.log(isCreate)
+    console.log(goal)
 
-    const [total, setTotal] = useState("1500");
-    const [currentMoney, setCurrentMoney] = useState("50");
-    const [deadline, setDeadline] = useState("12/10/2023");
-    const [description, setDescription] = useState("geladeira duas portas");
+    const [total, setTotal] = useState("");
+    const [currentMoney, setCurrentMoney] = useState("");
+    const [deadline, setDeadline] = useState("");
+    const [description, setDescription] = useState("");
    
     const handleCancelPress = () => {
         navigation.goBack();
     }
+
+    useEffect(() => {
+        if(!isCreate){
+            setTotal(String(goal?.valueGoal));
+            setCurrentMoney(String(goal?.valueCurrent));
+            setDeadline(goal?.deadline);
+            setDescription(goal?.description);
+        }
+    }, [])
 
     const handleSavePress = () => {
        /*Enviar os dados pro banco*/ 
@@ -62,8 +72,33 @@ const Goal = ({ navigation, route }) => {
             }
             console.log(isCreate)
         } else{
-            //salvar meta
-            // console.log(isCreate)
+            const requestOptions = {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization": token,
+                },
+                body: JSON.stringify({
+                    valueCurrent: currentMoney,
+                    valueGoal: total,
+                    deadline: deadline,
+                    description: description,
+                }),
+            };
+            fetch(`${dados.Url}/api/goal/editar`, requestOptions)
+                .then((response) => {
+                    console.log(response.status);
+                    if (response.status === 200) {
+                        Alert.alert("Meta Alterada!", "Sua meta foi editada com sucesso. Fique atento à data final e mantenha o valor alcançado atualizado.");
+                    }else {
+                        Alert.alert("Erro", "Ocorreu um erro ao editar sua meta");
+                    }
+                })
+                .catch((error) => {
+                    Alert.alert("Erro", "Ocorreu um erro ao editar sua meta");
+                    console.log(error);
+                });
         }
 
        navigation.goBack();
@@ -79,10 +114,15 @@ const Goal = ({ navigation, route }) => {
             }
         };
         fetch(`${dados.Url}/api/goal/deletar`, requestOptions)
-        .then((response) => response.json())
-            .catch((error) => {
+        .then((response) => {
+            Alert.alert("Meta deletada!", "Sua meta foi deletada com sucesso.");
+
+            response.json()
+        }).catch((error) => {
+            Alert.alert("Erro", "Ocorreu um erro ao deletar sua meta");
                 console.log(error);
-            });
+                
+        });
         
         setTotal('');
         setCurrentMoney('');
@@ -92,9 +132,9 @@ const Goal = ({ navigation, route }) => {
     }
 
     return(
-        <ScrollView /*refreshControl={}*/ style={styles.body}>
-            <KeyboardAvoidingView >
-                
+
+        <ScrollView /*refreshControl={}*/ style={styles.body}>  
+            <KeyboardAvoidingView>              
                 <Header/>
                 <View style={styles.container} >
                         
@@ -109,17 +149,18 @@ const Goal = ({ navigation, route }) => {
 
                     <View  style={styles.textArea}>
                         <Text style={styles.label}>Valor da meta:</Text>
-                            <TextInput style={styles.textInput} value={total} onChangeText={(value) => setTotal(value)}></TextInput> 
+                            <TextInput keyboardType="numeric" style={styles.textInput} value={total} onChangeText={(value) => setTotal(value)}></TextInput> 
 
                             <Text style={styles.label}>Quantidade obtida:</Text>
 
-                            <TextInput style={styles.textInput} value={currentMoney} onChangeText={(value) => setCurrentMoney(value)}></TextInput> 
+                            <TextInput keyboardType="numeric" style={styles.textInput} value={currentMoney} onChangeText={(value) => setCurrentMoney(value)}></TextInput> 
 
                         <Text style={styles.label}>Prazo final:</Text>
-                            <TextInput style={styles.textInput} value={deadline} onChangeText={(value) => setDeadline(value)}></TextInput> 
+                           
+                            <TextInput style={styles.textInput} placeholder="YYYY/MM/DD" keyboardType="phone-pad" value={deadline} onChangeText={(value) => setDeadline(value)}></TextInput> 
                         <View>
                             <Text style={styles.label}>Descrição:</Text>
-                                <TextInput  keyboardType="numeric" style={styles.textInput} value={description} onChangeText={(value) => setDescription(value)}/> 
+                                <TextInput style={styles.textInput} value={description} onChangeText={(value) => setDescription(value)}/> 
                         </View>
                     </View>
                         
