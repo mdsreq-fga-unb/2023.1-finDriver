@@ -66,7 +66,6 @@ A seguir se encontra os resutados das quatro estratégias para cada *user story*
 |    US17   |         FALHOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US18   |         FALHOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US19   |         FALHOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US20   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US21   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US22   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US23   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
