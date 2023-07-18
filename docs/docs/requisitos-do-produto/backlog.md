@@ -139,16 +139,15 @@ Os requisitos não funcionais (RNFs) definem os atributos do sistema, como segur
 
 | **Requisito** | **Descrição**                                                                                                                                                                                       |
 | :-----------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     US20      | Eu, como usuário, quero ter acesso a diferença de ganhos entre aplicativos de corrida para entender qual a plataforma mais vantajosa no momento.                                                    |
 |     US21      | Eu, como usuário, quero ser capaz de cadastrar uma meta de ganho com um valor e uma duração de tempo, para que eu tenha o controle da minha jornada diária de trabalho.                             |
 |     US22      | Eu, como usuário, quero visualizar as minhas metas de ganhos diários, para que eu consiga analisar facilmente meus ganhos.                                                                          |
 |     US23      | Eu, como usuário, quero ser capaz de editar as metas de ganho, para atualizar os dados                                                                                                              |
 |     US24      | Eu, como usuário, quero ser capaz de excluir as metas de ganho, para que não sejam fornecidas ao aplicativo informações desatualizadas ou irrelevantes                                              |
 |     US29      | Eu, como usuário, quero ser capaz de filtrar o meu histórico de ganhos e despesas a partir do tempo, para que eu possa ter controle dos dados.                                                      |
-| [US32] | Eu, como usuário, quero ser capaz de cadastrar os dados do meu carro. |
-| [US33] | Eu, como usuário, quero ser capaz de excluir o carro cadastrado, para poder registrar um novo carro. |
-| [US34] |Eu, como usuário, quero ser capaz de visualizar os dados do carro cadastrado. |
-| [US35] |Eu, como usuário, quero ser capaz de editar os dados do carro cadastrado. |
+|     US32      | Eu, como usuário, quero ser capaz de cadastrar os dados do meu carro.                                                      |
+|      US33     | Eu, como usuário, quero ser capaz de excluir o carro cadastrado, para poder registrar um novo carro.                                                      |
+|      US34     |Eu, como usuário, quero ser capaz de visualizar os dados do carro cadastrado.                                                      |
+|      US35     |Eu, como usuário, quero ser capaz de editar os dados do carro cadastrado.                                                      |
 
 ## Referências
 

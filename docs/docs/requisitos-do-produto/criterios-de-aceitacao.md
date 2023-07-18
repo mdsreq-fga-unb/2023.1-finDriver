@@ -181,6 +181,91 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
     <td>Visualizar histórico de despesas e ganhos</td>
     <td>- O usuário deve ter acesso a uma tela ou função específica para visualizar o histórico de despesas e ganhos;<br/>- O sistema deve exibir listas ou tabelas separadas com as seguintes informações:<br/>&nbsp;&nbsp;- As corridas cadastradas;<br/>&nbsp;&nbsp;- As despesas cadastradas;<br/>&nbsp;&nbsp;- As metas cadastradas;<br/>- O histórico deverá ser exibido em ordem cronológica, onde as entradas mais recentes deverão ser exibidas primeiro;<br/>- O usuário deve poder aplicar filtros ou realizar buscas específicas;<br/>- O usuário deve ter a opção de ordenar o histórico;</td>
   </tr>
+  <tr>
+    <td>[US21]</td>
+    <td>Cadastrar e acompanhar metas de ganho</td>
+    <td>
+        - O usuário deve ter a opção de cadastrar uma meta de ganho definindo um valor específico a ser alcançado.<br/>
+        - O sistema deve permitir que o usuário especifique a duração de tempo da meta, como por exemplo, uma meta diária, semanal ou mensal.<br/>
+        - O sistema deve exibir claramente a meta de ganho definida pelo usuário.<br/>
+        - O sistema deve enviar notificações ou alertas ao usuário quando a meta de ganho estiver próxima de ser alcançada ou quando o prazo estiver expirando.<br/>
+        - O sistema deve permitir que o usuário acompanhe o histórico das metas de ganho anteriores.
+    </td>
+</tr>
+<tr>
+    <td>[US22]</td>
+    <td>Visualizar metas de ganhos diários</td>
+    <td>
+        - O usuário deve ser capaz de visualizar suas metas contendo:<br/>
+        &nbsp;&nbsp;- Valor da meta;<br/>
+        &nbsp;&nbsp;- Valor já obtido;<br/>
+        &nbsp;&nbsp;- Data final da meta;<br/>
+        &nbsp;&nbsp;- Descrição.
+    </td>
+</tr>
+<tr>
+    <td>[US23]</td>
+    <td>Editar metas de ganho</td>
+    <td>
+        - O usuário deve ser capaz de editar:<br/>
+        &nbsp;&nbsp;- Valor da meta;<br/>
+        &nbsp;&nbsp;- Data final;<br/>
+        &nbsp;&nbsp;- Opção de notificação (no dia, um dia antes, uma semana antes ou não notificado);<br/>
+        &nbsp;&nbsp;- Descrição.<br/>
+        - O dado de valor deve ser formatado para aceitar vírgulas e estar no estilo "R$ valor,00".<br/>
+        - A data deve ter um tipo de input específico de datas, para facilitar sua inserção.
+    </td>
+</tr>
+<tr>
+    <td>[US24]</td>
+    <td>Excluir metas de ganho</td>
+    <td>
+        - O usuário deve ter a opção de excluir uma meta de ganho previamente cadastrada.<br/>
+        - O sistema deve exibir uma confirmação ou solicitar uma confirmação adicional do usuário antes de prosseguir com a exclusão da meta de ganho.<br/>
+        - Após a confirmação da exclusão, o sistema deve remover completamente a meta de ganho do sistema, incluindo todos os dados associados a ela.<br/>
+        - O usuário deve receber feedback claro e visível confirmando que a meta de ganho foi excluída com sucesso.
+    </td>
+</tr>
+<tr>
+    <td>[US32]</td>
+    <td>Cadastrar dados do carro</td>
+    <td>
+        - O usuário deve ter a opção de cadastrar os dados do seu carro, incluindo:<br/>
+        &nbsp;&nbsp;- Marca do carro;<br/>
+        &nbsp;&nbsp;- Modelo do carro;<br/>
+        &nbsp;&nbsp;- Ano do carro;<br/>
+        &nbsp;&nbsp;- Consumo de combustível do carro;<br/>
+        &nbsp;&nbsp;- Quilometragem do carro;<br/>
+        &nbsp;&nbsp;- Indicação se o carro é flex (sim ou não);<br/>
+        - O sistema deve permitir que o usuário preencha essas informações de forma clara e intuitiva;<br/>
+        - Após o cadastro, os dados do carro devem ser armazenados no sistema e associados à conta do usuário.
+    </td>
+</tr>
+<tr>
+    <td>[US33]</td>
+    <td>Excluir carro cadastrado</td>
+    <td>
+        - O usuário deve ser capaz de excluir um carro cadastrado.<br/>
+        - O usuário deve receber uma mensagem de confirmação, perguntando se deseja realmente excluir o carro.<br/>
+        - Após a confirmação da exclusão, o carro cadastrado deve ser removido do sistema.<br/>
+        - O usuário deve ser capaz de cadastrar um novo carro após a exclusão do anterior.
+    </td>
+</tr>
+<tr>
+    <td>[US34]</td>
+    <td>Visualizar dados do carro cadastrado</td>
+    <td>
+        - O usuário deve ter a opção de visualizar os dados do carro cadastrado em sua conta.<br/>
+        - O sistema deve exibir os principais detalhes do carro, que são:<br/>
+        &nbsp;&nbsp;- Marca;<br/>
+        &nbsp;&nbsp;- Modelo;<br/>
+        &nbsp;&nbsp;- Ano;<br/>
+        &nbsp;&nbsp;- Consumo de combustível;<br/>
+        &nbsp;&nbsp;- Quilometragem;<br/>
+        &nbsp;&nbsp;- O carro é flex?<br/>
+        - Os dados do carro devem ser apresentados de forma clara e legível para o usuário.
+    </td>
+</tr>
 </tbody>
 </table>
 
