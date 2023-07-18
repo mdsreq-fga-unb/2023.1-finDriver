@@ -43,14 +43,7 @@ const createUser = async (User) => {
     .from("Cars")
     .insert([
       {
-        idUser: userData[0].id,
-        license_plate: "XXX000",
-        year: "0",
-        mileage: "0",
-        kmPerAlcool: "0",
-        kmPerGas: "0",
-        notes: "-",
-        model: "-",
+        idUser: userData[0].id
       },
     ])
     .single()

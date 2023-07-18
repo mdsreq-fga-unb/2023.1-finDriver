@@ -42,6 +42,7 @@ const SecurityQuestion = ({ navigation, route }) => {
             fetch(`${dados.Url}/api/user/cadastro`, requestOptions)
                 .then((response) => {
                     console.log(response.status)
+                    console.log(response)
                     if (response.status == 201) {
                         Alert.alert('Usuário cadastrado com sucesso!');
                         navigation.navigate('Entrar'); 
