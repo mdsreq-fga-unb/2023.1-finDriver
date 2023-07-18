@@ -62,9 +62,9 @@ describe('Register', () => {
         const repeatPasswordInput = getByPlaceholderText('Confirme sua senha');
       
         fireEvent.changeText(nameInput, 'Yaba Bão');
-        fireEvent.changeText(emailInput, 'yabola@hothot.com');
+        fireEvent.changeText(emailInput, 'viniciusmendes1019@gmail.com');
         fireEvent.changeText(passwordInput, 'passwo#rd');
-        fireEvent.changeText(repeatPasswordInput, 'password2');
+        fireEvent.changeText(repeatPasswordInput, 'pa#ssword2');
 
         const mockAlert = jest.spyOn(Alert, 'alert');
 
@@ -74,6 +74,31 @@ describe('Register', () => {
 
         mockAlert.mockRestore();
     });
+
+    it('should display error when email is not valid', () => {
+        const navigation = {
+        navigate: jest.fn(),
+        };
+        const { getByText, getByPlaceholderText } = render(<Register navigation={navigation} />);
+        const registerButton = getByText('Continuar');
+        const nameInput = getByPlaceholderText('Nome');
+        const emailInput = getByPlaceholderText('E-mail');
+        const passwordInput = getByPlaceholderText('Senha');
+        const repeatPasswordInput = getByPlaceholderText('Confirme sua senha');
+      
+        fireEvent.changeText(nameInput, 'Yaba Bão');
+        fireEvent.changeText(emailInput, 'vini19@@gmail..com');
+        fireEvent.changeText(passwordInput, '#@1234598');
+        fireEvent.changeText(repeatPasswordInput, '#@1234598');
+
+        const mockAlert = jest.spyOn(Alert, 'alert');
+
+        fireEvent.press(registerButton);
+      
+        expect(mockAlert).toHaveBeenCalledWith('Erro', 'O email inserido não é válido.');
+
+        mockAlert.mockRestore();
+    }); 
       
     it('should navigate to Entrar when all fields are filled correctly', () => {
         const navigation = {

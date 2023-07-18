@@ -16,7 +16,8 @@ describe('Settings', () => {
         const { getByText } = render(<Settings/>);
 
         expect(getByText('Ajustes')).toBeTruthy();
-        expect(getByText('Perfil')).toBeTruthy();
+        expect(getByText('Meu Perfil')).toBeTruthy();
+        expect(getByText('Meu Carro')).toBeTruthy();
         expect(getByText('Sair')).toBeTruthy();
     });
 
@@ -26,7 +27,7 @@ describe('Settings', () => {
         };
 
         const { getByText } = render(<Settings navigation={navigation} />);
-        const perfilButton = getByText('Perfil');
+        const perfilButton = getByText('Meu Perfil');
 
         fireEvent.press(perfilButton);
 
