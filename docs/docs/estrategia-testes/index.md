@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 6
 ---
 
 # Estratégia de Testes
@@ -13,7 +13,7 @@ sidebar_position: 8
 | 10/07/2023 | 1.3 | Atualização das estratégias| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 | 12/07/2023 | 1.4 | Adição da técnica automática nos testes funcionais de integração| [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 | 13/07/2023 | 1.5 | Atualização das estratégias | [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
-| 15/07/2023 | 1.6 | Adição dos resultados dos testes | [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
+| 17/07/2023 | 1.6 | Adição dos resultados dos testes | [Pedro Eduardo Santos Sousa](https://github.com/PedroEduardoSS)|
 
 ### Introdução
 Nessa seção se encontra a estratégia de testes que deverá ser seguida pela equipe.
@@ -63,10 +63,9 @@ A seguir se encontra os resutados das quatro estratégias para cada *user story*
 |    US13   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US14   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US16   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US17   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US18   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US19   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
-|    US20   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
+|    US17   |         FALHOU        |         PASSOU        |         PASSOU        |         PASSOU        |
+|    US18   |         FALHOU        |         PASSOU        |         PASSOU        |         PASSOU        |
+|    US19   |         FALHOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US21   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US22   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
 |    US23   |         PASSOU        |         PASSOU        |         PASSOU        |         PASSOU        |
