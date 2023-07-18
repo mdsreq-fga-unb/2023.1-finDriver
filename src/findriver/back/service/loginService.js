@@ -11,6 +11,8 @@ const supabase = createClient(
 );
 
 async function loginUserWithToken(User) {
+
+    console.log('oi')
     try {
         userEmail = User.email;
         userPassword = User.password;
@@ -18,6 +20,7 @@ async function loginUserWithToken(User) {
         if (!(userEmail && userPassword)) {
             return "Todos os campos são necessários";
         }
+
 
         const { data } = await supabase
             .from("Users")

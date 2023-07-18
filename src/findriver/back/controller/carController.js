@@ -38,6 +38,16 @@ async function getCar(req, res) {
   }
 };
 
+async function getOneCar(req, res) {
+  const { id } = req.params;
+  
+  try {
+    let value = await carService.getCarById(id);
+    res.status(statusCode.OK).json({ value });
+  } catch (error) {
+    res.status(statusCode.NOT_FOUND).json({ message: error.message });
+  }
+};
 
 async function updateCar(req, res) {
   const { id } = req.params;
@@ -69,5 +79,6 @@ module.exports = {
   addCar,
   getCar,
   updateCar,
-  deleteCar
+  deleteCar,
+  getOneCar
 };

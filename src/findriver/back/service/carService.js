@@ -44,6 +44,21 @@ const getCarByUserID = async (userId) => {
   }
 };
 
+const getCarById = async (carId) => {
+  try {
+    const { data, error } = await supabase
+      .from("Cars")
+      .select("*")
+      .eq("id", carId);
+
+    if (error) throw error;
+    if (data != null) {
+      return data;
+    }
+  } catch (error) {
+    throw error;
+  }
+};
 
 const updateCar = async (Car, carId) => {
   try {
@@ -83,5 +98,6 @@ module.exports = {
   createCar,
   getCarByUserID,
   updateCar,
-  deleteCar
+  deleteCar,
+  getCarById
 };
