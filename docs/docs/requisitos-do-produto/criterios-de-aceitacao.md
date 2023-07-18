@@ -256,13 +256,7 @@ Nessa seção é possível encontrat os critérios de aceitação das user stori
     <td>Visualizar dados do carro cadastrado</td>
     <td>
         - O usuário deve ter a opção de visualizar os dados do carro cadastrado em sua conta.<br/>
-        - O sistema deve exibir os principais detalhes do carro, que são:<br/>
-        &nbsp;&nbsp;- Marca;<br/>
-        &nbsp;&nbsp;- Modelo;<br/>
-        &nbsp;&nbsp;- Ano;<br/>
-        &nbsp;&nbsp;- Consumo de combustível;<br/>
-        &nbsp;&nbsp;- Quilometragem;<br/>
-        &nbsp;&nbsp;- O carro é flex?<br/>
+        - O sistema deve exibir os principais detalhes do carro.
         - Os dados do carro devem ser apresentados de forma clara e legível para o usuário.
     </td>
 </tr>
