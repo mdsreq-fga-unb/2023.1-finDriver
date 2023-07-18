@@ -62,6 +62,13 @@ const Car = ({ navigation, isFirstTime }) => {
                 .then((data) => {
                     console.log(data.value[0].id)
                     setId(data.value[0].id);
+                    setModel(data.value[0].model);
+                    setYear(data.value[0].year)
+                    setMileage(data.value[0].mileage);
+                    setLicensePlate(data.value[0].license_plate);
+                    setKmPerAlcool(data.value[0].kmPerAlcool);
+                    setKmPerGas(data.value[0].kmPerGas);
+                    setNotes(data.value[0].notes);
                 })
         .catch((error) => {
           console.log(error);
@@ -110,13 +117,6 @@ const Car = ({ navigation, isFirstTime }) => {
     const handleDelete = () => {
 
         getCar();
-        setModel("-");
-        setYear("-");
-        setLicensePlate("-");
-        setKmPerAlcool("0");
-        setKmPerGas("0");
-        setMileage("0");
-        setNotes("");
 
         const requestOptions = {
             method: 'PUT',
@@ -151,6 +151,7 @@ const Car = ({ navigation, isFirstTime }) => {
 
     useEffect(() => {
         getToken();
+        getCar();
       }, [token]);
 
     return(

@@ -61,12 +61,13 @@ const getCarById = async (carId) => {
 };
 
 const updateCar = async (Car, carId) => {
+  console.log(Car)
   try {
     const { error } = await supabase
       .from("Cars")
       .update({
             model: Car.model,
-            km: Car.km,
+            mileage: Car.mileage,
             license_plate: Car.license_plate,
             year: Car.year,
             kmPerAlcool: Car.kmPerAlcool,
